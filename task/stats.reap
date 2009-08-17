@@ -1,0 +1,10 @@
+---
+codestats:
+  service  : CodeStats
+  title    : ~
+  loadpath : ~
+  exclude  : ~
+  format   : html  # text
+  output   : ~
+  active   : true
+
