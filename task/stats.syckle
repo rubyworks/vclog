@@ -1,10 +1,9 @@
 ---
-codestats:
-  service  : CodeStats
+stats:
+  service  : Stats
   title    : ~
   loadpath : ~
   exclude  : ~
-  format   : html  # text
   output   : ~
   active   : true
 

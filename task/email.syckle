@@ -1,6 +1,6 @@
 ---
-email:
-  service : Mailinglist
+announce:
+  service : Email
   file    : ~
   subject : ~
   mailto  : ruby-talk@ruby-lang.org
