@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: VCLog::VCS::GIT#changelog
+is_singleton: false
+name: changelog
+params: ()
+visibility: public

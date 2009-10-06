@@ -1,0 +1,44 @@
+--- !ruby/object:RDoc::RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::H 
+  level: 1
+  text: SVN
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "Raw SVN format:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  ------------------------------------------------------------------------\n  r34 | transami | 2006-08-02 22:10:11 -0400 (Wed, 02 Aug 2006) | 2 lines\n\n  change foo to work better\n"
+- !ruby/struct:RDoc::Markup::Flow::RULE 
+  width: 
+- !ruby/struct:RDoc::Markup::Flow::H 
+  level: 1
+  text: SVN
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "Raw SVN format:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  ------------------------------------------------------------------------\n  r34 | transami | 2006-08-02 22:10:11 -0400 (Wed, 02 Aug 2006) | 2 lines\n\n  change foo to work better\n"
+- !ruby/struct:RDoc::Markup::Flow::RULE 
+  width: 
+- !ruby/struct:RDoc::Markup::Flow::H 
+  level: 1
+  text: SVN
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "Raw SVN format:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  ------------------------------------------------------------------------\n  r34 | transami | 2006-08-02 22:10:11 -0400 (Wed, 02 Aug 2006) | 2 lines\n\n  change foo to work better\n"
+constants: []
+
+full_name: VCLog::VCS::SVN
+includes: []
+
+instance_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: changelog
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: generate_changelog
+name: SVN
+superclass: Object

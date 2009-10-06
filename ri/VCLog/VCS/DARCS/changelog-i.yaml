@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Cached Changelog.
+full_name: VCLog::VCS::DARCS#changelog
+is_singleton: false
+name: changelog
+params: ()
+visibility: public

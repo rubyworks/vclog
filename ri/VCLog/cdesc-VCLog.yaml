@@ -1,0 +1,17 @@
+--- !ruby/object:RDoc::RI::ModuleDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RDoc::RI::Constant 
+  comment: 
+  name: DEFAULT_LOG_XSL
+  value: "<<-END.tabto(0)     <xsl:stylesheet version=\"1.0\" xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">        <xsl:output cdata-section-elements=\"script\"/>        <xsl:template match=\"/\">         <html>           <head>             <title>Changelog</title>             <link REL='SHORTCUT ICON' HREF=\"../img/ruby-sm.png\" />             <style>               td { font-family: sans-serif;  padding: 0px 10px; }             </style>           </head>           <body>           <div class=\"container\">             <h1>Changelog</h1>             <table style=\"width: 100%;\">               <xsl:apply-templates />             </table>           </div>           </body>         </html>       </xsl:template>        <xsl:template match=\"entry\">           <tr>             <td><b><pre><xsl:value-of select=\"message\"/></pre></b></td>             <td><xsl:value-of select=\"author\"/></td>             <td><xsl:value-of select=\"date\"/></td>           </tr>       </xsl:template>      </xsl:stylesheet>   END .tabto(0)"
+full_name: VCLog
+includes: []
+
+instance_methods: []
+
+name: VCLog

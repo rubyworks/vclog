@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Is a darcs repository?
+full_name: VCLog::VCS::DARCS#repository?
+is_singleton: false
+name: repository?
+params: ()
+visibility: private

@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: VCLog::Changelog#parse_version_tag
+is_singleton: false
+name: parse_version_tag
+params: (tag)
+visibility: public

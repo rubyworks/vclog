@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Save changelog as file in specified format.
+full_name: VCLog::Changelog#save
+is_singleton: false
+name: save
+params: (file, format=:gnu, *args)
+visibility: public

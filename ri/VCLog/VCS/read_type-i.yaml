@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: VCLog::VCS#read_type
+is_singleton: false
+name: read_type
+params: ()
+visibility: public
