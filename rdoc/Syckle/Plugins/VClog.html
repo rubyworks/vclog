@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: Syckle::Plugins::VClog</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../../images/class.png">
+  
+
+  <link type="text/css" media="screen" rel="stylesheet" href="../../rdoc.css" />
+
+  <script src="../../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/thickbox.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../../images/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../../index.html">VCLog</a>&nbsp;
+      <a href="/">Syckle::Plugins::VClog</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../../plug/syckle/serives/vclog_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="plug/syckle/serives/vclog.rb">plug/syckle/serives/vclog.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <li class="class">Service</li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li class="method"><a href="#M000053">#changelog</a></li>
+          
+          <li class="method"><a href="#M000049">#document</a></li>
+          
+          <li class="method"><a href="#M000050">#document_master_changelog</a></li>
+          
+          <li class="method"><a href="#M000051">#document_public_changelog</a></li>
+          
+          <li class="method"><a href="#M000047">#format=</a></li>
+          
+          <li class="method"><a href="#M000045">#initialize_defaults</a></li>
+          
+          <li class="method"><a href="#M000048">#layout=</a></li>
+          
+          <li class="method"><a href="#M000054">#relative_from_root</a></li>
+          
+          <li class="method"><a href="#M000046">#valid?</a></li>
+          
+          <li class="method"><a href="#M000052">#vcs</a></li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../../HISTORY.html">HISTORY</a></li>
+        
+          <li class="file"><a href="../../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../../README.html">README</a></li>
+        
+          <li class="file"><a href="../../TODO.html">TODO</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../../VCLog.html">VCLog</a></li>
+        
+          <li class="class"><a href="../../VCLog/Changelog.html">VCLog::Changelog</a></li>
+        
+          <li class="class"><a href="../../VCLog/Changelog/Entry.html">VCLog::Changelog::Entry</a></li>
+        
+          <li class="class"><a href="../../VCLog/VCS.html">VCLog::VCS</a></li>
+        
+          <li class="class"><a href="../../VCLog/VCS/DARCS.html">VCLog::VCS::DARCS</a></li>
+        
+          <li class="class"><a href="../../VCLog/VCS/GIT.html">VCLog::VCS::GIT</a></li>
+        
+          <li class="class"><a href="../../VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
+        
+          <li class="module"><a href="../../Syckle.html">Syckle</a></li>
+        
+          <li class="module"><a href="../../Syckle/Plugins.html">Syckle::Plugins</a></li>
+        
+          <li class="class"><a href="../../Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
+        
+          <li class="class"><a href="../../Object.html">Object</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+
+    <div id="validator-badges">
+      Generated with <a href="http://github.com/proutils/rdazzle">Razzle Dazzle Redfish</a><br/><br/>
+      <a href="http://validator.w3.org/check/referer">[Validate]</a>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+        <h1>VClog</h1>
+      
+
+      <p>
+<a href="VClog.html">VClog</a> service automatically generates changelogs
+from SCM commit messages.
+</p>
+
+    </div>
+
+    <!-- Constants -->
+    
+
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="version-attribute-method" class="method-detail">
+        <a name="version"></a>
+        
+        <a name="version="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">version</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Current version of project.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="layout-attribute-method" class="method-detail">
+        <a name="layout"></a>
+        
+        <a name="layout="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">layout</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Root level changelog layout (gnu or rel). Default is gnu.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="format-attribute-method" class="method-detail">
+        <a name="format"></a>
+        
+        <a name="format="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">format</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Changelog format (html, xml or txt). Default is html. This only applies to
+the changelog saved to the log/ directory.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="typed-attribute-method" class="method-detail">
+        <a name="typed"></a>
+        
+        <a name="typed="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">typed</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+If set to true will include only typed commits. (types are set by adding
+&#8220;[type]&#8221; at end of commit messages.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="output-attribute-method" class="method-detail">
+        <a name="output"></a>
+        
+        <a name="output="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+File name to store root level ChangeLog. If not given, it will look for a
+CHANGES or CHANGELOG file. If that is not found that a root level ChangeLog
+will not be generated. But a log/changelog file will still be created.
+</p>
+        
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Methods -->
+    
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="changelog-method" class="method-detail ">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">changelog</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Get changelog from ProUtils VCS.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="changelog-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 148</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
+      <span class="ruby-ivar">@changelog</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="document-method" class="method-detail ">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">document</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Generate changelogs.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="document-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 92</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document</span>
+      <span class="ruby-identifier">document_master_changelog</span>
+      <span class="ruby-identifier">document_public_changelog</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="document-master-changelog-method" class="method-detail ">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">document_master_changelog</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+TODO: apply_naming_policy ?
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="document-master-changelog-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 98</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document_master_changelog</span>
+      <span class="ruby-identifier">format</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">format</span> <span class="ruby-operator">||</span> <span class="ruby-value str">'txt'</span>
+      <span class="ruby-comment cmt">#apply_naming_policy('changelog', log_format.downcase)</span>
+      <span class="ruby-identifier">file</span> = (<span class="ruby-identifier">project</span>.<span class="ruby-identifier">log</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;changelog.#{format}&quot;</span>).<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dryrun?</span>
+        <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;vclog &gt; #{file}&quot;</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">changed</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">format</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">changed</span>
+          <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;Updated #{relative_from_root(file)}&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;#{relative_from_root(file)} is current&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="document-public-changelog-method" class="method-detail ">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">document_public_changelog</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="document-public-changelog-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 115</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document_public_changelog</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">output</span>
+        <span class="ruby-identifier">file</span> = <span class="ruby-identifier">project</span>.<span class="ruby-identifier">root</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">output</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">file</span> = <span class="ruby-identifier">project</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">glob_first</span>(<span class="ruby-value str">&quot;{CHANGES,CHANGELOG}{.txt,}&quot;</span>, <span class="ruby-identifier">:casefold</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">file</span>
+        <span class="ruby-comment cmt">#file = (project.root + file).to_s</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dryrun?</span>
+          <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;vclog &gt; #{file}&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">public_changelog</span> = <span class="ruby-identifier">typed</span> <span class="ruby-value">? </span><span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">typed</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">changelog</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">layout</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'rel'</span>
+            <span class="ruby-identifier">changed</span> = <span class="ruby-identifier">public_changelog</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">:rel</span>, <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">version</span>, <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">release</span>)
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">changed</span> = <span class="ruby-identifier">public_changelog</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">:gnu</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">changed</span>
+            <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;Updated #{relative_from_root(file)}&quot;</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;#{relative_from_root(file)} is current&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="format--method" class="method-detail ">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">format=</span><span
+            class="method-args">(f)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="format--source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 82</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format=</span>(<span class="ruby-identifier">f</span>)
+      <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="initialize-defaults-method" class="method-detail ">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">initialize_defaults</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="initialize-defaults-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 49</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_defaults</span>
+      <span class="ruby-ivar">@version</span>    = <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">version</span>
+      <span class="ruby-ivar">@format</span>     = <span class="ruby-value str">'html'</span>
+      <span class="ruby-ivar">@layout</span>     = <span class="ruby-value str">'gnu'</span>
+      <span class="ruby-ivar">@typed</span>      = <span class="ruby-keyword kw">false</span>
+
+      <span class="ruby-comment cmt">#@unixname   = metadata.project</span>
+
+      <span class="ruby-comment cmt">#@protocol   = DEFAULT_PROTOCOL</span>
+      <span class="ruby-comment cmt">#@tagpath    = DEFAULT_TAGPATH</span>
+      <span class="ruby-comment cmt">#@branchpath = DEFAULT_BRANCHPATH</span>
+
+      <span class="ruby-comment cmt"># fallback default is for rubyforge.org</span>
+      <span class="ruby-comment cmt">#@username   = ENV['RUBYFORGE_USERNAME']</span>
+      <span class="ruby-comment cmt">#@repository = metadata.repository || &quot;rubyforge.org/var/svn/#{unixname}&quot;</span>
+      <span class="ruby-comment cmt">#if i = @repository.index('//')</span>
+      <span class="ruby-comment cmt">#  @repository = @repository[i+2..-1]</span>
+      <span class="ruby-comment cmt">#end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="layout--method" class="method-detail ">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">layout=</span><span
+            class="method-args">(f)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="layout--source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 87</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">layout=</span>(<span class="ruby-identifier">f</span>)
+      <span class="ruby-ivar">@layout</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="relative-from-root-method" class="method-detail ">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">relative_from_root</span><span
+            class="method-args">(path)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="relative-from-root-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 153</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">relative_from_root</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">project</span>.<span class="ruby-identifier">root</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="valid--method" class="method-detail ">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">valid?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="valid--source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 70</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">valid?</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(html|xml|txt)$/</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">layout</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(gnu|rel)$/</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="vcs-method" class="method-detail ">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">vcs</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Access to version control.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="vcs-source">
+<pre>
+<span class="ruby-comment cmt"># File plug/syckle/serives/vclog.rb, line 143</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vcs</span>
+      <span class="ruby-ivar">@vcs</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">VCLog</span><span class="ruby-operator">::</span><span class="ruby-constant">VCS</span>.<span class="ruby-identifier">new</span> <span class="ruby-comment cmt">#(self)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</body>
+</html>

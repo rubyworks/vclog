@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Access to version control.
+full_name: Syckle::Plugins::VClog#vcs
+is_singleton: false
+name: vcs
+params: ()
+visibility: public

@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: Syckle::Plugins::VClog#document_public_changelog
+is_singleton: false
+name: document_public_changelog
+params: ()
+visibility: public

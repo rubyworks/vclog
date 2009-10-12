@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: Syckle::Plugins::VClog#relative_from_root
+is_singleton: false
+name: relative_from_root
+params: (path)
+visibility: public

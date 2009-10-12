@@ -13,7 +13,7 @@
 body {
   background: #efefef;
   font: 14px "Helvetica Neue", Helvetica, Tahoma, sans-serif;
-  padding: 20px 40px;
+  padding: 15px 40px;
 }
 
 /*
@@ -45,7 +45,6 @@ a:hover {
 }
 
 pre {
-  background: #ddd;
   padding: 0.5em 0;
   border: 1px solid #ccc;
 }
@@ -61,22 +60,22 @@ ul {
 
 .head {
   width: auto;
-  background: #FF226C;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border: 1px solid #aaa;
-  padding: 5px 15px;
-  margin: 0 8px 24px 8px;
+  border: 0px solid #aaa;
+  padding: 0 10px;
+  margin: 0 8px 5px 8px;
 }
 
 .head h1 {
   color: #FF226C;
-  color: #fff;
-  font-weight: bold; 
+  color: #666;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .head h1 a {
-  color: #eee;
+  color: #FF226C;
   font-weight: bold; 
 }
 
@@ -102,7 +101,7 @@ ul {
   background: white url(images/wrench_orange.png) no-repeat 4px center;
   color: #ccc;
   line-height: 2em;
-  border: 1px solid #d00;
+  border: 0px solid #d00;
   opacity: 1;
   padding-left: 20px;
   text-indent: 24px;
@@ -174,22 +173,22 @@ body.file p {
 
 #metadata li.method {
   padding-left: 20px;
-  background: url(images/brick.png) no-repeat left 2px;
+  background: url(images/method.png) no-repeat left 2px;
 }
 
 #metadata li.module {
   padding-left: 20px;
-  background: url(images/package.png) no-repeat left 2px;
+  background: url(images/module.png) no-repeat left 2px;
 }
 
 #metadata li.class {
   padding-left: 20px;
-  background: url(images/ruby.png) no-repeat left 2px;
+  background: url(images/class.png) no-repeat left 2px;
 }
 
 #metadata li.file {
   padding-left: 20px;
-  background: url(images/page_white_text.png) no-repeat left 2px;
+  background: url(images/file.png) no-repeat left 2px;
 }
 
 /* @end */
@@ -429,7 +428,7 @@ ul.link-list .type {
 	font-size: 125%;
 	font-weight: bold;
 	color: #333;
-	background: url(images/brick.png) no-repeat left bottom;
+	background: url(images/method.png) no-repeat left bottom;
 }
 #documentation .method-heading a {
 	color: inherit;
@@ -451,7 +450,7 @@ ul.link-list .type {
 
 #documentation .method-alias .method-heading {
 	color: #666;
-	background: url(images/brick_link.png) no-repeat left bottom;
+	background: url(images/alias.png) no-repeat left bottom;
 }
 
 #documentation .method-description,
@@ -473,7 +472,7 @@ ul.link-list .type {
 }
 
 #documentation .attribute-method-heading {
-	background: url(images/tag_green.png) no-repeat left bottom;
+	background: url(images/attribute.png) no-repeat left bottom;
 }
 #documentation #attribute-method-details .method-detail:hover {
 	background-color: transparent;

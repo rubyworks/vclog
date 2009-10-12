@@ -10,19 +10,32 @@
 
   <link rel="SHORTCUT ICON" href="images/ruby.png">
 
-  <link type="text/css" media="screen" rel="stylesheet" href="rdoc.css" />
-
   <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/thickbox.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/highlight.js" type="text/javascript" charset="utf-8"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+    });
+  </script>
+
+  <link type="text/css" rel="stylesheet" href="rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="js/github.css" title="GitHub" />
 
   
 </head>
 <body class="indexpage">
 
   <div class="head">
-    <h1><a href="index.html">VCLog</a></h1>
+    <h1>
+      <img src="images/project.png" align="absmiddle">&nbsp;
+      <a href="index.html">VCLog</a>
+    </h1>
   </div>
 
   <div id="metadata">
@@ -75,6 +88,12 @@
         
           <li class="class"><a href="VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
         
+          <li class="module"><a href="Syckle.html">Syckle</a></li>
+        
+          <li class="module"><a href="Syckle/Plugins.html">Syckle::Plugins</a></li>
+        
+          <li class="class"><a href="Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
+        
           <li class="class"><a href="Object.html">Object</a></li>
         
         </ul>
@@ -87,18 +106,13 @@
         <ul>
           
             <li class="method" style="clear: both;">
-              <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS</span>
-              <a href="VCLog/VCS.html#M000038">::new</a>
-            </li>
-          
-            <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog::Entry</span>
               <a href="VCLog/Changelog/Entry.html#M000036">::new</a>
             </li>
           
             <li class="method" style="clear: both;">
-              <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::SVN</span>
-              <a href="VCLog/VCS/SVN.html#M000027">::new</a>
+              <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS</span>
+              <a href="VCLog/VCS.html#M000041">::new</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -112,8 +126,13 @@
             </li>
           
             <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::SVN</span>
+              <a href="VCLog/VCS/SVN.html#M000027">::new</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#M000009">::repository?</a>
+              <a href="VCLog/VCS/DARCS.html#M000010">::repository?</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -123,7 +142,7 @@
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog::Entry</span>
-              <a href="VCLog/Changelog/Entry.html#M000042">#<=></a>
+              <a href="VCLog/Changelog/Entry.html#M000039">#<=></a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -138,7 +157,7 @@
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog</span>
-              <a href="VCLog/Changelog.html#M000013">#by_author</a>
+              <a href="VCLog/Changelog.html#M000011">#by_author</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -148,7 +167,7 @@
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog</span>
-              <a href="VCLog/Changelog.html#M000010">#by_type</a>
+              <a href="VCLog/Changelog.html#M000009">#by_type</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -173,12 +192,32 @@
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#M000011">#changelog</a>
+              <a href="VCLog/VCS/DARCS.html#M000012">#changelog</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000053">#changelog</a>
             </li>
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS</span>
-              <a href="VCLog/VCS.html#M000041">#delegate</a>
+              <a href="VCLog/VCS.html#M000043">#delegate</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000049">#document</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000050">#document_master_changelog</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000051">#document_public_changelog</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -194,6 +233,11 @@
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog</span>
               <a href="VCLog/Changelog.html#M000033">#escxml</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000047">#format=</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -232,23 +276,33 @@
             </li>
           
             <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::SVN</span>
+              <a href="VCLog/VCS/SVN.html#M000030">#generate_changelog</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::GIT</span>
               <a href="VCLog/VCS/GIT.html#M000024">#generate_changelog</a>
             </li>
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#M000012">#generate_changelog</a>
+              <a href="VCLog/VCS/DARCS.html#M000013">#generate_changelog</a>
             </li>
           
             <li class="method" style="clear: both;">
-              <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::SVN</span>
-              <a href="VCLog/VCS/SVN.html#M000029">#generate_changelog</a>
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000045">#initialize_defaults</a>
             </li>
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog::Entry</span>
-              <a href="VCLog/Changelog/Entry.html#M000043">#inspect</a>
+              <a href="VCLog/Changelog/Entry.html#M000040">#inspect</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000048">#layout=</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -263,17 +317,22 @@
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS</span>
-              <a href="VCLog/VCS.html#M000040">#read_type</a>
+              <a href="VCLog/VCS.html#M000042">#read_type</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000054">#relative_from_root</a>
             </li>
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog</span>
-              <a href="VCLog/Changelog.html#M000030">#releases</a>
+              <a href="VCLog/Changelog.html#M000029">#releases</a>
             </li>
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#M000009">#repository?</a>
+              <a href="VCLog/VCS/DARCS.html#M000010">#repository?</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -303,7 +362,7 @@
           
             <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;VCLog::Changelog::Entry</span>
-              <a href="VCLog/Changelog/Entry.html#M000039">#type_number</a>
+              <a href="VCLog/Changelog/Entry.html#M000038">#type_number</a>
             </li>
           
             <li class="method" style="clear: both;">
@@ -317,8 +376,18 @@
             </li>
           
             <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000046">#valid?</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
               <span style="float: right; font-size: 0.8em;">&nbsp;Object</span>
-              <a href="Object.html#M000045">#vclog</a>
+              <a href="Object.html#M000055">#vclog</a>
+            </li>
+          
+            <li class="method" style="clear: both;">
+              <span style="float: right; font-size: 0.8em;">&nbsp;Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#M000052">#vcs</a>
             </li>
           
         </ul>
@@ -369,6 +438,12 @@
     
     <li class="class"><a href="VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
     
+    <li class="module"><a href="Syckle.html">Syckle</a></li>
+    
+    <li class="module"><a href="Syckle/Plugins.html">Syckle::Plugins</a></li>
+    
+    <li class="class"><a href="Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
+    
     <li class="class"><a href="Object.html">Object</a></li>
     
   </ul>
@@ -376,31 +451,31 @@
   <h2>Methods</h2>
   <ul>
     
-      <li><a href="VCLog/VCS.html#M000038">::new &mdash; VCLog::VCS</a></li>
-    
       <li><a href="VCLog/Changelog/Entry.html#M000036">::new &mdash; VCLog::Changelog::Entry</a></li>
     
-      <li><a href="VCLog/VCS/SVN.html#M000027">::new &mdash; VCLog::VCS::SVN</a></li>
+      <li><a href="VCLog/VCS.html#M000041">::new &mdash; VCLog::VCS</a></li>
     
       <li><a href="VCLog/VCS/GIT.html#M000022">::new &mdash; VCLog::VCS::GIT</a></li>
     
       <li><a href="VCLog/Changelog.html#M000000">::new &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="VCLog/VCS/DARCS.html#M000009">::repository? &mdash; VCLog::VCS::DARCS</a></li>
+      <li><a href="VCLog/VCS/SVN.html#M000027">::new &mdash; VCLog::VCS::SVN</a></li>
+    
+      <li><a href="VCLog/VCS/DARCS.html#M000010">::repository? &mdash; VCLog::VCS::DARCS</a></li>
     
       <li><a href="VCLog/Changelog.html#M000005">#<< &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="VCLog/Changelog/Entry.html#M000042">#<=> &mdash; VCLog::Changelog::Entry</a></li>
+      <li><a href="VCLog/Changelog/Entry.html#M000039">#<=> &mdash; VCLog::Changelog::Entry</a></li>
     
       <li><a href="VCLog/Changelog.html#M000007">#after &mdash; VCLog::Changelog</a></li>
     
       <li><a href="VCLog/Changelog.html#M000008">#before &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="VCLog/Changelog.html#M000013">#by_author &mdash; VCLog::Changelog</a></li>
+      <li><a href="VCLog/Changelog.html#M000011">#by_author &mdash; VCLog::Changelog</a></li>
     
       <li><a href="VCLog/Changelog.html#M000014">#by_date &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="VCLog/Changelog.html#M000010">#by_type &mdash; VCLog::Changelog</a></li>
+      <li><a href="VCLog/Changelog.html#M000009">#by_type &mdash; VCLog::Changelog</a></li>
     
       <li><a href="VCLog/VCS/DARCS.html#M000015">#calculate_version &mdash; VCLog::VCS::DARCS</a></li>
     
@@ -410,15 +485,25 @@
     
       <li><a href="VCLog/VCS/GIT.html#M000023">#changelog &mdash; VCLog::VCS::GIT</a></li>
     
-      <li><a href="VCLog/VCS/DARCS.html#M000011">#changelog &mdash; VCLog::VCS::DARCS</a></li>
+      <li><a href="VCLog/VCS/DARCS.html#M000012">#changelog &mdash; VCLog::VCS::DARCS</a></li>
     
-      <li><a href="VCLog/VCS.html#M000041">#delegate &mdash; VCLog::VCS</a></li>
+      <li><a href="Syckle/Plugins/VClog.html#M000053">#changelog &mdash; Syckle::Plugins::VClog</a></li>
+    
+      <li><a href="VCLog/VCS.html#M000043">#delegate &mdash; VCLog::VCS</a></li>
+    
+      <li><a href="Syckle/Plugins/VClog.html#M000049">#document &mdash; Syckle::Plugins::VClog</a></li>
+    
+      <li><a href="Syckle/Plugins/VClog.html#M000050">#document_master_changelog &mdash; Syckle::Plugins::VClog</a></li>
+    
+      <li><a href="Syckle/Plugins/VClog.html#M000051">#document_public_changelog &mdash; Syckle::Plugins::VClog</a></li>
     
       <li><a href="VCLog/Changelog.html#M000002">#each &mdash; VCLog::Changelog</a></li>
     
       <li><a href="VCLog/Changelog.html#M000003">#empty? &mdash; VCLog::Changelog</a></li>
     
       <li><a href="VCLog/Changelog.html#M000033">#escxml &mdash; VCLog::Changelog</a></li>
+    
+      <li><a href="Syckle/Plugins/VClog.html#M000047">#format= &mdash; Syckle::Plugins::VClog</a></li>
     
       <li><a href="VCLog/Changelog.html#M000018">#format_gnu &mdash; VCLog::Changelog</a></li>
     
@@ -434,23 +519,29 @@
     
       <li><a href="VCLog/Changelog.html#M000016">#format_yaml &mdash; VCLog::Changelog</a></li>
     
+      <li><a href="VCLog/VCS/SVN.html#M000030">#generate_changelog &mdash; VCLog::VCS::SVN</a></li>
+    
       <li><a href="VCLog/VCS/GIT.html#M000024">#generate_changelog &mdash; VCLog::VCS::GIT</a></li>
     
-      <li><a href="VCLog/VCS/DARCS.html#M000012">#generate_changelog &mdash; VCLog::VCS::DARCS</a></li>
+      <li><a href="VCLog/VCS/DARCS.html#M000013">#generate_changelog &mdash; VCLog::VCS::DARCS</a></li>
     
-      <li><a href="VCLog/VCS/SVN.html#M000029">#generate_changelog &mdash; VCLog::VCS::SVN</a></li>
+      <li><a href="Syckle/Plugins/VClog.html#M000045">#initialize_defaults &mdash; Syckle::Plugins::VClog</a></li>
     
-      <li><a href="VCLog/Changelog/Entry.html#M000043">#inspect &mdash; VCLog::Changelog::Entry</a></li>
+      <li><a href="VCLog/Changelog/Entry.html#M000040">#inspect &mdash; VCLog::Changelog::Entry</a></li>
+    
+      <li><a href="Syckle/Plugins/VClog.html#M000048">#layout= &mdash; Syckle::Plugins::VClog</a></li>
     
       <li><a href="VCLog/VCS.html#M000044">#method_missing &mdash; VCLog::VCS</a></li>
     
       <li><a href="VCLog/Changelog.html#M000031">#parse_version_tag &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="VCLog/VCS.html#M000040">#read_type &mdash; VCLog::VCS</a></li>
+      <li><a href="VCLog/VCS.html#M000042">#read_type &mdash; VCLog::VCS</a></li>
     
-      <li><a href="VCLog/Changelog.html#M000030">#releases &mdash; VCLog::Changelog</a></li>
+      <li><a href="Syckle/Plugins/VClog.html#M000054">#relative_from_root &mdash; Syckle::Plugins::VClog</a></li>
     
-      <li><a href="VCLog/VCS/DARCS.html#M000009">#repository? &mdash; VCLog::VCS::DARCS</a></li>
+      <li><a href="VCLog/Changelog.html#M000029">#releases &mdash; VCLog::Changelog</a></li>
+    
+      <li><a href="VCLog/VCS/DARCS.html#M000010">#repository? &mdash; VCLog::VCS::DARCS</a></li>
     
       <li><a href="VCLog/Changelog.html#M000032">#save &mdash; VCLog::Changelog</a></li>
     
@@ -462,13 +553,17 @@
     
       <li><a href="VCLog/Changelog.html#M000019">#to_s &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="VCLog/Changelog/Entry.html#M000039">#type_number &mdash; VCLog::Changelog::Entry</a></li>
+      <li><a href="VCLog/Changelog/Entry.html#M000038">#type_number &mdash; VCLog::Changelog::Entry</a></li>
     
       <li><a href="VCLog/Changelog/Entry.html#M000037">#type_phrase &mdash; VCLog::Changelog::Entry</a></li>
     
       <li><a href="VCLog/Changelog.html#M000006">#typed &mdash; VCLog::Changelog</a></li>
     
-      <li><a href="Object.html#M000045">#vclog &mdash; Object</a></li>
+      <li><a href="Syckle/Plugins/VClog.html#M000046">#valid? &mdash; Syckle::Plugins::VClog</a></li>
+    
+      <li><a href="Object.html#M000055">#vclog &mdash; Object</a></li>
+    
+      <li><a href="Syckle/Plugins/VClog.html#M000052">#vcs &mdash; Syckle::Plugins::VClog</a></li>
     
   </ul>
 -->
@@ -487,12 +582,12 @@ href="http://proutils.rubyforge.org/vclog">proutils.rubyforge.org/vclog</a>
 </ul>
 <h2>DESCRIPTION</h2>
 <p>
-VClog is an cross-VCS/SCM changelog generator.
+<a href="VCLog.html">VCLog</a> is a versitle cross-VCS/SCM changelog
+generator. It currently supports Git and Subversion.
 </p>
 <h2>SYNOPSIS</h2>
 <p>
-<a href="VCLog.html">VCLog</a> generates changelogs. It supports a few
-different formats. The default format is standard GNU text style. From a
+By default the format is a standard GNU text style. From a
 repository&#8217;s root directory try:
 </p>
 <pre>
@@ -509,18 +604,24 @@ See &#8216;vclog &#8212;help&#8217; for more options.
 </p>
 <h2>RELEASE NOTES</h2>
 <p>
-Please see RELEASE file.
+Please see <a href="HISTORY.html">HISTORY</a> file.
 </p>
-<h2><a href="LICENSE.html">LICENSE</a> &amp; COPYRIGHT</h2>
+<h2>COPYRIGHTS</h2>
 <p>
-<a href="VCLog.html">VCLog</a>
-</p>
-<p>
-Copyright &#169; 2008,2009 TigerOps.org
+Copyright &#169; 2009 Thomas Sawyer
 </p>
 <p>
-<a href="VCLog.html">VCLog</a> is distributed under the terms of the GPLv3
-license.
+MIT License. See <a href="LICENSE.html">LICENSE</a> or COPYING file for
+more details.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
 </p>
 
   </div>

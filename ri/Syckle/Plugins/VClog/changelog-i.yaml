@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Get changelog from ProUtils VCS.
+full_name: Syckle::Plugins::VClog#changelog
+is_singleton: false
+name: changelog
+params: ()
+visibility: public
