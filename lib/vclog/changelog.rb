@@ -1,6 +1,6 @@
 module VCLog
 
-  require 'vclog/core_ext'
+  require 'vclog/facets'
 
   # Supports output formats:
   #
@@ -11,6 +11,7 @@ module VCLog
   #   text
   #
   class Changelog
+
     include Enumerable
 
     DAY = 24*60*60
@@ -200,7 +201,7 @@ module VCLog
     end
 
     #
-    def format_rel(file, current_version=nil, current_release=nil)
+    def format_rel(file, current_version=nil, current_release=nil, rev=false)
       log = []
       # collect releases already listed in changelog file
       rels = releases(file)
@@ -246,7 +247,7 @@ module VCLog
           #lt_date = Time.parse(lt_date) unless Time===lt_date
           changes = before(lt_date)
         end
-        reltext = changes.format_rel_types
+        reltext = changes.format_rel_types(rev)
         unless reltext.strip.empty?
           log << "== #{lt_vers} / #{lt_date.strftime('%Y-%m-%d')}\n\n#{reltext}"
         end
@@ -256,7 +257,7 @@ module VCLog
     end
 
     #
-    def format_rel_types
+    def format_rel_types(rev=false)
       groups = changes.group_by{ |e| e.type_number }
       string = ""
       5.times do |n|
@@ -267,7 +268,11 @@ module VCLog
         entries.sort!{|a,b| a.date <=> b.date }
         entries.each do |entry|
           #string << "== #{date}  #{who}\n\n"  # no email :(
-          text = "#{entry.message} (##{entry.revison})"
+          if rev
+            text = "#{entry.message} (##{entry.revison})"
+          else
+            text = "#{entry.message}"
+          end
           text = text.tabto(6)
           text[4] = '*'
           #entry = entry.join(' ').tabto(6)
@@ -358,7 +363,7 @@ module VCLog
       end
     end
 
-    #
+    # Looks for a "[type]" indicator at the end of the message.
     def split_note(note)
       note = note.strip
       if md = /\A.*?\[(.*?)\]\s*$/.match(note)
@@ -381,7 +386,7 @@ module VCLog
       attr_accessor :type
 
       def initialize(opts={})
-        @author  = opts[:author]  || opts[:who]
+        @author  = (opts[:author]  || opts[:who]).strip
         @date    = opts[:date]    || opts[:when]
         @revison = opts[:revison] || opts[:rev]
         @message = opts[:message] || opts[:msg]
@@ -409,7 +414,9 @@ module VCLog
         when 'bug'
           'Bug Fixes'
         when ''
-          'Further Enhancements'
+          'General Enhancements'
+        when '-'
+          'Administrative Changes'
         else
           "#{type.capitalize} Enhancements"
         end
@@ -426,6 +433,8 @@ module VCLog
           2
         when ''
           4
+        when '-'
+          5
         else # other
           3
         end
@@ -438,6 +447,23 @@ module VCLog
 
       def inspect
         "#<Entry:#{object_id} #{date}>"
+      end
+
+      def to_h
+        { 'author'   => @author,
+          'date'     => @date,
+          'revision' => @revison,
+          'message'  => @message,
+          'type'     => @type
+        }
+      end
+
+      def to_json
+        to_h.to_json
+      end
+
+      def to_yaml(*args)
+        to_h.to_yaml(*args)
       end
 
     end #class Entry
