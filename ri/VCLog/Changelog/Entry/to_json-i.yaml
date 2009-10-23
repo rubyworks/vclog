@@ -2,10 +2,9 @@
 aliases: []
 
 block_params: 
-comment: []
-
-full_name: VCLog::Changelog#format_rel_types
+comment: 
+full_name: VCLog::Changelog::Entry#to_json
 is_singleton: false
-name: format_rel_types
-params: (rev=false)
+name: to_json
+params: ()
 visibility: public

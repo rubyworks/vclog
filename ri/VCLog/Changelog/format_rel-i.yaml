@@ -7,5 +7,5 @@ comment: []
 full_name: VCLog::Changelog#format_rel
 is_singleton: false
 name: format_rel
-params: (file, current_version=nil, current_release=nil)
+params: (file, current_version=nil, current_release=nil, rev=false)
 visibility: public

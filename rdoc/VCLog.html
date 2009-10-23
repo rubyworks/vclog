@@ -43,6 +43,9 @@
             <li class="file"><a href="./lib/vclog/changelog_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/vclog/changelog.rb">lib/vclog/changelog.rb</a></li>
           
+            <li class="file"><a href="./lib/vclog/command_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/command.rb">lib/vclog/command.rb</a></li>
+          
             <li class="file"><a href="./lib/vclog/vcs/darcs_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/vclog/vcs/darcs.rb">lib/vclog/vcs/darcs.rb</a></li>
           
@@ -85,6 +88,19 @@
 
       <!-- Method Quickref -->
       
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li class="method"><a href="#M000020">::changelog_file</a></li>
+          
+          <li class="method"><a href="#M000011">::run</a></li>
+          
+          <li class="method"><a href="#M000013">::vclog</a></li>
+          
+        </ul>
+      </div>
+      
 
       <!-- Included Modules -->
       
@@ -97,7 +113,7 @@
         <h3 class="section-header">Files</h3>
         <ul>
         
-          <li class="file"><a href="./HISTORY.html">HISTORY</a></li>
+          <li class="file"><a href="./HISTORY_md.html">HISTORY.md</a></li>
         
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
@@ -145,8 +161,6 @@
         
           <li class="class"><a href="./Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
         
-          <li class="class"><a href="./Object.html">Object</a></li>
-        
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
       </div>
@@ -190,6 +204,259 @@
 
     <!-- Methods -->
     
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="changelog-file-method" class="method-detail ">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">changelog_file</span><span
+            class="method-args">(file)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p class="missing-docs">(Not documented)</p>
+          
+
+          
+          <div class="method-source-code"
+            id="changelog-file-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vclog/command.rb, line 157</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">changelog_file</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">file</span>)
+      <span class="ruby-identifier">file</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-value str">'{history,changes,changelog}{,.*}'</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_CASEFOLD</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="run-method" class="method-detail ">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <h1>vclog Command</h1>
+<h2>SYNOPSIS</h2>
+<p>
+<a href="VCLog.html">VCLog</a> provides cross-vcs ChangeLogs. It works by
+parsing the native changelog a <a href="VCLog/VCS.html">VCS</a> system
+produces into a common model, which then can be used to produce Changelogs
+in a variety of formats.
+</p>
+<p>
+<a href="VCLog.html">VCLog</a> currently support SVN and Git. CVS, Darcs
+and Mercurial/Hg are in the works.
+</p>
+<h2>EXAMPLES</h2>
+<p>
+To produce a GNU-like changelog:
+</p>
+<pre>
+ $ vclog
+</pre>
+<p>
+For XML format:
+</p>
+<pre>
+ $ vclog --xml
+</pre>
+<p>
+Or for a micorformat-ish HTML:
+</p>
+<pre>
+ $ vclog --html
+</pre>
+<p>
+To use the library programmatically, please see the API documentation.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="run-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vclog/command.rb, line 34</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">run</span>
+    <span class="ruby-keyword kw">begin</span>
+      <span class="ruby-identifier">vclog</span>
+    <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$DEBUG</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">err</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">message</span>
+        <span class="ruby-identifier">exit</span> <span class="ruby-value">-1</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="vclog-method" class="method-detail ">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">vclog</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="vclog-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vclog/command.rb, line 48</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">vclog</span>
+    <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:gnu</span>
+    <span class="ruby-identifier">typed</span>  = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-identifier">rev</span>    = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-identifier">vers</span>   = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">style</span>  = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+
+    <span class="ruby-identifier">optparse</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">separator</span>(<span class="ruby-value str">&quot;FORMAT (choose one):&quot;</span>)
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--gnu'</span>, <span class="ruby-value str">&quot;GNU standard format&quot;</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:gnu</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--xml [XSL]'</span>, <span class="ruby-value str">&quot;XML format&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:xml</span>
+        <span class="ruby-identifier">style</span>  = <span class="ruby-identifier">file</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--yaml'</span>, <span class="ruby-value str">&quot;YAML format&quot;</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:yaml</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--json'</span>, <span class="ruby-value str">&quot;JSON format&quot;</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:json</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--html [CSS]'</span>, <span class="ruby-value str">&quot;HTML micro-like format&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:html</span>
+        <span class="ruby-identifier">style</span>  = <span class="ruby-identifier">file</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--rel &lt;VER&gt;'</span>, <span class="ruby-value str">&quot;release format&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">version</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:rel</span>
+        <span class="ruby-identifier">vers</span> = <span class="ruby-identifier">version</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--rev &lt;VER&gt;'</span>, <span class="ruby-value str">&quot;release format w/ revison ids&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">version</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-identifier">:rev</span>
+        <span class="ruby-identifier">vers</span> = <span class="ruby-identifier">version</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">separator</span>(<span class="ruby-value str">&quot;OTHER OPTIONS:&quot;</span>)
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--typed'</span>, <span class="ruby-value str">&quot;catagorize by commit type&quot;</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">typed</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-comment cmt">#opt.on('--style [FILE]', &quot;provide a stylesheet (css or xsl)&quot;) do |val|</span>
+      <span class="ruby-comment cmt">#  style = val</span>
+      <span class="ruby-comment cmt">#end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--output'</span>, <span class="ruby-value str">'-o [FILE]'</span>, <span class="ruby-value str">&quot;send output to a file instead of stdout&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">out</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-identifier">out</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">separator</span>(<span class="ruby-value str">&quot;STANDARD OPTIONS:&quot;</span>)
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--debug'</span>, <span class="ruby-value str">&quot;show debugging infromation&quot;</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">$DEBUG</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-value str">'--help'</span> , <span class="ruby-value str">'-h'</span>, <span class="ruby-value str">'display this help information'</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">opt</span>
+        <span class="ruby-identifier">exit</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">optparse</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-constant">ARGV</span>)
+
+    <span class="ruby-identifier">vcs</span> = <span class="ruby-constant">VCLog</span><span class="ruby-operator">::</span><span class="ruby-constant">VCS</span>.<span class="ruby-identifier">new</span>
+
+    <span class="ruby-identifier">changelog</span> = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">typed</span>
+      <span class="ruby-identifier">changelog</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">typed</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">format</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:xml</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">format_xml</span>(<span class="ruby-identifier">style</span>)   <span class="ruby-comment cmt"># xsl stylesheet url</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:html</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">format_html</span>(<span class="ruby-identifier">style</span>)  <span class="ruby-comment cmt"># css stylesheet url</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:yaml</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">format_yaml</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:json</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">format_json</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:rel</span>
+      <span class="ruby-identifier">file</span> = <span class="ruby-identifier">changelog_file</span>(<span class="ruby-identifier">output</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;no previous log to go by&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">file</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">format_rel</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">vers</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">false</span>)
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:rev</span>
+      <span class="ruby-identifier">file</span> = <span class="ruby-identifier">changelog_file</span>(<span class="ruby-identifier">output</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;no previous log to go by&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">file</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">format_rel</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">vers</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">true</span>)
+    <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt">#:gnu</span>
+      <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">output</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output</span>, <span class="ruby-value str">'w'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">log</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">log</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
 
   </div>
 

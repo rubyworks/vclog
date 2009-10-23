@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: VCLog::changelog_file
+is_singleton: true
+name: changelog_file
+params: (file)
+visibility: public

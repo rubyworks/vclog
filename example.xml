@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="log.xsl" type="text/xsl" ?>
+<log>
+<entry>
+  <date>Fri Oct 23 07:19:42 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>2183f7b7b81a6d34fc1edd7db75222c9a54d7bec</revison>
+  <type></type>
+  <message>update pom metadata</message>
+</entry>
+<entry>
+  <date>Mon Oct 12 11:47:58 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>70e98e8dc4baef6b50c4fa259127f55f6622a9e9</revison>
+  <type></type>
+  <message>changed licenses to MIT</message>
+</entry>
+<entry>
+  <date>Mon Oct 12 11:40:15 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>87f3e3c71898d79b555c2c4dd0dda6a55de01330</revison>
+  <type></type>
+  <message>fixed typo in LICENSE</message>
+</entry>
+<entry>
+  <date>Mon Oct 12 11:36:20 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>9f6a0c691b051d5254ca8ab1a0e23772e2cff74e</revison>
+  <type></type>
+  <message>contact suffices</message>
+</entry>
+<entry>
+  <date>Mon Oct 12 11:33:59 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>42b9c6fa1a5924912842c0aef246de06c01ee108</revison>
+  <type></type>
+  <message>fixed syckle config</message>
+</entry>
+<entry>
+  <date>Mon Oct 12 11:32:59 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>860aa3a2f7eea9a0793c06920fa680b3f580240e</revison>
+  <type></type>
+  <message>update tasks and metadata</message>
+</entry>
+<entry>
+  <date>Tue Oct 06 13:47:36 -0400 2009</date>
+  <author>7rans &lt;transfire@gmail.com&gt;</author>
+  <revison>d279fd3aee26a50c256d4a764b7bcc63c64f2304</revison>
+  <type></type>
+  <message>reap became syckle</message>
+</entry>
+<entry>
+  <date>Mon Aug 17 14:44:24 -0400 2009</date>
+  <author>proutils &lt;proutils@tigerops.org&gt;</author>
+  <revison>e71a6d4815b152f3dba4695be28645a9172645cc</revison>
+  <type></type>
+  <message>first commit</message>
+</entry>
+</log>

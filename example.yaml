@@ -1,0 +1,41 @@
+--- 
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-23 07:19:42 -04:00
+  type: 
+  revision: 2183f7b7b81a6d34fc1edd7db75222c9a54d7bec
+  message: update pom metadata
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-12 11:47:58 -04:00
+  type: 
+  revision: 70e98e8dc4baef6b50c4fa259127f55f6622a9e9
+  message: changed licenses to MIT
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-12 11:40:15 -04:00
+  type: 
+  revision: 87f3e3c71898d79b555c2c4dd0dda6a55de01330
+  message: fixed typo in LICENSE
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-12 11:36:20 -04:00
+  type: 
+  revision: 9f6a0c691b051d5254ca8ab1a0e23772e2cff74e
+  message: contact suffices
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-12 11:33:59 -04:00
+  type: 
+  revision: 42b9c6fa1a5924912842c0aef246de06c01ee108
+  message: fixed syckle config
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-12 11:32:59 -04:00
+  type: 
+  revision: 860aa3a2f7eea9a0793c06920fa680b3f580240e
+  message: update tasks and metadata
+- author: 7rans <transfire@gmail.com>
+  date: 2009-10-06 13:47:36 -04:00
+  type: 
+  revision: d279fd3aee26a50c256d4a764b7bcc63c64f2304
+  message: reap became syckle
+- author: proutils <proutils@tigerops.org>
+  date: 2009-08-17 14:44:24 -04:00
+  type: 
+  revision: e71a6d4815b152f3dba4695be28645a9172645cc
+  message: first commit

@@ -1,8 +1,13 @@
 --- !ruby/object:RDoc::RI::ModuleDescription 
 attributes: []
 
-class_methods: []
-
+class_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: changelog_file
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: run
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: vclog
 comment: 
 constants: 
 - !ruby/object:RDoc::RI::Constant 

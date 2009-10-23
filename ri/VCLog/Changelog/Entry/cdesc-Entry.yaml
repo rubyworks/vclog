@@ -49,6 +49,12 @@ instance_methods:
 - !ruby/object:RDoc::RI::MethodSummary 
   name: inspect
 - !ruby/object:RDoc::RI::MethodSummary 
+  name: to_h
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: to_json
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: to_yaml
+- !ruby/object:RDoc::RI::MethodSummary 
   name: type_number
 - !ruby/object:RDoc::RI::MethodSummary 
   name: type_phrase

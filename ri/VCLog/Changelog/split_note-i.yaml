@@ -2,8 +2,9 @@
 aliases: []
 
 block_params: 
-comment: []
-
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Looks for a &quot;[type]&quot; indicator at the end of the message.
 full_name: VCLog::Changelog#split_note
 is_singleton: false
 name: split_note

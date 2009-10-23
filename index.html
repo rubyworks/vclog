@@ -3,36 +3,165 @@
   <TITLE>VCLog</TITLE>
   <link REL="SHORTCUT ICON" HREF="assets/images/logo.jpg"/>
   <style>
-    * { margin: 0; padding: 0 }
+    html { font-size: 12px; }
     body {
       padding: 0; 
       margin: 0;
       color: black;
       font: 1em sans-serif;
-      text-align: center;
+      text-align: justify;
       background: url(../img/fade_yellow_up.jpg) bottom repeat-y;
     }
-    a  { text-decoration: none; font-size: 10pt; }
-    h1 { font-size: 72pt; margin: 20px; }
+    p { font-size: 100%; color: tan; font-weight: bold; text-align: justify; margin: 20px 0; }
+    a  { text-decoration: none; font-size: 10pt; color: tan;  font-weight: bold; }
+    a:hover { text-decoration: underline; }
+    h1 { font-size: 100px; margin: 20px; color: #552200; }
     ul { margin: 0 auto; list-style-type: none; width: 300px; }
     li { float: left; padding: 10px; text-align: center; }
-    .doc { padding: 100px; text-align: center; }
+    pre { font-size: 90%; background: tan; padding: 10px; -moz-border-radius: 10px; color: #552200; font-weight: bold; font-family: courier, monospace; }
+    code { font-family: courier, monospace; color: #ecc; }
+
+    .menu { padding: 20px; text-align: center; background: #552200; }
+    .head { height: 250px; text-align: center; border-top: 2px solid tan; border-bottom: 2px solid tan; }
+    .title { text-align: left; margin: 0 auto; width: 800px; }
+    .body { background: #552200; color: white; }
+    .doc { padding: 20px; text-align: justify; margin: 0 auto; width: 800px; }
+    .doc a { color: fee; }
+    .foot { padding: 20px; text-align: center; margin: 0 auto; width: 800px; border-top: 2px solid tan; }
+    .foot p { color: #552200; text-align: center; }
   </style>
 </HEAD>
 <BODY>
 
-<div class="doc">
-
-  <img src="assets/images/logo.jpg" style="height: 300px;"/><br/>
-
-  <h1>VCLog</h1>
-
-  <a href="rdoc/index.html">RDocs</a> &nbsp;
-  <!-- <a href="qedoc/index.html">QEDocs</a> &nbsp; -->
-  <a href="http://googlegroups.com/group/proutils">GoogleGroup</a> &nbsp;
-  <a href="http://github.com/proutils/vclog">GitHub</a>
-
+<div class="nav">
+  <div class="menu">
+    <a href="rdoc/index.html">API Documents</a> &nbsp;&nbsp;
+    <!-- <a href="qedoc/index.html">QEDocs</a> &nbsp;&nbsp; -->
+    <a href="http://googlegroups.com/group/proutils">Mailing List</a> &nbsp;&nbsp;
+    <a href="http://github.com/proutils/vclog">Source Code</a> &nbsp;&nbsp;
+  </div>
 </div>
+
+<div class="head">
+  <div class="title">
+    <img src="assets/images/logo.jpg" style="height: 250px;" align="right"/><br/>
+    <h1>vcLog</h1>
+  </div>
+</div>
+
+<div class="body">
+  <div class="doc">
+
+  <p>Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
+Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
+our output options limited. That's were vcLog comes in.</p>
+
+  <p>vcLog can provide a changelogs in a variety of uniform formats for different SCMs. If we ask vcLog for help
+  will see it's commandline interface is quite straight-forward.</p>
+
+  <pre>
+  $ vclog --help
+
+  Usage: vclog [options]
+  FORMAT (choose one):
+          --gnu                        GNU standard format
+          --xml [XSL]                  XML format
+          --html [CSS]                 HTML micro-like format
+          --rel &lt;VER>                  release format
+          --rev &lt;VER>                  release format w/ revison ids
+
+  OTHER OPTIONS:
+          --typed                      catagorize by commit type
+      -o, --output [FILE]              send output to a file instead of stdout
+
+  STANDARD OPTIONS:
+          --debug                      show debugging infromation
+      -h, --help                       display this help information
+  </pre>
+
+  <p>Without any options, vcLog will output a standard GNU ChangeLog format.</p>
+
+  <pre>
+  $ vclog
+
+  2009-10-23   7rans <transfire@gmail.com>
+
+          * update pom metadata
+
+
+  2009-10-12   7rans <transfire@gmail.com>
+
+          * changed licenses to MIT
+          * fixed typo in LICENSE
+          * contact suffices
+          * fixed syckle config
+          * update tasks and metadata
+
+
+  2009-10-06   7rans <transfire@gmail.com>
+
+          * reap became syckle
+
+
+  2009-08-17   proutils <proutils@tigerops.org>
+
+          * first commit
+
+  </pre>
+
+  <p>A variety of formats are available, here are examples of the <a href="exmple.xml">XML</a>, <a href="example.html">HTML</a>,
+  <a href="example.yaml">YAML</a> and <a href="example.json">JSON</a> formats.
+
+  <p>One ot the coolest features of vcLog is it's ability to read a previous relase history file
+  and use it to build a new release formatted history.</p>
+
+  <pre>
+  $ vclog --rel 1.1.0
+
+  == 1.1.0 / 2009-10-23
+
+  * 1 General Enhancements
+
+      * update pom metadata
+
+
+  == 1.0.0 / 2009-10-13
+
+  * 6 General Enhancements
+
+      * reap became syckle
+      * update tasks and metadata
+      * fixed syckle config
+      * contact suffices
+      * fixed typo in LICENSE
+      * changed licenses to MIT
+
+
+  == 0.1.0 / 2009-08-17
+
+  * 1 General Enhancements
+
+      * first commit
+  </pre>
+
+  <p>Finally, vcLog recognizes commit types. There are single-word markers at the end of a commit messages wrapped in square brackets.
+  It you utilize these, eg. <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.
+  You can actually see this already in the previous example. No types were used so it labled all the commits as "General Enhancements".
+  If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. vcLog recorgnizes
+  <code>[maj]</code> or <code>[major]</code>, <code>[min]</code> or <code>[minor]</code>, <code>[bug]</code> and <code>[admin]</code> or <code>[-]</code>.
+  Any other label is treated verbatim, ie. <code>[doozy]</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
+
+  <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs --though it would be even nicer
+  if SCMs supported them directly, e.g. with a <code>--type</code> option.</p>
+
+  </div>
+</div>
+
+<div class="foot">
+  <p>Copyright (c) 2009 Thomas Sawyer</p>
+</div>
+
+
 </BODY>
 </HTML>
 
