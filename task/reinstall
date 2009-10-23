@@ -1,6 +1,0 @@
-#!/bin/sh
-
-sudo gem uninstall rdazzle
-syckle package -s rdoc
-sudo gem install pkg/rdazzle-1.1.0.gem
-
