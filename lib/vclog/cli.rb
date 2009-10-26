@@ -53,7 +53,7 @@ module VCLog
     output  = nil
     title   = nil
     version = nil
-    verbose = false
+    extra   = false
     rev     = false
     typed   = false
 
@@ -122,11 +122,11 @@ module VCLog
         title = string
       end
 
-      opt.on('--verbose', '-v', "provide extra output, used by some formats") do
-        verbose = true
+      opt.on('--extra', '-e', "provide extra output, used by some formats") do
+        extra = true
       end
 
-      opt.on('--version', '--ver <NUM>', "current version to use for release history") do |num|
+      opt.on('--version', '-v <NUM>', "current version to use for release history") do |num|
         version = num
       end
 
@@ -173,7 +173,7 @@ module VCLog
       log = vcs.changelog
       #log = log.typed if typed  #TODO: ability to select types?
     when :rel
-      log = vcs.history(:title=>title, :verbose=>verbose, :version=>version)
+      log = vcs.history(:title=>title, :extra=>extra, :version=>version)
     else
       raise "huh?"
       #log = vcs.changelog

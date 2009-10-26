@@ -33,15 +33,15 @@ module VCLog
     # Current working version.
     attr_accessor :version
 
-    attr_accessor :verbose # ???
+    attr_accessor :extra
 
     #
     def initialize(vcs, opts={})
       @vcs = vcs
       @marker    = opts[:marker]  || "#"
       @title     = opts[:title]   || "RELEASE HISTORY"
+      @extra     = opts[:extra]
       @version   = opts[:version]
-      @verbose   = opts[:verbose]
     end
 
     # Tag list from version control system.
@@ -242,7 +242,7 @@ module VCLog
         changes = release.changes
         change_text = to_markup_changes(changes, rev)
         unless change_text.strip.empty?
-          if verbose
+          if extra
             entries << "#{marker*2} #{tag.name} / #{tag.date.strftime('%Y-%m-%d')}\n\n#{tag.message}\n\nChanges:\n\n#{change_text}"
           else
             entries << "#{marker*2} #{tag.name} / #{tag.date.strftime('%Y-%m-%d')}\n\n#{change_text}"
