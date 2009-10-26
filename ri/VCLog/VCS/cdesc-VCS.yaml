@@ -2,11 +2,15 @@
 attributes: 
 - !ruby/object:RDoc::RI::Attribute 
   comment: 
-  name: type
+  name: root
   rw: R
 class_methods: 
 - !ruby/object:RDoc::RI::MethodSummary 
+  name: factory
+- !ruby/object:RDoc::RI::MethodSummary 
   name: new
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: read_type
 comment: 
 - !ruby/struct:RDoc::Markup::Flow::H 
   level: 1
@@ -23,10 +27,20 @@ includes: []
 
 instance_methods: 
 - !ruby/object:RDoc::RI::MethodSummary 
-  name: delegate
+  name: bump
 - !ruby/object:RDoc::RI::MethodSummary 
-  name: method_missing
+  name: changelog
 - !ruby/object:RDoc::RI::MethodSummary 
-  name: read_type
+  name: changes
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: extract_changes
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: extract_tags
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: history
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: split_type
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: tags
 name: VCS
 superclass: Object

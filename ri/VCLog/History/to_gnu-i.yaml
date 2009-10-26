@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "TODO: What would GNU history be?"
+full_name: VCLog::History#to_gnu
+is_singleton: false
+name: to_gnu
+params: (rev=false)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Create an HTML formated changelog. <tt>css</tt> reference defaults to 'log.css'
+full_name: VCLog::ChangeLog#to_html
+is_singleton: false
+name: to_html
+params: (css=nil)
+visibility: public

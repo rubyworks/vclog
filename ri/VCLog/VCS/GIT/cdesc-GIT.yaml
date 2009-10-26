@@ -1,23 +1,22 @@
 --- !ruby/object:RDoc::RI::ClassDescription 
 attributes: []
 
-class_methods: 
-- !ruby/object:RDoc::RI::MethodSummary 
-  name: new
+class_methods: []
+
 comment: 
 - !ruby/struct:RDoc::Markup::Flow::H 
   level: 1
-  text: GIT
+  text: GIT Adapter
 - !ruby/struct:RDoc::Markup::Flow::RULE 
   width: 
 - !ruby/struct:RDoc::Markup::Flow::H 
   level: 1
-  text: GIT
+  text: GIT Adapter
 - !ruby/struct:RDoc::Markup::Flow::RULE 
   width: 
 - !ruby/struct:RDoc::Markup::Flow::H 
   level: 1
-  text: GIT
+  text: GIT Adapter
 constants: []
 
 full_name: VCLog::VCS::GIT
@@ -25,8 +24,8 @@ includes: []
 
 instance_methods: 
 - !ruby/object:RDoc::RI::MethodSummary 
-  name: changelog
+  name: extract_changes
 - !ruby/object:RDoc::RI::MethodSummary 
-  name: generate_changelog
+  name: extract_tags
 name: GIT
-superclass: Object
+superclass: VCS

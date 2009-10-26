@@ -2,9 +2,10 @@
 aliases: []
 
 block_params: 
-comment: 
+comment: []
+
 full_name: VCLog::VCS::new
 is_singleton: true
 name: new
-params: (root=nil)
+params: (root)
 visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Provides a bumped version number.
+full_name: VCLog::VCS#bump
+is_singleton: false
+name: bump
+params: (part=nil)
+visibility: public

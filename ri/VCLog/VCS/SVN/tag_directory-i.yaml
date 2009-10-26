@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: This isn't perfect, but is there really anyway for it to be? It ascends up the current directory tree looking for the best candidate for a tags directory.
+full_name: VCLog::VCS::SVN#tag_directory
+is_singleton: false
+name: tag_directory
+params: ()
+visibility: public

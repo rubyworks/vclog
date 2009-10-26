@@ -60,7 +60,7 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <li class="class">Object</li>
+          <li class="class">VCS</li>
           
         </ul>
       </div>
@@ -75,11 +75,11 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li class="method"><a href="#M000037">::new</a></li>
+          <li class="method"><a href="#M000055">#extract_changes</a></li>
           
-          <li class="method"><a href="#M000039">#changelog</a></li>
+          <li class="method"><a href="#M000056">#extract_tags</a></li>
           
-          <li class="method"><a href="#M000040">#generate_changelog</a></li>
+          <li class="method"><a href="#M000060">#tag_directory</a></li>
           
         </ul>
       </div>
@@ -126,9 +126,15 @@
         
           <li class="module"><a href="../../VCLog.html">VCLog</a></li>
         
-          <li class="class"><a href="../../VCLog/Changelog.html">VCLog::Changelog</a></li>
+          <li class="class"><a href="../../VCLog/Change.html">VCLog::Change</a></li>
         
-          <li class="class"><a href="../../VCLog/Changelog/Entry.html">VCLog::Changelog::Entry</a></li>
+          <li class="class"><a href="../../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../../VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="class"><a href="../../VCLog/Release.html">VCLog::Release</a></li>
+        
+          <li class="class"><a href="../../VCLog/Tag.html">VCLog::Tag</a></li>
         
           <li class="class"><a href="../../VCLog/VCS.html">VCLog::VCS</a></li>
         
@@ -164,7 +170,7 @@
 
       <h1><a href="SVN.html">SVN</a></h1>
 <p>
-Raw <a href="SVN.html">SVN</a> format:
+SVN&#8217;s raw log format:
 </p>
 <pre>
   ------------------------------------------------------------------------
@@ -183,53 +189,16 @@ Raw <a href="SVN.html">SVN</a> format:
 
     <!-- Methods -->
     
-    <div id="public-class-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="new-method" class="method-detail ">
-        <a name="M000037"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p class="missing-docs">(Not documented)</p>
-          
-
-          
-          <div class="method-source-code"
-            id="new-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs/svn.rb, line 16</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
-      <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-    </div>
-  
     <div id="public-instance-method-details" class="method-section section">
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="changelog-method" class="method-detail ">
-        <a name="M000039"></a>
+      <div id="extract-changes-method" class="method-detail ">
+        <a name="M000055"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">changelog</span><span
+          <span class="method-name">extract_changes</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         
@@ -242,43 +211,11 @@ Raw <a href="SVN.html">SVN</a> format:
 
           
           <div class="method-source-code"
-            id="changelog-source">
+            id="extract-changes-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs/svn.rb, line 20</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
-        <span class="ruby-ivar">@changelog</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">generate_changelog</span>
-      <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="generate-changelog-method" class="method-detail ">
-        <a name="M000040"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">generate_changelog</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="generate-changelog-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs/svn.rb, line 25</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_changelog</span>
-        <span class="ruby-identifier">log</span> = <span class="ruby-constant">Changelog</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-comment cmt"># File lib/vclog/vcs/svn.rb, line 17</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_changes</span>
+        <span class="ruby-identifier">log</span> = []
 
         <span class="ruby-identifier">txt</span> = <span class="ruby-value">`svn log`</span>.<span class="ruby-identifier">strip</span>
 
@@ -299,10 +236,122 @@ Raw <a href="SVN.html">SVN</a> format:
 
           <span class="ruby-identifier">date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">date</span>)
 
-          <span class="ruby-identifier">log</span>.<span class="ruby-identifier">change</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">rev</span>, <span class="ruby-identifier">msg</span>)
+          <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">type</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">msg</span>)
+
+          <span class="ruby-identifier">log</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">rev</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">type</span>]
         <span class="ruby-keyword kw">end</span>
 
-        <span class="ruby-ivar">@changelog</span> = <span class="ruby-identifier">log</span>
+        <span class="ruby-identifier">log</span>
+      <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="extract-tags-method" class="method-detail ">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">extract_tags</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="extract-tags-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vclog/vcs/svn.rb, line 48</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_tags</span>
+        <span class="ruby-identifier">list</span> = []
+        <span class="ruby-identifier">tagdir</span> = <span class="ruby-identifier">tag_directory</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tagdir</span>
+          <span class="ruby-identifier">tags</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">tagdir</span>).<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">'.'</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\d(.*)$/</span> }
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">tags</span> = []
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tagdir</span>, <span class="ruby-identifier">path</span>)
+
+          <span class="ruby-identifier">info</span> = <span class="ruby-node">`svn info #{dir}`</span>
+          <span class="ruby-identifier">info</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">info</span>)
+          <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/(\d.*)$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">info</span>[<span class="ruby-value str">'Path'</span>])
+          <span class="ruby-identifier">name</span> = <span class="ruby-identifier">md</span> <span class="ruby-value">? </span><span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">path</span>
+          <span class="ruby-identifier">date</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value str">'Last Changed Date'</span>]
+          <span class="ruby-identifier">who</span>  = <span class="ruby-identifier">info</span>[<span class="ruby-value str">'Last Changed Author'</span>]
+          <span class="ruby-identifier">rev</span>  = <span class="ruby-identifier">info</span>[<span class="ruby-value str">'Revision'</span>]
+
+          <span class="ruby-identifier">commit</span> = <span class="ruby-node">`svn log -r BASE #{dir}`</span>
+          <span class="ruby-identifier">msg</span>  = <span class="ruby-identifier">commit</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">strip</span>
+
+          <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">msg</span>]
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">list</span>
+      <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="tag-directory-method" class="method-detail ">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">tag_directory</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+This isn&#8217;t perfect, but is there really anyway for it to be? It
+ascends up the current directory tree looking for the best candidate for a
+tags directory.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="tag-directory-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vclog/vcs/svn.rb, line 80</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_directory</span>
+        <span class="ruby-identifier">fnd</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">dir</span> = <span class="ruby-identifier">root</span>
+        <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">dir</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'/'</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">entries</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">dir</span>)
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'.svn'</span>)
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'tags'</span>)
+              <span class="ruby-keyword kw">break</span>(<span class="ruby-identifier">fnd</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-value str">'tags'</span>))
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">reject</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">'.'</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }
+              <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">reject</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/\d$/</span> }
+              <span class="ruby-keyword kw">break</span>(<span class="ruby-identifier">fnd</span> = <span class="ruby-identifier">dir</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-keyword kw">break</span>(<span class="ruby-identifier">fnd</span>=<span class="ruby-keyword kw">nil</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">dir</span>)
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">fnd</span>
       <span class="ruby-keyword kw">end</span></pre>
           </div>
           

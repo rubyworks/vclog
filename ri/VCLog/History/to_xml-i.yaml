@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Translate history into an XML document.
+full_name: VCLog::History#to_xml
+is_singleton: false
+name: to_xml
+params: (xsl=nil)
+visibility: public

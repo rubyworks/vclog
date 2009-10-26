@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: VCLog::Change::new
+is_singleton: true
+name: new
+params: (rev, date, author, message, type=nil)
+visibility: public

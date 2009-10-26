@@ -66,9 +66,15 @@
         
           <li class="module"><a href="./VCLog.html">VCLog</a></li>
         
-          <li class="class"><a href="./VCLog/Changelog.html">VCLog::Changelog</a></li>
+          <li class="class"><a href="./VCLog/Change.html">VCLog::Change</a></li>
         
-          <li class="class"><a href="./VCLog/Changelog/Entry.html">VCLog::Changelog::Entry</a></li>
+          <li class="class"><a href="./VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="./VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="class"><a href="./VCLog/Release.html">VCLog::Release</a></li>
+        
+          <li class="class"><a href="./VCLog/Tag.html">VCLog::Tag</a></li>
         
           <li class="class"><a href="./VCLog/VCS.html">VCLog::VCS</a></li>
         
@@ -102,10 +108,39 @@
 # RELEASE HISTORY
 </p>
 <p>
+## 1.2 / 2009-10-26
+</p>
+<p>
+Version 1.2 overhuals the internals so that History output is based on scm
+tags, not on a pre-existing history file. This is really the proper way to
+go about it and those who use it will, I think, be happily surprised at how
+it promotes good practices for the maintenance of History files. This
+overhaul led to substantial changes in the command-line interface.
+</p>
+<p>
+Changes:
+</p>
+<ul>
+<li>2 Major Enhancements
+
+<ul>
+<li>Rewrote History class.
+
+</li>
+<li>Changed command-line interface.
+
+</li>
+</ul>
+</li>
+</ul>
+<p>
 ## 1.1 / 2009-10-23
 </p>
 <p>
 This release adds yaml and json formats an improves the command.
+</p>
+<p>
+Changes:
 </p>
 <ul>
 <li>2 Major Enhancements

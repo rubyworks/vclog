@@ -1,0 +1,16 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Collect tags.
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "`git show 1.0` produces:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  tag 1.0\n  Tagger: 7rans &lt;transfire@gmail.com&gt;\n  Date:   Sun Oct 25 09:27:58 2009 -0400\n\n  version 1.0\n  commit\n  ...\n"
+full_name: VCLog::VCS::GIT#extract_tags
+is_singleton: false
+name: extract_tags
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Return a new changelog with entries occuring after the given date limit.
+full_name: VCLog::ChangeLog#after
+is_singleton: false
+name: after
+params: (date_limit)
+visibility: public

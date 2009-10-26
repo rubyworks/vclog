@@ -1,0 +1,14 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Translate history into a HTML document.
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "TODO: Need to add some headers."
+full_name: VCLog::History#to_html
+is_singleton: false
+name: to_html
+params: (css=nil)
+visibility: public
