@@ -53,27 +53,38 @@
   <div class="doc">
 
   <p>Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
-Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
-our output options limited. That's were vcLog comes in.</p>
+  Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
+  our output options limited. That's were vcLog comes in.</p>
 
   <p>vcLog can provide a changelogs in a variety of uniform formats for different SCMs. If we ask vcLog for help
-  will see it's commandline interface is quite straight-forward.</p>
+  will see it's commandline interface is fairly self-explanitory.</p>
 
   <pre>
-  $ vclog --help
-
-  Usage: vclog [options]
+  Usage: vclog [TYPE] [FORMAT] [OPTIONS] [DIR]
+   
+  OUTPUT TYPE (choose one):
+      -l, --log, --changelog           changelog (default)
+      -r, --rel, --history             release history
+      -b, --bump                       display a bumped version number
+      -c, --current                    display current version number
+   
   FORMAT (choose one):
-          --gnu                        GNU standard format
-          --xml [XSL]                  XML format
-          --html [CSS]                 HTML micro-like format
-          --rel &lt;VER>                  release format
-          --rev &lt;VER>                  release format w/ revison ids
-
+          --gnu                        GNU standard format (default)
+          --xml                        XML format
+          --yaml                       YAML format
+          --json                       JSON format
+          --html                       HTML micro-like format
+          --rdoc                       RDoc format
+      -m, --markdown                   Markdown format
+   
   OTHER OPTIONS:
-          --typed                      catagorize by commit type
+          --title <TITLE>              document title, used by some formats
+      -e, --extra                      provide extra output, used by some formats
+      -v, --version <NUM>              current version to use for release history
+          --style [FILE]               provide a stylesheet name (css or xsl) for xml and html formats
+          --id                         include revision ids (in formats that normally do not)
       -o, --output [FILE]              send output to a file instead of stdout
-
+   
   STANDARD OPTIONS:
           --debug                      show debugging infromation
       -h, --help                       display this help information
@@ -112,11 +123,10 @@ our output options limited. That's were vcLog comes in.</p>
   <p>A variety of formats are available, here are examples of the <a href="exmple.xml">XML</a>, <a href="example.html">HTML</a>,
   <a href="example.yaml">YAML</a> and <a href="example.json">JSON</a> formats.
 
-  <p>One ot the coolest features of vcLog is it's ability to read a previous relase history file
-  and use it to build a new release formatted history.</p>
+  <p>One ot the coolest features of vcLog is it's ability to lookup tags and build a Release History file.</p>
 
   <pre>
-  $ vclog --rel 1.1.0
+  $ vclog --rel --ver 1.1.0
 
   == 1.1.0 / 2009-10-23
 
