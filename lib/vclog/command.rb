@@ -46,7 +46,7 @@ module VCLog
 
   #
   def self.vclog
-    doctype = :log
+    type    = :log
     format  = :gnu
     typed   = false
     rev     = false
@@ -54,35 +54,45 @@ module VCLog
     style   = nil
     output  = nil
     title   = nil
+    version = nil
+    verbose = false
 
     optparse = OptionParser.new do |opt|
 
-      opt.separator("DOCTYPE (choose one):")
+      opt.banner = "Usage: vclog [TYPE] [FORMAT] [OPTIONS] [DIR]"
 
-      opt.on('--log', "change loge") do
-        doctype = :log
+      opt.separator(" ")
+      opt.separator("OUTPUT TYPE (choose one):")
+
+      opt.on('--log', '--changelog', '-l', "changelog (default)") do
+        type = :log
       end
 
-      opt.on('--rel <VER>', "release format") do |version|
-        doctype = :rel
-        vers = version
+      opt.on('--rel', '--history', '-r', "release history") do
+        type = :rel
       end
 
-      opt.on('--rev <VER>', "release format w/ revison ids") do |version|
+      opt.on('--rev', "release history w/ revison ids") do
         doctype = :rev
-        vers = version
       end
 
+      opt.on('--bump', '-b', "display a bumped version number") do
+        doctype = :bump
+      end
 
+      opt.on('--current', '-c', "display current version number") do
+        doctype = :curr
+      end
+
+      opt.separator(" ")
       opt.separator("FORMAT (choose one):")
 
       opt.on('--gnu', "GNU standard format") do
         format = :gnu
       end
 
-      opt.on('--xml [XSL]', "XML format") do |file|
+      opt.on('--xml', "XML format") do
         format = :xml
-        style  = file
       end
 
       opt.on('--yaml', "YAML format") do
@@ -93,31 +103,47 @@ module VCLog
         format = :json
       end
 
-      opt.on('--html [CSS]', "HTML micro-like format") do |file|
+      opt.on('--html', "HTML micro-like format") do
         format = :html
-        style  = file
       end
 
-    
+      opt.on('--rdoc', "RDoc format") do
+        format = :rdoc
+      end
+
+      opt.on('--markdown', '-m', "Markdown format") do
+        format = :markdown
+      end
+
+      opt.separator(" ")    
       opt.separator("OTHER OPTIONS:")
 
-      opt.on('--typed', "catagorize by commit type") do
-        typed = true
-      end
+      #opt.on('--typed', "catagorize by commit type") do
+      #  typed = true
+      #end
 
       opt.on('--title <TITLE>', "document title, used by some formats") do |string|
         title = string
       end
 
-      #opt.on('--style [FILE]', "provide a stylesheet (css or xsl)") do |val|
-      #  style = val
-      #end
+      opt.on('--verbose', '-v', "provide extra output, used by some formats") do
+        verbose = true
+      end
+
+      opt.on('--version', '--ver <NUM>', "current version to use for release history") do |num|
+        version = num
+      end
+
+      opt.on('--style [FILE]', "provide a stylesheet name (css or xsl) for xml and html formats") do |val|
+        style = val
+      end
 
       # DEPRECATE
       opt.on('--output', '-o [FILE]', "send output to a file instead of stdout") do |out|
         output = out
       end
 
+      opt.separator(" ")
       opt.separator("STANDARD OPTIONS:")
 
       opt.on('--debug', "show debugging infromation") do
@@ -132,13 +158,30 @@ module VCLog
 
     optparse.parse!(ARGV)
 
-    vcs = VCLog::VCS.new
+    root = ARGV.shift || Dir.pwd
 
-    if doctype == :log
-      log = vcs.changelog    
-      log = log.typed if typed
+    vcs = VCLog::VCS.factory #(root)
+    rev = false
+
+    case type
+    when :bump
+      puts vcs.bump(version)
+      exit
+    when :curr
+      puts vcs.tags.last.name #TODO: ensure latest
+      exit
+    when :log
+      log = vcs.changelog
+      #log = log.typed if typed  #TODO: ability to select types?
+    when :rel
+      log = vcs.history(:title=>title, :verbose=>verbose, :version=>version)
+    when :rev
+      log = vcs.history(:title=>title, :verbose=>verbose, :version=>version)
+      rev = true
     else
-      log = vcs.history(:title=>title)
+      raise "huh?"
+      #log = vcs.changelog
+      #log = log.typed if typed  #TODO: ability to select types?
     end
 
     case format
@@ -151,9 +194,9 @@ module VCLog
     when :json
       txt = log.to_json
     when :markdown
-      txt = log.to_markdown(false)
+      txt = log.to_markdown(rev)
     when :rdoc
-      txt = log.to_rdoc(false)
+      txt = log.to_rdoc(rev)
     else #:gnu
       txt = log.to_s
     end

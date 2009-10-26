@@ -5,14 +5,12 @@ module VCLog
     attr_accessor :date
     attr_accessor :author
     attr_accessor :message
-    #attr_accessor :changes
 
-    def initialize(name, date, author, message, changes=[])
+    def initialize(name, date, author, message)
       self.name    = name
       self.date    = date
       self.author  = author
       self.message = message
-      #self.changes = changes
     end
 
     def name=(name)
@@ -24,7 +22,12 @@ module VCLog
     end
 
     def date=(date)
-      @date = Time.parse(date)
+      case date
+      when Time
+        @date = date
+      else
+        @date = Time.parse(date.to_s)
+      end
     end
 
     def message=(msg)

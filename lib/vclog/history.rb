@@ -30,45 +30,47 @@ module VCLog
 
     attr_accessor :title
 
+    # Current working version.
+    attr_accessor :version
+
     attr_accessor :verbose # ???
 
     #
     def initialize(vcs, opts={})
       @vcs = vcs
-
       @marker    = opts[:marker]  || "#"
       @title     = opts[:title]   || "RELEASE HISTORY"
+      @version   = opts[:version]
       @verbose   = opts[:verbose]
     end
 
+    # Tag list from version control system.
     def tags
-      vcs.tags
+      @tags ||= vcs.tags
     end
 
+    # Change list from version control system.
     def changes
-      vcs.changes
+      @changes ||= vcs.changes
     end
 
+    # Changelog object
     def changelog
-      @changlog ||= ChangeLog.new(changes)
+      @changlog ||= vcs.changelog #ChangeLog.new(changes)
     end
-
-      #case current_version
-      #when 'major'
-      #    v = previous_verison.split(/\W/)
-      #    v[0] = v[0].succ
-      #    current_version = v.join('.')
-      #when 'minor'
-      #    v = previous_verison.split(/\W/)
-      #    v[1] = v[1].succ
-      #    current_version = v.join('.')
-      #  end
-      #end
 
     #
     def releases
       @releases ||= (
-        log = []
+        rel = []
+
+        tags = tags()
+
+        ver  = vcs.bump(version)
+        time = ::Time.now
+        user = ENV['USER']  # TODO: get user name from vcs
+
+        tags << Tag.new(ver, time, user, "FIXME")
 
         # TODO: Do we need to add a Time.now tag?
         # add current verion to release list (if given)
@@ -80,7 +82,7 @@ module VCLog
         #rels = rels.uniq      # only uniq releases
 
         # sort by release date
-        tags = tags().sort{ |a,b| a.date <=> b.date }
+        tags = tags.sort{ |a,b| a.date <=> b.date }
 
         # organize into deltas
         deltas, last = [], nil
@@ -89,8 +91,6 @@ module VCLog
           last = tag
         end
 
-        changes = changelog
-
         # gather changes for each delta and build log
         deltas.each do |gt, lt|
           if gt
@@ -98,16 +98,16 @@ module VCLog
             lt_vers, lt_date = lt.name, lt.date
             #gt_date = Time.parse(gt_date) unless Time===gt_date
             #lt_date = Time.parse(lt_date) unless Time===lt_date
-            changes = changes.after(gt_date).before(lt_date)
+            log = changelog.after(gt_date).before(lt_date)
           else
             lt_vers, lt_date = lt.name, lt.date
             #lt_date = Time.parse(lt_date) unless Time===lt_date
-            changes = changes.before(lt_date)
+            log = changelog.before(lt_date)
           end
 
-          log << Release.new(lt, changes.changes)
+          rel << Release.new(lt, log.changes)
         end
-        log
+        rel
       )
     end
 
@@ -139,6 +139,7 @@ module VCLog
           el.add_element('date').add_text(entry.date.to_s)
           el.add_element('author').add_text(entry.author)
           el.add_element('type').add_text(entry.type)
+          el.add_element('revision').add_text(entry.revision)
           el.add_element('message').add_text(entry.message)
         end
       end
@@ -179,6 +180,7 @@ module VCLog
           el.add_element('div').add_text(entry.date.to_s).add_attribute('class', 'date')
           el.add_element('div').add_text(entry.author).add_attribute('class', 'author')
           el.add_element('div').add_text(entry.type).add_attribute('class', 'type')
+          el.add_element('div').add_text(entry.revision).add_attribute('class', 'revision')
           el.add_element('div').add_text(entry.message).add_attribute('class', 'message')
         end
       end
@@ -234,7 +236,9 @@ module VCLog
     #
     def to_markup(marker, rev=false)
       entries = []
-      releases.each do |tag, changes|
+      releases.each do |release|
+        tag     = release.tag
+        changes = release.changes
         change_text = to_markup_changes(changes, rev)
         unless change_text.strip.empty?
           if verbose
@@ -247,80 +251,6 @@ module VCLog
       # reverse entries order and make into document
       marker + " #{title}\n\n" +  entries.reverse.join("\n")
     end
-
-=begin
-    #
-    def to_markup(marker, rev=false)
-      log = []
-
-      # collect releases already listed in changelog file
-      #rels = releases(file)
-
-      # add current verion to release list (if given)
-      #previous_version = tags[0].name
-
-      #if current_version < previous_version  # TODO: need to use natural comparision
-      #  raise ArgumentError, "Release version is less than previous version (#{previous_version})."
-      #end
-
-      #case current_version
-      #when 'major'
-      #    v = previous_verison.split(/\W/)
-      #    v[0] = v[0].succ
-      #    current_version = v.join('.')
-      #when 'minor'
-      #    v = previous_verison.split(/\W/)
-      #    v[1] = v[1].succ
-      #    current_version = v.join('.')
-      #  end
-      #end
-
-      #rels << [current_version, current_release || Time.now]
-
-      # make sure all release date are Time objects
-      #rels = rels.collect{ |v,d| [v, Time===d ? d : Time.parse(d)] }
-
-      # only uniq releases
-      #rels = rels.uniq
-
-      # sort by release date
-      tags = tags().sort{ |a,b| a.date <=> b.date }
-
-      # organize into deltas
-      deltas, last = [], nil
-      tags.each do |tag|
-        deltas << [last, tag]
-        last = tag
-      end
-
-      changes = changelog
-
-      # gather changes for each delta and build log
-      deltas.each do |gt, lt|
-        if gt
-          gt_vers, gt_date = gt.name, gt.date
-          lt_vers, lt_date = lt.name, lt.date
-          #gt_date = Time.parse(gt_date) unless Time===gt_date
-          #lt_date = Time.parse(lt_date) unless Time===lt_date
-          changes = changes.after(gt_date).before(lt_date)
-        else
-          lt_vers, lt_date = lt.name, lt.date
-          #lt_date = Time.parse(lt_date) unless Time===lt_date
-          changes = changes.before(lt_date)
-        end
-        reltext = format_rel_types(changes, rev)
-        unless reltext.strip.empty?
-          if verbose
-            log << "#{marker*2} #{lt_vers} / #{lt_date.strftime('%Y-%m-%d')}\n\n#{lt.message}\n\nChanges:\n\n#{reltext}"
-          else
-            log << "#{marker*2} #{lt_vers} / #{lt_date.strftime('%Y-%m-%d')}\n\n#{reltext}"
-          end
-        end
-      end
-      # reverse log order and make into document
-      marker + " #{title}\n\n" +  log.reverse.join("\n")
-    end
-=end
 
   private
 
@@ -358,7 +288,7 @@ module VCLog
     #
     # TODO: need to extract message (?)
     #
-    def releases(file)
+    def releases_from_file(file)
       return [] unless file
       clog = File.read(file)
       tags = clog.scan(/^(==|##)(.*?)$/)

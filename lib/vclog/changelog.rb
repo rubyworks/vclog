@@ -26,22 +26,23 @@ module VCLog
     #
     def initialize(changes=nil)
       @changes = []
-      self.changes = changes if changes
       @marker  = "##"
       @title   = "RELEASE HISTORY"
+
+      @changes = changes if changes
     end
 
-    def changes=(changes)
-      @changes = []
-      changes.each do |change|
-        case change
-        when Change
-          @changes << change
-        else
-          @changes << Change.new(*change)
-        end
-      end
-    end
+    #def changes=(changes)
+    #  @changes = []
+    #  changes.each do |change|
+    #    case change
+    #    when Change
+    #      @changes << change
+    #    else
+    #      @changes << Change.new(*change)
+    #    end
+    #  end
+    #end
 
     # Add a change entry to the log.
     def change(rev, date, who, note, type=nil)
@@ -60,9 +61,9 @@ module VCLog
 
     # Return a new changelog with entries that have a specified type.
     # TODO: Be able to specify which types to include or omit.
-    def typed
-      self.class.new(changes.select{ |e| e.type })
-    end
+    #def typed
+    #  self.class.new(changes.select{ |e| e.type })
+    #end
 
     # Return a new changelog with entries occuring after the
     # given date limit.

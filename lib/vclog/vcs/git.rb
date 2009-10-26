@@ -1,72 +1,25 @@
 module VCLog
 
-  require 'vclog/changelog'
-  require 'vclog/history'
-  require 'vclog/tag'
+  require 'vclog/vcs'
 
   class VCS
 
-    ### = GIT 
-    ###
-    class GIT
+    # = GIT Adapter
+    #
+    class GIT < VCS
 
-      def initialize
-      end
-
-      #
-      def changelog
-        @changelog ||= ChangeLog.new(changes)
-      end
+      #def initialize
+      #end
 
       #
-      def history(opts={})
-        @history ||= History.new(self, opts)
-      end
+      #def changelog
+      #  @changelog ||= ChangeLog.new(changes)
+      #end
 
       #
-      #
-      def changes
-        @changes ||= extract_changes
-      end
-
-      #
-      def tags
-        @tags ||= extract_tags
-      end
-
-=begin
-      #
-      #
-      def generate_changelog
-        log = Changelog.new
-
-        changelog ||= `git-log`.strip
-
-        changes = changelog.split(/^commit/m)
-
-        changes.shift # throw the first (empty) entry away
-
-        changes.each do |text|
-          date, who, rev, msg = nil, nil, nil, []
-          text.each_line do |line|
-            unless rev
-              rev = line.strip
-              next
-            end
-            if md = /^Author:(.*?)$/.match(line)
-              who = md[1]
-            elsif md = /^Date:(.*?)$/m.match(line)
-              date = Time.parse(md[1])
-            else
-              msg << line.strip
-            end
-          end
-          log.change(date, who, rev, msg.join("\n"))
-        end
-
-        @changelog = log
-      end
-=end
+      #def history(opts={})
+      #  @history ||= History.new(self, opts)
+      #end
 
       # Collect changes.
       #
@@ -119,27 +72,14 @@ module VCLog
           who  = who.split(':')[1].strip
           date = date[date.index(':')+1..-1].strip
           msg  = msg.join("\n")
-          list << Tag.new(tag, date, who, msg)
+          list << [tag, date, who, msg]
         end
         list
       end
 
-      # Looks for a "[type]" indicator at the end of the message.
-      def split_type(note)
-        note = note.strip
-        if md = /\A.*?\[(.*?)\]\s*$/.match(note)
-          t = md[1].strip.downcase
-          n = note.sub(/\[#{md[1]}\]\s*$/, "")
-        else
-          n, t = note, nil
-        end
-        n.gsub!(/^\s*?\n/m,'') # remove blank lines
-        return n, t
-      end
+    end#class GIT
 
-    end
+  end#class VCS
 
-  end
-
-end
+end#module VCLog
 
