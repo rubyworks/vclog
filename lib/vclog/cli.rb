@@ -83,7 +83,7 @@ module VCLog
       opt.separator(" ")
       opt.separator("FORMAT (choose one):")
 
-      opt.on('--gnu', "GNU standard format") do
+      opt.on('--gnu', "GNU standard format (default)") do
         format = :gnu
       end
 
