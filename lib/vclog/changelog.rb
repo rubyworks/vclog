@@ -29,8 +29,8 @@ module VCLog
     #
     def initialize(changes=nil)
       @changes = []
-      @marker  = "##"
-      @title   = "RELEASE HISTORY"
+      @marker  = "#"
+      @title   = "CHANGE LOG"
       @rev_id  = false
 
       @changes = changes if changes
@@ -82,8 +82,6 @@ module VCLog
       before = changes.select{ |entry| entry.date <= date_limit + DAY }
       self.class.new(before)
     end
-
-    #
 
     #
     def by_type
@@ -226,6 +224,75 @@ module VCLog
       return x.join("\n")
     end
 
+
+    # Translate history into a Markdown formatted document.
+    def to_markdown(rev=false)
+      to_markup('#', rev)
+    end
+
+    # Translate history into a RDoc formatted document.
+    def to_rdoc(rev=false)
+      to_markup('=', rev)
+    end
+
+    #
+    def to_markup(marker, rev=false)
+
+      x = []
+      by_date.each do |date, date_changes|
+        date_changes.by_author.each do |author, author_changes|
+          x << "#{marker}#{marker} #{date} #{author}\n"
+          x << to_markup_changes(author_changes, rev)
+        end
+        x << ""
+      end
+      marker + " #{title}\n\n" +  x.join("\n")
+    end
+
+  private
+
+    #
+    def to_markup_changes(changes, rev=false)
+      groups = changes.group_by{ |e| e.type_number }
+      string = ""
+      5.times do |n|
+        entries = groups[n]
+        next if !entries
+        next if entries.empty?
+        string << "* #{entries.size} #{entries[0].type_phrase}\n\n"
+        entries.sort!{|a,b| a.date <=> b.date }
+        entries.each do |entry|
+          #string << "#{marker}#{marker} #{entry.date} #{entry.author}\n\n"  # no email :(
+          if rev
+            text = "#{entry.message} (##{entry.revision})"
+          else
+            text = "#{entry.message}"
+          end
+          text = text.tabto(6)
+          text[4] = '*'
+          #entry = entry.join(' ').tabto(6)
+          #entry[4] = '*'
+          string << text
+          string << "\n"
+        end
+        string << "\n"
+      end
+      string.chomp("\n")
+    end
+
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
 =begin
     #
     def format_rel(file, current_version=nil, current_release=nil, rev=false)
@@ -332,6 +399,7 @@ module VCLog
     end
 =end
 
+=begin
     ###################
     # Save Chaqngelog #
     ###################
@@ -392,7 +460,6 @@ module VCLog
       end
     end
 
-  end
 
   DEFAULT_LOG_XSL = <<-END.tabto(0)
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -429,6 +496,5 @@ module VCLog
 
     </xsl:stylesheet>
   END
-
-end
+=end
 
