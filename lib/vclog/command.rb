@@ -48,14 +48,14 @@ module VCLog
   def self.vclog
     type    = :log
     format  = :gnu
-    typed   = false
-    rev     = false
     vers    = nil
     style   = nil
     output  = nil
     title   = nil
     version = nil
     verbose = false
+    rev     = false
+    typed   = false
 
     optparse = OptionParser.new do |opt|
 
@@ -70,10 +70,6 @@ module VCLog
 
       opt.on('--rel', '--history', '-r', "release history") do
         type = :rel
-      end
-
-      opt.on('--rev', "release history w/ revison ids") do
-        doctype = :rev
       end
 
       opt.on('--bump', '-b', "display a bumped version number") do
@@ -138,6 +134,10 @@ module VCLog
         style = val
       end
 
+      opt.on('--id', "include revision ids (in formats that normally do not)") do
+        rev = true
+      end
+
       # DEPRECATE
       opt.on('--output', '-o [FILE]', "send output to a file instead of stdout") do |out|
         output = out
@@ -161,7 +161,6 @@ module VCLog
     root = ARGV.shift || Dir.pwd
 
     vcs = VCLog::VCS.factory #(root)
-    rev = false
 
     case type
     when :bump
@@ -175,9 +174,6 @@ module VCLog
       #log = log.typed if typed  #TODO: ability to select types?
     when :rel
       log = vcs.history(:title=>title, :verbose=>verbose, :version=>version)
-    when :rev
-      log = vcs.history(:title=>title, :verbose=>verbose, :version=>version)
-      rev = true
     else
       raise "huh?"
       #log = vcs.changelog
@@ -198,7 +194,7 @@ module VCLog
     when :rdoc
       txt = log.to_rdoc(rev)
     else #:gnu
-      txt = log.to_s
+      txt = log.to_gnu(rev)
     end
 
     if output

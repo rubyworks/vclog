@@ -112,12 +112,13 @@ module VCLog
     end
 
     #
-    def to_s
-      to_markdown #gnu
+    def to_s(rev=false)
+      to_gnu(rev)
     end
 
-    # TODO
-    def to_gnu
+    # TODO: What would GNU history be?
+    def to_gnu(rev=false)
+      to_markdown(rev)
     end
 
     # Translate history into an XML document.
@@ -200,7 +201,7 @@ module VCLog
       x << %[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]
       x << %[    .author{color: red;}]
       x << %[    .message{padding: 5 0; font-weight: bold;}]
-      x << %[    .revison{font-size: 0.8em;}]
+      x << %[    .revision{font-size: 0.8em;}]
       x << %[  </style>]
       x << %[  <link rel="stylesheet" href="#{css}" type="text/css">] if css
       x << %[</head>]
@@ -267,7 +268,7 @@ module VCLog
         entries.each do |entry|
           #string << "== #{date}  #{who}\n\n"  # no email :(
           if rev
-            text = "#{entry.message} (##{entry.revison})"
+            text = "#{entry.message} (##{entry.revision})"
           else
             text = "#{entry.message}"
           end

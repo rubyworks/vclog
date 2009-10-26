@@ -8,17 +8,17 @@ module VCLog
 
     attr_accessor :author
     attr_accessor :date
-    attr_accessor :revison
+    attr_accessor :revision
     attr_accessor :message
     attr_accessor :type
 
     #
     def initialize(rev, date, author, message, type=nil)
-      self.revison = rev      #opts[:revison] || opts[:rev]
-      self.date    = date     #opts[:date]    || opts[:when]
-      self.author  = author   #opts[:author]  || opts[:who]
-      self.type    = type     #opts[:type]
-      self.message = message  #opts[:message] || opts[:msg]
+      self.revision = rev      #opts[:revison] || opts[:rev]
+      self.date     = date     #opts[:date]    || opts[:when]
+      self.author   = author   #opts[:author]  || opts[:who]
+      self.type     = type     #opts[:type]
+      self.message  = message  #opts[:message] || opts[:msg]
     end
 
     #
@@ -83,7 +83,7 @@ module VCLog
     end
 
     def inspect
-      "#<Entry:#{object_id} #{date}>"
+      "#<Change:#{object_id} #{date}>"
     end
 
     def to_h

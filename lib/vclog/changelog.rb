@@ -19,15 +19,19 @@ module VCLog
 
     attr :changes
 
-    attr :marker
+    attr_accessor :marker
 
-    attr :title
+    attr_accessor :title
+
+    # Include revision id?
+    attr_accessor :rev_id
 
     #
     def initialize(changes=nil)
       @changes = []
       @marker  = "##"
       @title   = "RELEASE HISTORY"
+      @rev_id  = false
 
       @changes = changes if changes
     end
@@ -137,7 +141,7 @@ module VCLog
     end
 
     #
-    def to_gnu
+    def to_gnu(rev=false)
       x = []
       by_date.each do |date, date_changes|
         date_changes.by_author.each do |author, author_changes|
@@ -149,6 +153,7 @@ module VCLog
             else
               msg = "#{entry.message}".tabto(10)
             end
+            msg << " (#{entry.revision})" if rev
             msg[8] = '*'
             x << msg
           end
@@ -173,7 +178,7 @@ module VCLog
         x << %[<entry>]
         x << %[  <date>#{entry.date}</date>]
         x << %[  <author>#{escxml(entry.author)}</author>]
-        x << %[  <revison>#{escxml(entry.revison)}</revison>]
+        x << %[  <revision>#{escxml(entry.revision)}</revision>]
         x << %[  <type>#{escxml(entry.type)}</type>]
         x << %[  <message>#{escxml(entry.message)}</message>]
         x << %[</entry>]
@@ -197,7 +202,7 @@ module VCLog
       x << %[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]
       x << %[    .author{color: red;}]
       x << %[    .message{padding: 5 0; font-weight: bold;}]
-      x << %[    .revison{font-size: 0.8em;}]
+      x << %[    .revision{font-size: 0.8em;}]
       x << %[  </style>]
       x << %[  <link rel="stylesheet" href="#{css}" type="text/css">] if css
       x << %[</head>]
@@ -211,7 +216,7 @@ module VCLog
         x << %[    <div class="author">#{escxml(entry.author)}</div>]
         x << %[    <div class="type">#{escxml(entry.type)}</div>]
         x << %[    <div class="message">#{escxml(entry.message)}</div>]
-        x << %[    <div class="revison">##{escxml(entry.revison)}</div>]
+        x << %[    <div class="revision">##{escxml(entry.revision)}</div>]
         x << %[  </li>]
       end
       x << %[    </ul>]
@@ -291,7 +296,7 @@ module VCLog
         entries.each do |entry|
           #string << "== #{date}  #{who}\n\n"  # no email :(
           if rev
-            text = "#{entry.message} (##{entry.revison})"
+            text = "#{entry.message} (##{entry.revision})"
           else
             text = "#{entry.message}"
           end
