@@ -46,14 +46,34 @@ module VCLog
 
   #
   def self.vclog
-    format = :gnu
-    typed  = false
-    rev    = false
-    vers   = nil
-    style  = nil
-    output = nil
+    doctype = :log
+    format  = :gnu
+    typed   = false
+    rev     = false
+    vers    = nil
+    style   = nil
+    output  = nil
+    title   = nil
 
     optparse = OptionParser.new do |opt|
+
+      opt.separator("DOCTYPE (choose one):")
+
+      opt.on('--log', "change loge") do
+        doctype = :log
+      end
+
+      opt.on('--rel <VER>', "release format") do |version|
+        doctype = :rel
+        vers = version
+      end
+
+      opt.on('--rev <VER>', "release format w/ revison ids") do |version|
+        doctype = :rev
+        vers = version
+      end
+
+
       opt.separator("FORMAT (choose one):")
 
       opt.on('--gnu', "GNU standard format") do
@@ -78,26 +98,22 @@ module VCLog
         style  = file
       end
 
-      opt.on('--rel <VER>', "release format") do |version|
-        format = :rel
-        vers = version
-      end
-
-      opt.on('--rev <VER>', "release format w/ revison ids") do |version|
-        format = :rev
-        vers = version
-      end
-
+    
       opt.separator("OTHER OPTIONS:")
 
       opt.on('--typed', "catagorize by commit type") do
         typed = true
       end
 
+      opt.on('--title <TITLE>', "document title, used by some formats") do |string|
+        title = string
+      end
+
       #opt.on('--style [FILE]', "provide a stylesheet (css or xsl)") do |val|
       #  style = val
       #end
 
+      # DEPRECATE
       opt.on('--output', '-o [FILE]', "send output to a file instead of stdout") do |out|
         output = out
       end
@@ -118,49 +134,46 @@ module VCLog
 
     vcs = VCLog::VCS.new
 
-    changelog = vcs.changelog
-
-    if typed
-      changelog = changelog.typed
+    if doctype == :log
+      log = vcs.changelog    
+      log = log.typed if typed
+    else
+      log = vcs.history(:title=>title)
     end
 
     case format
     when :xml
-      log = changelog.format_xml(style)   # xsl stylesheet url
+      txt = log.to_xml(style)   # xsl stylesheet url
     when :html
-      log = changelog.format_html(style)  # css stylesheet url
+      txt = log.to_html(style)  # css stylesheet url
     when :yaml
-      log = changelog.format_yaml
+      txt = log.to_yaml
     when :json
-      log = changelog.format_json
-    when :rel
-      file = changelog_file(output)
-      raise "no previous log to go by" unless file
-      log = changelog.format_rel(file, vers, nil, false)
-    when :rev
-      file = changelog_file(output)
-      raise "no previous log to go by" unless file
-      log = changelog.format_rel(file, vers, nil, true)
+      txt = log.to_json
+    when :markdown
+      txt = log.to_markdown(false)
+    when :rdoc
+      txt = log.to_rdoc(false)
     else #:gnu
-      log = changelog.to_s
+      txt = log.to_s
     end
 
     if output
       File.open(output, 'w') do |f|
-        f << log
+        f << txt
       end
     else
-      puts log
+      puts txt
     end
   end
 
-  def self.changelog_file(file)
-    if file && File.file?(file)
-      file
-    else
-      Dir.glob('{history,changes,changelog}{,.*}', File::FNM_CASEFOLD).first
-    end
-  end
+  #def self.changelog_file(file)
+  #  if file && File.file?(file)
+  #    file
+  #  else
+  #    Dir.glob('{history,changes,changelog}{,.*}', File::FNM_CASEFOLD).first
+  #  end
+  #end
 
 end
 

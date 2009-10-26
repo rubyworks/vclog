@@ -1,6 +1,7 @@
 module VCLog
 
   require 'vclog/facets'
+  require 'vclog/change'
 
   # Supports output formats:
   #
@@ -10,7 +11,7 @@ module VCLog
   #   json
   #   text
   #
-  class Changelog
+  class ChangeLog
 
     include Enumerable
 
@@ -18,23 +19,42 @@ module VCLog
 
     attr :changes
 
+    attr :marker
+
+    attr :title
+
+    #
     def initialize(changes=nil)
-      @changes = changes || []
+      @changes = []
+      self.changes = changes if changes
+      @marker  = "##"
+      @title   = "RELEASE HISTORY"
     end
 
-    def change(date, who, rev, note)
-      note, type = *split_note(note)
-      note = note.gsub(/^\s*?\n/m,'') # remove blank lines
-      @changes << Entry.new(:when=>date, :who=>who, :rev=>rev, :type=>type, :msg=>note)
+    def changes=(changes)
+      @changes = []
+      changes.each do |change|
+        case change
+        when Change
+          @changes << change
+        else
+          @changes << Change.new(*change)
+        end
+      end
     end
 
-    def each(&block) ; @changes.each(&block) ; end
-    def empty? ; @changes.empty? ; end
-    def size ; @changes.size ; end
+    # Add a change entry to the log.
+    def change(rev, date, who, note, type=nil)
+      @changes << Change.new(rev, date, who, note, type)
+    end
+
+    def each(&block) ; changes.each(&block) ; end
+    def empty? ; changes.empty? ; end
+    def size ; changes.size ; end
 
     #
     def <<(entry)
-      raise unless Entry===entry
+      raise unless Change===entry
       @changes << entry
     end
 
@@ -105,18 +125,18 @@ module VCLog
     # Output Formats #
     ##################
 
-    def format_yaml
+    def to_yaml
       require 'yaml'
       changes.to_yaml
     end
 
-    def format_json
+    def to_json
       require 'json'
       changes.to_json
     end
 
     #
-    def format_gnu
+    def to_gnu
       x = []
       by_date.each do |date, date_changes|
         date_changes.by_author.each do |author, author_changes|
@@ -138,11 +158,11 @@ module VCLog
     end
 
     #
-    alias_method :to_s, :format_gnu
+    alias_method :to_s, :to_gnu
 
     # Create an XML formated changelog.
     # +xsl+ reference defaults to 'log.xsl'
-    def format_xml(xsl=nil)
+    def to_xml(xsl=nil)
       xsl = 'log.xsl' if xsl.nil?
       x = []
       x << %[<?xml version="1.0"?>]
@@ -163,12 +183,12 @@ module VCLog
 
     # Create an HTML formated changelog.
     # +css+ reference defaults to 'log.css'
-    def format_html(css=nil)
+    def to_html(css=nil)
       css = 'log.css' if css.nil?
       x = []
       x << %[<html>]
       x << %[<head>]
-      x << %[  <title>Changelog</title>]
+      x << %[  <title>ChangeLog</title>]
       x << %[  <style>]
       x << %[    body{font-family: sans-serif;}]
       x << %[    #changelog{width:800px;margin:0 auto;}]
@@ -200,6 +220,7 @@ module VCLog
       return x.join("\n")
     end
 
+=begin
     #
     def format_rel(file, current_version=nil, current_release=nil, rev=false)
       log = []
@@ -249,11 +270,11 @@ module VCLog
         end
         reltext = changes.format_rel_types(rev)
         unless reltext.strip.empty?
-          log << "== #{lt_vers} / #{lt_date.strftime('%Y-%m-%d')}\n\n#{reltext}"
+          log << "#{marker} #{lt_vers} / #{lt_date.strftime('%Y-%m-%d')}\n\n#{reltext}"
         end
       end
       # reverse log order and make into document
-      log.reverse.join("\n")
+      marker[0,1] + " #{title}\n\n" +  log.reverse.join("\n")
     end
 
     #
@@ -289,19 +310,21 @@ module VCLog
     def releases(file)
       return [] unless file
       clog = File.read(file)
-      tags = clog.scan(/^==(.*?)$/)
+      tags = clog.scan(/^(==|##)(.*?)$/)
       rels = tags.collect do |t|
-        parse_version_tag(t[0])
+        parse_version_tag(t[1])
       end
+      @marker = tags[0][0]
       return rels
     end
 
     #
     def parse_version_tag(tag)
       version, date = *tag.split('/')
-      version, date = version.sub(/^\=+\s*/,'').strip, date.strip
+      version, date = version.strip, date.strip
       return version, date
     end
+=end
 
     ###################
     # Save Chaqngelog #
@@ -311,18 +334,18 @@ module VCLog
     def save(file, format=:gnu, *args)
       case format.to_sym
       when :xml
-        text = format_xml
-        save_xsl(file)
+        text = to_xml
+#save_xsl(file)
       when :html
-        text = format_html(*args)
+        text = to_html(*args)
       when :rel
-        text = format_rel(file, *args)
+        text = to_rel(file, *args)
       when :yaml
-        text = format_yaml(file)
+        text = to_yaml(file)
       when :json
-        text = format_json(file)
+        text = to_json(file)
       else
-        text = format_gnu
+        text = to_gnu
       end
 
       FileUtils.mkdir_p(File.dirname(file))
@@ -362,111 +385,6 @@ module VCLog
         end
       end
     end
-
-    # Looks for a "[type]" indicator at the end of the message.
-    def split_note(note)
-      note = note.strip
-      if md = /\A.*?\[(.*?)\]\s*$/.match(note)
-        t = md[1].strip.downcase
-        n = note.sub(/\[#{md[1]}\]\s*$/, "")
-      else
-        n, t = note, nil
-      end
-      return n, t
-    end
-
-    # = Change Log Entry class
-    class Entry
-      include Comparable
-
-      attr_accessor :author
-      attr_accessor :date
-      attr_accessor :revison
-      attr_accessor :message
-      attr_accessor :type
-
-      def initialize(opts={})
-        @author  = (opts[:author]  || opts[:who]).strip
-        @date    = opts[:date]    || opts[:when]
-        @revison = opts[:revison] || opts[:rev]
-        @message = opts[:message] || opts[:msg]
-        @type    = opts[:type]
-      end
-
-      #def clean_type(type)
-      #  case type.to_s
-      #  when 'maj', 'major' then :major
-      #  when 'min', 'minor' then :minor
-      #  when 'bug'          then :bug
-      #  when ''             then :other
-      #  else
-      #    type.to_sym
-      #  end
-      #end
-
-      #
-      def type_phrase
-        case type.to_s
-        when 'maj', 'major'
-          'Major Enhancements'
-        when 'min', 'minor'
-          'Minor Enhancements'
-        when 'bug'
-          'Bug Fixes'
-        when ''
-          'General Enhancements'
-        when '-'
-          'Administrative Changes'
-        else
-          "#{type.capitalize} Enhancements"
-        end
-      end
-
-      #
-      def type_number
-        case type.to_s.downcase
-        when 'maj', 'major'
-          0
-        when 'min', 'minor'
-          1
-        when 'bug'
-          2
-        when ''
-          4
-        when '-'
-          5
-        else # other
-          3
-        end
-      end
-
-      #
-      def <=>(other)
-        other.date <=> date
-      end
-
-      def inspect
-        "#<Entry:#{object_id} #{date}>"
-      end
-
-      def to_h
-        { 'author'   => @author,
-          'date'     => @date,
-          'revision' => @revison,
-          'message'  => @message,
-          'type'     => @type
-        }
-      end
-
-      def to_json
-        to_h.to_json
-      end
-
-      def to_yaml(*args)
-        to_h.to_yaml(*args)
-      end
-
-    end #class Entry
 
   end
 
