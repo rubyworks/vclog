@@ -116,7 +116,7 @@ module VCLog
       to_gnu(rev)
     end
 
-    # TODO: What would GNU history be?
+    # TODO: What would GNU history look like?
     def to_gnu(rev=false)
       to_markdown(rev)
     end

@@ -97,12 +97,21 @@ module VCLog
 
   private
 
-    # Looks for a "[type]" indicator at the end of the message.
+    # Looks for a "[type]" indicator at the end of the commit message.
+    # If that is not found, it looks at front of message for
+    # "[type]" or "[type]:". Failing that it tries just "type:".
+    #
     def split_type(note)
       note = note.strip
-      if md = /\A.*?\[(.*?)\]\s*$/.match(note)
+      if md = /\[(.*?)\]\Z/.match(note)
         t = md[1].strip.downcase
-        n = note.sub(/\[#{md[1]}\]\s*$/, "")
+        n = note[0...(md.begin(0))]
+      elsif md = /\A\[(.*?)\]\:?/.match(note)
+        t = md[1].strip.downcase
+        n = note[md.end(0)..-1]
+      elsif md = /\A(\w+?)\:/.match(note)
+        t = md[1].strip.downcase
+        n = note[md.end(0)..-1]
       else
         n, t = note, nil
       end
