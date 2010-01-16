@@ -195,7 +195,7 @@ module VCLog
       x << %[  <title>ChangeLog</title>]
       x << %[  <style>]
       x << %[    body{font-family: sans-serif;}]
-      x << %[    #changelog{width:800px;margin:0 auto;}]
+      x << %[    .changelog{width:800px;margin:0 auto;}]
       x << %[    li{padding: 10px;}]
       x << %[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]
       x << %[    .author{color: red;}]
@@ -205,7 +205,7 @@ module VCLog
       x << %[  <link rel="stylesheet" href="#{css}" type="text/css">] if css
       x << %[</head>]
       x << %[<body>]
-      x << %[  <div id="changelog">]
+      x << %[  <div class="changelog">]
       x << %[    <h1>ChangeLog</h1>]
       x << %[    <ul class="log">]
       changes.sort{|a,b| b.date <=> a.date}.each do |entry|
@@ -237,7 +237,6 @@ module VCLog
 
     #
     def to_markup(marker, rev=false)
-
       x = []
       by_date.each do |date, date_changes|
         date_changes.by_author.each do |author, author_changes|
@@ -278,6 +277,18 @@ module VCLog
         string << "\n"
       end
       string.chomp("\n")
+    end
+
+    #
+    def escxml(input)
+       result = input.to_s.dup
+       result.gsub!("&", "&amp;")
+       result.gsub!("<", "&lt;")
+       result.gsub!(">", "&gt;")
+       result.gsub!("'", "&apos;")
+       #result.gsub!("@", "&at;")
+       result.gsub!("\"", "&quot;")
+       return result
     end
 
   end
@@ -432,20 +443,6 @@ end
       File.open(file, 'w') do |f|
         f << text
       end if different
-    end
-
-  private
-
-    #
-    def escxml(input)
-       result = input.to_s.dup
-       result.gsub!("&", "&amp;")
-       result.gsub!("<", "&lt;")
-       result.gsub!(">", "&gt;")
-       result.gsub!("'", "&apos;")
-       #result.gsub!("@", "&at;")
-       result.gsub!("\"", "&quot;")
-       return result
     end
 
     #

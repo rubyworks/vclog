@@ -33,6 +33,7 @@ module VCLog
     # Current working version.
     attr_accessor :version
 
+    #
     attr_accessor :extra
 
     #
@@ -157,8 +158,42 @@ module VCLog
 
     # Translate history into a HTML document.
     #
-    # TODO: Need to add some headers.
+    # TODO: Generate HTML manually instead of converting the RDoc.
+    # This will allow better formatting and color support.
     #
+    def to_html(css=nil)
+      begin
+        require 'rdoc/markup/to_html'
+      rescue LoadError
+        retry if require 'rubygems'
+      end
+      mark = RDoc::Markup::ToHtml.new
+      html = mark.convert(to_rdoc(true))
+      x = []
+      x << %[<html>]
+      x << %[<head>]
+      x << %[  <title>#{title} History</title>]
+      x << %[  <style>]
+      x << %[    body{font-family: sans-serif;}]
+      x << %[    li{padding: 10px;}]
+      x << %[    .changelog{width:800px;margin:0 auto;}]
+      x << %[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]
+      x << %[    .author{color: red;}]
+      x << %[    .message{padding: 5 0; font-weight: bold;}]
+      x << %[    .revision{font-size: 0.8em;}]
+      x << %[  </style>]
+      x << %[  <link rel="stylesheet" href="#{css}" type="text/css">] if css
+      x << %[</head>]
+      x << %[<body>]
+      x << %[<div class="changelog">]
+      x << html
+      x << %[</div>]
+      x << %[</body>]
+      x << %[</html>]
+      x.join("\n")
+    end
+
+=begin
     def to_html(css=nil)
       require 'rexml/document'
       xml = REXML::Document.new('<div class="history"></div>')
@@ -211,6 +246,7 @@ module VCLog
       x << %[</html>]
       x.join("\n")
     end
+=end
 
     # Translate history into a YAML document.
     def to_yaml(*args)
