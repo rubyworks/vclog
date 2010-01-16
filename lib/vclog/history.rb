@@ -4,6 +4,7 @@ module VCLog
   require 'vclog/changelog'
   require 'vclog/tag'
   require 'vclog/release'
+  require 'erb'
 
   # = Release History Class
   #
@@ -24,25 +25,26 @@ module VCLog
   #
   class History
 
+    # Location of this file in the file system.
+    DIR = File.dirname(__FILE__)
+
     attr :vcs
 
-    attr_accessor :marker
-
+    # Alternate title.
     attr_accessor :title
 
     # Current working version.
     attr_accessor :version
 
-    #
+    # Provide extra information.
     attr_accessor :extra
 
     #
     def initialize(vcs, opts={})
-      @vcs = vcs
-      @marker    = opts[:marker]  || "#"
-      @title     = opts[:title]   || "RELEASE HISTORY"
-      @extra     = opts[:extra]
-      @version   = opts[:version]
+      @vcs     = vcs
+      @title   = opts[:title] || "RELEASE HISTORY"
+      @extra   = opts[:extra]
+      @version = opts[:version]
     end
 
     # Tag list from version control system.
@@ -51,16 +53,19 @@ module VCLog
     end
 
     # Change list from version control system.
+
     def changes
       @changes ||= vcs.changes
     end
 
     # Changelog object
+
     def changelog
       @changlog ||= vcs.changelog #ChangeLog.new(changes)
     end
 
     #
+
     def releases
       @releases ||= (
         rel = []
@@ -71,7 +76,7 @@ module VCLog
         time = ::Time.now
         user = ENV['USER']  # TODO: get user name from vcs
 
-        tags << Tag.new(ver, time, user, "FIXME")
+        tags << Tag.new(ver, time, user, "Current Development")
 
         # TODO: Do we need to add a Time.now tag?
         # add current verion to release list (if given)
@@ -112,164 +117,71 @@ module VCLog
       )
     end
 
-    #
+    # Group +changes+ by tag type.
+
+    def groups(changes)
+      @groups ||= changes.group_by{ |e| e.type_number }
+    end
+
+    # Same as to_gnu.
+
     def to_s(rev=false)
       to_gnu(rev)
     end
 
     # TODO: What would GNU history look like?
+
     def to_gnu(rev=false)
       to_markdown(rev)
     end
 
-    # Translate history into an XML document.
-    def to_xml(xsl=nil)
-      require 'rexml/document'
-      xml = REXML::Document.new('<history></history>')
-      #xml << REXML::XMLDecl.default
-      root = xml.root
-      releases.each do |release|
-        rel = root.add_element('release')
-        tel = rel.add_element('tag')
-        tel.add_element('name').add_text(release.tag.name)
-        tel.add_element('date').add_text(release.tag.date.to_s)
-        tel.add_element('author').add_text(release.tag.author)
-        tel.add_element('message').add_text(release.tag.message)
-        cel = rel.add_element('changes')
-        release.changes.sort{|a,b| b.date <=> a.date}.each do |entry|
-          el = cel.add_element('entry')
-          el.add_element('date').add_text(entry.date.to_s)
-          el.add_element('author').add_text(entry.author)
-          el.add_element('type').add_text(entry.type)
-          el.add_element('revision').add_text(entry.revision)
-          el.add_element('message').add_text(entry.message)
-        end
-      end
-      out = String.new
-      fmt = REXML::Formatters::Pretty.new
-      fmt.compact = true
-      fmt.write(xml, out)
-      #
-      txt  = %[<?xml version="1.0"?>\n]
-      txt += %[<?xml-stylesheet href="#{xsl}" type="text/xsl" ?>\n] if xsl
-      txt += out
-      txt
-    end
-
-    # Translate history into a HTML document.
-    #
-    # TODO: Generate HTML manually instead of converting the RDoc.
-    # This will allow better formatting and color support.
-    #
-    def to_html(css=nil)
-      begin
-        require 'rdoc/markup/to_html'
-      rescue LoadError
-        retry if require 'rubygems'
-      end
-      mark = RDoc::Markup::ToHtml.new
-      html = mark.convert(to_rdoc(true))
-      x = []
-      x << %[<html>]
-      x << %[<head>]
-      x << %[  <title>#{title} History</title>]
-      x << %[  <style>]
-      x << %[    body{font-family: sans-serif;}]
-      x << %[    li{padding: 10px;}]
-      x << %[    .changelog{width:800px;margin:0 auto;}]
-      x << %[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]
-      x << %[    .author{color: red;}]
-      x << %[    .message{padding: 5 0; font-weight: bold;}]
-      x << %[    .revision{font-size: 0.8em;}]
-      x << %[  </style>]
-      x << %[  <link rel="stylesheet" href="#{css}" type="text/css">] if css
-      x << %[</head>]
-      x << %[<body>]
-      x << %[<div class="changelog">]
-      x << html
-      x << %[</div>]
-      x << %[</body>]
-      x << %[</html>]
-      x.join("\n")
-    end
-
-=begin
-    def to_html(css=nil)
-      require 'rexml/document'
-      xml = REXML::Document.new('<div class="history"></div>')
-      #xml << REXML::XMLDecl.default
-      root = xml.root
-      releases.each do |release|
-        rel = root.add_element('div')
-        rel.add_attribute('class', 'release')
-        tel = rel.add_element('div')
-        tel.add_attribute('class', 'tag')
-        tel.add_element('div').add_text(release.tag.name).add_attribute('class', 'name')
-        tel.add_element('div').add_text(release.tag.date.to_s).add_attribute('class', 'date')
-        tel.add_element('div').add_text(release.tag.author).add_attribute('class', 'author')
-        tel.add_element('div').add_text(release.tag.message).add_attribute('class', 'message')
-        cel = rel.add_element('ul')
-        cel.add_attribute('class', 'changes')
-        release.changes.sort{|a,b| b.date <=> a.date}.each do |entry|
-          el = cel.add_element('li')
-          el.add_attribute('class', 'entry')
-          el.add_element('div').add_text(entry.date.to_s).add_attribute('class', 'date')
-          el.add_element('div').add_text(entry.author).add_attribute('class', 'author')
-          el.add_element('div').add_text(entry.type).add_attribute('class', 'type')
-          el.add_element('div').add_text(entry.revision).add_attribute('class', 'revision')
-          el.add_element('div').add_text(entry.message).add_attribute('class', 'message')
-        end
-      end
-      out = String.new
-      fmt = REXML::Formatters::Pretty.new
-      fmt.compact = true
-      fmt.write(xml, out)
-      #
-      x = []
-      x << %[<html>]
-      x << %[<head>]
-      x << %[  <title>ChangeLog</title>]
-      x << %[  <style>]
-      x << %[    body{font-family: sans-serif;}]
-      x << %[    #changelog{width:800px;margin:0 auto;}]
-      x << %[    li{padding: 10px;}]
-      x << %[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]
-      x << %[    .author{color: red;}]
-      x << %[    .message{padding: 5 0; font-weight: bold;}]
-      x << %[    .revision{font-size: 0.8em;}]
-      x << %[  </style>]
-      x << %[  <link rel="stylesheet" href="#{css}" type="text/css">] if css
-      x << %[</head>]
-      x << %[<body>]
-      x << out
-      x << %[</body>]
-      x << %[</html>]
-      x.join("\n")
-    end
-=end
-
     # Translate history into a YAML document.
+
     def to_yaml(*args)
       require 'yaml'
       releases.to_yaml(*args)
     end
 
     # Translate history into a JSON document.
+
     def to_json
       require 'json'
       releases.to_json
     end
 
-    # Translate history into a Markdown formatted document.
-    def to_markdown(rev=false)
-      to_markup('#', rev)
+    # Translate history into a XML document.
+
+    def to_xml(xsl=nil)
+      tmp = File.read(File.join(DIR, 'templates', 'history.xml'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
     end
 
-    # Translate history into a RDoc formatted document.
+    # Translate history into a HTML document.
+
+    def to_html(css=nil)
+      tmp = File.read(File.join(DIR, 'templates', 'history.html'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+    # Translate history into a RDoc document.
+
     def to_rdoc(rev=false)
-      to_markup('=', rev)
+      tmp = File.read(File.join(DIR, 'templates', 'history.rdoc'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
     end
 
+    # Translate history into a Markdown formatted document.
+
+    def to_markdown(rev=false)
+      tmp = File.read(File.join(DIR, 'templates', 'history.markdown'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+=begin
     #
     def to_markup(marker, rev=false)
       entries = []
@@ -288,14 +200,16 @@ module VCLog
       # reverse entries order and make into document
       marker + " #{title}\n\n" +  entries.reverse.join("\n")
     end
+=end
 
   private
 
+=begin
     #
     def to_markup_changes(changes, rev=false)
       groups = changes.group_by{ |e| e.type_number }
       string = ""
-      5.times do |n|
+      groups.keys.sort.each do |n|
         entries = groups[n]
         next if !entries
         next if entries.empty?
@@ -319,6 +233,8 @@ module VCLog
       end
       string
     end
+=end
+
 
 =begin
     # Extract release tags from a release file.
@@ -343,6 +259,20 @@ module VCLog
       return version, date
     end
 =end
+
+  private
+
+    #
+    def h(input)
+       result = input.to_s.dup
+       result.gsub!("&", "&amp;")
+       result.gsub!("<", "&lt;")
+       result.gsub!(">", "&gt;")
+       result.gsub!("'", "&apos;")
+       #result.gsub!("@", "&at;")
+       result.gsub!("\"", "&quot;")
+       return result
+    end
 
   end
 

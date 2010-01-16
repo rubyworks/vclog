@@ -15,6 +15,8 @@ module VCLog
 
     include Enumerable
 
+    DIR = File.dirname(__FILE__)
+
     DAY = 24*60*60
 
     attr :changes
@@ -124,14 +126,48 @@ module VCLog
     #  mapped
     #end
 
-    ##################
-    # Output Formats #
-    ##################
+    # O U T P U T  F O R M A T S
+
+    #
+
+#    def to_gnu(rev=false)
+#      x = []
+#      by_date.each do |date, date_changes|
+#        date_changes.by_author.each do |author, author_changes|
+#          x << %[#{date}  #{author}\n]
+#          #author_changes = author_changes.sort{|a,b| b.date <=> a.date}
+#          author_changes.each do |entry|
+#            if entry.type
+#              msg = "#{entry.message} [#{entry.type}]".tabto(10)
+#            else
+#              msg = "#{entry.message}".tabto(10)
+#            end
+#            msg << " (#{entry.revision})" if rev
+#            msg[8] = '*'
+#            x << msg
+#          end
+#        end
+#        x << "\n"
+#      end
+#      return x.join("\n")
+#    end
+
+    #
+
+    def to_gnu(rev=false)
+      tmp = File.read(File.join(DIR, 'templates', 'changelog.gnu'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+    #
 
     def to_yaml
       require 'yaml'
       changes.to_yaml
     end
+
+    #
 
     def to_json
       require 'json'
@@ -139,31 +175,42 @@ module VCLog
     end
 
     #
-    def to_gnu(rev=false)
-      x = []
-      by_date.each do |date, date_changes|
-        date_changes.by_author.each do |author, author_changes|
-          x << %[#{date}  #{author}\n]
-          #author_changes = author_changes.sort{|a,b| b.date <=> a.date}
-          author_changes.each do |entry|
-            if entry.type
-              msg = "#{entry.message} [#{entry.type}]".tabto(10)
-            else
-              msg = "#{entry.message}".tabto(10)
-            end
-            msg << " (#{entry.revision})" if rev
-            msg[8] = '*'
-            x << msg
-          end
-        end
-        x << "\n"
-      end
-      return x.join("\n")
-    end
-
-    #
     alias_method :to_s, :to_gnu
 
+    # Translate changelog into a XML document.
+
+    def to_xml(xsl=nil)
+      tmp = File.read(File.join(DIR, 'templates', 'changelog.xml'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+    # Create an HTML formated changelog.
+    # +css+ reference defaults to 'log.css'
+
+    def to_html(css=nil)
+      tmp = File.read(File.join(DIR, 'templates', 'changelog.html'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+    # Translate history into a RDoc formatted document.
+
+    def to_rdoc(rev=false)
+      tmp = File.read(File.join(DIR, 'templates', 'changelog.rdoc'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+    # Translate history into a Markdown formatted document.
+
+    def to_markdown(rev=false)
+      tmp = File.read(File.join(DIR, 'templates', 'changelog.markdown'))
+      erb = ERB.new(tmp)
+      erb.result(binding)
+    end
+
+=begin
     # Create an XML formated changelog.
     # +xsl+ reference defaults to 'log.xsl'
     def to_xml(xsl=nil)
@@ -184,9 +231,9 @@ module VCLog
       x << %[</log>]
       return x.join("\n")
     end
+=end
 
-    # Create an HTML formated changelog.
-    # +css+ reference defaults to 'log.css'
+=begin
     def to_html(css=nil)
       css = 'log.css' if css.nil?
       x = []
@@ -223,64 +270,12 @@ module VCLog
       x << %[</html>]
       return x.join("\n")
     end
-
-
-    # Translate history into a Markdown formatted document.
-    def to_markdown(rev=false)
-      to_markup('#', rev)
-    end
-
-    # Translate history into a RDoc formatted document.
-    def to_rdoc(rev=false)
-      to_markup('=', rev)
-    end
-
-    #
-    def to_markup(marker, rev=false)
-      x = []
-      by_date.each do |date, date_changes|
-        date_changes.by_author.each do |author, author_changes|
-          x << "#{marker}#{marker} #{date} #{author}\n"
-          x << to_markup_changes(author_changes, rev)
-        end
-        x << ""
-      end
-      marker + " #{title}\n\n" +  x.join("\n")
-    end
+=end
 
   private
 
     #
-    def to_markup_changes(changes, rev=false)
-      groups = changes.group_by{ |e| e.type_number }
-      string = ""
-      5.times do |n|
-        entries = groups[n]
-        next if !entries
-        next if entries.empty?
-        string << "* #{entries.size} #{entries[0].type_phrase}\n\n"
-        entries.sort!{|a,b| a.date <=> b.date }
-        entries.each do |entry|
-          #string << "#{marker}#{marker} #{entry.date} #{entry.author}\n\n"  # no email :(
-          if rev
-            text = "#{entry.message} (##{entry.revision})"
-          else
-            text = "#{entry.message}"
-          end
-          text = text.tabto(6)
-          text[4] = '*'
-          #entry = entry.join(' ').tabto(6)
-          #entry[4] = '*'
-          string << text
-          string << "\n"
-        end
-        string << "\n"
-      end
-      string.chomp("\n")
-    end
-
-    #
-    def escxml(input)
+    def h(input)
        result = input.to_s.dup
        result.gsub!("&", "&amp;")
        result.gsub!("<", "&lt;")
@@ -456,42 +451,5 @@ end
         end
       end
     end
-
-
-  DEFAULT_LOG_XSL = <<-END.tabto(0)
-    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-      <xsl:output cdata-section-elements="script"/>
-
-      <xsl:template match="/">
-        <html>
-          <head>
-            <title>Changelog</title>
-            <link REL='SHORTCUT ICON' HREF="../img/ruby-sm.png" />
-            <style>
-              td { font-family: sans-serif;  padding: 0px 10px; }
-            </style>
-          </head>
-          <body>
-          <div class="container">
-            <h1>Changelog</h1>
-            <table style="width: 100%;">
-              <xsl:apply-templates />
-            </table>
-          </div>
-          </body>
-        </html>
-      </xsl:template>
-
-      <xsl:template match="entry">
-          <tr>
-            <td><b><pre><xsl:value-of select="message"/></pre></b></td>
-            <td><xsl:value-of select="author"/></td>
-            <td><xsl:value-of select="date"/></td>
-          </tr>
-      </xsl:template>
-
-    </xsl:stylesheet>
-  END
 =end
 

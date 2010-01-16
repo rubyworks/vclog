@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body{font-family: sans-serif;}
+    h1{ }
+    h2{ color: #555; }
+    li{padding: 10px;}
+    .changelog{width:800px; margin:0 auto;}
+    .title{font-size: 64px;}
+    .date{font-weight: bold; color: green; float: left; padding-right: 15px;}
+    .author{font-weight: bold; color: blue;}
+    .message{padding: 5 0; font-weight: bold;}
+    .revision{font-size: 0.8em;}
+  </style>
+  <% if css %>
+    <link rel="stylesheet" href="#{css}" type="text/css">
+  <% end %>
+</head>
+<body>
+<div class="changelog">
+  <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+  <div class="commit">
+    <div class="revision">#<%= h entry.revision %></div>
+    <div class="date"><%= entry.date %></div>
+    <div class="author"><%= h entry.author %></div>
+    <div class="type"><%= h entry.type %></div>
+    <div class="message"><%= h entry.message %></div>
+  </commit>
+  <% end %>
+</div>
+</body>
+</html>
+
