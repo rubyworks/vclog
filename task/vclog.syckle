@@ -1,9 +1,15 @@
 ---
-vclog:
+vclog-html:
   service  : VClog
-  format   : html   # xml, txt
-  layout   : rel    # gnu
-  typed    : false
+  format   : html   # xml, gnu, etc.
+  type     : rel    # log or rel
   output   : ~
-  active   : false
+  active   : true
+
+vclog-rdoc :
+  service  : VClog
+  format   : rdoc
+  type     : rel
+  output   : ~
+  active   : true
 

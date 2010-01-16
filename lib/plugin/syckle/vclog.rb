@@ -1,82 +1,59 @@
 module Syckle::Plugins
 
-  # VClog service automatically generates changelogs from
+  # VClog service generates changelogs from
   # SCM commit messages.
   #
   class VClog < Service
 
     cycle :main, :document
 
-    available do |project|
-      begin
-        require 'vclog/vcs'
-        true
-      rescue LoadError
-        false
-      end
-    end
+    #available do |project|
+    #  begin
+    #    require 'vclog/vcs'
+    #    true
+    #  rescue LoadError
+    #    false
+    #  end
+    #end
 
     # Current version of project.
     attr_accessor :version
 
-    # Root level changelog layout (gnu or rel). Default is gnu.
-    attr_accessor :layout
-
-    # Changelog format (html, xml or txt). Default is html.
-    # This only applies to the changelog saved to the log/ directory.
+    # Changelog format. Default is +html+.
+    # Supports +html+, +xml+, +json+, +yaml+, +rdoc+, +markdown+, and +gnu+.
     attr_accessor :format
 
-    # If set to true will include only typed commits.
-    # (types are set by adding "[type]" at end of commit messages.
-    attr_accessor :typed
+    # Changelog layout type (+log+ or +rel+). Default is +log+.
+    attr_accessor :type
 
-    # File name to store root level ChangeLog.
-    # If not given, it will look for a CHANGES or CHANGELOG file.
-    # If that is not found that a root level ChangeLog will not
-    # be generated. But a log/changelog file will still be created.
+    # Output file to store changelog.
+    # The defualt is 'log/vclog/changelog.{format}'.
     attr_accessor :output
 
-    # Project unixname (for repository).
-    #attr_accessor :unixname
+    # Show revision numbers (true/false)?
+    attr_accessor :rev
 
-    # Developers URL to repository. Defaults to Rubyforge address.
-    #attr_accessor :repository
+    # Some formats, such as +rdoc+, use a title field. Defaults to project title.
+    attr_accessor :title
 
-    # Username. Defaults to ENV['RUBYFORGE_USERNAME'].
-    #attr_accessor :username
+    # Some formats can reference an optional stylesheet (namely +xml+ and +html+).
+    attr_accessor :style
 
     #
     def initialize_defaults
+      require 'vclog/vcs'
       @version    = metadata.version
+      @title      = metadata.title
       @format     = 'html'
-      @layout     = 'gnu'
-      @typed      = false
-
-      #@unixname   = metadata.project
-
-      #@protocol   = DEFAULT_PROTOCOL
-      #@tagpath    = DEFAULT_TAGPATH
-      #@branchpath = DEFAULT_BRANCHPATH
-
-      # fallback default is for rubyforge.org
-      #@username   = ENV['RUBYFORGE_USERNAME']
-      #@repository = metadata.repository || "rubyforge.org/var/svn/#{unixname}"
-      #if i = @repository.index('//')
-      #  @repository = @repository[i+2..-1]
-      #end
+      @type       = 'log'
     end
 
     #
     def valid?
-      return false unless format =~ /^(html|xml|txt)$/
-      return false unless layout =~ /^(gnu|rel)$/
+      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt)$/
+      return false unless type   =~ /^(log|rel|history|changelog)$/
       return true
     end
-
-    # Developer domain is "username@repository".
-    #def developer_domain
-    #  "#{username}@#{repository}"
-    #end
 
     #
     def format=(f)
@@ -84,25 +61,31 @@ module Syckle::Plugins
     end
 
     #
-    def layout=(f)
-      @layout = f.to_s.downcase
+    def type=(f)
+      @type = f.to_s.downcase
     end
 
-    # Generate changelogs.
+    # Generate changelog.
     def document
-      document_master_changelog
-      document_public_changelog
+      document_changelog
     end
 
+    #++
     # TODO: apply_naming_policy ?
-    def document_master_changelog
-      format = self.format || 'txt'
-      #apply_naming_policy('changelog', log_format.downcase)
-      file = (project.log + "changelog.#{format}").to_s
-      if dryrun?
-        report "vclog > #{file}"
+    #--
+
+    def document_changelog
+      case type
+      when 'rel', 'history'
+        file = output || (project.log + "vclog/history.#{format}").to_s
       else
-        changed = changelog.save(file, format)
+        file = output || (project.log + "vclog/changelog.#{format}").to_s
+      end
+      #apply_naming_policy('changelog', log_format.downcase)
+      if dryrun?
+        report "# vclog --#{type} --#{format} -o #{file}"
+      else
+        changed = save(file)
         if changed
           report "Updated #{relative_from_root(file)}"
         else
@@ -111,6 +94,66 @@ module Syckle::Plugins
       end
     end
 
+    # Save changelog/history to +output+ file.
+    def save(output)
+      text = render
+      if File.exist?(output)
+        if File.read(output) != text
+          File.open(output, 'w'){ |f| f << text }
+          true
+        else
+          false
+        end
+      else
+        dir = File.dirname(output)
+        mkdir_p(dir) unless File.exist?(dir)
+        File.open(output, 'w'){ |f| f << text }
+      end
+    end
+
+    # Returns changelog or history depending on type selection.
+    def log
+      @log ||= (
+        case type
+        when 'log', 'changelog'
+          log = vcs.changelog
+        when 'rel', 'history'
+          log = vcs.history(:title=>title, :version=>version)
+        else
+          log = vcs.changelog
+        end
+      )
+    end
+
+    # Access to version control system.
+    def vcs
+      #@vcs ||= VCLog::VCS.new #(self)
+      @vcs ||= VCLog::VCS.factory #(root)
+    end
+
+    # Convert log to desiered format.
+    def render
+      case format
+      when 'xml'
+        txt = log.to_xml(style)   # xsl stylesheet url
+      when 'html'
+        txt = log.to_html(style)  # css stylesheet url
+      when 'yaml'
+        txt = log.to_yaml
+      when 'json'
+        txt = log.to_json
+      when 'markdown'
+        txt = log.to_markdown(rev)
+      when 'rdoc'
+        txt = log.to_rdoc(rev)
+      else #:gnu
+        txt = log.to_gnu(rev)
+      end
+      txt
+    end
+
+
+=begin
     #
     def document_public_changelog
       if output
@@ -138,16 +181,7 @@ module Syckle::Plugins
         end
       end
     end
-
-    # Access to version control.
-    def vcs
-      @vcs ||= VCLog::VCS.new #(self)
-    end
-
-    # Get changelog from ProUtils VCS.
-    def changelog
-      @changelog ||= vcs.changelog
-    end
+=end
 
     #
     def relative_from_root(path)
