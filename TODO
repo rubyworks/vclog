@@ -1,22 +1,5 @@
 = TODO
 
-== Support Markdown and RDoc release output styles
-
-Right now its all RDoc.
-
-== Imporved parsing flexability
-
-In general parsing hueristics need to be imporved. Some specifics:
-
-* Need to support relase comments.
-* Need to recognize "Changes:" marker
-
-
-== Typed option needs work
-
-It produced no results sometimes. Fix or deprecate.
-
-
 == Automagical Version
 
 Would be cool if it could also generate an automagical version number.

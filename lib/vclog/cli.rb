@@ -59,7 +59,7 @@ module VCLog
 
     optparse = OptionParser.new do |opt|
 
-      opt.banner = "Usage: vclog [TYPE] [FORMAT] [OPTIONS] [DIR]"
+      opt.banner = "Usage: vclog [--TYPE] [--FORMAT] [OPTIONS] [DIR]"
 
       opt.separator(" ")
       opt.separator("OUTPUT TYPE (choose one):")
@@ -73,11 +73,11 @@ module VCLog
       end
 
       opt.on('--bump', '-b', "display a bumped version number") do
-        doctype = :bump
+        type = :bump
       end
 
       opt.on('--current', '-c', "display current version number") do
-        doctype = :curr
+        type = :curr
       end
 
       opt.separator(" ")
@@ -130,8 +130,8 @@ module VCLog
         version = num
       end
 
-      opt.on('--style [FILE]', "provide a stylesheet name (css or xsl) for xml and html formats") do |val|
-        style = val
+      opt.on('--style <URI>', "provide a stylesheet URI (css or xsl) for HTML or XML format") do |uri|
+        style = uri
       end
 
       opt.on('--id', "include revision ids (in formats that normally do not)") do
@@ -139,7 +139,7 @@ module VCLog
       end
 
       # DEPRECATE
-      opt.on('--output', '-o [FILE]', "send output to a file instead of stdout") do |out|
+      opt.on('--output', '-o <FILE>', "send output to a file instead of stdout") do |out|
         output = out
       end
 
@@ -167,7 +167,11 @@ module VCLog
       puts vcs.bump(version)
       exit
     when :curr
-      puts vcs.tags.last.name #TODO: ensure latest
+      if vcs.tags.empty?
+        puts "0.0.0"
+      else
+        puts vcs.tags.last.name #TODO: ensure latest
+      end
       exit
     when :log
       log = vcs.changelog

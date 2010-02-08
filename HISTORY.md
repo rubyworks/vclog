@@ -1,5 +1,26 @@
 # RELEASE HISTORY
 
+## 1.3 / 2010-02-08
+
+For the an end-user the only significant change is the support
+of 'label:' notation for commit labels. I have found that I
+am much more apt to use them if they come first in the commit
+message and that some developers already use the 'label:'
+notation to specify 'system module' effected --a useful system
+of labeling.
+
+Changes:
+
+* 1 Major Enhancement
+
+  * Support 'label:' fromat commit types
+
+* 2 Implementation Enhancements
+
+  * Adjust location of plugins for latest version of Plugin gem.
+  * Use Erb as template system for all formats.
+
+
 ## 1.2 / 2009-10-26
 
 Version 1.2 overhuals the internals so that History
