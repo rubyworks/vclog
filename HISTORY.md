@@ -20,6 +20,10 @@ Changes:
   * Adjust location of plugins for latest version of Plugin gem.
   * Use Erb as template system for all formats.
 
+* 1 Bug Fix
+
+  * Corrected error for --current and --bump commands.
+
 
 ## 1.2 / 2009-10-26
 
