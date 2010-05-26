@@ -1,6 +1,18 @@
 # RELEASE HISTORY
 
-## 1.3 / 2010-02-08
+## 1.3.1 / 2010-05-26
+
+Change 'git-log' to 'git log', as it seems the latest versions
+of git do not support the many executables any longer.
+
+Changes:
+
+* 1 Bug Fix
+
+  * Change 'git-log' to 'git log'.
+
+
+## 1.3.0 / 2010-02-08
 
 For the an end-user the only significant change is the support
 of 'label:' notation for commit labels. I have found that I
