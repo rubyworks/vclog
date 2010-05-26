@@ -25,25 +25,28 @@ module VCLog
       #
       def extract_changes
         list = []
-        changelog = `git log`.strip
-        changes = changelog.split(/^commit/m)
+        changelog = `git log --pretty=format:"---%ci|~|%aN|~|%H|~|%s"`.strip
+        changes = changelog.split("---")
+        #changes = changelog.split(/^commit/m)
         changes.shift # throw the first (empty) entry away
-        changes.each do |text|
-          date, who, rev, msg = nil, nil, nil, []
-          text.each_line do |line|
-            unless rev
-              rev = line.strip
-              next
-            end
-            if md = /^Author:(.*?)$/.match(line)
-              who = md[1]
-            elsif md = /^Date:(.*?)$/m.match(line)
-              date = Time.parse(md[1])
-            else
-              msg << line.strip
-            end
-          end
-          msg = msg.join("\n")
+        changes.each do |entry|
+          date, who, rev, msg = entry.split('|~|')
+          #date, who, rev, msg = nil, nil, nil, []
+          #text.each_line do |line|
+          #  unless rev
+          #    rev = line.strip
+          #    next
+          #  end
+          #  if md = /^Author:(.*?)$/.match(line)
+          #    who = md[1]
+          #  elsif md = /^Date:(.*?)$/m.match(line)
+          #    date = Time.parse(md[1])
+          #  else
+          #    msg << line.strip
+          #  end
+          #end
+          #msg = msg.join("\n")
+          date = Time.parse(date)
           msg, type = *split_type(msg)
           list << [rev, date, who, msg, type]
         end
