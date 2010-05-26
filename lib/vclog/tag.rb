@@ -49,6 +49,11 @@ module VCLog
         :message => message
       }
     end
+
+    # Normal tag order is the reverse typical sorts.
+    def <=>(other)
+      other.name <=> name
+    end
   end
 
 end

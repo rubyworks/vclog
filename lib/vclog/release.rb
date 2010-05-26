@@ -17,6 +17,10 @@ module VCLog
     def to_json
       to_h.to_json
     end
+
+    def <=>(other)
+      @tag <=> other.tag
+    end
   end
 
 end

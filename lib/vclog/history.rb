@@ -113,7 +113,7 @@ module VCLog
 
           rel << Release.new(lt, log.changes)
         end
-        rel
+        rel.sort
       )
     end
 
