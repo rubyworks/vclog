@@ -122,7 +122,7 @@ module VCLog
         title = string
       end
 
-      opt.on('--extra', '-e', "provide extra output, used by some formats") do
+      opt.on('--extra', '-e', "provide extra output (used by some formats)") do
         extra = true
       end
 

@@ -24,19 +24,21 @@
     <% tag = release.tag %>
     <h1><%= tag.name %> / <%= tag.date.strftime('%Y-%m-%d') %></h1>
     <p><%= tag.message %></p>
-    <% groups(release.changes).each do |number, changes| %>
-      <h2><%= changes.size %> <%= changes[0].type_phrase %></h2>
-      <ul class="log">
-      <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
-        <li class="entry">
-        <div class="message"><%= h entry.message %></div>
-        <!-- <div class="type"><%= h entry.type %></div> -->
-        <div class="revision">#<%= h entry.revision %></div>
-        <div class="date"><%= entry.date %></div>
-        <div class="author"><%= h entry.author %></div>
-        </li>
+    <% if extra %>
+      <% groups(release.changes).each do |number, changes| %>
+        <h2><%= changes.size %> <%= changes[0].type_phrase %></h2>
+        <ul class="log">
+        <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+          <li class="entry">
+          <div class="message"><%= h entry.message %></div>
+          <!-- <div class="type"><%= h entry.type %></div> -->
+          <div class="revision">#<%= h entry.revision %></div>
+          <div class="date"><%= entry.date %></div>
+          <div class="author"><%= h entry.author %></div>
+          </li>
+        <% end %>
+        </ul>
       <% end %>
-      </ul>
     <% end %>
   <% end %>
 </div>

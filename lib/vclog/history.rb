@@ -70,7 +70,7 @@ module VCLog
       @releases ||= (
         rel = []
 
-        tags = tags()
+        tags = self.tags
 
         ver  = vcs.bump(version)
         time = ::Time.now
@@ -88,7 +88,7 @@ module VCLog
         #rels = rels.uniq      # only uniq releases
 
         # sort by release date
-        tags = tags.sort{ |a,b| a.date <=> b.date }
+        tags = tags.sort{ |a,b| b.name <=> a.name }
 
         # organize into deltas
         deltas, last = [], nil
@@ -113,7 +113,7 @@ module VCLog
 
           rel << Release.new(lt, log.changes)
         end
-        rel.sort
+        rel
       )
     end
 
