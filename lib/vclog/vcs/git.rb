@@ -25,7 +25,7 @@ module VCLog
       #
       def extract_changes
         list = []
-        changelog = `git-log`.strip
+        changelog = `git log`.strip
         changes = changelog.split(/^commit/m)
         changes.shift # throw the first (empty) entry away
         changes.each do |text|

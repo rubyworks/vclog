@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-load 'vclog/cli'
+require 'vclog/cli'
 VCLog.run
 
