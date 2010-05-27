@@ -88,7 +88,8 @@ module VCLog
         #rels = rels.uniq      # only uniq releases
 
         # sort by release date
-        tags = tags.sort{ |a,b| b.name <=> a.name }
+        #tags = tags.sort{ |a,b| b.name <=> a.name }
+        tags = tags.sort{ |a,b| b.date <=> a.date }
 
         # organize into deltas
         deltas, last = [], nil

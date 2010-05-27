@@ -31,21 +31,6 @@ module VCLog
         changes.shift # throw the first (empty) entry away
         changes.each do |entry|
           date, who, rev, msg = entry.split('|~|')
-          #date, who, rev, msg = nil, nil, nil, []
-          #text.each_line do |line|
-          #  unless rev
-          #    rev = line.strip
-          #    next
-          #  end
-          #  if md = /^Author:(.*?)$/.match(line)
-          #    who = md[1]
-          #  elsif md = /^Date:(.*?)$/m.match(line)
-          #    date = Time.parse(md[1])
-          #  else
-          #    msg << line.strip
-          #  end
-          #end
-          #msg = msg.join("\n")
           date = Time.parse(date)
           msg, type = *split_type(msg)
           list << [rev, date, who, msg, type]
@@ -75,6 +60,16 @@ module VCLog
           who  = who.split(':')[1].strip
           date = date[date.index(':')+1..-1].strip
           msg  = msg.join("\n")
+
+          info = `git show #{tag}^ --pretty=format:"%ci|-|"`
+          date, *_ = *info.split('|-|')
+
+          #md = /\Atag(.*?)\n(.*?)^commit/m.match(info)
+          #_who, _date, *_msg = *md[2].split(/\n/)
+          #_who  = _who.split(':')[1].strip
+          #_date = _date[_date.index(':')+1..-1].strip
+          #_msg  = _msg.join("\n")
+
           list << [tag, date, who, msg]
         end
         list

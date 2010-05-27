@@ -4,35 +4,39 @@ module VCLog
 
     # = SVN
     #
-    # SVN's raw log format:
-    #
-    #   ------------------------------------------------------------------------
-    #   r34 | transami | 2006-08-02 22:10:11 -0400 (Wed, 02 Aug 2006) | 2 lines
-    #
-    #   change foo to work better
+    # NOTE: Unfortunately the SVN adapater is very slow. If hits the server
+    # every time the 'svn log' command is issued. When generating a History
+    # that's one hit for every tag. If anyone knows a better way please have
+    # at it --maybe future versions of SVN will improve the situation.
     #
     class SVN < VCS
+
+      def initialize(root)
+        begin
+          require 'xmlsimple'
+        rescue LoadError
+          "VCLog requires xmlsimple for SVN support"
+        end
+        super(root)
+      end
 
       #
       def extract_changes
         log = []
 
-        txt = `svn log`.strip
+        xml = `svn log --xml`.strip
 
-        com = txt.split(/^[-]+$/)
+        commits = XmlSimple.xml_in(xml, {'KeyAttr' => 'rev'})
+        commits = commits['logentry']
 
-        com.each do |msg|
-          msg = msg.strip
+        commits.each do |com|
+          rev  = com["revision"]
+          msg  = [com["msg"]].flatten.compact.join('').strip
+          who  = [com["author"]].flatten.compact.join('').strip
+          date = [com["date"]].flatten.compact.join('').strip
 
           next if msg.empty?
-
-          idx = msg.index("\n")
-          head = msg.slice!(0...idx)
-          rev, who, date, cnt = *head.split('|')
-
-          rev  = rev.strip
-          who  = who.strip
-          msg  = msg.strip
+          next if msg == "*** empty log message ***"
 
           date = Time.parse(date)
 
@@ -58,6 +62,7 @@ module VCLog
         tags.each do |path|
           dir = File.join(tagdir, path)
 
+          # using yaml, but maybe use xml instead?
           info = `svn info #{dir}`
           info = YAML.load(info)
           md = /(\d.*)$/.match(info['Path'])
@@ -66,8 +71,13 @@ module VCLog
           who  = info['Last Changed Author']
           rev  = info['Revision']
 
-          commit = `svn log -r BASE #{dir}`
-          msg  = commit.lines.to_a[2..-2].join("\n").strip
+          # get last commit
+          xml = `svn log -l1 --xml #{dir}`
+          commits = XmlSimple.xml_in(xml, {'KeyAttr' => 'rev'})
+          commit = commits['logentry'].first
+
+          msg  = [commit["msg"]].flatten.compact.join('').strip
+          date = [commit["date"]].flatten.compact.join('').strip
 
           list << [name, date, who, msg]
         end
