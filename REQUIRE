@@ -1,2 +1,9 @@
 runtime:
 - facets >2.4
+
+development:
+- syckle
+
+development/test:
+- cucumber
+
