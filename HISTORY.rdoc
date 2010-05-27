@@ -1,14 +1,16 @@
 = RELEASE HISTORY
 
-== 1.3.1 / 2010-05-26
+== 1.4.0 / 2010-05-26
 
-This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note as weel that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).
+This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).
 
 Changes:
 
 * 1 Minor Enhancement
 
   * Use -e or --extra to see Changes list in release history.
+  * Use xmlsimple for parsing SVN log output.
+  * Improve git log parsing with --pretty option.
 
 * 2 Bug Fixes
 
