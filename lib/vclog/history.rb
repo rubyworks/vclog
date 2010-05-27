@@ -76,7 +76,7 @@ module VCLog
         time = ::Time.now
         user = ENV['USER']  # TODO: get user name from vcs
 
-        tags << Tag.new(ver, time, user, "Current Development")
+        tags << Tag.new(ver, nil, time, user, "Current Development")
 
         # TODO: Do we need to add a Time.now tag?
         # add current verion to release list (if given)

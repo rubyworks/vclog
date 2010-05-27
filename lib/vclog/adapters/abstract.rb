@@ -1,4 +1,5 @@
 module VCLog
+module Adapters
 
   require 'time'
   require 'vclog/changelog'
@@ -10,22 +11,7 @@ module VCLog
   #       LOG: entries in source files?
 
   # = Version Control System
-  class VCS
-
-    def self.factory(root=nil)
-      root = root || Dir.pwd
-      type = read_type(root)
-      raise ArgumentError, "Not a recognized version control system." unless type
-      VCS.const_get(type.upcase).new(root)
-    end
-
-    def self.read_type(root)
-      dir = nil
-      Dir.chdir(root) do
-        dir = Dir.glob("{.svn,.git,.hg,_darcs}").first
-      end
-      dir[1..-1] if dir
-    end
+  class Abstract
 
     attr :root
 
@@ -159,10 +145,6 @@ module VCLog
 
   end
 
-  require 'vclog/vcs/svn'
-  require 'vclog/vcs/git'
-  #require 'vclog/vcs/hg'
-  #require 'vclog/vcs/darcs'
-
+end
 end
 

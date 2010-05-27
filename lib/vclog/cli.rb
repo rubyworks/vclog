@@ -1,6 +1,6 @@
 module VCLog
 
-  require 'vclog/vcs'
+  require 'vclog/adapters'
   require 'optparse'
 
   # = vclog Command
@@ -160,7 +160,7 @@ module VCLog
 
     root = ARGV.shift || Dir.pwd
 
-    vcs = VCLog::VCS.factory #(root)
+    vcs = VCLog::Adapters.factory #(root)
 
     case type
     when :bump

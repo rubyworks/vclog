@@ -14,11 +14,11 @@ module VCLog
 
     #
     def initialize(rev, date, author, message, type=nil)
-      self.revision = rev      #opts[:revison] || opts[:rev]
-      self.date     = date     #opts[:date]    || opts[:when]
-      self.author   = author   #opts[:author]  || opts[:who]
-      self.type     = type     #opts[:type]
-      self.message  = message  #opts[:message] || opts[:msg]
+      self.revision = rev
+      self.date     = date
+      self.author   = author
+      self.type     = type
+      self.message  = message
     end
 
     #
@@ -26,8 +26,14 @@ module VCLog
       @author = author.strip
     end
 
+    #
     def message=(note)
       @message = note.strip
+    end
+
+    #
+    def type
+      @type ||= split_type(message)
     end
 
     #def clean_type(type)
@@ -101,6 +107,30 @@ module VCLog
 
     def to_yaml(*args)
       to_h.to_yaml(*args)
+    end
+
+    private
+
+    # Looks for a "[type]" indicator at the end of the commit message.
+    # If that is not found, it looks at front of message for
+    # "[type]" or "[type]:". Failing that it tries just "type:".
+    #
+    def split_type(note)
+      note = note.strip
+      if md = /\[(.*?)\]\Z/.match(note)
+        t = md[1].strip.downcase
+        n = note[0...(md.begin(0))]
+      elsif md = /\A\[(.*?)\]\:?/.match(note)
+        t = md[1].strip.downcase
+        n = note[md.end(0)..-1]
+      elsif md = /\A(\w+?)\:/.match(note)
+        t = md[1].strip.downcase
+        n = note[md.end(0)..-1]
+      else
+        n, t = note, nil
+      end
+      n.gsub!(/^\s*?\n/m,'') # remove blank lines
+      return n, t
     end
 
   end #class Entry
