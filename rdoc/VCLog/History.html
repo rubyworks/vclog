@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,23 +8,36 @@
   <title>Class: VCLog::History</title>
 
   
-    <link rel="SHORTCUT ICON" href="../images/class.png">
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
   
 
-  <link type="text/css" media="screen" rel="stylesheet" href="../rdoc.css" />
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
 
-  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/thickbox.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 <body class="class">
+<div id="main">
 
   <div class="head">
     <h1>
       
-        <img src="../images/class.png" align="absmiddle">&nbsp;
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
       
       <a href="../index.html">VCLog</a>&nbsp;
       <a href="/">VCLog::History</a>
@@ -48,6 +60,7 @@
       </div>
 
       <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
 
       
     </div>
@@ -75,35 +88,80 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li class="method"><a href="#M000019">::new</a></li>
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
           
-          <li class="method"><a href="#M000022">#changelog</a></li>
+            
+            <li class="method">
+              <a href="#method-i-changelog">#changelog</a>
+            </li>
           
-          <li class="method"><a href="#M000021">#changes</a></li>
+            
+            <li class="method">
+              <a href="#method-i-changes">#changes</a>
+            </li>
           
-          <li class="method"><a href="#M000023">#releases</a></li>
+            
+            <li class="method">
+              <a href="#method-i-groups">#groups</a>
+            </li>
           
-          <li class="method"><a href="#M000020">#tags</a></li>
+            
+            <li class="method">
+              <a href="#method-i-h">#h</a>
+            </li>
           
-          <li class="method"><a href="#M000029">#to_gnu</a></li>
+            
+            <li class="method">
+              <a href="#method-i-releases">#releases</a>
+            </li>
           
-          <li class="method"><a href="#M000032">#to_html</a></li>
+            
+            <li class="method">
+              <a href="#method-i-tags">#tags</a>
+            </li>
           
-          <li class="method"><a href="#M000035">#to_json</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_gnu">#to_gnu</a>
+            </li>
           
-          <li class="method"><a href="#M000036">#to_markdown</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_html">#to_html</a>
+            </li>
           
-          <li class="method"><a href="#M000039">#to_markup</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_json">#to_json</a>
+            </li>
           
-          <li class="method"><a href="#M000040">#to_markup_changes</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_markdown">#to_markdown</a>
+            </li>
           
-          <li class="method"><a href="#M000038">#to_rdoc</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_rdoc">#to_rdoc</a>
+            </li>
           
-          <li class="method"><a href="#M000028">#to_s</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_s">#to_s</a>
+            </li>
           
-          <li class="method"><a href="#M000030">#to_xml</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_xml">#to_xml</a>
+            </li>
           
-          <li class="method"><a href="#M000033">#to_yaml</a></li>
+            
+            <li class="method">
+              <a href="#method-i-to_yaml">#to_yaml</a>
+            </li>
           
         </ul>
       </div>
@@ -117,16 +175,22 @@
       
       
       <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Files</h3>
+        <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../HISTORY_md.html">HISTORY.md</a></li>
+          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="../README.html">README</a></li>
+          <li class="file"><a href="../ROADMAP_rdoc.html">ROADMAP.rdoc</a></li>
         
-          <li class="file"><a href="../TODO.html">TODO</a></li>
+          <li class="file"><a href="../VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../REQUIRE.html">REQUIRE</a></li>
         
         </ul>
       </div>
@@ -134,7 +198,7 @@
 
       <div id="classindex-section" class="section project-section">
         <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="../images/find.png"
+          <span class="search-toggle"><img src="../assets/icon/find.png"
             height="16" width="16" alt="[+]"
             title="show/hide quicksearch" /></span></h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
@@ -153,6 +217,8 @@
           <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
         
@@ -177,13 +243,15 @@
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
       </div>
-
-      
     </div>
 
     <div id="validator-badges">
-      Generated with <a href="http://github.com/proutils/rdazzle">Razzle Dazzle Redfish</a><br/><br/>
-      <a href="http://validator.w3.org/check/referer">[Validate]</a>
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      <br/><br/>
     </div>
   </div>
 
@@ -216,6 +284,20 @@ TODO: Extract output formating from delta parser.
 
     <!-- Constants -->
     
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt><a name="DIR">DIR</a></dt>
+        
+        <dd class="description"><p>
+Location of this file in the file system.
+</p></dd>
+        
+      
+      </dl>
+    </div>
+    
 
     <!-- Attributes -->
     
@@ -233,24 +315,7 @@ TODO: Extract output formating from delta parser.
 
         <div class="method-description">
         
-        <p class="missing-docs">(Not documented)</p>
         
-        </div>
-      </div>
-      
-      <div id="marker-attribute-method" class="method-detail">
-        <a name="marker"></a>
-        
-        <a name="marker="></a>
-        
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">marker</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        <p class="missing-docs">(Not documented)</p>
         
         </div>
       </div>
@@ -267,7 +332,9 @@ TODO: Extract output formating from delta parser.
 
         <div class="method-description">
         
-        <p class="missing-docs">(Not documented)</p>
+        <p>
+Alternate title.
+</p>
         
         </div>
       </div>
@@ -303,7 +370,9 @@ Current working version.
 
         <div class="method-description">
         
-        <p class="missing-docs">(Not documented)</p>
+        <p>
+Provide extra information.
+</p>
         
         </div>
       </div>
@@ -318,7 +387,7 @@ Current working version.
 
     
       <div id="new-method" class="method-detail ">
-        <a name="M000019"></a>
+        <a name="method-c-new"></a>
 
         <div class="method-heading">
         
@@ -337,14 +406,13 @@ Current working version.
           <div class="method-source-code"
             id="new-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 39</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">vcs</span>, <span class="ruby-identifier">opts</span>={})
-      <span class="ruby-ivar">@vcs</span> = <span class="ruby-identifier">vcs</span>
-      <span class="ruby-ivar">@marker</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:marker</span>]  <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;#&quot;</span>
-      <span class="ruby-ivar">@title</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:title</span>]   <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;RELEASE HISTORY&quot;</span>
-      <span class="ruby-ivar">@extra</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:extra</span>]
-      <span class="ruby-ivar">@version</span>   = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:version</span>]
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 43</span>
+43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">vcs</span>, <span class="ruby-identifier">opts</span>={})
+44:       <span class="ruby-ivar">@vcs</span>     = <span class="ruby-identifier">vcs</span>
+45:       <span class="ruby-ivar">@title</span>   = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:title</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;RELEASE HISTORY&quot;</span>
+46:       <span class="ruby-ivar">@extra</span>   = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:extra</span>]
+47:       <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:version</span>]
+48:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -360,7 +428,7 @@ Current working version.
 
     
       <div id="changelog-method" class="method-detail ">
-        <a name="M000022"></a>
+        <a name="method-i-changelog"></a>
 
         <div class="method-heading">
         
@@ -381,10 +449,10 @@ Changelog object
           <div class="method-source-code"
             id="changelog-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 58</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
-      <span class="ruby-ivar">@changlog</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span> <span class="ruby-comment cmt">#ChangeLog.new(changes)</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 63</span>
+63:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
+64:       <span class="ruby-ivar">@changlog</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span> <span class="ruby-comment cmt">#ChangeLog.new(changes)</span>
+65:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -394,7 +462,7 @@ Changelog object
 
     
       <div id="changes-method" class="method-detail ">
-        <a name="M000021"></a>
+        <a name="method-i-changes"></a>
 
         <div class="method-heading">
         
@@ -415,10 +483,44 @@ Changelog object
           <div class="method-source-code"
             id="changes-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 53</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changes</span>
-      <span class="ruby-ivar">@changes</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changes</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 57</span>
+57:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changes</span>
+58:       <span class="ruby-ivar">@changes</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changes</span>
+59:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="groups-method" class="method-detail ">
+        <a name="method-i-groups"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">groups</span><span
+            class="method-args">(changes)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Group <tt>changes</tt> by tag type.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="groups-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 123</span>
+123:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>(<span class="ruby-identifier">changes</span>)
+124:       <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type_number</span> }
+125:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -428,7 +530,7 @@ Changelog object
 
     
       <div id="releases-method" class="method-detail ">
-        <a name="M000023"></a>
+        <a name="method-i-releases"></a>
 
         <div class="method-heading">
         
@@ -447,57 +549,58 @@ Changelog object
           <div class="method-source-code"
             id="releases-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 63</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">releases</span>
-      <span class="ruby-ivar">@releases</span> <span class="ruby-operator">||=</span> (
-        <span class="ruby-identifier">rel</span> = []
-
-        <span class="ruby-identifier">tags</span> = <span class="ruby-identifier">tags</span>()
-
-        <span class="ruby-identifier">ver</span>  = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">bump</span>(<span class="ruby-identifier">version</span>)
-        <span class="ruby-identifier">time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
-        <span class="ruby-identifier">user</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'USER'</span>]  <span class="ruby-comment cmt"># TODO: get user name from vcs</span>
-
-        <span class="ruby-identifier">tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ver</span>, <span class="ruby-identifier">time</span>, <span class="ruby-identifier">user</span>, <span class="ruby-value str">&quot;FIXME&quot;</span>)
-
-        <span class="ruby-comment cmt"># TODO: Do we need to add a Time.now tag?</span>
-        <span class="ruby-comment cmt"># add current verion to release list (if given)</span>
-        <span class="ruby-comment cmt">#previous_version = tags[0].name</span>
-        <span class="ruby-comment cmt">#if current_version &lt; previous_version  # TODO: need to use natural comparision</span>
-        <span class="ruby-comment cmt">#  raise ArgumentError, &quot;Release version is less than previous version (#{previous_version}).&quot;</span>
-        <span class="ruby-comment cmt">#end</span>
-        <span class="ruby-comment cmt">#rels &lt;&lt; [current_version, current_release || Time.now]</span>
-        <span class="ruby-comment cmt">#rels = rels.uniq      # only uniq releases</span>
-
-        <span class="ruby-comment cmt"># sort by release date</span>
-        <span class="ruby-identifier">tags</span> = <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">date</span> }
-
-        <span class="ruby-comment cmt"># organize into deltas</span>
-        <span class="ruby-identifier">deltas</span>, <span class="ruby-identifier">last</span> = [], <span class="ruby-keyword kw">nil</span>
-        <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">deltas</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">tag</span>]
-          <span class="ruby-identifier">last</span> = <span class="ruby-identifier">tag</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-comment cmt"># gather changes for each delta and build log</span>
-        <span class="ruby-identifier">deltas</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">gt</span>, <span class="ruby-identifier">lt</span><span class="ruby-operator">|</span>
-          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">gt</span>
-            <span class="ruby-identifier">gt_vers</span>, <span class="ruby-identifier">gt_date</span> = <span class="ruby-identifier">gt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">gt</span>.<span class="ruby-identifier">date</span>
-            <span class="ruby-identifier">lt_vers</span>, <span class="ruby-identifier">lt_date</span> = <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">date</span>
-            <span class="ruby-comment cmt">#gt_date = Time.parse(gt_date) unless Time===gt_date</span>
-            <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
-            <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">after</span>(<span class="ruby-identifier">gt_date</span>).<span class="ruby-identifier">before</span>(<span class="ruby-identifier">lt_date</span>)
-          <span class="ruby-keyword kw">else</span>
-            <span class="ruby-identifier">lt_vers</span>, <span class="ruby-identifier">lt_date</span> = <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">date</span>
-            <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
-            <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">before</span>(<span class="ruby-identifier">lt_date</span>)
-          <span class="ruby-keyword kw">end</span>
-
-          <span class="ruby-identifier">rel</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Release</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">lt</span>, <span class="ruby-identifier">log</span>.<span class="ruby-identifier">changes</span>)
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">rel</span>
-      )
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 69</span>
+ 69:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">releases</span>
+ 70:       <span class="ruby-ivar">@releases</span> <span class="ruby-operator">||=</span> (
+ 71:         <span class="ruby-identifier">rel</span> = []
+ 72: 
+ 73:         <span class="ruby-identifier">tags</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">tags</span>
+ 74: 
+ 75:         <span class="ruby-identifier">ver</span>  = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">bump</span>(<span class="ruby-identifier">version</span>)
+ 76:         <span class="ruby-identifier">time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+ 77:         <span class="ruby-identifier">user</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'USER'</span>]  <span class="ruby-comment cmt"># TODO: get user name from vcs</span>
+ 78: 
+ 79:         <span class="ruby-identifier">tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ver</span>, <span class="ruby-identifier">time</span>, <span class="ruby-identifier">user</span>, <span class="ruby-value str">&quot;Current Development&quot;</span>)
+ 80: 
+ 81:         <span class="ruby-comment cmt"># TODO: Do we need to add a Time.now tag?</span>
+ 82:         <span class="ruby-comment cmt"># add current verion to release list (if given)</span>
+ 83:         <span class="ruby-comment cmt">#previous_version = tags[0].name</span>
+ 84:         <span class="ruby-comment cmt">#if current_version &lt; previous_version  # TODO: need to use natural comparision</span>
+ 85:         <span class="ruby-comment cmt">#  raise ArgumentError, &quot;Release version is less than previous version (#{previous_version}).&quot;</span>
+ 86:         <span class="ruby-comment cmt">#end</span>
+ 87:         <span class="ruby-comment cmt">#rels &lt;&lt; [current_version, current_release || Time.now]</span>
+ 88:         <span class="ruby-comment cmt">#rels = rels.uniq      # only uniq releases</span>
+ 89: 
+ 90:         <span class="ruby-comment cmt"># sort by release date</span>
+ 91:         <span class="ruby-comment cmt">#tags = tags.sort{ |a,b| b.name &lt;=&gt; a.name }</span>
+ 92:         <span class="ruby-identifier">tags</span> = <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">date</span> }
+ 93: 
+ 94:         <span class="ruby-comment cmt"># organize into deltas</span>
+ 95:         <span class="ruby-identifier">deltas</span>, <span class="ruby-identifier">last</span> = [], <span class="ruby-keyword kw">nil</span>
+ 96:         <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+ 97:           <span class="ruby-identifier">deltas</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">tag</span>]
+ 98:           <span class="ruby-identifier">last</span> = <span class="ruby-identifier">tag</span>
+ 99:         <span class="ruby-keyword kw">end</span>
+100: 
+101:         <span class="ruby-comment cmt"># gather changes for each delta and build log</span>
+102:         <span class="ruby-identifier">deltas</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">gt</span>, <span class="ruby-identifier">lt</span><span class="ruby-operator">|</span>
+103:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">gt</span>
+104:             <span class="ruby-identifier">gt_vers</span>, <span class="ruby-identifier">gt_date</span> = <span class="ruby-identifier">gt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">gt</span>.<span class="ruby-identifier">date</span>
+105:             <span class="ruby-identifier">lt_vers</span>, <span class="ruby-identifier">lt_date</span> = <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">date</span>
+106:             <span class="ruby-comment cmt">#gt_date = Time.parse(gt_date) unless Time===gt_date</span>
+107:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
+108:             <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">after</span>(<span class="ruby-identifier">gt_date</span>).<span class="ruby-identifier">before</span>(<span class="ruby-identifier">lt_date</span>)
+109:           <span class="ruby-keyword kw">else</span>
+110:             <span class="ruby-identifier">lt_vers</span>, <span class="ruby-identifier">lt_date</span> = <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">lt</span>.<span class="ruby-identifier">date</span>
+111:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
+112:             <span class="ruby-identifier">log</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">before</span>(<span class="ruby-identifier">lt_date</span>)
+113:           <span class="ruby-keyword kw">end</span>
+114: 
+115:           <span class="ruby-identifier">rel</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Release</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">lt</span>, <span class="ruby-identifier">log</span>.<span class="ruby-identifier">changes</span>)
+116:         <span class="ruby-keyword kw">end</span>
+117:         <span class="ruby-identifier">rel</span>
+118:       )
+119:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -507,7 +610,7 @@ Changelog object
 
     
       <div id="tags-method" class="method-detail ">
-        <a name="M000020"></a>
+        <a name="method-i-tags"></a>
 
         <div class="method-heading">
         
@@ -528,10 +631,10 @@ Changelog object
           <div class="method-source-code"
             id="tags-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 48</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tags</span>
-      <span class="ruby-ivar">@tags</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">tags</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 51</span>
+51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tags</span>
+52:       <span class="ruby-ivar">@tags</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">tags</span>
+53:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -541,7 +644,7 @@ Changelog object
 
     
       <div id="to-gnu-method" class="method-detail ">
-        <a name="M000029"></a>
+        <a name="method-i-to_gnu"></a>
 
         <div class="method-heading">
         
@@ -554,7 +657,7 @@ Changelog object
         <div class="method-description">
           
           <p>
-TODO: What would GNU history be?
+TODO: What would GNU history look like?
 </p>
           
 
@@ -562,10 +665,10 @@ TODO: What would GNU history be?
           <div class="method-source-code"
             id="to-gnu-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 120</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_gnu</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">to_markdown</span>(<span class="ruby-identifier">rev</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 135</span>
+135:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_gnu</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
+136:       <span class="ruby-identifier">to_markdown</span>(<span class="ruby-identifier">rev</span>)
+137:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -575,7 +678,7 @@ TODO: What would GNU history be?
 
     
       <div id="to-html-method" class="method-detail ">
-        <a name="M000032"></a>
+        <a name="method-i-to_html"></a>
 
         <div class="method-heading">
         
@@ -590,68 +693,18 @@ TODO: What would GNU history be?
           <p>
 Translate history into a HTML document.
 </p>
-<p>
-TODO: Need to add some headers.
-</p>
           
 
           
           <div class="method-source-code"
             id="to-html-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 162</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_html</span>(<span class="ruby-identifier">css</span>=<span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-identifier">require</span> <span class="ruby-value str">'rexml/document'</span>
-      <span class="ruby-identifier">xml</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'&lt;div class=&quot;history&quot;&gt;&lt;/div&gt;'</span>)
-      <span class="ruby-comment cmt">#xml &lt;&lt; REXML::XMLDecl.default</span>
-      <span class="ruby-identifier">root</span> = <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">root</span>
-      <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">release</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">rel</span> = <span class="ruby-identifier">root</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>)
-        <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'release'</span>)
-        <span class="ruby-identifier">tel</span> = <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'tag'</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">name</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'name'</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'date'</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">author</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'author'</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">message</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'message'</span>)
-        <span class="ruby-identifier">cel</span> = <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'ul'</span>)
-        <span class="ruby-identifier">cel</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'changes'</span>)
-        <span class="ruby-identifier">release</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">sort</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">date</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">el</span> = <span class="ruby-identifier">cel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'li'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'entry'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'date'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">author</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'author'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">type</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'type'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">revision</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'revision'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'div'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">message</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-value str">'message'</span>)
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">out</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
-      <span class="ruby-identifier">fmt</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Pretty</span>.<span class="ruby-identifier">new</span>
-      <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">compact</span> = <span class="ruby-keyword kw">true</span>
-      <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">xml</span>, <span class="ruby-identifier">out</span>)
-      <span class="ruby-comment cmt">#</span>
-      <span class="ruby-identifier">x</span> = []
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[&lt;html&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[&lt;head&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[  &lt;title&gt;ChangeLog&lt;/title&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[  &lt;style&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    body{font-family: sans-serif;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    #changelog{width:800px;margin:0 auto;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    li{padding: 10px;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    .date{font-weight: bold; color: gray; float: left; padding: 0 5px;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    .author{color: red;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    .message{padding: 5 0; font-weight: bold;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[    .revision{font-size: 0.8em;}]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[  &lt;/style&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">%[  &lt;link rel=&quot;stylesheet&quot; href=&quot;#{css}&quot; type=&quot;text/css&quot;&gt;]</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">css</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[&lt;/head&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[&lt;body&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">out</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[&lt;/body&gt;]</span>
-      <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">%[&lt;/html&gt;]</span>
-      <span class="ruby-identifier">x</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 163</span>
+163:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_html</span>(<span class="ruby-identifier">css</span>=<span class="ruby-keyword kw">nil</span>)
+164:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'history.html'</span>))
+165:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
+166:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+167:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -661,7 +714,7 @@ TODO: Need to add some headers.
 
     
       <div id="to-json-method" class="method-detail ">
-        <a name="M000035"></a>
+        <a name="method-i-to_json"></a>
 
         <div class="method-heading">
         
@@ -682,11 +735,11 @@ Translate history into a JSON document.
           <div class="method-source-code"
             id="to-json-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 222</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_json</span>
-      <span class="ruby-identifier">require</span> <span class="ruby-value str">'json'</span>
-      <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">to_json</span>
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 148</span>
+148:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_json</span>
+149:       <span class="ruby-identifier">require</span> <span class="ruby-value str">'json'</span>
+150:       <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">to_json</span>
+151:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -696,7 +749,7 @@ Translate history into a JSON document.
 
     
       <div id="to-markdown-method" class="method-detail ">
-        <a name="M000036"></a>
+        <a name="method-i-to_markdown"></a>
 
         <div class="method-heading">
         
@@ -717,56 +770,12 @@ Translate history into a Markdown formatted document.
           <div class="method-source-code"
             id="to-markdown-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 228</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_markdown</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">to_markup</span>(<span class="ruby-value str">'#'</span>, <span class="ruby-identifier">rev</span>)
-    <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-markup-method" class="method-detail ">
-        <a name="M000039"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_markup</span><span
-            class="method-args">(marker, rev=false)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="to-markup-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 238</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_markup</span>(<span class="ruby-identifier">marker</span>, <span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">entries</span> = []
-      <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">release</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">tag</span>     = <span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>
-        <span class="ruby-identifier">changes</span> = <span class="ruby-identifier">release</span>.<span class="ruby-identifier">changes</span>
-        <span class="ruby-identifier">change_text</span> = <span class="ruby-identifier">to_markup_changes</span>(<span class="ruby-identifier">changes</span>, <span class="ruby-identifier">rev</span>)
-        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">change_text</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
-          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">extra</span>
-            <span class="ruby-identifier">entries</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{marker*2} #{tag.name} / #{tag.date.strftime('%Y-%m-%d')}\n\n#{tag.message}\n\nChanges:\n\n#{change_text}&quot;</span>
-          <span class="ruby-keyword kw">else</span>
-            <span class="ruby-identifier">entries</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{marker*2} #{tag.name} / #{tag.date.strftime('%Y-%m-%d')}\n\n#{change_text}&quot;</span>
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-comment cmt"># reverse entries order and make into document</span>
-      <span class="ruby-identifier">marker</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot; #{title}\n\n&quot;</span> <span class="ruby-operator">+</span>  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 179</span>
+179:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_markdown</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
+180:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'history.markdown'</span>))
+181:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
+182:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+183:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -776,7 +785,7 @@ Translate history into a Markdown formatted document.
 
     
       <div id="to-rdoc-method" class="method-detail ">
-        <a name="M000038"></a>
+        <a name="method-i-to_rdoc"></a>
 
         <div class="method-heading">
         
@@ -789,7 +798,7 @@ Translate history into a Markdown formatted document.
         <div class="method-description">
           
           <p>
-Translate history into a RDoc formatted document.
+Translate history into a RDoc document.
 </p>
           
 
@@ -797,10 +806,12 @@ Translate history into a RDoc formatted document.
           <div class="method-source-code"
             id="to-rdoc-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 233</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_rdoc</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">to_markup</span>(<span class="ruby-value str">'='</span>, <span class="ruby-identifier">rev</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 171</span>
+171:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_rdoc</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
+172:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'history.rdoc'</span>))
+173:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
+174:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+175:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -810,7 +821,7 @@ Translate history into a RDoc formatted document.
 
     
       <div id="to-s-method" class="method-detail ">
-        <a name="M000028"></a>
+        <a name="method-i-to_s"></a>
 
         <div class="method-heading">
         
@@ -822,17 +833,19 @@ Translate history into a RDoc formatted document.
 
         <div class="method-description">
           
-          
+          <p>
+Same as to_gnu.
+</p>
           
 
           
           <div class="method-source-code"
             id="to-s-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 115</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">to_gnu</span>(<span class="ruby-identifier">rev</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 129</span>
+129:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
+130:       <span class="ruby-identifier">to_gnu</span>(<span class="ruby-identifier">rev</span>)
+131:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -842,7 +855,7 @@ Translate history into a RDoc formatted document.
 
     
       <div id="to-xml-method" class="method-detail ">
-        <a name="M000030"></a>
+        <a name="method-i-to_xml"></a>
 
         <div class="method-heading">
         
@@ -855,7 +868,7 @@ Translate history into a RDoc formatted document.
         <div class="method-description">
           
           <p>
-Translate history into an XML document.
+Translate history into a XML document.
 </p>
           
 
@@ -863,39 +876,12 @@ Translate history into an XML document.
           <div class="method-source-code"
             id="to-xml-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 125</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">xsl</span>=<span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-identifier">require</span> <span class="ruby-value str">'rexml/document'</span>
-      <span class="ruby-identifier">xml</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'&lt;history&gt;&lt;/history&gt;'</span>)
-      <span class="ruby-comment cmt">#xml &lt;&lt; REXML::XMLDecl.default</span>
-      <span class="ruby-identifier">root</span> = <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">root</span>
-      <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">release</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">rel</span> = <span class="ruby-identifier">root</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'release'</span>)
-        <span class="ruby-identifier">tel</span> = <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'tag'</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'name'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">name</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'date'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_s</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'author'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">author</span>)
-        <span class="ruby-identifier">tel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'message'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">release</span>.<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">message</span>)
-        <span class="ruby-identifier">cel</span> = <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'changes'</span>)
-        <span class="ruby-identifier">release</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">sort</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">date</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">el</span> = <span class="ruby-identifier">cel</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'entry'</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'date'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_s</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'author'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">author</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'type'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">type</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'revision'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">revision</span>)
-          <span class="ruby-identifier">el</span>.<span class="ruby-identifier">add_element</span>(<span class="ruby-value str">'message'</span>).<span class="ruby-identifier">add_text</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">message</span>)
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">out</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
-      <span class="ruby-identifier">fmt</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Pretty</span>.<span class="ruby-identifier">new</span>
-      <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">compact</span> = <span class="ruby-keyword kw">true</span>
-      <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">xml</span>, <span class="ruby-identifier">out</span>)
-      <span class="ruby-comment cmt">#</span>
-      <span class="ruby-identifier">txt</span>  = <span class="ruby-value str">%[&lt;?xml version=&quot;1.0&quot;?&gt;\n]</span>
-      <span class="ruby-identifier">txt</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%[&lt;?xml-stylesheet href=&quot;#{xsl}&quot; type=&quot;text/xsl&quot; ?&gt;\n]</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">xsl</span>
-      <span class="ruby-identifier">txt</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">out</span>
-      <span class="ruby-identifier">txt</span>
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 155</span>
+155:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">xsl</span>=<span class="ruby-keyword kw">nil</span>)
+156:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'history.xml'</span>))
+157:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
+158:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+159:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -905,7 +891,7 @@ Translate history into an XML document.
 
     
       <div id="to-yaml-method" class="method-detail ">
-        <a name="M000033"></a>
+        <a name="method-i-to_yaml"></a>
 
         <div class="method-heading">
         
@@ -926,11 +912,11 @@ Translate history into a YAML document.
           <div class="method-source-code"
             id="to-yaml-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 216</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_yaml</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-      <span class="ruby-identifier">require</span> <span class="ruby-value str">'yaml'</span>
-      <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">to_yaml</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 141</span>
+141:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_yaml</span>(*<span class="ruby-identifier">args</span>)
+142:       <span class="ruby-identifier">require</span> <span class="ruby-value str">'yaml'</span>
+143:       <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">to_yaml</span>(*<span class="ruby-identifier">args</span>)
+144:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -945,13 +931,13 @@ Translate history into a YAML document.
       <h3 class="section-header">Private Instance Methods</h3>
 
     
-      <div id="to-markup-changes-method" class="method-detail ">
-        <a name="M000040"></a>
+      <div id="h-method" class="method-detail ">
+        <a name="method-i-h"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">to_markup_changes</span><span
-            class="method-args">(changes, rev=false)</span>
+          <span class="method-name">h</span><span
+            class="method-args">(input)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -963,36 +949,19 @@ Translate history into a YAML document.
 
           
           <div class="method-source-code"
-            id="to-markup-changes-source">
+            id="h-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/history.rb, line 259</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_markup_changes</span>(<span class="ruby-identifier">changes</span>, <span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">groups</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type_number</span> }
-      <span class="ruby-identifier">string</span> = <span class="ruby-value str">&quot;&quot;</span>
-      <span class="ruby-value">5</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">groups</span>[<span class="ruby-identifier">n</span>]
-        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">entries</span>
-        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">empty?</span>
-        <span class="ruby-identifier">string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;* #{entries.size} #{entries[0].type_phrase}\n\n&quot;</span>
-        <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">sort!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">date</span> }
-        <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-          <span class="ruby-comment cmt">#string &lt;&lt; &quot;== #{date}  #{who}\n\n&quot;  # no email :(</span>
-          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rev</span>
-            <span class="ruby-identifier">text</span> = <span class="ruby-node">&quot;#{entry.message} (##{entry.revision})&quot;</span>
-          <span class="ruby-keyword kw">else</span>
-            <span class="ruby-identifier">text</span> = <span class="ruby-node">&quot;#{entry.message}&quot;</span>
-          <span class="ruby-keyword kw">end</span>
-          <span class="ruby-identifier">text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">tabto</span>(<span class="ruby-value">6</span>)
-          <span class="ruby-identifier">text</span>[<span class="ruby-value">4</span>] = <span class="ruby-value str">'*'</span>
-          <span class="ruby-comment cmt">#entry = entry.join(' ').tabto(6)</span>
-          <span class="ruby-comment cmt">#entry[4] = '*'</span>
-          <span class="ruby-identifier">string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>
-          <span class="ruby-identifier">string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;\n&quot;</span>
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;\n&quot;</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">string</span>
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 267</span>
+267:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">input</span>)
+268:        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+269:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&amp;&quot;</span>, <span class="ruby-value str">&quot;&amp;amp;&quot;</span>)
+270:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&lt;&quot;</span>, <span class="ruby-value str">&quot;&amp;lt;&quot;</span>)
+271:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&gt;&quot;</span>, <span class="ruby-value str">&quot;&amp;gt;&quot;</span>)
+272:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;'&quot;</span>, <span class="ruby-value str">&quot;&amp;apos;&quot;</span>)
+273:        <span class="ruby-comment cmt">#result.gsub!(&quot;@&quot;, &quot;&amp;at;&quot;)</span>
+274:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;\&quot;&quot;</span>, <span class="ruby-value str">&quot;&amp;quot;&quot;</span>)
+275:        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+276:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -1013,5 +982,7 @@ Translate history into a YAML document.
   
   </div>
 
+</main>
 </body>
 </html>
+

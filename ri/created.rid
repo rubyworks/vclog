@@ -1,1 +1,18 @@
-Mon, 26 Oct 2009 16:21:03 -0400
+Wed, 26 May 2010 20:32:18 -0400
+lib/vclog/vcs/hg.rb	Sat, 04 Jul 2009 11:36:48 -0400
+lib/vclog/heuristics.rb	Wed, 26 May 2010 09:26:28 -0400
+lib/plugins/syckle/vclog.rb	Sat, 16 Jan 2010 10:35:44 -0500
+lib/vclog/cli.rb	Wed, 26 May 2010 10:23:57 -0400
+lib/vclog/facets.rb	Sat, 04 Jul 2009 11:36:48 -0400
+lib/vclog/change.rb	Mon, 26 Oct 2009 15:21:43 -0400
+lib/vclog/vcs/git.rb	Wed, 26 May 2010 14:19:09 -0400
+lib/vclog/history.rb	Wed, 26 May 2010 13:23:38 -0400
+lib/vclog/changelog.rb	Sat, 16 Jan 2010 15:04:21 -0500
+lib/vclog/vcs/darcs.rb	Sat, 04 Jul 2009 11:36:48 -0400
+lib/vclog/templates/history.rdoc	Wed, 26 May 2010 11:10:36 -0400
+lib/vclog/release.rb	Wed, 26 May 2010 10:19:20 -0400
+lib/vclog/vcs.rb	Wed, 26 May 2010 11:45:11 -0400
+lib/vclog/templates/changelog.rdoc	Sat, 16 Jan 2010 14:51:28 -0500
+lib/vclog/vcs/svn.rb	Wed, 26 May 2010 20:02:23 -0400
+lib/vclog/tag.rb	Wed, 26 May 2010 10:21:16 -0400
+lib/vclog.rb	Wed, 26 May 2010 13:39:58 -0400

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,23 +8,36 @@
   <title>Class: VCLog::VCS::GIT</title>
 
   
-    <link rel="SHORTCUT ICON" href="../../images/class.png">
+    <link rel="SHORTCUT ICON" href="../../assets/icon/class.png">
   
 
-  <link type="text/css" media="screen" rel="stylesheet" href="../../rdoc.css" />
+  <link type="text/css" rel="stylesheet" href="../../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../../assets/highlight/styles/github.css" title="GitHub" />
 
-  <script src="../../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../../js/thickbox.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/main.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 <body class="class">
+<div id="main">
 
   <div class="head">
     <h1>
       
-        <img src="../../images/class.png" align="absmiddle">&nbsp;
+        <img src="../../assets/icon/class.png" align="absmiddle">&nbsp;
       
       <a href="../../index.html">VCLog</a>&nbsp;
       <a href="/">VCLog::VCS::GIT</a>
@@ -48,6 +60,7 @@
       </div>
 
       <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
 
       
     </div>
@@ -60,7 +73,8 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <li class="class">VCS</li>
+          <!-- why was this class="link" ? -->
+          <li class="class"><a href="../VCS.html">VCLog::VCS</a></li>
           
         </ul>
       </div>
@@ -75,9 +89,15 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li class="method"><a href="#M000050">#extract_changes</a></li>
+            
+            <li class="method">
+              <a href="#method-i-extract_changes">#extract_changes</a>
+            </li>
           
-          <li class="method"><a href="#M000054">#extract_tags</a></li>
+            
+            <li class="method">
+              <a href="#method-i-extract_tags">#extract_tags</a>
+            </li>
           
         </ul>
       </div>
@@ -91,16 +111,22 @@
       
       
       <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Files</h3>
+        <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../../HISTORY_md.html">HISTORY.md</a></li>
+          <li class="file"><a href="../../PROFILE.html">PROFILE</a></li>
+        
+          <li class="file"><a href="../../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
           <li class="file"><a href="../../LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="../../README.html">README</a></li>
+          <li class="file"><a href="../../ROADMAP_rdoc.html">ROADMAP.rdoc</a></li>
         
-          <li class="file"><a href="../../TODO.html">TODO</a></li>
+          <li class="file"><a href="../../VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../../REQUIRE.html">REQUIRE</a></li>
         
         </ul>
       </div>
@@ -108,7 +134,7 @@
 
       <div id="classindex-section" class="section project-section">
         <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="../../images/find.png"
+          <span class="search-toggle"><img src="../../assets/icon/find.png"
             height="16" width="16" alt="[+]"
             title="show/hide quicksearch" /></span></h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
@@ -127,6 +153,8 @@
           <li class="class"><a href="../../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="module"><a href="../../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../../VCLog/History.html">VCLog::History</a></li>
         
@@ -151,13 +179,15 @@
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
       </div>
-
-      
     </div>
 
     <div id="validator-badges">
-      Generated with <a href="http://github.com/proutils/rdazzle">Razzle Dazzle Redfish</a><br/><br/>
-      <a href="http://validator.w3.org/check/referer">[Validate]</a>
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      <br/><br/>
     </div>
   </div>
 
@@ -183,7 +213,7 @@
 
     
       <div id="extract-changes-method" class="method-detail ">
-        <a name="M000050"></a>
+        <a name="method-i-extract_changes"></a>
 
         <div class="method-heading">
         
@@ -204,33 +234,21 @@ Collect changes.
           <div class="method-source-code"
             id="extract-changes-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs/git.rb, line 26</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_changes</span>
-        <span class="ruby-identifier">list</span> = []
-        <span class="ruby-identifier">changelog</span> = <span class="ruby-value">`git-log`</span>.<span class="ruby-identifier">strip</span>
-        <span class="ruby-identifier">changes</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/^commit/</span><span class="ruby-identifier">m</span>)
-        <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">shift</span> <span class="ruby-comment cmt"># throw the first (empty) entry away</span>
-        <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">rev</span>, <span class="ruby-identifier">msg</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, []
-          <span class="ruby-identifier">text</span>.<span class="ruby-identifier">each_line</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
-            <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">rev</span>
-              <span class="ruby-identifier">rev</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">strip</span>
-              <span class="ruby-keyword kw">next</span>
-            <span class="ruby-keyword kw">end</span>
-            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/^Author:(.*?)$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">line</span>)
-              <span class="ruby-identifier">who</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
-            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/^Date:(.*?)$/</span><span class="ruby-identifier">m</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">line</span>)
-              <span class="ruby-identifier">date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>])
-            <span class="ruby-keyword kw">else</span>
-              <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">strip</span>
-            <span class="ruby-keyword kw">end</span>
-          <span class="ruby-keyword kw">end</span>
-          <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
-          <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">type</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">msg</span>)
-          <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">rev</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">type</span>]
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">list</span>
-      <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs/git.rb, line 26</span>
+26:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_changes</span>
+27:         <span class="ruby-identifier">list</span> = []
+28:         <span class="ruby-identifier">changelog</span> = <span class="ruby-value">`git log --pretty=format:&quot;---%ci|~|%aN|~|%H|~|%s&quot;`</span>.<span class="ruby-identifier">strip</span>
+29:         <span class="ruby-identifier">changes</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;---&quot;</span>)
+30:         <span class="ruby-comment cmt">#changes = changelog.split(/^commit/m)</span>
+31:         <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">shift</span> <span class="ruby-comment cmt"># throw the first (empty) entry away</span>
+32:         <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+33:           <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">rev</span>, <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'|~|'</span>)
+34:           <span class="ruby-identifier">date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">date</span>)
+35:           <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">type</span> = *<span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">msg</span>)
+36:           <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">rev</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">type</span>]
+37:         <span class="ruby-keyword kw">end</span>
+38:         <span class="ruby-identifier">list</span>
+39:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -240,7 +258,7 @@ Collect changes.
 
     
       <div id="extract-tags-method" class="method-detail ">
-        <a name="M000054"></a>
+        <a name="method-i-extract_tags"></a>
 
         <div class="method-heading">
         
@@ -265,29 +283,38 @@ Collect tags.
 
   version 1.0
   commit
-  ...
-</pre>
+  ...</pre>
           
 
           
           <div class="method-source-code"
             id="extract-tags-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs/git.rb, line 65</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_tags</span>
-        <span class="ruby-identifier">list</span> = []
-        <span class="ruby-identifier">tags</span> = <span class="ruby-value">`git tag -l`</span>
-        <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s+/</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">info</span> = <span class="ruby-node">`git show #{tag}`</span>
-          <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\Atag(.*?)\n(.*?)^commit/</span><span class="ruby-identifier">m</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">info</span>)
-          <span class="ruby-identifier">who</span>, <span class="ruby-identifier">date</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">msg</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">md</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\n/</span>)
-          <span class="ruby-identifier">who</span>  = <span class="ruby-identifier">who</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">':'</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>
-          <span class="ruby-identifier">date</span> = <span class="ruby-identifier">date</span>[<span class="ruby-identifier">date</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">':'</span>)<span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">strip</span>
-          <span class="ruby-identifier">msg</span>  = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
-          <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">msg</span>]
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">list</span>
-      <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs/git.rb, line 53</span>
+53:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_tags</span>
+54:         <span class="ruby-identifier">list</span> = []
+55:         <span class="ruby-identifier">tags</span> = <span class="ruby-value">`git tag -l`</span>
+56:         <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s+/</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+57:           <span class="ruby-identifier">info</span> = <span class="ruby-node">`git show #{tag}`</span>
+58:           <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\Atag(.*?)\n(.*?)^commit/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">info</span>)
+59:           <span class="ruby-identifier">who</span>, <span class="ruby-identifier">date</span>, *<span class="ruby-identifier">msg</span> = *<span class="ruby-identifier">md</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\n/</span>)
+60:           <span class="ruby-identifier">who</span>  = <span class="ruby-identifier">who</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">':'</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>
+61:           <span class="ruby-identifier">date</span> = <span class="ruby-identifier">date</span>[<span class="ruby-identifier">date</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">':'</span>)<span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>
+62:           <span class="ruby-identifier">msg</span>  = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+63: 
+64:           <span class="ruby-identifier">info</span> = <span class="ruby-node">`git show #{tag}^ --pretty=format:&quot;%ci|-|&quot;`</span>
+65:           <span class="ruby-identifier">date</span>, *<span class="ruby-identifier">_</span> = *<span class="ruby-identifier">info</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'|-|'</span>)
+66: 
+67:           <span class="ruby-comment cmt">#md = /\Atag(.*?)\n(.*?)^commit/m.match(info)</span>
+68:           <span class="ruby-comment cmt">#_who, _date, *_msg = *md[2].split(/\n/)</span>
+69:           <span class="ruby-comment cmt">#_who  = _who.split(':')[1].strip</span>
+70:           <span class="ruby-comment cmt">#_date = _date[_date.index(':')+1..-1].strip</span>
+71:           <span class="ruby-comment cmt">#_msg  = _msg.join(&quot;\n&quot;)</span>
+72: 
+73:           <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">who</span>, <span class="ruby-identifier">msg</span>]
+74:         <span class="ruby-keyword kw">end</span>
+75:         <span class="ruby-identifier">list</span>
+76:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -308,5 +335,7 @@ Collect tags.
   
   </div>
 
+</main>
 </body>
 </html>
+

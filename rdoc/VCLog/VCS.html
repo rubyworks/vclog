@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,23 +8,36 @@
   <title>Class: VCLog::VCS</title>
 
   
-    <link rel="SHORTCUT ICON" href="../images/class.png">
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
   
 
-  <link type="text/css" media="screen" rel="stylesheet" href="../rdoc.css" />
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
 
-  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/thickbox.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 <body class="class">
+<div id="main">
 
   <div class="head">
     <h1>
       
-        <img src="../images/class.png" align="absmiddle">&nbsp;
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
       
       <a href="../index.html">VCLog</a>&nbsp;
       <a href="/">VCLog::VCS</a>
@@ -40,11 +52,11 @@
         <div class="section-body">
           <ul>
           
-            <li class="file"><a href="../lib/vclog/vcs/git_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/vcs/git.rb">lib/vclog/vcs/git.rb</a></li>
-          
             <li class="file"><a href="../lib/vclog/vcs/darcs_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/vclog/vcs/darcs.rb">lib/vclog/vcs/darcs.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/vcs/git_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/vcs/git.rb">lib/vclog/vcs/git.rb</a></li>
           
             <li class="file"><a href="../lib/vclog/vcs/svn_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/vclog/vcs/svn.rb">lib/vclog/vcs/svn.rb</a></li>
@@ -57,6 +69,7 @@
       </div>
 
       <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
 
       
     </div>
@@ -97,27 +110,60 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li class="method"><a href="#M000057">::factory</a></li>
+            
+            <li class="singleton">
+              <a href="#method-c-factory">::factory</a>
+            </li>
           
-          <li class="method"><a href="#M000059">::new</a></li>
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
           
-          <li class="method"><a href="#M000058">::read_type</a></li>
+            
+            <li class="singleton">
+              <a href="#method-c-read_type">::read_type</a>
+            </li>
           
-          <li class="method"><a href="#M000067">#bump</a></li>
+            
+            <li class="method">
+              <a href="#method-i-bump">#bump</a>
+            </li>
           
-          <li class="method"><a href="#M000065">#changelog</a></li>
+            
+            <li class="method">
+              <a href="#method-i-changelog">#changelog</a>
+            </li>
           
-          <li class="method"><a href="#M000062">#changes</a></li>
+            
+            <li class="method">
+              <a href="#method-i-changes">#changes</a>
+            </li>
           
-          <li class="method"><a href="#M000064">#extract_changes</a></li>
+            
+            <li class="method">
+              <a href="#method-i-extract_changes">#extract_changes</a>
+            </li>
           
-          <li class="method"><a href="#M000063">#extract_tags</a></li>
+            
+            <li class="method">
+              <a href="#method-i-extract_tags">#extract_tags</a>
+            </li>
           
-          <li class="method"><a href="#M000066">#history</a></li>
+            
+            <li class="method">
+              <a href="#method-i-history">#history</a>
+            </li>
           
-          <li class="method"><a href="#M000068">#split_type</a></li>
+            
+            <li class="method">
+              <a href="#method-i-split_type">#split_type</a>
+            </li>
           
-          <li class="method"><a href="#M000061">#tags</a></li>
+            
+            <li class="method">
+              <a href="#method-i-tags">#tags</a>
+            </li>
           
         </ul>
       </div>
@@ -131,16 +177,22 @@
       
       
       <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Files</h3>
+        <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../HISTORY_md.html">HISTORY.md</a></li>
+          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="../README.html">README</a></li>
+          <li class="file"><a href="../ROADMAP_rdoc.html">ROADMAP.rdoc</a></li>
         
-          <li class="file"><a href="../TODO.html">TODO</a></li>
+          <li class="file"><a href="../VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../REQUIRE.html">REQUIRE</a></li>
         
         </ul>
       </div>
@@ -148,7 +200,7 @@
 
       <div id="classindex-section" class="section project-section">
         <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="../images/find.png"
+          <span class="search-toggle"><img src="../assets/icon/find.png"
             height="16" width="16" alt="[+]"
             title="show/hide quicksearch" /></span></h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
@@ -167,6 +219,8 @@
           <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
         
@@ -191,13 +245,15 @@
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
       </div>
-
-      
     </div>
 
     <div id="validator-badges">
-      Generated with <a href="http://github.com/proutils/rdazzle">Razzle Dazzle Redfish</a><br/><br/>
-      <a href="http://validator.w3.org/check/referer">[Validate]</a>
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      <br/><br/>
     </div>
   </div>
 
@@ -229,7 +285,7 @@
 
         <div class="method-description">
         
-        <p class="missing-docs">(Not documented)</p>
+        
         
         </div>
       </div>
@@ -244,7 +300,7 @@
 
     
       <div id="factory-method" class="method-detail ">
-        <a name="M000057"></a>
+        <a name="method-c-factory"></a>
 
         <div class="method-heading">
         
@@ -256,20 +312,20 @@
 
         <div class="method-description">
           
-          <p class="missing-docs">(Not documented)</p>
+          
           
 
           
           <div class="method-source-code"
             id="factory-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 15</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">root</span>=<span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-identifier">root</span> = <span class="ruby-identifier">root</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
-      <span class="ruby-identifier">type</span> = <span class="ruby-identifier">read_type</span>(<span class="ruby-identifier">root</span>)
-      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Not a recognized version control system.&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">type</span>
-      <span class="ruby-constant">VCS</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">upcase</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">root</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 15</span>
+15:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">root</span>=<span class="ruby-keyword kw">nil</span>)
+16:       <span class="ruby-identifier">root</span> = <span class="ruby-identifier">root</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+17:       <span class="ruby-identifier">type</span> = <span class="ruby-identifier">read_type</span>(<span class="ruby-identifier">root</span>)
+18:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Not a recognized version control system.&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">type</span>
+19:       <span class="ruby-constant">VCS</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">upcase</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">root</span>)
+20:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -279,7 +335,7 @@
 
     
       <div id="new-method" class="method-detail ">
-        <a name="M000059"></a>
+        <a name="method-c-new"></a>
 
         <div class="method-heading">
         
@@ -298,10 +354,10 @@
           <div class="method-source-code"
             id="new-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 33</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">root</span>)
-      <span class="ruby-ivar">@root</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">root</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">root</span>)
+34:       <span class="ruby-ivar">@root</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">root</span>)
+35:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -311,7 +367,7 @@
 
     
       <div id="read-type-method" class="method-detail ">
-        <a name="M000058"></a>
+        <a name="method-c-read_type"></a>
 
         <div class="method-heading">
         
@@ -323,21 +379,21 @@
 
         <div class="method-description">
           
-          <p class="missing-docs">(Not documented)</p>
+          
           
 
           
           <div class="method-source-code"
             id="read-type-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 22</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_type</span>(<span class="ruby-identifier">root</span>)
-      <span class="ruby-identifier">dir</span> = <span class="ruby-keyword kw">nil</span>
-      <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">root</span>) <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-value str">&quot;{.svn,.git,.hg,_darcs}&quot;</span>).<span class="ruby-identifier">first</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">dir</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dir</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 22</span>
+22:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_type</span>(<span class="ruby-identifier">root</span>)
+23:       <span class="ruby-identifier">dir</span> = <span class="ruby-keyword kw">nil</span>
+24:       <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">root</span>) <span class="ruby-keyword kw">do</span>
+25:         <span class="ruby-identifier">dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-value str">&quot;{.svn,.git,.hg,_darcs}&quot;</span>).<span class="ruby-identifier">first</span>
+26:       <span class="ruby-keyword kw">end</span>
+27:       <span class="ruby-identifier">dir</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dir</span>
+28:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -353,7 +409,7 @@
 
     
       <div id="bump-method" class="method-detail ">
-        <a name="M000067"></a>
+        <a name="method-i-bump"></a>
 
         <div class="method-heading">
         
@@ -374,38 +430,38 @@ Provides a bumped version number.
           <div class="method-source-code"
             id="bump-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 66</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bump</span>(<span class="ruby-identifier">part</span>=<span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">part</span> <span class="ruby-keyword kw">unless</span> [<span class="ruby-value str">'major'</span>, <span class="ruby-value str">'minor'</span>, <span class="ruby-value str">'patch'</span>, <span class="ruby-value str">''</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">part</span>.<span class="ruby-identifier">to_s</span>)
-
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">last</span>
-        <span class="ruby-identifier">v</span> = <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">name</span>   <span class="ruby-comment cmt"># TODO: ensure the latest version</span>
-      <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">v</span> = <span class="ruby-value str">'0.0.0'</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">v</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\W/</span>)    <span class="ruby-comment cmt"># TODO: preserve split chars</span>
-      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">to_s</span>
-      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'major'</span>
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">succ</span>
-        (<span class="ruby-value">1</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'0'</span> }
-        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
-      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'minor'</span>
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>]
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">succ</span>
-        (<span class="ruby-value">2</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'0'</span> }
-        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
-      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'patch'</span>
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>]
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>]
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">succ</span>
-        (<span class="ruby-value">3</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'0'</span> }
-        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
-      <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">-1</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">-1</span>]
-        <span class="ruby-identifier">v</span>[<span class="ruby-value">-1</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">succ</span>
-        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
-      <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 66</span>
+66:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bump</span>(<span class="ruby-identifier">part</span>=<span class="ruby-keyword kw">nil</span>)
+67:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">part</span> <span class="ruby-keyword kw">unless</span> [<span class="ruby-value str">'major'</span>, <span class="ruby-value str">'minor'</span>, <span class="ruby-value str">'patch'</span>, <span class="ruby-value str">''</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">part</span>.<span class="ruby-identifier">to_s</span>)
+68: 
+69:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">last</span>
+70:         <span class="ruby-identifier">v</span> = <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">name</span>   <span class="ruby-comment cmt"># TODO: ensure the latest version</span>
+71:       <span class="ruby-keyword kw">else</span>
+72:         <span class="ruby-identifier">v</span> = <span class="ruby-value str">'0.0.0'</span>
+73:       <span class="ruby-keyword kw">end</span>
+74:       <span class="ruby-identifier">v</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\W/</span>)    <span class="ruby-comment cmt"># TODO: preserve split chars</span>
+75:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">to_s</span>
+76:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'major'</span>
+77:         <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">succ</span>
+78:         (<span class="ruby-value">1</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'0'</span> }
+79:         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+80:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'minor'</span>
+81:         <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>]
+82:         <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">succ</span>
+83:         (<span class="ruby-value">2</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'0'</span> }
+84:         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+85:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'patch'</span>
+86:         <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>]
+87:         <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>]
+88:         <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">succ</span>
+89:         (<span class="ruby-value">3</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'0'</span> }
+90:         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+91:       <span class="ruby-keyword kw">else</span>
+92:         <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-value str">'0'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>]
+93:         <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">succ</span>
+94:         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+95:       <span class="ruby-keyword kw">end</span>
+96:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -415,7 +471,7 @@ Provides a bumped version number.
 
     
       <div id="changelog-method" class="method-detail ">
-        <a name="M000065"></a>
+        <a name="method-i-changelog"></a>
 
         <div class="method-heading">
         
@@ -434,10 +490,10 @@ Provides a bumped version number.
           <div class="method-source-code"
             id="changelog-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 56</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
-      <span class="ruby-constant">ChangeLog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">changes</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
+57:       <span class="ruby-constant">ChangeLog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">changes</span>)
+58:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -447,7 +503,7 @@ Provides a bumped version number.
 
     
       <div id="changes-method" class="method-detail ">
-        <a name="M000062"></a>
+        <a name="method-i-changes"></a>
 
         <div class="method-heading">
         
@@ -459,17 +515,17 @@ Provides a bumped version number.
 
         <div class="method-description">
           
-          <p class="missing-docs">(Not documented)</p>
+          
           
 
           
           <div class="method-source-code"
             id="changes-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 41</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changes</span>
-      <span class="ruby-ivar">@changes</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_changes</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Change</span><span class="ruby-operator">===</span><span class="ruby-identifier">c</span> <span class="ruby-value">? </span><span class="ruby-identifier">c</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Change</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">c</span>) }
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 41</span>
+41:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changes</span>
+42:       <span class="ruby-ivar">@changes</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_changes</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Change</span><span class="ruby-operator">===</span><span class="ruby-identifier">c</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Change</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">c</span>) }
+43:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -479,7 +535,7 @@ Provides a bumped version number.
 
     
       <div id="extract-changes-method" class="method-detail ">
-        <a name="M000064"></a>
+        <a name="method-i-extract_changes"></a>
 
         <div class="method-heading">
         
@@ -498,10 +554,10 @@ Provides a bumped version number.
           <div class="method-source-code"
             id="extract-changes-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 51</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_changes</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Not Implemented&quot;</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 51</span>
+51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_changes</span>
+52:       <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Not Implemented&quot;</span>
+53:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -511,7 +567,7 @@ Provides a bumped version number.
 
     
       <div id="extract-tags-method" class="method-detail ">
-        <a name="M000063"></a>
+        <a name="method-i-extract_tags"></a>
 
         <div class="method-heading">
         
@@ -530,10 +586,10 @@ Provides a bumped version number.
           <div class="method-source-code"
             id="extract-tags-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 46</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_tags</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Not Implemented&quot;</span>
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract_tags</span>
+47:       <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Not Implemented&quot;</span>
+48:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -543,7 +599,7 @@ Provides a bumped version number.
 
     
       <div id="history-method" class="method-detail ">
-        <a name="M000066"></a>
+        <a name="method-i-history"></a>
 
         <div class="method-heading">
         
@@ -562,10 +618,10 @@ Provides a bumped version number.
           <div class="method-source-code"
             id="history-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 61</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">history</span>(<span class="ruby-identifier">opts</span>={})
-      <span class="ruby-ivar">@history</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">History</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">opts</span>)
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 61</span>
+61:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">history</span>(<span class="ruby-identifier">opts</span>={})
+62:       <span class="ruby-ivar">@history</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">History</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">opts</span>)
+63:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -575,7 +631,7 @@ Provides a bumped version number.
 
     
       <div id="tags-method" class="method-detail ">
-        <a name="M000061"></a>
+        <a name="method-i-tags"></a>
 
         <div class="method-heading">
         
@@ -587,17 +643,17 @@ Provides a bumped version number.
 
         <div class="method-description">
           
-          <p class="missing-docs">(Not documented)</p>
+          
           
 
           
           <div class="method-source-code"
             id="tags-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 37</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tags</span>
-      <span class="ruby-ivar">@tags</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_tags</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-constant">Tag</span><span class="ruby-operator">===</span><span class="ruby-identifier">t</span> <span class="ruby-value">? </span><span class="ruby-identifier">t</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">t</span>) }
-    <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tags</span>
+38:       <span class="ruby-ivar">@tags</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_tags</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-constant">Tag</span><span class="ruby-operator">===</span><span class="ruby-identifier">t</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">t</span>) }
+39:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -613,7 +669,7 @@ Provides a bumped version number.
 
     
       <div id="split-type-method" class="method-detail ">
-        <a name="M000068"></a>
+        <a name="method-i-split_type"></a>
 
         <div class="method-heading">
         
@@ -626,7 +682,10 @@ Provides a bumped version number.
         <div class="method-description">
           
           <p>
-Looks for a &#8220;[type]&#8221; indicator at the end of the message.
+Looks for a &#8220;[type]&#8221; indicator at the end of the commit
+message. If that is not found, it looks at front of message for
+&#8220;[type]&#8221; or &#8220;[type]:&#8221;. Failing that it tries just
+&#8220;type:&#8221;.
 </p>
           
 
@@ -634,18 +693,24 @@ Looks for a &#8220;[type]&#8221; indicator at the end of the message.
           <div class="method-source-code"
             id="split-type-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 101</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">note</span>)
-      <span class="ruby-identifier">note</span> = <span class="ruby-identifier">note</span>.<span class="ruby-identifier">strip</span>
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A.*?\[(.*?)\]\s*$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
-        <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
-        <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-node">/\[#{md[1]}\]\s*$/</span>, <span class="ruby-value str">&quot;&quot;</span>)
-      <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span> = <span class="ruby-identifier">note</span>, <span class="ruby-keyword kw">nil</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">n</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/^\s*?\n/</span><span class="ruby-identifier">m</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># remove blank lines</span>
-      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span>
-    <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/vcs.rb, line 104</span>
+104:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">note</span>)
+105:       <span class="ruby-identifier">note</span> = <span class="ruby-identifier">note</span>.<span class="ruby-identifier">strip</span>
+106:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\[(.*?)\]\Z/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
+107:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+108:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">md</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">0</span>))]
+109:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A\[(.*?)\]\:?/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
+110:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+111:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-identifier">md</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)<span class="ruby-operator">..</span><span class="ruby-value">1</span>]
+112:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A(\w+?)\:/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
+113:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+114:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-identifier">md</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)<span class="ruby-operator">..</span><span class="ruby-value">1</span>]
+115:       <span class="ruby-keyword kw">else</span>
+116:         <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span> = <span class="ruby-identifier">note</span>, <span class="ruby-keyword kw">nil</span>
+117:       <span class="ruby-keyword kw">end</span>
+118:       <span class="ruby-identifier">n</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/^\s*?\n/</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># remove blank lines</span>
+119:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span>
+120:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -666,5 +731,7 @@ Looks for a &#8220;[type]&#8221; indicator at the end of the message.
   
   </div>
 
+</main>
 </body>
 </html>
+
