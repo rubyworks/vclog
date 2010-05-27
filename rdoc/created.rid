@@ -1,8 +1,8 @@
-Wed, 26 May 2010 20:32:22 -0400
+Wed, 26 May 2010 21:04:31 -0400
 lib/vclog/vcs/hg.rb	Sat, 04 Jul 2009 11:36:48 -0400
 lib/vclog/templates/changelog.xsl	Sat, 16 Jan 2010 15:05:03 -0500
 lib/vclog/heuristics.rb	Wed, 26 May 2010 09:26:28 -0400
-PROFILE	Fri, 14 May 2010 17:21:44 -0400
+PROFILE	Wed, 26 May 2010 21:01:12 -0400
 HISTORY.rdoc	Wed, 26 May 2010 20:30:58 -0400
 lib/plugins/syckle/vclog.rb	Sat, 16 Jan 2010 10:35:44 -0500
 lib/vclog/cli.rb	Wed, 26 May 2010 10:23:57 -0400
@@ -23,7 +23,7 @@ VERSION	Wed, 26 May 2010 20:31:14 -0400
 README.rdoc	Mon, 12 Oct 2009 11:47:26 -0400
 lib/vclog/vcs.rb	Wed, 26 May 2010 11:45:11 -0400
 lib/vclog/templates/changelog.rdoc	Sat, 16 Jan 2010 14:51:28 -0500
-REQUIRE	Wed, 26 May 2010 09:33:18 -0400
+REQUIRE	Wed, 26 May 2010 20:52:12 -0400
 lib/vclog/templates/history.xml	Sat, 16 Jan 2010 13:58:52 -0500
 lib/vclog/templates/changelog.xml	Sat, 16 Jan 2010 14:19:03 -0500
 lib/vclog/templates/changelog.html	Sat, 16 Jan 2010 14:55:35 -0500
