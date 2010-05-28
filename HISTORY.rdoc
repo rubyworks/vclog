@@ -2,7 +2,7 @@
 
 == 1.5.0 / 2010-05-29
 
-This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that <code>--foramt</code>/<code>-f</code> is used to select the format instead of using the previous per-format options, e.g. use <code>-f xml</code> instead of <code>--xml</code>. This release also included some subtantial changes under-the-hood --the first of a two part code refactoring process.
+This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that <code>--foramt</code>/<code>-f</code> is used to select the format instead of using the previous per-format options, e.g. use <code>-f xml</code> instead of <code>--xml</code>. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.
 
 Changes:
 
