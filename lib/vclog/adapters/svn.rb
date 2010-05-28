@@ -41,9 +41,7 @@ module Adapters
 
         date = Time.parse(date)
 
-        msg, type = *split_type(msg)
-
-        log << [rev, date, who, msg, type]
+        log << [rev, date, who, msg]
       end
 
       log

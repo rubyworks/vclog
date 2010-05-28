@@ -1,1 +1,1 @@
-require 'vclog/vcs'
+require 'vclog/adapters'

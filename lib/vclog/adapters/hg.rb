@@ -72,8 +72,8 @@ module Adapters
           msg = md[1].strip
         end
         date = Time.parse(date)
-        msg, type = *split_type(msg)
-        return rev, date, who, msg, type
+        #msg, type = *split_type(msg)
+        return rev, date, who, msg
       end
 
   end
