@@ -1,0 +1,14 @@
+VCLog Statistics
+Fri May 28 18:55:55 -0400 2010
+
+TYPE       Total     Code  -%-     Docs  -%-    Blank  -%-    Files
+Source      2262      959  42%      916  40%      387  17%       18
+Test           0        0   0%        0   0%        0   0%        0
+Total       2262      959  42%      916  40%      387  17%       18
+
+RATIO     Code    Docs    Blank   Test   Total
+Code       1.0     1.0     2.5       -     0.4
+Docs       1.0     1.0     2.4       -     0.4
+Blank      0.4     0.4     1.0       -     0.2
+Test         -       -       -       -       -
+Total      2.4     2.5     5.8       -     1.0

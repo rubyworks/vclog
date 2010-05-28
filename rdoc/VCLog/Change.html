@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: VCLog::Change</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">VCLog</a>&nbsp;
+      <a href="/">VCLog::Change</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/vclog/change_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/change.rb">lib/vclog/change.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <li class="class">Object</li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%3C%3D%3E">#<=></a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-author%3D">#author=</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-message%3D">#message=</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-split_type">#split_type</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_h">#to_h</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-type_number">#type_number</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-type_phrase">#type_phrase</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li class="module"><span class="include">Comparable</span></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../ROADMAP_rdoc.html">ROADMAP.rdoc</a></li>
+        
+          <li class="file"><a href="../VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../REQUIRE.html">REQUIRE</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../VCLog.html">VCLog</a></li>
+        
+          <li class="module"><a href="../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
+          <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
+        
+          <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
+        
+          <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+        
+          <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
+          <li class="class"><a href="../VCLog/Release.html">VCLog::Release</a></li>
+        
+          <li class="class"><a href="../VCLog/Tag.html">VCLog::Tag</a></li>
+        
+          <li class="module"><a href="../Syckle.html">Syckle</a></li>
+        
+          <li class="module"><a href="../Syckle/Plugins.html">Syckle::Plugins</a></li>
+        
+          <li class="class"><a href="../Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+
+      <h1><a href="Change.html">Change</a> Log Entry class</h1>
+
+    </div>
+
+    <!-- Constants -->
+    
+
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="author-attribute-method" class="method-detail">
+        <a name="author"></a>
+        
+        <a name="author="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">author</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="date-attribute-method" class="method-detail">
+        <a name="date"></a>
+        
+        <a name="date="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="revision-attribute-method" class="method-detail">
+        <a name="revision"></a>
+        
+        <a name="revision="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">revision</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="message-attribute-method" class="method-detail">
+        <a name="message"></a>
+        
+        <a name="message="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">message</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="type-attribute-method" class="method-detail">
+        <a name="type"></a>
+        
+        <a name="type="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(rev, date, author, message)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 16</span>
+16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">rev</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">author</span>, <span class="ruby-identifier">message</span>)
+17:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">revision</span> = <span class="ruby-identifier">rev</span>
+18:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">date</span>     = <span class="ruby-identifier">date</span>
+19:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">author</span>   = <span class="ruby-identifier">author</span>
+20:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">type</span>     = <span class="ruby-identifier">type</span>
+21:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">message</span>  = <span class="ruby-identifier">message</span>
+22:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%3C%3D%3E"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">&lt;=&gt;</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 82</span>
+82:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+83:       <span class="ruby-identifier">other</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">date</span>
+84:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="author--method" class="method-detail ">
+        <a name="method-i-author%3D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">author=</span><span
+            class="method-args">(author)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="author--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 25</span>
+25:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">author=</span>(<span class="ruby-identifier">author</span>)
+26:       <span class="ruby-ivar">@author</span> = <span class="ruby-identifier">author</span>.<span class="ruby-identifier">strip</span>
+27:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="inspect-method" class="method-detail ">
+        <a name="method-i-inspect"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="inspect-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 86</span>
+86:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+87:       <span class="ruby-node">&quot;#&lt;Change:#{object_id} #{date}&gt;&quot;</span>
+88:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="message--method" class="method-detail ">
+        <a name="method-i-message%3D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">message=</span><span
+            class="method-args">(note)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="message--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 30</span>
+30:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">message=</span>(<span class="ruby-identifier">note</span>)
+31:       <span class="ruby-ivar">@message</span>, <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">note</span>)
+32:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-h-method" class="method-detail ">
+        <a name="method-i-to_h"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_h</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-h-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 90</span>
+90:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
+91:       { <span class="ruby-value str">'author'</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@author</span>,
+92:         <span class="ruby-value str">'date'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@date</span>,
+93:         <span class="ruby-value str">'revision'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@revision</span>,
+94:         <span class="ruby-value str">'message'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@message</span>,
+95:         <span class="ruby-value str">'type'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type</span>
+96:       }
+97:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="type-number-method" class="method-detail ">
+        <a name="method-i-type_number"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">type_number</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="type-number-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 64</span>
+64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type_number</span>
+65:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+66:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'maj'</span>, <span class="ruby-value str">'major'</span>
+67:         <span class="ruby-value">0</span>
+68:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'min'</span>, <span class="ruby-value str">'minor'</span>
+69:         <span class="ruby-value">1</span>
+70:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'bug'</span>
+71:         <span class="ruby-value">2</span>
+72:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">''</span>
+73:         <span class="ruby-value">4</span>
+74:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'-'</span>
+75:         <span class="ruby-value">5</span>
+76:       <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># other</span>
+77:         <span class="ruby-value">3</span>
+78:       <span class="ruby-keyword kw">end</span>
+79:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="type-phrase-method" class="method-detail ">
+        <a name="method-i-type_phrase"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">type_phrase</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="type-phrase-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type_phrase</span>
+47:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>
+48:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'maj'</span>, <span class="ruby-value str">'major'</span>
+49:         <span class="ruby-value str">'Major Enhancements'</span>
+50:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'min'</span>, <span class="ruby-value str">'minor'</span>
+51:         <span class="ruby-value str">'Minor Enhancements'</span>
+52:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'bug'</span>
+53:         <span class="ruby-value str">'Bug Fixes'</span>
+54:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">''</span>
+55:         <span class="ruby-value str">'General Enhancements'</span>
+56:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'-'</span>
+57:         <span class="ruby-value str">'Administrative Changes'</span>
+58:       <span class="ruby-keyword kw">else</span>
+59:         <span class="ruby-node">&quot;#{type.capitalize} Enhancements&quot;</span>
+60:       <span class="ruby-keyword kw">end</span>
+61:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="private-instance-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="split-type-method" class="method-detail ">
+        <a name="method-i-split_type"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">split_type</span><span
+            class="method-args">(note)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Looks for a &#8220;[type]&#8221; indicator at the end of the commit
+message. If that is not found, it looks at front of message for
+&#8220;[type]&#8221; or &#8220;[type]:&#8221;. Failing that it tries just
+&#8220;type:&#8221;.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="split-type-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 113</span>
+113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">note</span>)
+114:       <span class="ruby-identifier">note</span> = <span class="ruby-identifier">note</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+115:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\[(.*?)\]\Z/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
+116:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+117:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">md</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">0</span>))]
+118:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A\[(.*?)\]\:?/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
+119:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+120:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-identifier">md</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)<span class="ruby-operator">..</span><span class="ruby-value">1</span>]
+121:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A(\w+?)\:/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
+122:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+123:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-identifier">md</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)<span class="ruby-operator">..</span><span class="ruby-value">1</span>]
+124:       <span class="ruby-keyword kw">else</span>
+125:         <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span> = <span class="ruby-identifier">note</span>, <span class="ruby-keyword kw">nil</span>
+126:       <span class="ruby-keyword kw">end</span>
+127:       <span class="ruby-identifier">n</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/^\s*?\n/</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># remove blank lines</span>
+128:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span>
+129:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+

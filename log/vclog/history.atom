@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>VCLog Feed</title>
+  <subtitle>Release History</subtitle>
+  <link href="/" rel="self" />
+  
+  <id>git@github.com:proutils/vclog.git</id>
+  <updated>Fri May 28 17:55:52 -0400 2010</updated>
+  <author>
+    <name>7rans</name>
+    <email>7rans</email>
+  </author>
+
+  
+  
+  <entry>
+    <title>1.3.1</title>
+    <id>current</id>
+    <author>7rans</author>
+    <updated>2010-05-28</updated>
+    <summary type="html">
+      <p>Current Development</p>
+      
+    </summary>
+  </entry>
+  
+  
+  <entry>
+    <title>1.3.0</title>
+    <id>bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
+    <author>7rans <transfire@gmail.com></author>
+    <updated>2010-02-08</updated>
+    <summary type="html">
+      <p>For the an end-user the only significant change is the support of label: notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the label: notation to specify system module effected --a useful system of labeling.</p>
+      
+    </summary>
+  </entry>
+  
+  
+  <entry>
+    <title>1.2.0</title>
+    <id>91bf6a289930767335b1a665a77c5481ba17cd78</id>
+    <author>7rans <transfire@gmail.com></author>
+    <updated>2009-10-26</updated>
+    <summary type="html">
+      <p>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface.</p>
+      
+    </summary>
+  </entry>
+  
+  
+  <entry>
+    <title>1.1.0</title>
+    <id>9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</id>
+    <author>7rans <transfire@gmail.com></author>
+    <updated>2009-10-23</updated>
+    <summary type="html">
+      <p>This release adds yaml and json formats and improves the cli.</p>
+      
+    </summary>
+  </entry>
+  
+  
+  <entry>
+    <title>1.0.0</title>
+    <id>87f3e3c71898d79b555c2c4dd0dda6a55de01330</id>
+    <author>7rans <transfire@gmail.com></author>
+    <updated>2009-10-12</updated>
+    <summary type="html">
+      <p>This is the first production release of VCLog.</p>
+      
+    </summary>
+  </entry>
+  
+
+</feed>
+
