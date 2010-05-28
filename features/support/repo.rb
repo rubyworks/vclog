@@ -8,7 +8,6 @@ def setup_repo(name, type, marker, clone_command)
     `cd #{dir}; #{clone_command}`
   end
 
-  #create_dir(type)
   run "cp -r #{dir} #{type}"
   cd(type)
   cd(name)

@@ -157,6 +157,8 @@ module Adapters
     end
 =end
 
+  public
+
     #
     def user
       ENV['USER']

@@ -80,42 +80,19 @@ module VCLog
         type = :curr
       end
 
+      opt.on('--formats', '-F', "list formats supported") do
+        puts "gnu rdoc markdown xml html atom rss json yaml"
+        exit
+      end
+
       opt.separator(" ")
-      opt.separator("FORMAT (choose one):")
-
-      opt.on('--gnu', "GNU standard format (default)") do
-        format = :gnu
-      end
-
-      opt.on('--xml', "XML format") do
-        format = :xml
-      end
-
-      opt.on('--yaml', "YAML format") do
-        format = :yaml
-      end
-
-      opt.on('--json', "JSON format") do
-        format = :json
-      end
-
-      opt.on('--html', "HTML micro-like format") do
-        format = :html
-      end
-
-      opt.on('--rdoc', "RDoc format") do
-        format = :rdoc
-      end
-
-      opt.on('--markdown', '-m', "Markdown format") do
-        format = :markdown
-      end
+      opt.separator("FORMAT OPTION:")
 
       opt.on('--format', '-f [FORMAT]', "Output format") do |format|
         format = format.to_sym
       end
 
-      opt.separator(" ")    
+      opt.separator(" ")
       opt.separator("OTHER OPTIONS:")
 
       #opt.on('--typed', "catagorize by commit type") do

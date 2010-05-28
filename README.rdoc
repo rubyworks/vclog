@@ -19,9 +19,19 @@ repository's root directory try:
 
 To generate an XML formatted changelog use:
 
-  $ vclog --xml
+  $ vclog -f xml
 
 See 'vclog --help' for more options.
+
+
+== NOTE ABOUT SUBVSERION
+
+Because Subversion is a centralized version control system, it contacts
+the server every time 'svn log' is run. For this reason, having vclog
+generate a release history is likely to fail since it must run 'svn log'
+for each tag. Any repository with more than a few tags may be denied
+access by the server for making too many rapid requests. I have no
+idea how to remedy this issue. If you have any ideas please let me know.
 
 
 == RELEASE NOTES
