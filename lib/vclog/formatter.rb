@@ -80,10 +80,10 @@ module VCLog
 
       #
       def require_formatter(format)
-        case format
-        when :yaml
+        case format.to_s
+        when 'yaml'
           require 'yaml'
-        when :json
+        when 'json'
           require 'json'
         end
       end

@@ -60,17 +60,10 @@ stats:
   output   : ~
   active   : true
 
-vclog-html:
+vclog:
   service  : VClog
-  format   : html   # xml, gnu, etc.
-  type     : rel    # log or rel
-  output   : ~
-  active   : true
-
-vclog-rdoc :
-  service  : VClog
-  format   : rdoc
-  type     : rel
+  format   : atom, html, json
+  type     : history
   output   : ~
   active   : true
 

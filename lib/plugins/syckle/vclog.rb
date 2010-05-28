@@ -22,7 +22,7 @@ module Syckle::Plugins
 
     # Changelog format. Default is +html+.
     # Supports +html+, +xml+, +json+, +yaml+, +rdoc+, +markdown+, and +gnu+.
-    attr_accessor :format
+    attr_accessor :formats
 
     # Changelog layout type (+log+ or +rel+). Default is +log+.
     attr_accessor :type
@@ -45,7 +45,7 @@ module Syckle::Plugins
       require 'vclog'
       @version    = metadata.version
       @title      = metadata.title
-      @format     = 'html'
+      @formats    = ['atom']
       @type       = 'log'
     end
 
@@ -57,9 +57,11 @@ module Syckle::Plugins
     end
 
     #
-    def format=(f)
-      @format = f.to_s.downcase
+    def formats=(f)
+      @formats = f.to_list
     end
+
+    alias_method :format=, :formats=
 
     #
     def type=(f)
@@ -76,28 +78,30 @@ module Syckle::Plugins
     #--
 
     def document_changelog
-      case type
-      when 'rel', 'history'
-        file = output || (project.log + "vclog/history.#{format}").to_s
-      else
-        file = output || (project.log + "vclog/changelog.#{format}").to_s
-      end
-      #apply_naming_policy('changelog', log_format.downcase)
-      if dryrun?
-        report "# vclog --#{type} --#{format} -o #{file}"
-      else
-        changed = save(file)
-        if changed
-          report "Updated #{relative_from_root(file)}"
+      formats.each do |format|
+        case type
+        when 'rel', 'history'
+          file = output || (project.log + "vclog/history.#{format}").to_s
         else
-          report "#{relative_from_root(file)} is current"
+          file = output || (project.log + "vclog/changelog.#{format}").to_s
+        end
+        #apply_naming_policy('changelog', log_format.downcase)
+        if dryrun?
+          report "# vclog --#{type} -f #{format} -o #{file}"
+        else
+          changed = save(format, file)
+          if changed
+            report "Updated #{relative_from_root(file)}"
+          else
+            report "Current #{relative_from_root(file)}"
+          end
         end
       end
     end
 
     # Save changelog/history to +output+ file.
-    def save(output)
-      text = render
+    def save(format, output)
+      text = render(format)
       if File.exist?(output)
         if File.read(output) != text
           File.open(output, 'w'){ |f| f << text }
@@ -132,8 +136,8 @@ module Syckle::Plugins
       @vcs ||= VCLog::Adapters.factory #(root)
     end
 
-    # Convert log to desiered format.
-    def render
+    # Convert log to desired format.
+    def render(format)
       doctype = type
       doctype = 'history'   if doctype == 'rel'
       doctype = 'changelog' if doctype == 'log'
