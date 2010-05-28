@@ -1,5 +1,22 @@
 = RELEASE HISTORY
 
+== 1.5.0 / 2010-05-29
+
+This release adds support for Mercurial repositories and adds Atom and RSS output formats. Teh commandline inteface has change such that --foramt/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also included some subtantial changes under-the-hood --the first of a two part code refactoring process.
+
+Changes:
+
+* 3 Major Enhancements
+
+  * Add Mercurial support
+  * Add Atom feed format
+  * Add RSS feed format
+
+* 1 Minor Enhancement
+
+  * Select format using -f option.
+
+
 == 1.4.0 / 2010-05-26
 
 This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).
