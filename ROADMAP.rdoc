@@ -1,6 +1,10 @@
-= TODO
+= ROADMAP
 
-== Automagical Version
+== Subversion History Support
+
+Generating a Relase History for a svn repo is painfully slow and will likely fail due to hitting the server too many times in rapid succession. Is there another way?
+
+== Automagical Version Numbers
 
 Would be cool if it could also generate an automagical version number.
 

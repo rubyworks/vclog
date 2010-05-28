@@ -59,7 +59,7 @@ module VCLog
 
     optparse = OptionParser.new do |opt|
 
-      opt.banner = "Usage: vclog [--TYPE] [--FORMAT] [OPTIONS] [DIR]"
+      opt.banner = "Usage: vclog [--TYPE] [-f FORMAT] [OPTIONS] [DIR]"
 
       opt.separator(" ")
       opt.separator("OUTPUT TYPE (choose one):")
@@ -88,7 +88,7 @@ module VCLog
       opt.separator(" ")
       opt.separator("FORMAT OPTION:")
 
-      opt.on('--format', '-f [FORMAT]', "Output format") do |format|
+      opt.on('--format', '-f <FORMAT>', "Output format") do |format|
         format = format.to_sym
       end
 
