@@ -150,42 +150,7 @@
           
             
             <li class="method">
-              <a href="#method-i-to_gnu">#to_gnu</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_html">#to_html</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_json">#to_json</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_markdown">#to_markdown</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_rdoc">#to_rdoc</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_s">#to_s</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_xml">#to_xml</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-to_yaml">#to_yaml</a>
+              <a href="#method-i-to_h">#to_h</a>
             </li>
           
         </ul>
@@ -250,25 +215,33 @@
         
           <li class="module"><a href="../VCLog.html">VCLog</a></li>
         
+          <li class="module"><a href="../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
           <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
         
           <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
         
+          <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
           <li class="class"><a href="../VCLog/Release.html">VCLog::Release</a></li>
         
           <li class="class"><a href="../VCLog/Tag.html">VCLog::Tag</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS.html">VCLog::VCS</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS/DARCS.html">VCLog::VCS::DARCS</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS/GIT.html">VCLog::VCS::GIT</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
         
           <li class="module"><a href="../Syckle.html">Syckle</a></li>
         
@@ -476,11 +449,11 @@ Include revision id?
           <div class="method-source-code"
             id="--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 63</span>
-63:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">entry</span>)
-64:       <span class="ruby-identifier">raise</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Change</span><span class="ruby-operator">===</span><span class="ruby-identifier">entry</span>
-65:       <span class="ruby-ivar">@changes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
-66:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 74</span>
+74:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">entry</span>)
+75:       <span class="ruby-identifier">raise</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Change</span><span class="ruby-operator">===</span><span class="ruby-identifier">entry</span>
+76:       <span class="ruby-ivar">@changes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
+77:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -511,11 +484,11 @@ Return a new changelog with entries occuring after the given date limit.
           <div class="method-source-code"
             id="after-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 76</span>
-76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-identifier">date_limit</span>)
-77:       <span class="ruby-identifier">after</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_limit</span> <span class="ruby-operator">+</span> <span class="ruby-constant">DAY</span> }
-78:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">after</span>)
-79:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 87</span>
+87:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-identifier">date_limit</span>)
+88:       <span class="ruby-identifier">after</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_limit</span> <span class="ruby-operator">+</span> <span class="ruby-constant">DAY</span> }
+89:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">after</span>)
+90:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -546,11 +519,11 @@ Return a new changelog with entries occuring before the given date limit.
           <div class="method-source-code"
             id="before-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 83</span>
-83:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">date_limit</span>)
-84:       <span class="ruby-identifier">before</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">date_limit</span> <span class="ruby-operator">+</span> <span class="ruby-constant">DAY</span> }
-85:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">before</span>)
-86:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 94</span>
+94:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">date_limit</span>)
+95:       <span class="ruby-identifier">before</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">date_limit</span> <span class="ruby-operator">+</span> <span class="ruby-constant">DAY</span> }
+96:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">before</span>)
+97:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -579,15 +552,15 @@ Return a new changelog with entries occuring before the given date limit.
           <div class="method-source-code"
             id="by-author-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 99</span>
- 99:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">by_author</span>
-100:       <span class="ruby-identifier">mapped</span> = {}
-101:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-102:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">author</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
-103:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">author</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
-104:       <span class="ruby-keyword kw">end</span>
-105:       <span class="ruby-identifier">mapped</span>
-106:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 110</span>
+110:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">by_author</span>
+111:       <span class="ruby-identifier">mapped</span> = {}
+112:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+113:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">author</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
+114:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">author</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
+115:       <span class="ruby-keyword kw">end</span>
+116:       <span class="ruby-identifier">mapped</span>
+117:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -616,16 +589,16 @@ Return a new changelog with entries occuring before the given date limit.
           <div class="method-source-code"
             id="by-date-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 109</span>
-109:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">by_date</span>
-110:       <span class="ruby-identifier">mapped</span> = {}
-111:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-112:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%Y-%m-%d'</span>)] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
-113:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%Y-%m-%d'</span>)] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
-114:       <span class="ruby-keyword kw">end</span>
-115:       <span class="ruby-identifier">mapped</span> = <span class="ruby-identifier">mapped</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>[<span class="ruby-value">0</span>] }
-116:       <span class="ruby-identifier">mapped</span>
-117:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 120</span>
+120:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">by_date</span>
+121:       <span class="ruby-identifier">mapped</span> = {}
+122:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+123:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%Y-%m-%d'</span>)] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
+124:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%Y-%m-%d'</span>)] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
+125:       <span class="ruby-keyword kw">end</span>
+126:       <span class="ruby-identifier">mapped</span> = <span class="ruby-identifier">mapped</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>[<span class="ruby-value">0</span>] }
+127:       <span class="ruby-identifier">mapped</span>
+128:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -654,15 +627,15 @@ Return a new changelog with entries occuring before the given date limit.
           <div class="method-source-code"
             id="by-type-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 89</span>
-89:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">by_type</span>
-90:       <span class="ruby-identifier">mapped</span> = {}
-91:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-92:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">type</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
-93:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">type</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
-94:       <span class="ruby-keyword kw">end</span>
-95:       <span class="ruby-identifier">mapped</span>
-96:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 100</span>
+100:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">by_type</span>
+101:       <span class="ruby-identifier">mapped</span> = {}
+102:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+103:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">type</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
+104:         <span class="ruby-identifier">mapped</span>[<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">type</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
+105:       <span class="ruby-keyword kw">end</span>
+106:       <span class="ruby-identifier">mapped</span>
+107:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -725,8 +698,10 @@ Add a change entry to the log.
           <div class="method-source-code"
             id="each-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 58</span>
-58:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>(&amp;<span class="ruby-identifier">block</span>) ; <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span>(&amp;<span class="ruby-identifier">block</span>) ; <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 59</span>
+59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>(&amp;<span class="ruby-identifier">block</span>)
+60:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span>(&amp;<span class="ruby-identifier">block</span>)
+61:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -755,8 +730,10 @@ Add a change entry to the log.
           <div class="method-source-code"
             id="empty--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 59</span>
-59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty?</span> ; <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">empty?</span> ; <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 64</span>
+64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty?</span>
+65:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">empty?</span>
+66:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -785,8 +762,10 @@ Add a change entry to the log.
           <div class="method-source-code"
             id="size-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 60</span>
-60:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">size</span> ; <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">size</span> ; <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 69</span>
+69:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">size</span>
+70:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">size</span>
+71:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -795,87 +774,12 @@ Add a change entry to the log.
       </div>
 
     
-      <div id="to-gnu-method" class="method-detail ">
-        <a name="method-i-to_gnu"></a>
+      <div id="to-h-method" class="method-detail ">
+        <a name="method-i-to_h"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">to_gnu</span><span
-            class="method-args">(rev=false)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="to-gnu-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 157</span>
-157:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_gnu</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-158:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'changelog.gnu'</span>))
-159:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
-160:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
-161:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-        <div class="aliases">
-          Also aliased as: <a href="ChangeLog.html#method-i-to_s">to_s</a>
-        </div>
-        
-      </div>
-
-    
-      <div id="to-html-method" class="method-detail ">
-        <a name="method-i-to_html"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_html</span><span
-            class="method-args">(css=nil)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Create an HTML formated changelog. <tt>css</tt> reference defaults to
-&#8216;log.css&#8216;
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="to-html-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 191</span>
-191:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_html</span>(<span class="ruby-identifier">css</span>=<span class="ruby-keyword kw">nil</span>)
-192:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'changelog.html'</span>))
-193:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
-194:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
-195:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-json-method" class="method-detail ">
-        <a name="method-i-to_json"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_json</span><span
+          <span class="method-name">to_h</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         
@@ -883,182 +787,30 @@ Create an HTML formated changelog. <tt>css</tt> reference defaults to
 
         <div class="method-description">
           
-          
-          
-
-          
-          <div class="method-source-code"
-            id="to-json-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 172</span>
-172:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_json</span>
-173:       <span class="ruby-identifier">require</span> <span class="ruby-value str">'json'</span>
-174:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">to_json</span>
-175:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-markdown-method" class="method-detail ">
-        <a name="method-i-to_markdown"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_markdown</span><span
-            class="method-args">(rev=false)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
           <p>
-Translate history into a Markdown formatted document.
+def <a href="ChangeLog.html#method-i-by_date">by_date</a>
+</p>
+<pre>
+  mapped = {}
+  changes.each do |entry|
+    mapped[entry.date.strftime('%Y-%m-%d')] ||= self.class.new
+    mapped[entry.date.strftime('%Y-%m-%d')] &lt;&lt; entry
+  end
+  mapped
+</pre>
+<p>
+end
 </p>
           
 
           
           <div class="method-source-code"
-            id="to-markdown-source">
+            id="to-h-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 207</span>
-207:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_markdown</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-208:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'changelog.markdown'</span>))
-209:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
-210:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
-211:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-rdoc-method" class="method-detail ">
-        <a name="method-i-to_rdoc"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_rdoc</span><span
-            class="method-args">(rev=false)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Translate history into a RDoc formatted document.
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="to-rdoc-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 199</span>
-199:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_rdoc</span>(<span class="ruby-identifier">rev</span>=<span class="ruby-keyword kw">false</span>)
-200:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'changelog.rdoc'</span>))
-201:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
-202:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
-203:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-s-method" class="method-detail method-alias">
-        <a name="method-i-to_s"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_s</span><span
-            class="method-args">(rev=false)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-xml-method" class="method-detail ">
-        <a name="method-i-to_xml"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_xml</span><span
-            class="method-args">(xsl=nil)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Translate changelog into a XML document.
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="to-xml-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 182</span>
-182:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">xsl</span>=<span class="ruby-keyword kw">nil</span>)
-183:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-value str">'changelog.xml'</span>))
-184:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
-185:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
-186:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-yaml-method" class="method-detail ">
-        <a name="method-i-to_yaml"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_yaml</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="to-yaml-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 165</span>
-165:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_yaml</span>
-166:       <span class="ruby-identifier">require</span> <span class="ruby-value str">'yaml'</span>
-167:       <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">to_yaml</span>
-168:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 140</span>
+140:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
+141:       <span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">change</span><span class="ruby-operator">|</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">to_h</span> }
+142:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -1093,17 +845,17 @@ Translate changelog into a XML document.
           <div class="method-source-code"
             id="h-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 278</span>
-278:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">input</span>)
-279:        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
-280:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&amp;&quot;</span>, <span class="ruby-value str">&quot;&amp;amp;&quot;</span>)
-281:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&lt;&quot;</span>, <span class="ruby-value str">&quot;&amp;lt;&quot;</span>)
-282:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&gt;&quot;</span>, <span class="ruby-value str">&quot;&amp;gt;&quot;</span>)
-283:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;'&quot;</span>, <span class="ruby-value str">&quot;&amp;apos;&quot;</span>)
-284:        <span class="ruby-comment cmt">#result.gsub!(&quot;@&quot;, &quot;&amp;at;&quot;)</span>
-285:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;\&quot;&quot;</span>, <span class="ruby-value str">&quot;&amp;quot;&quot;</span>)
-286:        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
-287:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/changelog.rb, line 298</span>
+298:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">input</span>)
+299:        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+300:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&amp;&quot;</span>, <span class="ruby-value str">&quot;&amp;amp;&quot;</span>)
+301:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&lt;&quot;</span>, <span class="ruby-value str">&quot;&amp;lt;&quot;</span>)
+302:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&gt;&quot;</span>, <span class="ruby-value str">&quot;&amp;gt;&quot;</span>)
+303:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;'&quot;</span>, <span class="ruby-value str">&quot;&amp;apos;&quot;</span>)
+304:        <span class="ruby-comment cmt">#result.gsub!(&quot;@&quot;, &quot;&amp;at;&quot;)</span>
+305:        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;\&quot;&quot;</span>, <span class="ruby-value str">&quot;&amp;quot;&quot;</span>)
+306:        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+307:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

@@ -100,12 +100,12 @@
           
             
             <li class="method">
-              <a href="#method-i-to_h">#to_h</a>
+              <a href="#method-i-groups">#groups</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-to_json">#to_json</a>
+              <a href="#method-i-to_h">#to_h</a>
             </li>
           
         </ul>
@@ -159,25 +159,33 @@
         
           <li class="module"><a href="../VCLog.html">VCLog</a></li>
         
+          <li class="module"><a href="../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
           <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
         
           <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
         
+          <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
           <li class="class"><a href="../VCLog/Release.html">VCLog::Release</a></li>
         
           <li class="class"><a href="../VCLog/Tag.html">VCLog::Tag</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS.html">VCLog::VCS</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS/DARCS.html">VCLog::VCS::DARCS</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS/GIT.html">VCLog::VCS::GIT</a></li>
-        
-          <li class="class"><a href="../VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
         
           <li class="module"><a href="../Syckle.html">Syckle</a></li>
         
@@ -310,17 +318,59 @@
 
         <div class="method-description">
           
-          
+          <p>
+def to_json
+</p>
+<pre>
+  to_h.to_json
+</pre>
+<p>
+end
+</p>
           
 
           
           <div class="method-source-code"
             id="--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 21</span>
-21:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
-22:       <span class="ruby-ivar">@tag</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">tag</span>
-23:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 32</span>
+32:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+33:       <span class="ruby-ivar">@tag</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">tag</span>
+34:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="groups-method" class="method-detail ">
+        <a name="method-i-groups"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">groups</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Group <tt>changes</tt> by tag type.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="groups-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 24</span>
+24:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>
+25:       <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type_number</span> }
+26:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -351,40 +401,14 @@
 <pre>
     <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 13</span>
 13:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
-14:       { <span class="ruby-value">:tag</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">to_h</span>, <span class="ruby-value">:changes</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">changes</span> }
-15:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="to-json-method" class="method-detail ">
-        <a name="method-i-to_json"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">to_json</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="to-json-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 17</span>
-17:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_json</span>
-18:       <span class="ruby-identifier">to_h</span>.<span class="ruby-identifier">to_json</span>
-19:     <span class="ruby-keyword kw">end</span></pre>
+14:       { <span class="ruby-value str">'version'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">name</span>,
+15:         <span class="ruby-value str">'date'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>,
+16:         <span class="ruby-value str">'message'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">message</span>,
+17:         <span class="ruby-value str">'author'</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">author</span>,
+18:         <span class="ruby-value str">'revision'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">revision</span>,
+19:         <span class="ruby-value str">'changes'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">change</span><span class="ruby-operator">|</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">to_h</span>}
+20:       }
+21:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

@@ -59,41 +59,36 @@
   Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
   our output options limited. That's were vcLog comes in.</p>
 
-  <p>VCLog can provide a changelogs in a variety of uniform formats for different SCMs. If we ask vcLog for help
+  <p>VCLog can provide a changelogs in a variety of uniform formats for different SCMs. If we ask vclog for help
   will see it's commandline interface is fairly self-explanitory.</p>
 
   <pre>
-  Usage: vclog [TYPE] [FORMAT] [OPTIONS] [DIR]
+  Usage: vclog [--TYPE] [-f FORMAT] [OPTIONS] [DIR]
    
   OUTPUT TYPE (choose one):
       -l, --log, --changelog           changelog (default)
       -r, --rel, --history             release history
-      -b, --bump                       display a bumped version number
       -c, --current                    display current version number
+      -b, --bump                       display a bumped version number
+      -F, --formats                    list supported formats
    
-  FORMAT (choose one):
-          --gnu                        GNU standard format (default)
-          --xml                        XML format
-          --yaml                       YAML format
-          --json                       JSON format
-          --html                       HTML micro-like format
-          --rdoc                       RDoc format
-      -m, --markdown                   Markdown format
+  FORMAT OPTION:
+      -f, --format <FORMAT>            Output format
    
   OTHER OPTIONS:
           --title <TITLE>              document title, used by some formats
-      -e, --extra                      provide extra output, used by some formats
+      -e, --extra                      provide extra output (used by some formats)
       -v, --version <NUM>              current version to use for release history
-          --style [FILE]               provide a stylesheet name (css or xsl) for xml and html formats
+          --style <URI>                provide a stylesheet URI (css or xsl) for HTML or XML format
           --id                         include revision ids (in formats that normally do not)
-      -o, --output [FILE]              send output to a file instead of stdout
+      -o, --output <FILE>              send output to a file instead of stdout
    
   STANDARD OPTIONS:
           --debug                      show debugging infromation
       -h, --help                       display this help information
   </pre>
 
-  <p>Without any options, vcLog will output a standard GNU ChangeLog format.</p>
+  <p>Without any options, <code>vclog</code> will output a standard GNU ChangeLog format.</p>
 
   <pre>
   $ vclog
@@ -123,10 +118,7 @@
 
   </pre>
 
-  <p>A variety of formats are available, here are examples of the <a href="exmple.xml">XML</a>, <a href="example.html">HTML</a>,
-  <a href="example.yaml">YAML</a> and <a href="example.json">JSON</a> formats.
-
-  <p>One ot the coolest features of vcLog is it's ability to lookup tags and build a Release History file.</p>
+  <p>One ot the coolest features of vclog is it's ability to lookup tags and build a Release History file.</p>
 
   <pre>
   $ vclog --rel --ver 1.1.0
@@ -156,6 +148,11 @@
 
       * first commit
   </pre>
+
+  <p>A variety of formats are available for Chnagelogs and Release Histories,
+  here are examples of VCLog's own Release History in the <a href="log/vclog/history.html">HTML</a>,
+  <a href="lob/vclog/history.atom">Atom</a>, and <a href="log/vclog/history.json">JSON</a>
+  formats.</p>
 
   <p>Finally, VCLog recognizes commit types. There are single-word markers eitther placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. vcLog recorgnizes <code>[maj]</code> or <code>[major]</code>, <code>[min]</code> or <code>[minor]</code>, <code>[bug]</code> and <code>[admin]</code> or <code>[-]</code>. Any other label is treated verbatim, e.g. <code>[doozy]</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
 

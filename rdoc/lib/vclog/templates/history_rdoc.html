@@ -46,7 +46,7 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">Wed May 26 11:10:36 -0400 2010</dd>
+        <dd class="modified-date">Fri May 28 09:37:50 -0400 2010</dd>
 
         
 
@@ -96,25 +96,33 @@
         
           <li class="module"><a href="../../../VCLog.html">VCLog</a></li>
         
+          <li class="module"><a href="../../../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../../../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../../../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../../../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../../../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../../../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
           <li class="class"><a href="../../../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../../../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../../../VCLog/Formatter.html">VCLog::Formatter</a></li>
         
           <li class="module"><a href="../../../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../../../VCLog/History.html">VCLog::History</a></li>
         
+          <li class="class"><a href="../../../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
           <li class="class"><a href="../../../VCLog/Release.html">VCLog::Release</a></li>
         
           <li class="class"><a href="../../../VCLog/Tag.html">VCLog::Tag</a></li>
-        
-          <li class="class"><a href="../../../VCLog/VCS.html">VCLog::VCS</a></li>
-        
-          <li class="class"><a href="../../../VCLog/VCS/DARCS.html">VCLog::VCS::DARCS</a></li>
-        
-          <li class="class"><a href="../../../VCLog/VCS/GIT.html">VCLog::VCS::GIT</a></li>
-        
-          <li class="class"><a href="../../../VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
         
           <li class="module"><a href="../../../Syckle.html">Syckle</a></li>
         
@@ -133,14 +141,20 @@
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-c-factory">::factory</a>
+              <span class="method-parent-aside">VCLog::Adapters</span>
+              <a href="VCLog/Adapters.html#method-c-factory">::factory</a>
             </li>
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-c-new">::new</a>
+              <span class="method-parent-aside">VCLog::Metadata</span>
+              <a href="VCLog/Metadata.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-c-new">::new</a>
             </li>
           
             
@@ -151,14 +165,14 @@
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Release</span>
-              <a href="VCLog/Release.html#method-c-new">::new</a>
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-c-new">::new</a>
             </li>
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Tag</span>
-              <a href="VCLog/Tag.html#method-c-new">::new</a>
+              <span class="method-parent-aside">VCLog::ChangeLog</span>
+              <a href="VCLog/ChangeLog.html#method-c-new">::new</a>
             </li>
           
             
@@ -169,26 +183,32 @@
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-c-new">::new</a>
+              <span class="method-parent-aside">VCLog::Tag</span>
+              <a href="VCLog/Tag.html#method-c-new">::new</a>
             </li>
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::SVN</span>
-              <a href="VCLog/VCS/SVN.html#method-c-new">::new</a>
+              <span class="method-parent-aside">VCLog::Release</span>
+              <a href="VCLog/Release.html#method-c-new">::new</a>
             </li>
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-c-read_type">::read_type</a>
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-c-new">::new</a>
             </li>
           
             
             <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#method-c-repository%3F">::repository?</a>
+              <span class="method-parent-aside">VCLog::Adapters</span>
+              <a href="VCLog/Adapters.html#method-c-read_type">::read_type</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Darcs</span>
+              <a href="VCLog/Adapters/Darcs.html#method-c-repository%3F">::repository?</a>
             </li>
           
             
@@ -211,6 +231,12 @@
           
             
             <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Change</span>
+              <a href="VCLog/Change.html#method-i-%3C%3D%3E">#<=></a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::Release</span>
               <a href="VCLog/Release.html#method-i-%3C%3D%3E">#<=></a>
             </li>
@@ -223,20 +249,8 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Change</span>
-              <a href="VCLog/Change.html#method-i-%3C%3D%3E">#<=></a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::ChangeLog</span>
               <a href="VCLog/ChangeLog.html#method-i-after">#after</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Tag</span>
-              <a href="VCLog/Tag.html#method-i-author%3D">#author=</a>
             </li>
           
             
@@ -247,14 +261,20 @@
           
             
             <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Tag</span>
+              <a href="VCLog/Tag.html#method-i-author%3D">#author=</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::ChangeLog</span>
               <a href="VCLog/ChangeLog.html#method-i-before">#before</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-bump">#bump</a>
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-bump">#bump</a>
             </li>
           
             
@@ -277,8 +297,8 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#method-i-calculate_version">#calculate_version</a>
+              <span class="method-parent-aside">VCLog::Adapters::Darcs</span>
+              <a href="VCLog/Adapters/Darcs.html#method-i-calculate_version">#calculate_version</a>
             </li>
           
             
@@ -289,20 +309,32 @@
           
             
             <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-changelog">#changelog</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::History</span>
               <a href="VCLog/History.html#method-i-changelog">#changelog</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#method-i-changelog">#changelog</a>
+              <span class="method-parent-aside">VCLog::Adapters::Darcs</span>
+              <a href="VCLog/Adapters/Darcs.html#method-i-changelog">#changelog</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-changelog">#changelog</a>
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-changelog">#changelog</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-changes">#changes</a>
             </li>
           
             
@@ -313,14 +345,20 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-changes">#changes</a>
+              <span class="method-parent-aside">VCLog::Tag</span>
+              <a href="VCLog/Tag.html#method-i-date%3D">#date=</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Tag</span>
-              <a href="VCLog/Tag.html#method-i-date%3D">#date=</a>
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-display">#display</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-display">#display</a>
             </li>
           
             
@@ -343,6 +381,36 @@
           
             
             <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Git</span>
+              <a href="VCLog/Adapters/Git.html#method-i-email">#email</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-email">#email</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-email">#email</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-email">#email</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-email">#email</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::ChangeLog</span>
               <a href="VCLog/ChangeLog.html#method-i-empty%3F">#empty?</a>
             </li>
@@ -355,38 +423,50 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-extract_changes">#extract_changes</a>
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-extract_changes">#extract_changes</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::GIT</span>
-              <a href="VCLog/VCS/GIT.html#method-i-extract_changes">#extract_changes</a>
+              <span class="method-parent-aside">VCLog::Adapters::Git</span>
+              <a href="VCLog/Adapters/Git.html#method-i-extract_changes">#extract_changes</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::SVN</span>
-              <a href="VCLog/VCS/SVN.html#method-i-extract_changes">#extract_changes</a>
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-extract_changes">#extract_changes</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::SVN</span>
-              <a href="VCLog/VCS/SVN.html#method-i-extract_tags">#extract_tags</a>
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-extract_changes">#extract_changes</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::GIT</span>
-              <a href="VCLog/VCS/GIT.html#method-i-extract_tags">#extract_tags</a>
+              <span class="method-parent-aside">VCLog::Adapters::Git</span>
+              <a href="VCLog/Adapters/Git.html#method-i-extract_tags">#extract_tags</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-extract_tags">#extract_tags</a>
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-extract_tags">#extract_tags</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-extract_tags">#extract_tags</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-extract_tags">#extract_tags</a>
             </li>
           
             
@@ -397,8 +477,20 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#method-i-generate_changelog">#generate_changelog</a>
+              <span class="method-parent-aside">Syckle::Plugins::VClog</span>
+              <a href="Syckle/Plugins/VClog.html#method-i-formats%3D">#formats=</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Darcs</span>
+              <a href="VCLog/Adapters/Darcs.html#method-i-generate_changelog">#generate_changelog</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Release</span>
+              <a href="VCLog/Release.html#method-i-groups">#groups</a>
             </li>
           
             
@@ -409,8 +501,8 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-h">#h</a>
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-h">#h</a>
             </li>
           
             
@@ -421,8 +513,26 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-history">#history</a>
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-history">#history</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-history">#history</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-homepage">#homepage</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-info">#info</a>
             </li>
           
             
@@ -439,8 +549,14 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Syckle::Plugins::VClog</span>
-              <a href="Syckle/Plugins/VClog.html#method-i-log">#log</a>
+              <span class="method-parent-aside">VCLog::Tag</span>
+              <a href="VCLog/Tag.html#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Tag</span>
+              <a href="VCLog/Tag.html#method-i-message%3D">#message=</a>
             </li>
           
             
@@ -452,13 +568,13 @@
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::Tag</span>
-              <a href="VCLog/Tag.html#method-i-message%3D">#message=</a>
+              <a href="VCLog/Tag.html#method-i-name%3D">#name=</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Tag</span>
-              <a href="VCLog/Tag.html#method-i-name%3D">#name=</a>
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-parse_entry">#parse_entry</a>
             </li>
           
             
@@ -481,8 +597,44 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::DARCS</span>
-              <a href="VCLog/VCS/DARCS.html#method-i-repository%3F">#repository?</a>
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-repository">#repository</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Git</span>
+              <a href="VCLog/Adapters/Git.html#method-i-repository">#repository</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-repository">#repository</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-repository">#repository</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-repository">#repository</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Darcs</span>
+              <a href="VCLog/Adapters/Darcs.html#method-i-repository%3F">#repository?</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-require_formatter">#require_formatter</a>
             </li>
           
             
@@ -499,14 +651,14 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-split_type">#split_type</a>
+              <span class="method-parent-aside">VCLog::Change</span>
+              <a href="VCLog/Change.html#method-i-split_type">#split_type</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS::SVN</span>
-              <a href="VCLog/VCS/SVN.html#method-i-tag_directory">#tag_directory</a>
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-tag_directory">#tag_directory</a>
             </li>
           
             
@@ -517,26 +669,44 @@
           
             
             <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-tags">#tags</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::History</span>
               <a href="VCLog/History.html#method-i-tags">#tags</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::VCS</span>
-              <a href="VCLog/VCS.html#method-i-tags">#tags</a>
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-title">#title</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_gnu">#to_gnu</a>
+              <span class="method-parent-aside">VCLog::Tag</span>
+              <a href="VCLog/Tag.html#method-i-to_h">#to_h</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_gnu">#to_gnu</a>
+              <a href="VCLog/History.html#method-i-to_h">#to_h</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Change</span>
+              <a href="VCLog/Change.html#method-i-to_h">#to_h</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::ChangeLog</span>
+              <a href="VCLog/ChangeLog.html#method-i-to_h">#to_h</a>
             </li>
           
             
@@ -548,121 +718,7 @@
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">VCLog::Tag</span>
-              <a href="VCLog/Tag.html#method-i-to_h">#to_h</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Change</span>
-              <a href="VCLog/Change.html#method-i-to_h">#to_h</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_html">#to_html</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_html">#to_html</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Tag</span>
               <a href="VCLog/Tag.html#method-i-to_json">#to_json</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Change</span>
-              <a href="VCLog/Change.html#method-i-to_json">#to_json</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_json">#to_json</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Release</span>
-              <a href="VCLog/Release.html#method-i-to_json">#to_json</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_json">#to_json</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_markdown">#to_markdown</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_markdown">#to_markdown</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_rdoc">#to_rdoc</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_rdoc">#to_rdoc</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_s">#to_s</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_s">#to_s</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_xml">#to_xml</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_xml">#to_xml</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::History</span>
-              <a href="VCLog/History.html#method-i-to_yaml">#to_yaml</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::ChangeLog</span>
-              <a href="VCLog/ChangeLog.html#method-i-to_yaml">#to_yaml</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">VCLog::Change</span>
-              <a href="VCLog/Change.html#method-i-to_yaml">#to_yaml</a>
             </li>
           
             
@@ -685,6 +741,60 @@
           
             
             <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-url">#url</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Formatter</span>
+              <a href="VCLog/Formatter.html#method-i-user">#user</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-user">#user</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-user">#user</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-user">#user</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Git</span>
+              <a href="VCLog/Adapters/Git.html#method-i-user">#user</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-uuid">#uuid</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Svn</span>
+              <a href="VCLog/Adapters/Svn.html#method-i-uuid">#uuid</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Hg</span>
+              <a href="VCLog/Adapters/Hg.html#method-i-uuid">#uuid</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
               <span class="method-parent-aside">Syckle::Plugins::VClog</span>
               <a href="Syckle/Plugins/VClog.html#method-i-valid%3F">#valid?</a>
             </li>
@@ -693,6 +803,12 @@
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Syckle::Plugins::VClog</span>
               <a href="Syckle/Plugins/VClog.html#method-i-vcs">#vcs</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">VCLog::Adapters::Abstract</span>
+              <a href="VCLog/Adapters/Abstract.html#method-i-version_tag%3F">#version_tag?</a>
             </li>
           
         </ul>

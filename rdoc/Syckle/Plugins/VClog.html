@@ -105,12 +105,12 @@
           
             
             <li class="method">
-              <a href="#method-i-initialize_defaults">#initialize_defaults</a>
+              <a href="#method-i-formats%3D">#formats=</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-log">#log</a>
+              <a href="#method-i-initialize_defaults">#initialize_defaults</a>
             </li>
           
             
@@ -194,25 +194,33 @@
         
           <li class="module"><a href="../../VCLog.html">VCLog</a></li>
         
+          <li class="module"><a href="../../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
           <li class="class"><a href="../../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../../VCLog/Formatter.html">VCLog::Formatter</a></li>
         
           <li class="module"><a href="../../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
         
           <li class="class"><a href="../../VCLog/History.html">VCLog::History</a></li>
         
+          <li class="class"><a href="../../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
           <li class="class"><a href="../../VCLog/Release.html">VCLog::Release</a></li>
         
           <li class="class"><a href="../../VCLog/Tag.html">VCLog::Tag</a></li>
-        
-          <li class="class"><a href="../../VCLog/VCS.html">VCLog::VCS</a></li>
-        
-          <li class="class"><a href="../../VCLog/VCS/DARCS.html">VCLog::VCS::DARCS</a></li>
-        
-          <li class="class"><a href="../../VCLog/VCS/GIT.html">VCLog::VCS::GIT</a></li>
-        
-          <li class="class"><a href="../../VCLog/VCS/SVN.html">VCLog::VCS::SVN</a></li>
         
           <li class="module"><a href="../../Syckle.html">Syckle</a></li>
         
@@ -246,6 +254,9 @@
 <a href="VClog.html">VClog</a> service generates changelogs from SCM commit
 messages.
 </p>
+<p>
+TODO: Support multiple formats in one pass.
+</p>
 
     </div>
 
@@ -277,13 +288,13 @@ Current version of project.
         </div>
       </div>
       
-      <div id="format-attribute-method" class="method-detail">
-        <a name="format"></a>
+      <div id="formats-attribute-method" class="method-detail">
+        <a name="formats"></a>
         
-        <a name="format="></a>
+        <a name="formats="></a>
         
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">format</span><span
+          <span class="method-name">formats</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -428,10 +439,10 @@ Generate changelog.
           <div class="method-source-code"
             id="document-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 69</span>
-69:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document</span>
-70:       <span class="ruby-identifier">document_changelog</span>
-71:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 72</span>
+72:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document</span>
+73:       <span class="ruby-identifier">document_changelog</span>
+74:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -464,26 +475,28 @@ Generate changelog.
           <div class="method-source-code"
             id="document-changelog-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 77</span>
-77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document_changelog</span>
-78:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
-79:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'rel'</span>, <span class="ruby-value str">'history'</span>
-80:         <span class="ruby-identifier">file</span> = <span class="ruby-identifier">output</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">project</span>.<span class="ruby-identifier">log</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;vclog/history.#{format}&quot;</span>).<span class="ruby-identifier">to_s</span>
-81:       <span class="ruby-keyword kw">else</span>
-82:         <span class="ruby-identifier">file</span> = <span class="ruby-identifier">output</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">project</span>.<span class="ruby-identifier">log</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;vclog/changelog.#{format}&quot;</span>).<span class="ruby-identifier">to_s</span>
-83:       <span class="ruby-keyword kw">end</span>
-84:       <span class="ruby-comment cmt">#apply_naming_policy('changelog', log_format.downcase)</span>
-85:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dryrun?</span>
-86:         <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;# vclog --#{type} --#{format} -o #{file}&quot;</span>
-87:       <span class="ruby-keyword kw">else</span>
-88:         <span class="ruby-identifier">changed</span> = <span class="ruby-identifier">save</span>(<span class="ruby-identifier">file</span>)
-89:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">changed</span>
-90:           <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;Updated #{relative_from_root(file)}&quot;</span>
-91:         <span class="ruby-keyword kw">else</span>
-92:           <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;#{relative_from_root(file)} is current&quot;</span>
-93:         <span class="ruby-keyword kw">end</span>
-94:       <span class="ruby-keyword kw">end</span>
-95:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 80</span>
+ 80:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">document_changelog</span>
+ 81:       <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+ 82:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
+ 83:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'rel'</span>, <span class="ruby-value str">'history'</span>
+ 84:           <span class="ruby-identifier">file</span> = <span class="ruby-identifier">output</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">project</span>.<span class="ruby-identifier">log</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;vclog/history.#{format}&quot;</span>).<span class="ruby-identifier">to_s</span>
+ 85:         <span class="ruby-keyword kw">else</span>
+ 86:           <span class="ruby-identifier">file</span> = <span class="ruby-identifier">output</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">project</span>.<span class="ruby-identifier">log</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;vclog/changelog.#{format}&quot;</span>).<span class="ruby-identifier">to_s</span>
+ 87:         <span class="ruby-keyword kw">end</span>
+ 88:         <span class="ruby-comment cmt">#apply_naming_policy('changelog', log_format.downcase)</span>
+ 89:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dryrun?</span>
+ 90:           <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;# vclog --#{type} -f #{format} -o #{file}&quot;</span>
+ 91:         <span class="ruby-keyword kw">else</span>
+ 92:           <span class="ruby-identifier">changed</span> = <span class="ruby-identifier">save</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">file</span>)
+ 93:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">changed</span>
+ 94:             <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;Updated #{relative_from_root(file)}&quot;</span>
+ 95:           <span class="ruby-keyword kw">else</span>
+ 96:             <span class="ruby-identifier">report</span> <span class="ruby-node">&quot;Current #{relative_from_root(file)}&quot;</span>
+ 97:           <span class="ruby-keyword kw">end</span>
+ 98:         <span class="ruby-keyword kw">end</span>
+ 99:       <span class="ruby-keyword kw">end</span>
+100:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -492,7 +505,7 @@ Generate changelog.
       </div>
 
     
-      <div id="format--method" class="method-detail ">
+      <div id="format--method" class="method-detail method-alias">
         <a name="method-i-format%3D"></a>
 
         <div class="method-heading">
@@ -509,17 +522,44 @@ Generate changelog.
           
 
           
+        </div>
+
+        
+      </div>
+
+    
+      <div id="formats--method" class="method-detail ">
+        <a name="method-i-formats%3D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">formats=</span><span
+            class="method-args">(f)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
           <div class="method-source-code"
-            id="format--source">
+            id="formats--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 59</span>
-59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format=</span>(<span class="ruby-identifier">f</span>)
-60:       <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
-61:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 60</span>
+60:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">formats=</span>(<span class="ruby-identifier">f</span>)
+61:       <span class="ruby-ivar">@formats</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_list</span>
+62:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
 
+        
+        <div class="aliases">
+          Also aliased as: <a href="VClog.html#method-i-format%3D">format=</a>
+        </div>
         
       </div>
 
@@ -544,57 +584,14 @@ Generate changelog.
           <div class="method-source-code"
             id="initialize-defaults-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 43</span>
-43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_defaults</span>
-44:       <span class="ruby-identifier">require</span> <span class="ruby-value str">'vclog/vcs'</span>
-45:       <span class="ruby-ivar">@version</span>    = <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">version</span>
-46:       <span class="ruby-ivar">@title</span>      = <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">title</span>
-47:       <span class="ruby-ivar">@format</span>     = <span class="ruby-value str">'html'</span>
-48:       <span class="ruby-ivar">@type</span>       = <span class="ruby-value str">'log'</span>
-49:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="log-method" class="method-detail ">
-        <a name="method-i-log"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">log</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Returns changelog or history depending on type selection.
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="log-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 115</span>
-115:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log</span>
-116:       <span class="ruby-ivar">@log</span> <span class="ruby-operator">||=</span> (
-117:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
-118:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'log'</span>, <span class="ruby-value str">'changelog'</span>
-119:           <span class="ruby-identifier">log</span> = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span>
-120:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'rel'</span>, <span class="ruby-value str">'history'</span>
-121:           <span class="ruby-identifier">log</span> = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">history</span>(<span class="ruby-value">:title=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">title</span>, <span class="ruby-value">:version=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">version</span>)
-122:         <span class="ruby-keyword kw">else</span>
-123:           <span class="ruby-identifier">log</span> = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span>
-124:         <span class="ruby-keyword kw">end</span>
-125:       )
-126:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 44</span>
+44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_defaults</span>
+45:       <span class="ruby-identifier">require</span> <span class="ruby-value str">'vclog'</span>
+46:       <span class="ruby-ivar">@version</span>    = <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">version</span>
+47:       <span class="ruby-ivar">@title</span>      = <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">title</span>
+48:       <span class="ruby-ivar">@formats</span>    = [<span class="ruby-value str">'atom'</span>]
+49:       <span class="ruby-ivar">@type</span>       = <span class="ruby-value str">'log'</span>
+50:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -623,10 +620,10 @@ Returns changelog or history depending on type selection.
           <div class="method-source-code"
             id="relative-from-root-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 187</span>
-187:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">relative_from_root</span>(<span class="ruby-identifier">path</span>)
-188:       <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">project</span>.<span class="ruby-identifier">root</span>)
-189:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 186</span>
+186:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">relative_from_root</span>(<span class="ruby-identifier">path</span>)
+187:       <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">project</span>.<span class="ruby-identifier">root</span>)
+188:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -641,7 +638,7 @@ Returns changelog or history depending on type selection.
         <div class="method-heading">
         
           <span class="method-name">render</span><span
-            class="method-args">()</span>
+            class="method-args">(format)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -649,7 +646,7 @@ Returns changelog or history depending on type selection.
         <div class="method-description">
           
           <p>
-Convert log to desiered format.
+Convert log to desired format.
 </p>
           
 
@@ -657,26 +654,20 @@ Convert log to desiered format.
           <div class="method-source-code"
             id="render-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 135</span>
-135:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render</span>
-136:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">format</span>
-137:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'xml'</span>
-138:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">style</span>)   <span class="ruby-comment cmt"># xsl stylesheet url</span>
-139:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'html'</span>
-140:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_html</span>(<span class="ruby-identifier">style</span>)  <span class="ruby-comment cmt"># css stylesheet url</span>
-141:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'yaml'</span>
-142:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_yaml</span>
-143:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'json'</span>
-144:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_json</span>
-145:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'markdown'</span>
-146:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_markdown</span>(<span class="ruby-identifier">rev</span>)
-147:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'rdoc'</span>
-148:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_rdoc</span>(<span class="ruby-identifier">rev</span>)
-149:       <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt">#:gnu</span>
-150:         <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">to_gnu</span>(<span class="ruby-identifier">rev</span>)
-151:       <span class="ruby-keyword kw">end</span>
-152:       <span class="ruby-identifier">txt</span>
-153:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 140</span>
+140:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render</span>(<span class="ruby-identifier">format</span>)
+141:       <span class="ruby-identifier">doctype</span> = <span class="ruby-identifier">type</span>
+142:       <span class="ruby-identifier">doctype</span> = <span class="ruby-value str">'history'</span>   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">doctype</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'rel'</span>
+143:       <span class="ruby-identifier">doctype</span> = <span class="ruby-value str">'changelog'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">doctype</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'log'</span>
+144: 
+145:       <span class="ruby-identifier">options</span> = {
+146:         <span class="ruby-value">:stylesheet</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">style</span>,
+147:         <span class="ruby-value">:revision</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rev</span>,
+148:         <span class="ruby-value">:version</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">version</span>,
+149:         <span class="ruby-value">:title</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>
+150:       }
+151:       <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">display</span>(<span class="ruby-identifier">doctype</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>)
+152:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -691,7 +682,7 @@ Convert log to desiered format.
         <div class="method-heading">
         
           <span class="method-name">save</span><span
-            class="method-args">(output)</span>
+            class="method-args">(format, output)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -707,22 +698,22 @@ Save changelog/history to <tt>output</tt> file.
           <div class="method-source-code"
             id="save-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 98</span>
- 98:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">output</span>)
- 99:       <span class="ruby-identifier">text</span> = <span class="ruby-identifier">render</span>
-100:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">output</span>)
-101:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">output</span>) <span class="ruby-operator">!=</span> <span class="ruby-identifier">text</span>
-102:           <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output</span>, <span class="ruby-value str">'w'</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span> }
-103:           <span class="ruby-keyword kw">true</span>
-104:         <span class="ruby-keyword kw">else</span>
-105:           <span class="ruby-keyword kw">false</span>
-106:         <span class="ruby-keyword kw">end</span>
-107:       <span class="ruby-keyword kw">else</span>
-108:         <span class="ruby-identifier">dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">output</span>)
-109:         <span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">dir</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dir</span>)
-110:         <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output</span>, <span class="ruby-value str">'w'</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span> }
-111:       <span class="ruby-keyword kw">end</span>
-112:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 103</span>
+103:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">output</span>)
+104:       <span class="ruby-identifier">text</span> = <span class="ruby-identifier">render</span>(<span class="ruby-identifier">format</span>)
+105:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">output</span>)
+106:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">output</span>) <span class="ruby-operator">!=</span> <span class="ruby-identifier">text</span>
+107:           <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output</span>, <span class="ruby-value str">'w'</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span> }
+108:           <span class="ruby-keyword kw">true</span>
+109:         <span class="ruby-keyword kw">else</span>
+110:           <span class="ruby-keyword kw">false</span>
+111:         <span class="ruby-keyword kw">end</span>
+112:       <span class="ruby-keyword kw">else</span>
+113:         <span class="ruby-identifier">dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">output</span>)
+114:         <span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">dir</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dir</span>)
+115:         <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output</span>, <span class="ruby-value str">'w'</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span> }
+116:       <span class="ruby-keyword kw">end</span>
+117:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -751,10 +742,10 @@ Save changelog/history to <tt>output</tt> file.
           <div class="method-source-code"
             id="type--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 64</span>
-64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type=</span>(<span class="ruby-identifier">f</span>)
-65:       <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
-66:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 67</span>
+67:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type=</span>(<span class="ruby-identifier">f</span>)
+68:       <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+69:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -783,12 +774,12 @@ Save changelog/history to <tt>output</tt> file.
           <div class="method-source-code"
             id="valid--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 52</span>
-52:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">valid?</span>
-53:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(html|yaml|json|xml|rdoc|markdown|gnu|txt)$/</span>
-54:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">type</span>   <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(log|rel|history|changelog)$/</span>
-55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
-56:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 53</span>
+53:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">valid?</span>
+54:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(html|yaml|json|xml|rdoc|markdown|gnu|txt|atom)$/</span>
+55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">type</span>   <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(log|rel|history|changelog)$/</span>
+56:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+57:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -819,11 +810,11 @@ Access to version control system.
           <div class="method-source-code"
             id="vcs-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 129</span>
-129:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vcs</span>
-130:       <span class="ruby-comment cmt">#@vcs ||= VCLog::VCS.new #(self)</span>
-131:       <span class="ruby-ivar">@vcs</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">VCLog</span><span class="ruby-operator">::</span><span class="ruby-constant">VCS</span>.<span class="ruby-identifier">factory</span> <span class="ruby-comment cmt">#(root)</span>
-132:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 134</span>
+134:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vcs</span>
+135:       <span class="ruby-comment cmt">#@vcs ||= VCLog::VCS.new #(self)</span>
+136:       <span class="ruby-ivar">@vcs</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">VCLog</span><span class="ruby-operator">::</span><span class="ruby-constant">Adapters</span>.<span class="ruby-identifier">factory</span> <span class="ruby-comment cmt">#(root)</span>
+137:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
