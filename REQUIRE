@@ -6,4 +6,5 @@ development:
 
 development/test:
 - cucumber
+- aruba
 
