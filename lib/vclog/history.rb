@@ -76,7 +76,7 @@ module VCLog
         user = vcs.user
         time = ::Time.now
 
-        tags << Tag.new(ver, nil, time, user, "Current Development")
+        tags << Tag.new(ver, 'current', time, user, "Current Development")
 
         # TODO: Do we need to add a Time.now tag?
         # add current verion to release list (if given)

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><%= title %> Feed</title>
+  <subtitle>Release History</subtitle>
+  <% if url %><link href="<%= url %>" rel="self" /><% end %>
+  <% if homepage %><link href="<%= homepage %>" /><% end %>
+  <id><% if vcs.uuid %>urn:uuid:<%= vcs.uuid %><% else %><%= vcs.repository %><% end %></id>
+  <updated><%= Time.now %></updated>
+  <author>
+    <name><%= user %></name>
+    <email><%= email %></email>
+  </author>
+
+  <% history.releases.sort.each do |release| %>
+  <% tag = release.tag %>
+  <entry>
+    <title><%= tag.name %></title>
+    <id><%= tag.revision %></id>
+    <author><%= tag.author %></author>
+    <updated><%= tag.date.strftime('%Y-%m-%d') %></updated>
+    <summary type="html">
+      <p><%= tag.message %></p>
+      <% if options.extra %>
+        <% release.groups.each do |number, changes| %>
+          <h2><%= changes.size %> <%= changes[0].type_phrase %></h2>
+          <ul class="log">
+          <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+            <li class="entry">
+            <div class="message"><%= h entry.message %></div>
+            <!-- <div class="type"><%= h entry.type %></div> -->
+            <div class="revision">#<%= h entry.revision %></div>
+            <div class="date"><%= entry.date %></div>
+            <div class="author"><%= h entry.author %></div>
+            </li>
+          <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    </summary>
+  </entry>
+  <% end %>
+
+</feed>
+

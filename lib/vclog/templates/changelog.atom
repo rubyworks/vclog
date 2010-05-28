@@ -18,7 +18,7 @@
     <id><%= entry.revision %></id>
     <author><%= entry.author %></author>
     <updated><%= entry.date %></updated>
-    <summary><%= h entry.message %></summary>
+    <summary type="html"><%= h entry.message %></summary>
   </entry>
   <% end %>
 

@@ -1,20 +1,21 @@
 Feature: Mercurial Support
-  As a SCM user
-  I want to generate a nicely formatted Release History
+  As a Mercurial user
+  I want to generate a nicely formatted Changelog
+  And I want to generate a nicely formatted Release History
 
   Scenario: Mercurial Changelog
     Given a suitable Mercurial repository
     When I run "vclog"
     Then the exit status should be 0
 
-  Scenario: Mercurial Changelog in YAML
+  Scenario: Mercurial Changelog in RDoc
     Given a suitable Mercurial repository
-    When I run "vclog -f yaml"
+    When I run "vclog -f rdoc"
     Then the exit status should be 0
 
-  Scenario: Mercurial Changelog in JSON
+  Scenario: Mercurial Changelog in Markdown
     Given a suitable Mercurial repository
-    When I run "vclog -f json"
+    When I run "vclog -f markdown"
     Then the exit status should be 0
 
   Scenario: Mercurial Changelog in HTML
@@ -27,14 +28,19 @@ Feature: Mercurial Support
     When I run "vclog -f xml"
     Then the exit status should be 0
 
-  Scenario: Mercurial Changelog in JSON
+  Scenario: Mercurial Changelog in Atom
     Given a suitable Mercurial repository
-    When I run "vclog -f rdoc"
+    When I run "vclog -f atom"
+    Then the exit status should be 0
+
+  Scenario: Mercurial Changelog in YAML
+    Given a suitable Mercurial repository
+    When I run "vclog -f yaml"
     Then the exit status should be 0
 
   Scenario: Mercurial Changelog in JSON
     Given a suitable Mercurial repository
-    When I run "vclog -f markdown"
+    When I run "vclog -f json"
     Then the exit status should be 0
 
 
@@ -43,14 +49,14 @@ Feature: Mercurial Support
     When I run "vclog -r"
     Then the exit status should be 0
 
-  Scenario: Mercurial Release History in YAML
+  Scenario: Mercurial Release History in RDoc
     Given a suitable Mercurial repository
-    When I run "vclog -r -f yaml"
+    When I run "vclog -r -f rdoc"
     Then the exit status should be 0
 
-  Scenario: Mercurial Release History in JSON
+  Scenario: Mercurial Release History in Markdown
     Given a suitable Mercurial repository
-    When I run "vclog -r -f json"
+    When I run "vclog -r -f markdown"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in HTML
@@ -63,13 +69,18 @@ Feature: Mercurial Support
     When I run "vclog -r -f xml"
     Then the exit status should be 0
 
-  Scenario: Mercurial Release History in JSON
+  Scenario: Mercurial Release History in Atom
     Given a suitable Mercurial repository
-    When I run "vclog -r -f rdoc"
+    When I run "vclog -r -f atom"
+    Then the exit status should be 0
+
+  Scenario: Mercurial Release History in YAML
+    Given a suitable Mercurial repository
+    When I run "vclog -r -f yaml"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in JSON
     Given a suitable Mercurial repository
-    When I run "vclog -r -f markdown"
+    When I run "vclog -r -f json"
     Then the exit status should be 0
 
