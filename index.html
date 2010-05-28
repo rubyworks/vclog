@@ -57,10 +57,10 @@
 
   <p>Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
   Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
-  our output options limited. That's were vcLog comes in.</p>
+  our output options limited. That's were VCLog comes in.</p>
 
   <p>VCLog can provide a changelogs in a variety of uniform formats for different SCMs. If we ask vclog for help
-  will see it's commandline interface is fairly self-explanitory.</p>
+  will see it's commandline interface is fairly self-explanatory.</p>
 
   <pre>
   Usage: vclog [--TYPE] [-f FORMAT] [OPTIONS] [DIR]
@@ -84,7 +84,7 @@
       -o, --output FILE                send output to a file instead of stdout
    
   STANDARD OPTIONS:
-          --debug                      show debugging infromation
+          --debug                      show debugging information
       -h, --help                       display this help information
   </pre>
 
@@ -118,7 +118,7 @@
 
   </pre>
 
-  <p>One ot the coolest features of vclog is it's ability to lookup tags and build a Release History file.</p>
+  <p>One of the coolest features of vclog is it's ability to lookup tags and build a Release History file.</p>
 
   <pre>
   $ vclog --rel --ver 1.1.0
@@ -149,12 +149,12 @@
       * first commit
   </pre>
 
-  <p>A variety of formats are available for Chnagelogs and Release Histories,
+  <p>A variety of formats are available for Changelogs and Release Histories,
   here are examples of VCLog's own Release History in the <a href="log/vclog/history.html">HTML</a>,
   <a href="lob/vclog/history.atom">Atom</a>, and <a href="log/vclog/history.json">JSON</a>
   formats.</p>
 
-  <p>Finally, VCLog recognizes commit types. There are single-word markers eitther placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. vcLog recorgnizes <code>[maj]</code> or <code>[major]</code>, <code>[min]</code> or <code>[minor]</code>, <code>[bug]</code> and <code>[admin]</code> or <code>[-]</code>. Any other label is treated verbatim, e.g. <code>[doozy]</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
+  <p>Finally, VCLog recognizes commit types. There are single-word markers either placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labeled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. VCLog recognizes <code>[maj]</code> or <code>[major]</code>, <code>[min]</code> or <code>[minor]</code>, <code>[bug]</code> and <code>[admin]</code> or <code>[-]</code>. Any other label is treated verbatim, e.g. <code>[doozy]</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
 
   <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs --though it would be even nicer if SCMs supported them directly, e.g. with a <code>--label</code> option.</p>
 
