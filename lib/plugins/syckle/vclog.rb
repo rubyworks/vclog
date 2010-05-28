@@ -3,6 +3,7 @@ module Syckle::Plugins
   # VClog service generates changelogs from
   # SCM commit messages.
   #
+  # TODO: Support multiple formats in one pass.
   class VClog < Service
 
     cycle :main, :document
@@ -41,7 +42,7 @@ module Syckle::Plugins
 
     #
     def initialize_defaults
-      require 'vclog/vcs'
+      require 'vclog'
       @version    = metadata.version
       @title      = metadata.title
       @format     = 'html'
@@ -50,7 +51,7 @@ module Syckle::Plugins
 
     #
     def valid?
-      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt)$/
+      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt|atom)$/
       return false unless type   =~ /^(log|rel|history|changelog)$/
       return true
     end
@@ -111,45 +112,39 @@ module Syckle::Plugins
       end
     end
 
-    # Returns changelog or history depending on type selection.
-    def log
-      @log ||= (
-        case type
-        when 'log', 'changelog'
-          log = vcs.changelog
-        when 'rel', 'history'
-          log = vcs.history(:title=>title, :version=>version)
-        else
-          log = vcs.changelog
-        end
-      )
-    end
+    ## Returns changelog or history depending on type selection.
+    #def log
+    #  @log ||= (
+    #    case type
+    #    when 'log', 'changelog'
+    #      log = vcs.changelog
+    #    when 'rel', 'history'
+    #      log = vcs.history(:title=>title, :version=>version)
+    #    else
+    #      log = vcs.changelog
+    #    end
+    #  )
+    #end
 
     # Access to version control system.
     def vcs
       #@vcs ||= VCLog::VCS.new #(self)
-      @vcs ||= VCLog::VCS.factory #(root)
+      @vcs ||= VCLog::Adapters.factory #(root)
     end
 
     # Convert log to desiered format.
     def render
-      case format
-      when 'xml'
-        txt = log.to_xml(style)   # xsl stylesheet url
-      when 'html'
-        txt = log.to_html(style)  # css stylesheet url
-      when 'yaml'
-        txt = log.to_yaml
-      when 'json'
-        txt = log.to_json
-      when 'markdown'
-        txt = log.to_markdown(rev)
-      when 'rdoc'
-        txt = log.to_rdoc(rev)
-      else #:gnu
-        txt = log.to_gnu(rev)
-      end
-      txt
+      doctype = type
+      doctype = 'history'   if doctype == 'rel'
+      doctype = 'changelog' if doctype == 'log'
+
+      options = {
+        :stylesheet => style,
+        :revision   => rev,
+        :version    => version,
+        :title      => title
+      }
+      vcs.display(doctype, format, options)
     end
 
 
