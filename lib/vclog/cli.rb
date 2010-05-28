@@ -111,6 +111,10 @@ module VCLog
         format = :markdown
       end
 
+      opt.on('--format', '-f [FORMAT]', "Output format") do |format|
+        format = format.to_sym
+      end
+
       opt.separator(" ")    
       opt.separator("OTHER OPTIONS:")
 
@@ -174,32 +178,44 @@ module VCLog
       end
       exit
     when :log
-      log = vcs.changelog
+      doctype = :changelog
+      #log = vcs.changelog
       #log = log.typed if typed  #TODO: ability to select types?
     when :rel
-      log = vcs.history(:title=>title, :extra=>extra, :version=>version)
+      doctype = :history
+      #log = vcs.history(:title=>title, :extra=>extra, :version=>version)
     else
       raise "huh?"
       #log = vcs.changelog
       #log = log.typed if typed  #TODO: ability to select types?
     end
 
-    case format
-    when :xml
-      txt = log.to_xml(style)   # xsl stylesheet url
-    when :html
-      txt = log.to_html(style)  # css stylesheet url
-    when :yaml
-      txt = log.to_yaml
-    when :json
-      txt = log.to_json
-    when :markdown
-      txt = log.to_markdown(rev)
-    when :rdoc
-      txt = log.to_rdoc(rev)
-    else #:gnu
-      txt = log.to_gnu(rev)
-    end
+    options = { 
+      :title      => title,
+      :extra      => extra,
+      :version    => version,
+      :revision   => rev,
+      :stylesheet => style 
+    }
+
+    txt = vcs.display(doctype, format, options)
+
+    #case format
+    #when :xml
+    #  txt = log.to_xml(style)   # xsl stylesheet url
+    #when :html
+    #  txt = log.to_html(style)  # css stylesheet url
+    #when :yaml
+    #  txt = log.to_yaml
+    #when :json
+    #  txt = log.to_json
+    #when :markdown
+    #  txt = log.to_markdown(rev)
+    #when :rdoc
+    #  txt = log.to_rdoc(rev)
+    #else #:gnu
+    #  txt = log.to_gnu(rev)
+    #end
 
     if output
       File.open(output, 'w') do |f|

@@ -34,27 +34,48 @@ module Adapters
       list
     end
 
+    # TODO: check .hgrc
+    def user
+      ENV['HGUSER'] || ENV['USER']
+    end
+
+    #
+    def email
+      ENV['HGEMAIL'] || ENV['EMAIL']
+    end
+
+    # 
+    def repository
+      @repository ||= `hg showconfig paths.default`.strip
+    end
+
+    #
+    def uuid
+      nil
+    end
+
     private
 
-    def parse_entry(entry)
-      rev, date, who, msg = nil, nil, nil, nil
-      entry.strip!
-      if md = /^changeset:(.*?)$/.match(entry)
-        rev = md[1].strip
+      def parse_entry(entry)
+        rev, date, who, msg = nil, nil, nil, nil
+        entry.strip!
+        if md = /^changeset:(.*?)$/.match(entry)
+          rev = md[1].strip
+        end
+        if md = /^date:(.*?)$/.match(entry)
+          date = md[1].strip
+        end
+        if md = /^user:(.*?)$/.match(entry)
+          who = md[1].strip
+        end
+        if md = /^description:(.*?)\Z/m.match(entry)
+          msg = md[1].strip
+        end
+        date = Time.parse(date)
+        msg, type = *split_type(msg)
+        return rev, date, who, msg, type
       end
-      if md = /^date:(.*?)$/.match(entry)
-        date = md[1].strip
-      end
-      if md = /^user:(.*?)$/.match(entry)
-        who = md[1].strip
-      end
-      if md = /^description:(.*?)\Z/m.match(entry)
-        msg = md[1].strip
-      end
-      date = Time.parse(date)
-      msg, type = *split_type(msg)
-      return rev, date, who, msg, type
-    end
+
   end
 
 end

@@ -13,7 +13,7 @@ module VCLog
     attr_accessor :type
 
     #
-    def initialize(rev, date, author, message, type=nil)
+    def initialize(rev, date, author, message)
       self.revision = rev
       self.date     = date
       self.author   = author
@@ -28,12 +28,7 @@ module VCLog
 
     #
     def message=(note)
-      @message = note.strip
-    end
-
-    #
-    def type
-      @type ||= split_type(message)
+      @message, @type = split_type(note)
     end
 
     #def clean_type(type)
@@ -95,19 +90,19 @@ module VCLog
     def to_h
       { 'author'   => @author,
         'date'     => @date,
-        'revision' => @revison,
+        'revision' => @revision,
         'message'  => @message,
         'type'     => @type
       }
     end
 
-    def to_json
-      to_h.to_json
-    end
+    #def to_json
+    #  to_h.to_json
+    #end
 
-    def to_yaml(*args)
-      to_h.to_yaml(*args)
-    end
+    #def to_yaml(*args)
+    #  to_h.to_yaml(*args)
+    #end
 
     private
 
@@ -116,7 +111,7 @@ module VCLog
     # "[type]" or "[type]:". Failing that it tries just "type:".
     #
     def split_type(note)
-      note = note.strip
+      note = note.to_s.strip
       if md = /\[(.*?)\]\Z/.match(note)
         t = md[1].strip.downcase
         n = note[0...(md.begin(0))]

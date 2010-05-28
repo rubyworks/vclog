@@ -11,12 +11,23 @@ module VCLog
     end
 
     def to_h
-      { :tag => tag.to_h, :changes => changes }
+      { 'version'  => tag.name,
+        'date'     => tag.date,
+        'message'  => tag.message,
+        'author'   => tag.author,
+        'revision' => tag.revision,
+        'changes'  => changes.map{|change| change.to_h}
+      }
     end
 
-    def to_json
-      to_h.to_json
+    # Group +changes+ by tag type.
+    def groups
+      @groups ||= changes.group_by{ |e| e.type_number }
     end
+
+    #def to_json
+    #  to_h.to_json
+    #end
 
     def <=>(other)
       @tag <=> other.tag

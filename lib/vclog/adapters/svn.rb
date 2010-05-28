@@ -109,6 +109,31 @@ module Adapters
       fnd
     end
 
+    #
+    def user
+      @email ||= `svn propget svn:author`.strip
+    end
+
+    # TODO: Best solution to SVN email?
+    def email
+      @email ||= ENV['EMAIL']
+    end
+
+    #
+    def repository
+      info['Repository Root']
+    end
+
+    #
+    def uuid
+      info['Repository UUID']
+    end
+
+    #
+    def info
+      @info ||= YAML.load(`svn info`.strip)
+    end
+
   end
 
 end

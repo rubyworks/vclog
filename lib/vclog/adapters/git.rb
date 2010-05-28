@@ -7,19 +7,6 @@ module Adapters
   #
   class Git < Abstract
 
-    #def initialize
-    #end
-
-    #
-    #def changelog
-    #  @changelog ||= ChangeLog.new(changes)
-    #end
-
-    #
-    #def history(opts={})
-    #  @history ||= History.new(self, opts)
-    #end
-
     # Collect changes.
     #
     def extract_changes
@@ -31,8 +18,7 @@ module Adapters
       changes.each do |entry|
         date, who, rev, msg = entry.split('|~|')
         date = Time.parse(date)
-        msg, type = *split_type(msg)
-        list << [rev, date, who, msg, type]
+        list << [rev, date, who, msg]
       end
       list
     end
@@ -53,6 +39,7 @@ module Adapters
       list = []
       tags = `git tag -l`
       tags.split(/\s+/).each do |tag|
+        next unless version_tag?(tag) # only version tags
         info = `git show #{tag}`
         md = /\Atag(.*?)\n(.*?)^commit/m.match(info)
         who, date, *msg = *md[2].split(/\n/)
@@ -60,8 +47,8 @@ module Adapters
         date = date[date.index(':')+1..-1].strip
         msg  = msg.join("\n")
 
-        info = `git show #{tag}^ --pretty=format:"%ci|-|%H|-|"`
-        date, rev, *_ = *info.split('|-|')
+        info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
+        date, rev, *_ = *info.split('|~|')
 
         #md = /\Atag(.*?)\n(.*?)^commit/m.match(info)
         #_who, _date, *_msg = *md[2].split(/\n/)
@@ -72,6 +59,21 @@ module Adapters
         list << [tag, rev, date, who, msg]
       end
       list
+    end
+
+    #
+    def user
+      @email ||= `git config user.name`.strip
+    end
+
+    #
+    def email
+      @email ||= `git config user.email`.strip
+    end
+
+    #
+    def repository
+      @repository ||= `git config remote.origin.url`.strip
     end
 
   end#class Git

@@ -13,19 +13,19 @@
     .message{padding: 5 0; font-weight: bold;}
     .revision{font-size: 0.8em;}
   </style>
-  <% if css %>
-    <link rel="stylesheet" href="#{css}" type="text/css">
+  <% if options.stylesheet %>
+    <link rel="stylesheet" href="#{options.stylesheet}" type="text/css">
   <% end %>
 </head>
 <body>
 <div class="history">
   <div class="title"><%= title %></div>
-  <% releases.each do |release| %>
+  <% history.releases.sort.each do |release| %>
     <% tag = release.tag %>
     <h1><%= tag.name %> / <%= tag.date.strftime('%Y-%m-%d') %></h1>
     <p><%= tag.message %></p>
-    <% if extra %>
-      <% groups(release.changes).each do |number, changes| %>
+    <% if options.extra %>
+      <% release.groups.each do |number, changes| %>
         <h2><%= changes.size %> <%= changes[0].type_phrase %></h2>
         <ul class="log">
         <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>

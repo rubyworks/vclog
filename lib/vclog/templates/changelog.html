@@ -13,13 +13,13 @@
     .message{padding: 5 0; font-weight: bold;}
     .revision{font-size: 0.8em;}
   </style>
-  <% if css %>
-    <link rel="stylesheet" href="#{css}" type="text/css">
+  <% if options.stylesheet %>
+    <link rel="stylesheet" href="#{options.stylesheet}" type="text/css">
   <% end %>
 </head>
 <body>
 <div class="changelog">
-  <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+  <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
   <div class="commit">
     <div class="revision">#<%= h entry.revision %></div>
     <div class="date"><%= entry.date %></div>

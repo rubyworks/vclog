@@ -73,8 +73,8 @@ module VCLog
         tags = self.tags
 
         ver  = vcs.bump(version)
+        user = vcs.user
         time = ::Time.now
-        user = ENV['USER']  # TODO: get user name from vcs
 
         tags << Tag.new(ver, nil, time, user, "Current Development")
 
@@ -92,27 +92,30 @@ module VCLog
         tags = tags.sort{ |a,b| b.date <=> a.date }
 
         # organize into deltas
-        deltas, last = [], nil
-        tags.each do |tag|
-          deltas << [last, tag]
-          last = tag
+        delta = {}
+        last  = nil
+        tags.sort.each do |tag|
+          delta[tag] = [last, tag.date]
+          last = tag.date
         end
 
         # gather changes for each delta and build log
-        deltas.each do |gt, lt|
-          if gt
-            gt_vers, gt_date = gt.name, gt.date
-            lt_vers, lt_date = lt.name, lt.date
+        delta.each do |tag, (ended, started)|
+          if ended
+            set = changes.select{ |c| c.date < ended && c.date > started }
+            #gt_vers, gt_date = gt.name, gt.date
+            #lt_vers, lt_date = lt.name, lt.date
             #gt_date = Time.parse(gt_date) unless Time===gt_date
             #lt_date = Time.parse(lt_date) unless Time===lt_date
-            log = changelog.after(gt_date).before(lt_date)
+            #log = changelog.after(gt).before(lt)
           else
-            lt_vers, lt_date = lt.name, lt.date
+            #lt_vers, lt_date = lt.name, lt.date
             #lt_date = Time.parse(lt_date) unless Time===lt_date
-            log = changelog.before(lt_date)
+            #log = changelog.before(lt_date)
+            set = changes.select{ |c| c.date > started }
           end
 
-          rel << Release.new(lt, log.changes)
+          rel << Release.new(tag, set)
         end
         rel
       )
@@ -124,12 +127,20 @@ module VCLog
       @groups ||= changes.group_by{ |e| e.type_number }
     end
 
-    # Same as to_gnu.
-
-    def to_s(rev=false)
-      to_gnu(rev)
+    #
+    def to_h
+      releases.map{ |rel| rel.to_h }
     end
 
+
+
+    # Same as to_gnu.
+
+    #def to_s(rev=false)
+    #  to_gnu(rev)
+    #end
+
+=begin
     # TODO: What would GNU history look like?
 
     def to_gnu(rev=false)
@@ -149,7 +160,9 @@ module VCLog
       require 'json'
       releases.to_json
     end
+=end
 
+=begin
     # Translate history into a XML document.
 
     def to_xml(xsl=nil)
@@ -181,6 +194,7 @@ module VCLog
       erb = ERB.new(tmp)
       erb.result(binding)
     end
+=end
 
 =begin
     #
@@ -261,6 +275,7 @@ module VCLog
     end
 =end
 
+=begin
   private
 
     #
@@ -274,6 +289,7 @@ module VCLog
        result.gsub!("\"", "&quot;")
        return result
     end
+=end
 
   end
 

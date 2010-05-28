@@ -2,6 +2,7 @@ module VCLog
 module Adapters
 
   require 'time'
+  require 'vclog/formatter'
   require 'vclog/changelog'
   require 'vclog/history'
   require 'vclog/change'
@@ -48,6 +49,12 @@ module Adapters
       @history ||= History.new(self, opts)
     end
 
+    #
+    def display(type, format, options={})
+      formatter = Formatter.new(self)
+      formatter.display(type, format, options)
+    end
+
     # Provides a bumped version number.
     def bump(part=nil)
       return part unless ['major', 'minor', 'patch', ''].include?(part.to_s)
@@ -83,6 +90,12 @@ module Adapters
 
   private
 
+    #
+    def version_tag?(tag_name)
+      /(v|\d)/i =~ tag_name
+    end
+
+=begin
     # Looks for a "[type]" indicator at the end of the commit message.
     # If that is not found, it looks at front of message for
     # "[type]" or "[type]:". Failing that it tries just "type:".
@@ -104,6 +117,7 @@ module Adapters
       n.gsub!(/^\s*?\n/m,'') # remove blank lines
       return n, t
     end
+=end
 
 =begin
     # Write the ChangeLog to file.
@@ -142,6 +156,26 @@ module Adapters
       stamp.join(' ')
     end
 =end
+
+    #
+    def user
+      ENV['USER']
+    end
+
+    #
+    def email
+      ENV['EMAIL']
+    end
+
+    #
+    def repository
+      nil
+    end
+
+    #
+    def uuid
+      nil
+    end
 
   end
 

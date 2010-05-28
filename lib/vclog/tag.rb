@@ -46,11 +46,16 @@ module VCLog
 
     def to_h
       {
-        :name => name,
-        :date => date,
-        :author => author,
-        :message => message
+        'name' => name,
+        'date' => date,
+        'author' => author,
+        'message' => message
       }
+    end
+
+    #
+    def inspect
+      "<Tag #{name} #{date.strftime('%Y-%m-%d %H:%M:%S')}>"
     end
 
     # Normal tag order is the reverse typical sorts.

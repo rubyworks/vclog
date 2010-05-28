@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><%= title %> Feed</title>
+  <% if url %><link href="<%= url %>" rel="self" /><% end %>
+  <% if homepage %><link href="<%= homepage %>" /><% end %>
+  <id><% if vcs.uuid %>urn:uuid:<%= vcs.uuid %><% else %><%= vcs.repository %><% end %></id>
+  <updated><%= Time.now %></updated>
+  <author>
+    <name><%= user %></name>
+    <email><%= email %></email>
+  </author>
+
+  <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+  <entry>
+    <title><%= h entry.message.lines.first %></title>
+    <id><%= entry.revision %></id>
+    <author><%= entry.author %></author>
+    <updated><%= entry.date %></updated>
+    <summary><%= h entry.message %></summary>
+  </entry>
+  <% end %>
+
+</feed>
+

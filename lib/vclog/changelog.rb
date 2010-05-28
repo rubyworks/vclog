@@ -55,9 +55,20 @@ module VCLog
       @changes << Change.new(rev, date, who, note, type)
     end
 
-    def each(&block) ; changes.each(&block) ; end
-    def empty? ; changes.empty? ; end
-    def size ; changes.size ; end
+    #
+    def each(&block)
+      changes.each(&block)
+    end
+
+    #
+    def empty?
+      changes.empty?
+    end
+
+    #
+    def size
+      changes.size
+    end
 
     #
     def <<(entry)
@@ -126,6 +137,11 @@ module VCLog
     #  mapped
     #end
 
+    def to_h
+      map{ |change| change.to_h }
+    end
+
+
     # O U T P U T  F O R M A T S
 
     #
@@ -152,6 +168,7 @@ module VCLog
 #      return x.join("\n")
 #    end
 
+=begin
     #
 
     def to_gnu(rev=false)
@@ -173,7 +190,9 @@ module VCLog
       require 'json'
       changes.to_json
     end
+=end
 
+=begin
     #
     alias_method :to_s, :to_gnu
 
@@ -209,6 +228,7 @@ module VCLog
       erb = ERB.new(tmp)
       erb.result(binding)
     end
+=end
 
 =begin
     # Create an XML formated changelog.

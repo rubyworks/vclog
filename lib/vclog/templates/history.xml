@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
-<% if xsl %>
-<?xml-stylesheet href="#{xsl}" type="text/xsl" ?>
+<% if options.stylesheet %>
+<?xml-stylesheet href="#{options.stylesheet}" type="text/xsl" ?>
 <% end %>
 <history>
   <title><%= title %></title>
-  <% releases.each do |release| %>
+  <% history.releases.sort.each do |release| %>
   <tag>
     <% tag = release.tag %>
     <name><%= h tag.name %></name>
     <date><%= tag.date.strftime('%Y-%m-%d') %></date>
     <author><%= h tag.author %></author>
     <message><%= h tag.message %></message>
-    <% groups(release.changes).each do |number, changes| %>
+
+    <% release.groups.each do |number, changes| %>
     <commit-group type="<%= changes[0].type %>" label="<%= changes[0].type_phrase %>">
       <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
       <commit>
