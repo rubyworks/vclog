@@ -72,15 +72,15 @@ module VCLog
         type = :rel
       end
 
-      opt.on('--bump', '-b', "display a bumped version number") do
-        type = :bump
-      end
-
       opt.on('--current', '-c', "display current version number") do
         type = :curr
       end
 
-      opt.on('--formats', '-F', "list formats supported") do
+      opt.on('--bump', '-b', "display a bumped version number") do
+        type = :bump
+      end
+
+      opt.on('--formats', '-F', "list supported formats") do
         puts "gnu rdoc markdown xml html atom rss json yaml"
         exit
       end
