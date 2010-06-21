@@ -60,7 +60,11 @@ module VCLog
 
     #
     def self.factory(name)
-      cmdclass = register.find{ |cli| cli.terms.include?(name.to_s) }
+      # find the closet matching term
+      terms = register.map{ |cli| cli.terms }.flatten
+      term = terms.select{ |term| /^#{name}/ =~ term }.first
+      # get the class that goes with the term
+      cmdclass = register.find{ |cli| cli.terms.include?(term) }
       raise "Unknown command -- #{name}" unless cmdclass
       cmdclass.new
     end
