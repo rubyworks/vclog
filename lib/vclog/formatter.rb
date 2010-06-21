@@ -55,15 +55,19 @@ module VCLog
       return @options.title if @options.title
       case @doctype
       when :history
-        "Release History"
+        "RELEASE HISTORY"
       else
-        "Change Log"
+        "CHANGELOG"
       end
     end
 
     #
-    def display(doctype, format, options={})
-      options = OpenStruct.new(options)
+    #--
+    # NOTE: ERBs trim_mode is broken --it removes an extra space. 
+    # So we can't use it for plain text templates.
+    #++
+    def display(doctype, format, options)
+      options = OpenStruct.new(options) if Hash === options
 
       @doctype = doctype
       @format  = format
@@ -71,9 +75,19 @@ module VCLog
 
       require_formatter(format)
 
-      tmp = File.read(File.join(DIR, 'templates', "#{@doctype}.#{@format}"))
-      erb = ERB.new(tmp)
-      erb.result(binding)
+      tmp_file = Dir[File.join(DIR, 'templates', "#{@doctype}.#{@format}.{erb,rb}")].first
+
+      tmp = File.read(tmp_file)
+
+      case File.extname(tmp_file)
+      when '.rb'
+        eval(tmp, binding)
+      when '.erb'
+        erb = ERB.new(tmp, nil, '<>')
+        erb.result(binding)
+      else
+        raise "unrecognized template - #{tmp_file}"
+      end
     end
 
     private

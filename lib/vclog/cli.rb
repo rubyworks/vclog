@@ -1,8 +1,5 @@
 module VCLog
 
-  require 'vclog/adapters'
-  require 'optparse'
-
   # = vclog Command
   #
   # == SYNOPSIS
@@ -31,19 +28,47 @@ module VCLog
   #
   # To use the library programmatically, please see the API documentation.
 
-  def self.run
-    begin
-      vclog
-    rescue => err
-      if $DEBUG
-        raise err
-      else
-        puts err.message
-        exit -1
+  module CLI
+
+    require 'vclog/config'
+    require 'vclog/adapters'
+
+    require 'vclog/cli/help'
+    require 'vclog/cli/changelog'
+    require 'vclog/cli/history'
+    require 'vclog/cli/list'
+    require 'vclog/cli/bump'
+    #require 'vclog/cli/verison'
+
+    def self.main(*argv)
+      argv ||= ARGV.dup
+      begin
+        #opt = global_parser.order!(argv)
+        cmd = argv.shift unless argv.first =~ /^-/
+        cmd = cmd || 'changelog'
+        cli = CLI.factory(cmd).new #, opt)
+        cli.run(argv)
+      rescue => err
+        if $DEBUG
+          raise err
+        else
+          puts err.message
+          exit -1
+        end
       end
     end
-  end
 
+    #
+    def self.factory(name)
+      register.find{ |cli| cli.terms.include?(name.to_s) }
+    end
+
+  end
+end
+
+# VCLog Copyright (c) 2008 Thomas Sawyer
+
+=begin
   #
   def self.vclog
     type    = :log
@@ -53,7 +78,7 @@ module VCLog
     output  = nil
     title   = nil
     version = nil
-    extra   = false
+    extra   = false  require 'vclog/cli/help'
     rev     = false
     typed   = false
 
@@ -62,7 +87,7 @@ module VCLog
       opt.banner = "Usage: vclog [--TYPE] [-f FORMAT] [OPTIONS] [DIR]"
 
       opt.separator(" ")
-      opt.separator("OUTPUT TYPE (choose one):")
+      opt.separator("OUTPUT TYPE: (choose one)")
 
       opt.on('--log', '--changelog', '-l', "changelog (default)") do
         type = :log
@@ -85,63 +110,65 @@ module VCLog
         exit
       end
 
-      opt.separator(" ")
-      opt.separator("FORMAT OPTION:")
+      opt.on('--help' , '-h', 'display this help information') do
+        puts opt
+        exit
+      end
 
-      opt.on('--format', '-f <FORMAT>', "Output format") do |format|
+      opt.separator(" ")
+      opt.separator("FORMAT OPTIONS: (use varies with format)")
+
+      opt.on('--format', '-f FORMAT', "output format") do |format|
         format = format.to_sym
-      end
-
-      opt.separator(" ")
-      opt.separator("OTHER OPTIONS:")
-
-      #opt.on('--typed', "catagorize by commit type") do
-      #  typed = true
-      #end
-
-      opt.on('--title <TITLE>', "document title, used by some formats") do |string|
-        title = string
-      end
-
-      opt.on('--extra', '-e', "provide extra output (used by some formats)") do
-        extra = true
-      end
-
-      opt.on('--version', '-v <NUM>', "current version to use for release history") do |num|
-        version = num
       end
 
       opt.on('--style <URI>', "provide a stylesheet URI (css or xsl) for HTML or XML format") do |uri|
         style = uri
       end
 
-      opt.on('--id', "include revision ids (in formats that normally do not)") do
+      opt.on('--version', '-v NUM', "current version number") do |num|
+        version = num
+      end
+
+
+      #opt.on('--typed', "catagorize by commit type") do
+      #  typed = true
+      #end
+
+      opt.on('--title', '-t TITLE', "document title") do |string|
+        title = string
+      end
+
+      opt.on('--detail', '-d', "provide details") do
+        extra = true
+      end
+
+      opt.on('--id', "include revision id") do
         rev = true
       end
 
+      opt.on('--style URI', "provide a stylesheet URI (css or xsl) for HTML or XML format") do |uri|
+        style = uri
+      end
+
       # DEPRECATE
-      opt.on('--output', '-o <FILE>', "send output to a file instead of stdout") do |out|
+      opt.on('--output', '-o FILE', "send output to a file instead of stdout") do |out|
         output = out
       end
 
       opt.separator(" ")
-      opt.separator("STANDARD OPTIONS:")
+      opt.separator("SYSTEM OPTIONS:")
 
-      opt.on('--debug', "show debugging infromation") do
+      opt.on('--debug', "show debugging information") do
         $DEBUG = true
-      end
-
-      opt.on_tail('--help' , '-h', 'display this help information') do
-        puts opt
-        exit
       end
     end
 
     optparse.parse!(ARGV)
 
     root = ARGV.shift || Dir.pwd
-
-    vcs = VCLog::Adapters.factory #(root)
+    conf = VCLog::Config.new(root)
+    vcs  = VCLog::Adapters.factory(conf)
 
     case type
     when :bump
@@ -210,8 +237,5 @@ module VCLog
   #    Dir.glob('{history,changes,changelog}{,.*}', File::FNM_CASEFOLD).first
   #  end
   #end
-
-end
-
-# VCLog Copyright (c) 2008 Thomas Sawyer
+=end
 

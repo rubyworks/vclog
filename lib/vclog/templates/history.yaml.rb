@@ -1,1 +1,1 @@
-<%= history.to_h.to_yaml %>
+history.to_h.to_yaml

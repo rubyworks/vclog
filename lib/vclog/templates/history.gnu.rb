@@ -1,12 +1,41 @@
-# <%= title %>
-<% history.releases.sort.each do |release| %><% tag = release.tag %>
-## <%= tag.name %> / <%= tag.date.strftime('%Y-%m-%d') %>
 
-<%= h tag.message.strip %> (<%= tag.author %>)
+out = []
 
-<% if options.extra %>Changes:
-<% release.groups.each do |number, changes| %>
-* <%= changes.size %> <%= changes[0].type_phrase %>
-<% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
-    * <%= entry.message %> <% if options.revision %>(#<%= entry.revision %>)<% end %><% end %>
-<% end %><% end %><% end %>
+out << "#{title}"
+
+history.releases.sort.each do |release|
+
+  tag = release.tag
+
+  out << "\n#{tag.name} / #{tag.date.strftime('%Y-%m-%d')}"
+
+  out << "\n#{tag.message.strip} (#{tag.author})"
+
+  if options.extra && !release.changes.empty?
+
+    out << "\nChanges:"
+
+    release.groups.each do |number, changes|
+
+      out << "\n* #{changes.size} #{changes[0].label }\n"
+
+      changes.sort{|a,b| b.date <=> a.date}.each do |entry|
+
+        out << "    * #{entry.message.strip}"
+
+        if options.revision
+          out.last <<  "(##{entry.revision})"
+        end
+
+      end
+
+    end
+
+  end 
+
+  out << ""
+
+end
+
+out.join("\n") + "\n"
+

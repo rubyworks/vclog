@@ -1,1 +1,1 @@
-<%= changelog.to_h.to_json %>
+changelog.to_h.to_json

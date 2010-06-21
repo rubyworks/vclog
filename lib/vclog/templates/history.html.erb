@@ -13,35 +13,40 @@
     .message{padding: 5 0; font-weight: bold;}
     .revision{font-size: 0.8em;}
   </style>
-  <% if options.stylesheet %>
-    <link rel="stylesheet" href="#{options.stylesheet}" type="text/css">
-  <% end %>
+<% if options.stylesheet %>
+  <link rel="stylesheet" href="#{options.stylesheet}" type="text/css">
+<% end %>
 </head>
 <body>
 <div class="history">
   <div class="title"><%= title %></div>
-  <% history.releases.sort.each do |release| %>
-    <% tag = release.tag %>
+
+<% history.releases.sort.each do |release| %>
+<%   tag = release.tag %>
+
     <h1><%= tag.name %> / <%= tag.date.strftime('%Y-%m-%d') %></h1>
     <p><%= tag.message %></p>
-    <% if options.extra %>
-      <% release.groups.each do |number, changes| %>
-        <h2><%= changes.size %> <%= changes[0].type_phrase %></h2>
-        <ul class="log">
-        <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
-          <li class="entry">
-          <div class="message"><%= h entry.message %></div>
-          <!-- <div class="type"><%= h entry.type %></div> -->
-          <div class="revision">#<%= h entry.revision %></div>
-          <div class="date"><%= entry.date %></div>
-          <div class="author"><%= h entry.author %></div>
-          </li>
-        <% end %>
-        </ul>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+<%   if options.extra %>
+<%     release.groups.each do |number, changes| %>
+
+    <h2><%= changes.size %> <%= changes[0].label %></h2>
+    <ul class="log">
+<%       changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+      <li class="entry">
+        <div class="message">
+          <%= h entry.message.strip %>
+        </div>
+        <!-- <div class="type"><%= h entry.type %></div> -->
+        <div class="revision">#<%= h entry.revision %></div>
+        <div class="date"><%= entry.date %></div>
+        <div class="author"><%= h entry.author %></div>
+      </li>
+<%       end %>
+    </ul>
+<%     end %>
+<%   end %>
+<% end %>
+  </div>
 </body>
 </html>
 

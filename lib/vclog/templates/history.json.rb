@@ -1,1 +1,1 @@
-<%= history.to_h.to_json %>
+history.to_h.to_json

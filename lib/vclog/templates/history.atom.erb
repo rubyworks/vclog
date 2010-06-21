@@ -24,7 +24,7 @@
       <p><%= tag.message %></p>
       <% if options.extra %>
         <% release.groups.each do |number, changes| %>
-          <h2><%= changes.size %> <%= changes[0].type_phrase %></h2>
+          <h2><%= changes.size %> <%= changes[0].label %></h2>
           <ul class="log">
           <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
             <li class="entry">

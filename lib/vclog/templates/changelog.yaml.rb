@@ -1,1 +1,1 @@
-<%= changelog.to_h.to_yaml %>
+changelog.to_h.to_yaml
