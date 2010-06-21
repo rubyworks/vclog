@@ -40,6 +40,9 @@ module Syckle::Plugins
     # Some formats can reference an optional stylesheet (namely +xml+ and +html+).
     attr_accessor :style
 
+    # Minimu change level to include.
+    attr_accessor :level
+
     #
     def initialize_defaults
       require 'vclog'
@@ -47,6 +50,7 @@ module Syckle::Plugins
       @title      = metadata.title
       @formats    = ['atom']
       @type       = 'log'
+      @level      = 0
     end
 
     #
@@ -68,16 +72,12 @@ module Syckle::Plugins
       @type = f.to_s.downcase
     end
 
-    # Generate changelog.
-    def document
-      document_changelog
-    end
-
     #++
     # TODO: apply_naming_policy ?
     #--
 
-    def document_changelog
+    #
+    def document
       formats.each do |format|
         case type
         when 'rel', 'history'
@@ -87,7 +87,7 @@ module Syckle::Plugins
         end
         #apply_naming_policy('changelog', log_format.downcase)
         if dryrun?
-          report "# vclog --#{type} -f #{format} -o #{file}"
+          report "# vclog --#{type} -f #{format} >> #{file}"
         else
           changed = save(format, file)
           if changed
@@ -130,10 +130,18 @@ module Syckle::Plugins
     #  )
     #end
 
+    def vclog_config
+      @vclog_config ||= (
+        vcf = VCLog::Config.new(root.to_s)
+        vcf.level = level
+        vcf
+      )
+    end
+
     # Access to version control system.
     def vcs
       #@vcs ||= VCLog::VCS.new #(self)
-      @vcs ||= VCLog::Adapters.factory #(root)
+      @vcs ||= VCLog::Adapters.factory(vclog_config)
     end
 
     # Convert log to desired format.
@@ -148,6 +156,7 @@ module Syckle::Plugins
         :version    => version,
         :title      => title
       }
+
       vcs.display(doctype, format, options)
     end
 
