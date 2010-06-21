@@ -61,12 +61,13 @@ module Adapters
     end
 
     #
-    def history(opts={})
-      @history ||= History.new(self, opts)
+    def history
+      @history ||= History.new(self, @options)
     end
 
     #
     def display(type, format, options)
+      @options = options
       formatter = Formatter.new(self)
       formatter.display(type, format, options)
     end

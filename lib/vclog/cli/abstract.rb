@@ -69,6 +69,9 @@ module CLI
       parser.on('--id', "include revision id") do
         options.revision = true
       end
+      parser.on('--level', '-l NUMBER', "lowest level of commit to display [0]") do |num|
+        options.level = num.to_i
+      end
       parser
     end
 
