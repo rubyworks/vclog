@@ -384,7 +384,7 @@ end
         entries = groups[n]
         next if !entries
         next if entries.empty?
-        string << "* #{entries.size} #{entries[0].type_phrase}\n\n"
+        string << "* #{entries.size} #{entries[0].label}\n\n"
         entries.sort!{|a,b| a.date <=> b.date }
         entries.each do |entry|
           #string << "== #{date}  #{who}\n\n"  # no email :(

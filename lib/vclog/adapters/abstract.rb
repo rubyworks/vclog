@@ -2,6 +2,8 @@ module VCLog
 module Adapters
 
   require 'time'
+  require 'pathname'
+
   require 'vclog/formatter'
   require 'vclog/changelog'
   require 'vclog/history'
@@ -14,19 +16,33 @@ module Adapters
   # = Version Control System
   class Abstract
 
+    # Root location.
     attr :root
 
+    # Heuristics object.
+    attr :heuristics
+
     #
-    def initialize(root)
-      @root = File.expand_path(root)
+    def initialize(config)
+      @root       = config.root  # File.expand_path(config.root)
+      @heuristics = config.heuristics
     end
 
+    #
     def tags
       @tags ||= extract_tags.map{ |t| Tag===t ? t : Tag.new(*t) }
     end
 
+    #
     def changes
-      @changes ||= extract_changes.map{ |c| Change===c ? c : Change.new(*c) }
+      @changes ||= (
+        extract_changes.map do |c|
+          raise "how did this happen?" if Change == c
+          rev, date, who, msg = *c
+          type, level, label = *heuristics.lookup(msg)
+          Change.new(rev, date, who, msg, type, level, label)
+        end
+      )
     end
 
     #
@@ -50,7 +66,7 @@ module Adapters
     end
 
     #
-    def display(type, format, options={})
+    def display(type, format, options)
       formatter = Formatter.new(self)
       formatter.display(type, format, options)
     end
@@ -156,6 +172,25 @@ module Adapters
       stamp.join(' ')
     end
 =end
+
+    # Find vclog config directory. This searches up from the current
+    # working directory for the following paths (in order):
+    #
+    #   .vclog/
+    #   .config/vclog/
+    #    config/vclog/
+    #
+    def lookup_config
+      conf = nil
+      Dir.ascend(Dir.pwd) do |path|
+        check = Dir['{.vclog/,.config/vclog/,config/vclog/}/'].first
+        if check
+          conf = path 
+          break
+        end
+      end
+      conf
+    end
 
   public
 

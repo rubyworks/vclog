@@ -20,9 +20,9 @@ module VCLog
       }
     end
 
-    # Group +changes+ by tag type.
+    # Group +changes+ by type.
     def groups
-      @groups ||= changes.group_by{ |e| e.type_number }
+      @groups ||= changes.group_by{ |e| e.type }
     end
 
     #def to_json

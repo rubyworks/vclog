@@ -11,20 +11,20 @@ module Adapters
   #
   class Darcs < Abstract
 
-    ### Is a darcs repository?
+    # Is a darcs repository?
     def repository?
       File.directory?('_darcs')
     end
 
-    ### This is also a module function.
+    # This is also a module function.
     module_function :repository?
 
-    ### Cached Changelog.
+    # Cached Changelog.
     def changelog
       @changelog ||= generate_changelog
     end
 
-    ### Generate Changelog object.
+    # Generate Changelog object.
     def generate_changelog
       raise "not a darcs repository" unless repository?
 
@@ -48,7 +48,7 @@ module Adapters
       return log
     end
 
-    ### Retrieve the "revision number" from the darcs tree.
+    # Retrieve the "revision number" from the darcs tree.
     def calculate_version
       raise "not a darcs repository" unless repository?
 

@@ -8,11 +8,10 @@ module VCLog
   module Adapters
 
     #
-    def self.factory(root=nil)
-      root = root || Dir.pwd
-      type = read_type(root)
+    def self.factory(config)
+      type = read_type(config.root)
       raise ArgumentError, "Not a recognized version control system." unless type
-      const_get(type.capitalize).new(root)
+      const_get(type.capitalize).new(config)
     end
 
     #

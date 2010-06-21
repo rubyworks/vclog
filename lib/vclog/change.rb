@@ -1,3 +1,5 @@
+require 'vclog/kernel'
+
 module VCLog
 
   # = Change Log Entry class
@@ -10,25 +12,25 @@ module VCLog
     attr_accessor :date
     attr_accessor :revision
     attr_accessor :message
+
     attr_accessor :type
+    attr_accessor :level
+    attr_accessor :label
 
     #
-    def initialize(rev, date, author, message)
+    def initialize(rev, date, author, message, type, level, label)
       self.revision = rev
       self.date     = date
       self.author   = author
-      self.type     = type
       self.message  = message
+      self.type     = type
+      self.level    = level
+      self.label    = label
     end
 
     #
     def author=(author)
       @author = author.strip
-    end
-
-    #
-    def message=(note)
-      @message, @type = split_type(note)
     end
 
     #def clean_type(type)
@@ -42,6 +44,7 @@ module VCLog
     #  end
     #end
 
+=begin
     #
     def type_phrase
       case type.to_s
@@ -56,27 +59,10 @@ module VCLog
       when '-'
         'Administrative Changes'
       else
-        "#{type.capitalize} Enhancements"
+        "#{type.to_s.capitalize} Enhancements"
       end
     end
-
-    #
-    def type_number
-      case type.to_s.downcase
-      when 'maj', 'major'
-        0
-      when 'min', 'minor'
-        1
-      when 'bug'
-        2
-      when ''
-        4
-      when '-'
-        5
-      else # other
-        3
-      end
-    end
+=end
 
     #
     def <=>(other)
@@ -104,8 +90,7 @@ module VCLog
     #  to_h.to_yaml(*args)
     #end
 
-    private
-
+=begin
     # Looks for a "[type]" indicator at the end of the commit message.
     # If that is not found, it looks at front of message for
     # "[type]" or "[type]:". Failing that it tries just "type:".
@@ -127,6 +112,7 @@ module VCLog
       n.gsub!(/^\s*?\n/m,'') # remove blank lines
       return n, t
     end
+=end
 
   end #class Entry
 

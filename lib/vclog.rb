@@ -1,1 +1,7 @@
-require 'vclog/adapters'
+module VCLog
+  require 'vclog/adapters'
+
+
+end
+
+

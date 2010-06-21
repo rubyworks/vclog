@@ -1,5 +1,6 @@
 module VCLog
 
+  #
   class Metadata
 
     def initialize
