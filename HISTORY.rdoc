@@ -1,5 +1,17 @@
 = RELEASE HISTORY
 
+== 1.6.0 / 2010-06-23
+
+Previous version utilized a system of "commit tagging" to identify types of commits. This proved less thant optimal --it was unconventional but worse it was easy to forget to put the proper label in the message. The new version of VClog use a customizable heuristics systems instead. Rather then be limited to a strict syntax structure, you can write matching rules in .config/vclog/rules.rb that determine thte commit type, and set descriptive labels for each type. This makesit very easy to get excellent History output.
+
+Changes:
+
+* 2 Major Enhancements
+
+  * Heuristics system for categorizing commits
+  * Command-line interface uses subcommands
+
+
 == 1.5.0 / 2010-05-29
 
 This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that <code>--foramt</code>/<code>-f</code> is used to select the format instead of using the previous per-format options, e.g. use <code>-f xml</code> instead of <code>--xml</code>. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.

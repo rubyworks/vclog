@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require 'vclog/cli'
-VCLog.run
+VCLog::CLI.main(*ARGV)
 
