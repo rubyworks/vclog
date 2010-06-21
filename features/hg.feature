@@ -46,41 +46,41 @@ Feature: Mercurial Support
 
   Scenario: Mercurial Release History
     Given a suitable Mercurial repository
-    When I run "vclog -r"
+    When I run "vclog rel"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in RDoc
     Given a suitable Mercurial repository
-    When I run "vclog -r -f rdoc"
+    When I run "vclog rel -f rdoc"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in Markdown
     Given a suitable Mercurial repository
-    When I run "vclog -r -f markdown"
+    When I run "vclog rel -f markdown"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in HTML
     Given a suitable Mercurial repository
-    When I run "vclog -r -f html"
+    When I run "vclog rel -f html"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in XML
     Given a suitable Mercurial repository
-    When I run "vclog -r -f xml"
+    When I run "vclog rel -f xml"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in Atom
     Given a suitable Mercurial repository
-    When I run "vclog -r -f atom"
+    When I run "vclog rel -f atom"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in YAML
     Given a suitable Mercurial repository
-    When I run "vclog -r -f yaml"
+    When I run "vclog rel -f yaml"
     Then the exit status should be 0
 
   Scenario: Mercurial Release History in JSON
     Given a suitable Mercurial repository
-    When I run "vclog -r -f json"
+    When I run "vclog rel -f json"
     Then the exit status should be 0
 
