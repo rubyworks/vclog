@@ -5,19 +5,29 @@ module VCLog
   #
   class Config
 
-    GLOB = '{.vclog,.config/vclog,config/vclog}/'
+    # File glob used to find the vclog configuration directory.
+    CONFIG_GLOB = '{.vclog,.config/vclog,config/vclog}/'
+
+    # File glob used to find project root directory.
+    ROOT_GLOB = '{.vclog/,.config/vclog/,config/vclog/,.git/,README*}/'
 
     #
     def initialize(root=nil)
-      @root = root || lookup_root || Dir.pwd
-      @conf = Dir[File.join(root, GLOB)]
+      @root  = root || lookup_root || Dir.pwd
+      @dir   = Dir[File.join(root, CONFIG_GLOB)]
+      @level = 0
     end
 
     # Project's root directory.
     attr :root
 
     # Configuration directory.
-    attr :conf
+    attr :dir
+
+    # Default change level.
+    #
+    # TODO: get from config file.
+    attr_accessor :level
 
     #
     def heuristics
@@ -26,7 +36,7 @@ module VCLog
 
     #
     def heuristics_file
-      @heuristics_file ||= Dir[File.join(conf, 'rules.rb')].first
+      @heuristics_file ||= Dir[File.join(dir, 'rules.rb')].first
     end
 
     # Find project root. This searches up from the current working
@@ -41,7 +51,7 @@ module VCLog
     def lookup_root
       root = nil
       Dir.ascend(Dir.pwd) do |path|
-        check = Dir['{.vclog/,.config/vclog/,config/vclog/,.git/,README*}/'].first
+        check = Dir[ROOT_GLOB].first
         if check
           root = path 
           break

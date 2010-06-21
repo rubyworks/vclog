@@ -46,7 +46,7 @@ module VCLog
         #opt = global_parser.order!(argv)
         cmd = argv.shift unless argv.first =~ /^-/
         cmd = cmd || 'changelog'
-        cli = CLI.factory(cmd).new #, opt)
+        cli = CLI.factory(cmd)
         cli.run(argv)
       rescue => err
         if $DEBUG
@@ -60,7 +60,9 @@ module VCLog
 
     #
     def self.factory(name)
-      register.find{ |cli| cli.terms.include?(name.to_s) }
+      cmdclass = register.find{ |cli| cli.terms.include?(name.to_s) }
+      raise "Unknown command -- #{name}" unless cmdclass
+      cmdclass.new
     end
 
   end
@@ -85,17 +87,6 @@ end
     optparse = OptionParser.new do |opt|
 
       opt.banner = "Usage: vclog [--TYPE] [-f FORMAT] [OPTIONS] [DIR]"
-
-      opt.separator(" ")
-      opt.separator("OUTPUT TYPE: (choose one)")
-
-      opt.on('--log', '--changelog', '-l', "changelog (default)") do
-        type = :log
-      end
-
-      opt.on('--rel', '--history', '-r', "release history") do
-        type = :rel
-      end
 
       opt.on('--current', '-c', "display current version number") do
         type = :curr

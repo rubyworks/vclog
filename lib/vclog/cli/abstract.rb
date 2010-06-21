@@ -82,7 +82,10 @@ module CLI
       parser.parse!(argv)
 
       @root = Dir.pwd  # TODO: find root
+
       @conf = VCLog::Config.new(@root)
+      @conf.level = options.level if options.level
+
       @vcs  = VCLog::Adapters.factory(@conf)
 
       execute

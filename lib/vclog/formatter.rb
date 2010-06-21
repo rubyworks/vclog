@@ -10,17 +10,20 @@ module VCLog
     #
     attr :vcs
 
+    # New Formmater.
+    #
+    # vcs - an instance of a subclass of VCS::Abstract
     #
     def initialize(vcs)
       @vcs = vcs
     end
 
-    #
+    # Returns a Changelog object taken from the VCS.
     def changelog
       @vcs.changelog
     end
 
-    #
+    # Returns a History object garnered form the VCS.
     def history
       @vcs.history
     end
@@ -50,7 +53,7 @@ module VCLog
       @options.homepage
     end
 
-    #
+    # TODO: let be nil and let template make a default if wanted
     def title
       return @options.title if @options.title
       case @doctype

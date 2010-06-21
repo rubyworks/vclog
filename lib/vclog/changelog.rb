@@ -17,24 +17,15 @@ module VCLog
 
     DIR = File.dirname(__FILE__)
 
+    # Seconds in a day.
     DAY = 24*60*60
 
+    #
     attr :changes
-
-    attr_accessor :marker
-
-    attr_accessor :title
-
-    # Include revision id?
-    attr_accessor :rev_id
 
     #
     def initialize(changes=nil)
       @changes = []
-      @marker  = "#"
-      @title   = "CHANGE LOG"
-      @rev_id  = false
-
       @changes = changes if changes
     end
 
@@ -53,6 +44,11 @@ module VCLog
     # Add a change entry to the log.
     def change(rev, date, who, note, type=nil)
       @changes << Change.new(rev, date, who, note, type)
+    end
+
+    #
+    def sort!(&block)
+      changes.sort!(&block)
     end
 
     #

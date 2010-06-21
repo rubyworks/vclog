@@ -1,6 +1,6 @@
 out = []
 
-out << "# #{title}"
+out << "# #{title || 'RELEASE HISTORY'}"
 
 history.releases.sort.each do |release|
 

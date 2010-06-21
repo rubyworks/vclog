@@ -1,6 +1,6 @@
 out = []
 
-out << "= #{title}"
+out << "= #{title || 'Release History'}"
 
 history.releases.sort.each do |release|
 
@@ -14,7 +14,7 @@ history.releases.sort.each do |release|
 
     out << "\nChanges:"
 
-    release.groups.each do |number, changes|
+    release.groups.each do |type, changes|
 
       out << "\n* #{changes.size} #{changes[0].label }\n"
 

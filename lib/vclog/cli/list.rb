@@ -13,8 +13,12 @@ module CLI
     #
     def parser
       super do |opt|
-
       end
+    end
+
+    #
+    def execute
+      puts "  ansi  gnu  rdoc  markdown  xml  html  atom  rss  json  yaml"
     end
 
   end

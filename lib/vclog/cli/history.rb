@@ -23,7 +23,7 @@ module CLI
 
     #
     def execute
-      format = options.format || 'gnu'
+      format = options.format || 'ansi'
       output = @vcs.display(:history, format, options)
       puts output
     end

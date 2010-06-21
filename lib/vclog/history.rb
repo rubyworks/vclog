@@ -35,16 +35,15 @@ module VCLog
     attr_accessor :extra
 
     #
-    def initialize(vcs, opts={})
+    def initialize(vcs)
       @vcs     = vcs
 
-      opts = OpenStruct.new(opts) if Hash === opts
+      #opts = OpenStruct.new(opts) if Hash === opts
 
       #@title   = opts.title || "RELEASE HISTORY"
       #@extra   = opts.extra
       #@version = opts.version
-
-      @level =  opts.level || 0
+      #@level =  opts.level || 0
     end
 
     # Tag list from version control system.
@@ -59,9 +58,7 @@ module VCLog
 
     # Change list from version control system filter for level setting.
     def changes
-      @changes ||= (
-        vcs.changes.select{ |c| c.level >= @level }
-      )
+      @changes ||= vcs.changes
     end
 
     #
@@ -71,11 +68,11 @@ module VCLog
 
         tags = self.tags
 
-        ver  = vcs.bump(version)
+        #ver  = vcs.bump(version)
         user = vcs.user
         time = ::Time.now
 
-        tags << Tag.new(ver, 'current', time, user, "Current Development")
+        tags << Tag.new(nil, 'current', time, user, "Current Development")
 
         # TODO: Do we need to add a Time.now tag?
         # add current verion to release list (if given)
@@ -87,21 +84,20 @@ module VCLog
         #rels = rels.uniq      # only uniq releases
 
         # sort by release date
-        #tags = tags.sort{ |a,b| b.name <=> a.name }
-        tags = tags.sort{ |a,b| b.date <=> a.date }
+        tags = tags.sort{ |a,b| a.date <=> b.date }
 
         # organize into deltas
-        delta = {}
+        delta = []
         last  = nil
-        tags.sort.each do |tag|
-          delta[tag] = [last, tag.date]
+        tags.each do |tag|
+          delta << [tag, [last, tag.date]]
           last = tag.date
         end
 
         # gather changes for each delta
-        delta.each do |tag, (ended, started)|
-          if ended
-            set = changes.select{ |c| c.date < ended && c.date > started }
+        delta.each do |tag, (started, ended)|
+          if started
+            set = changes.select{ |c| c.date >= started && c.date < ended  }
             #gt_vers, gt_date = gt.name, gt.date
             #lt_vers, lt_date = lt.name, lt.date
             #gt_date = Time.parse(gt_date) unless Time===gt_date
@@ -111,7 +107,7 @@ module VCLog
             #lt_vers, lt_date = lt.name, lt.date
             #lt_date = Time.parse(lt_date) unless Time===lt_date
             #log = changelog.before(lt_date)
-            set = changes.select{ |c| c.date > started }
+            set = changes.select{ |c| c.date < ended }
           end
 
           rel << Release.new(tag, set)

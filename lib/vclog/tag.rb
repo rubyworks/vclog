@@ -7,6 +7,7 @@ module VCLog
     attr_accessor :author
     attr_accessor :message
 
+    #
     def initialize(name, rev, date, author, message)
       self.revision = rev
       self.name     = name
@@ -15,15 +16,20 @@ module VCLog
       self.message  = message
     end
 
+    #
     def name=(name)
-      @name = name.strip
+      @name = (name || 'HEAD').strip
     end
+
+    #
     alias_method :label, :name
 
+    #
     def author=(author)
       @author = author.strip
     end
 
+    #
     def date=(date)
       case date
       when Time
@@ -33,6 +39,7 @@ module VCLog
       end
     end
 
+    #
     def message=(msg)
       @message = msg.strip
     end
@@ -40,15 +47,17 @@ module VCLog
     alias_method :tagger, :author
     alias_method :tagger=, :author=
 
+    #
     def to_json
       to_h.to_json
     end
 
+    #
     def to_h
       {
-        'name' => name,
-        'date' => date,
-        'author' => author,
+        'name'    => name,
+        'date'    => date,
+        'author'  => author,
         'message' => message
       }
     end
@@ -60,6 +69,7 @@ module VCLog
 
     # Normal tag order is the reverse typical sorts.
     def <=>(other)
+      return -1 if name == 'HEAD'
       other.name <=> name
     end
   end

@@ -1,10 +1,12 @@
 out = []
 
+out << "#{title}\n" if title
+
 changelog.by_date.each do |date, date_changes|
 
   date_changes.by_author.each do |author, author_changes|
 
-    out << "\n#{ date }  #{ author }\n"
+    out << "#{ date }  #{ author }\n"
 
     author_changes.each do |entry|
 
@@ -19,6 +21,8 @@ changelog.by_date.each do |date, date_changes|
       end
 
     end
+
+    out << ""
 
   end
 
