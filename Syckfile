@@ -3,14 +3,9 @@ email:
   service : Email
   file    : ~
   subject : ~
-  mailto  : ruby-talk@ruby-lang.org
-  from    : <%= ENV['EMAIL_ACCOUNT'] %>
-  server  : <%= ENV['EMAIL_SERVER'] %>
-  port    : <%= ENV['EMAIL_PORT'] %>
-  account : <%= ENV['EMAIL_ACCOUNT'] %>
-  domain  : <%= ENV['EMAIL_DOMAIN'] %>
-  login   : <%= ENV['EMAIL_LOGIN'] %>
-  secure  : <%= ENV['EMAIL_SECURE'] %>
+  mailto  :
+   - proutils@googlegroups.com
+   - ruby-talk@ruby-lang.org
   active  : true
 
 gemcutter:
@@ -39,18 +34,12 @@ ridoc:
   exclude : ~
   active  : true
 
-syntax:
-  service  : Syntax
-  loadpath : ~
-  exclude  : ~
-  active   : false
-
 dnote:
   service : DNote
-  loadpath: ~
+  files   : [lib]
   labels  : ~
   output  : ~
-  active  : false
+  active  : true
 
 stats:
   service  : Stats
@@ -62,7 +51,7 @@ stats:
 
 vclog:
   service  : VClog
-  format   : atom, html, json
+  format   : atom, rdoc, html
   type     : history
   output   : ~
   active   : true

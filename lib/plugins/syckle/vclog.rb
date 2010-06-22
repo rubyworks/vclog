@@ -46,6 +46,7 @@ module Syckle::Plugins
     #
     def initialize_defaults
       require 'vclog'
+
       @version    = metadata.version
       @title      = metadata.title
       @formats    = ['atom']
@@ -55,7 +56,7 @@ module Syckle::Plugins
 
     #
     def valid?
-      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt|atom)$/
+      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt|atom|ansi)$/
       return false unless type   =~ /^(log|rel|history|changelog)$/
       return true
     end
@@ -132,7 +133,7 @@ module Syckle::Plugins
 
     def vclog_config
       @vclog_config ||= (
-        vcf = VCLog::Config.new(root.to_s)
+        vcf = VCLog::Config.new(project.root.to_s)
         vcf.level = level
         vcf
       )
