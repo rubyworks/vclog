@@ -13,7 +13,11 @@ module CLI
     #
     def parser
       super do |opt|
-        opt.on('--version', '-v NUM', "current version number") do |num|
+        opt.banner = "Usage: vclog history [options]\n" +
+                     "       vclog release [options]"
+        opt.separator " "
+        opt.separator "SPECIAL OPTIONS:"
+        opt.on('--version', '-v NUM', "use as if current version number") do |num|
           options.version = num
         end
 

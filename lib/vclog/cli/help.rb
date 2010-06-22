@@ -13,8 +13,21 @@ module CLI
     #
     def parser
       super do |opt|
-
+        opt.banner = "Usage: vclog help"
       end
+    end
+
+    #
+    def execute
+      puts "Usage: vclog [command] [options]"
+      puts
+      puts "COMMANDS:"
+      puts "  changelog      display a Change Log"
+      puts "  history        display a Release History"
+      puts "  bump           display next reasonable version"
+      puts "  list           display format options"
+      puts "  help           show help information"
+      puts
     end
 
   end

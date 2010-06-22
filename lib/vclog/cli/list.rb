@@ -13,6 +13,7 @@ module CLI
     #
     def parser
       super do |opt|
+        opt.banner = "Usage: vclog list"
       end
     end
 
