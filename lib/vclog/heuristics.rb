@@ -30,7 +30,12 @@ module VCLog
       type = nil
       @rules.find{ |rule| type = rule.call(message) }
       if type
-        @labels[type.to_sym].to_a
+        type = type.to_sym
+        if @labels.key?(type)
+           @labels[type].to_a
+        else
+          [type, 0, "#{type.to_s.capitalize} Enhancements"]
+        end
       else
         [nil, 0, 'General Enhancements']
       end

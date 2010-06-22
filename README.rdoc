@@ -1,7 +1,7 @@
 = VCLog
 
-* http://proutils.rubyforge.org
-* http://proutils.rubyforge.org/vclog
+* home: http://proutils.github.com/vclog
+* work: http://github.com/proutils/vclog
 
 
 == DESCRIPTION
@@ -12,8 +12,8 @@ It currently supports Git and Subversion.
 
 == SYNOPSIS
 
-By default the format is a standard GNU text style. From a
-repository's root directory try:
+The default format is a ANSI colored GNU-like text style.
+From a repository's root directory try:
 
   $ vclog
 
@@ -21,7 +21,7 @@ To generate an XML formatted changelog use:
 
   $ vclog -f xml
 
-See 'vclog --help' for more options.
+See 'vclog help' for more options.
 
 
 == NOTE ABOUT SUBVSERION
