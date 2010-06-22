@@ -24,6 +24,7 @@ module CLI
       puts "COMMANDS:"
       puts "  changelog      display a Change Log"
       puts "  history        display a Release History"
+      puts "  version        display the current tag version"
       puts "  bump           display next reasonable version"
       puts "  list           display format options"
       puts "  help           show help information"

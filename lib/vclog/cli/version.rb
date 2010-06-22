@@ -3,25 +3,25 @@ require 'vclog/cli/abstract'
 module VCLog
 module CLI
 
-  class Bump < Abstract
+  class Version < Abstract
 
     #
     def self.terms
-      ['bump']
+      ['version']
     end
 
     #
     def parser
       super do |opt|
-        opt.banner = "Usage: vclog bump"
+        opt.banner = "Usage: vclog version"
         opt.separator(" ")
-        opt.separator("Display a bumped version number.")
+        opt.separator("Display the current version number.")
       end
     end
 
     #
     def execute
-      puts @vcs.bump #(version)
+      puts @vcs.version
     end
 
   end

@@ -36,6 +36,8 @@ module CLI
     def parser(&block)
       parser = OptionParser.new(&block)
 
+      parser.separator " "
+      parser.separator "SYSTEM OPTIONS:"
       parser.on('--debug', 'show debugging information') do
         $DEBUG = true
       end

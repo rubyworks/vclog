@@ -14,6 +14,8 @@ module CLI
     def parser
       super do |opt|
         opt.banner = "Usage: vclog [changelog | log] [options]"
+        opt.separator(" ")
+        opt.separator("Print a Change Log.")
         template_options(opt)
       end
     end

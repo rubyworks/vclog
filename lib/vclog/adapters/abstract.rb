@@ -127,6 +127,17 @@ module Adapters
       end
     end
 
+    # Returns the current verion string.
+    def version
+      if tags.last
+        v = tags[-1].name # TODO: ensure the latest version
+        v = tags[-2].name if v == 'HEAD'
+      else
+        v = '0.0.0'
+      end
+      return v
+    end
+
   private
 
     #

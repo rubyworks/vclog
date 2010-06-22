@@ -38,7 +38,7 @@ module VCLog
     require 'vclog/cli/history'
     require 'vclog/cli/list'
     require 'vclog/cli/bump'
-    #require 'vclog/cli/verison'
+    require 'vclog/cli/version'
 
     def self.main(*argv)
       argv ||= ARGV.dup
