@@ -25,7 +25,7 @@ rdoc:
   service : RDoc
   template: redfish
   include : ~
-  exclude : [Syckfile]
+  exclude : [Syckfile, REQUIRE, VERSION, PROJECT]
   active  : true
 
 ridoc:
