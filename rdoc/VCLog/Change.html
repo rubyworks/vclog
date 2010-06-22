@@ -110,27 +110,7 @@
           
             
             <li class="method">
-              <a href="#method-i-message%3D">#message=</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-split_type">#split_type</a>
-            </li>
-          
-            
-            <li class="method">
               <a href="#method-i-to_h">#to_h</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-type_number">#type_number</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-type_phrase">#type_phrase</a>
             </li>
           
         </ul>
@@ -165,13 +145,7 @@
         
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="../ROADMAP_rdoc.html">ROADMAP.rdoc</a></li>
-        
-          <li class="file"><a href="../VERSION.html">VERSION</a></li>
-        
           <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
-        
-          <li class="file"><a href="../REQUIRE.html">REQUIRE</a></li>
         
         </ul>
       </div>
@@ -207,15 +181,39 @@
         
           <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
         
+          <li class="module"><a href="../VCLog/CLI.html">VCLog::CLI</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Abstract.html">VCLog::CLI::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Bump.html">VCLog::CLI::Bump</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Changelog.html">VCLog::CLI::Changelog</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Help.html">VCLog::CLI::Help</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/History.html">VCLog::CLI::History</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/List.html">VCLog::CLI::List</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Version.html">VCLog::CLI::Version</a></li>
+        
           <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
         
+          <li class="class"><a href="../VCLog/Config.html">VCLog::Config</a></li>
+        
           <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
         
-          <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+          <li class="class"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Label.html">VCLog::Heuristics::Label</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Rule.html">VCLog::Heuristics::Rule</a></li>
         
           <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="module"><a href="../VCLog/Kernel.html">VCLog::Kernel</a></li>
         
           <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
         
@@ -347,6 +345,40 @@
         </div>
       </div>
       
+      <div id="level-attribute-method" class="method-detail">
+        <a name="level"></a>
+        
+        <a name="level="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">level</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="label-attribute-method" class="method-detail">
+        <a name="label"></a>
+        
+        <a name="label="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">label</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
     </div>
     
 
@@ -362,7 +394,7 @@
         <div class="method-heading">
         
           <span class="method-name">new</span><span
-            class="method-args">(rev, date, author, message)</span>
+            class="method-args">(rev, date, author, message, type, level, label)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -376,14 +408,16 @@
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 16</span>
-16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">rev</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">author</span>, <span class="ruby-identifier">message</span>)
-17:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">revision</span> = <span class="ruby-identifier">rev</span>
-18:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">date</span>     = <span class="ruby-identifier">date</span>
-19:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">author</span>   = <span class="ruby-identifier">author</span>
-20:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">type</span>     = <span class="ruby-identifier">type</span>
-21:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">message</span>  = <span class="ruby-identifier">message</span>
-22:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 21</span>
+21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">rev</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">author</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">level</span>, <span class="ruby-identifier">label</span>)
+22:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">revision</span> = <span class="ruby-identifier">rev</span>
+23:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">date</span>     = <span class="ruby-identifier">date</span>
+24:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">author</span>   = <span class="ruby-identifier">author</span>
+25:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">message</span>  = <span class="ruby-identifier">message</span>
+26:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">type</span>     = <span class="ruby-identifier">type</span>
+27:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">level</span>    = <span class="ruby-identifier">level</span>
+28:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">label</span>    = <span class="ruby-identifier">label</span>
+29:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -418,10 +452,10 @@
           <div class="method-source-code"
             id="--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 82</span>
-82:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
-83:       <span class="ruby-identifier">other</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">date</span>
-84:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 68</span>
+68:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+69:       <span class="ruby-identifier">other</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">date</span>
+70:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -450,10 +484,10 @@
           <div class="method-source-code"
             id="author--source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 25</span>
-25:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">author=</span>(<span class="ruby-identifier">author</span>)
-26:       <span class="ruby-ivar">@author</span> = <span class="ruby-identifier">author</span>.<span class="ruby-identifier">strip</span>
-27:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 32</span>
+32:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">author=</span>(<span class="ruby-identifier">author</span>)
+33:       <span class="ruby-ivar">@author</span> = <span class="ruby-identifier">author</span>.<span class="ruby-identifier">strip</span>
+34:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -482,42 +516,10 @@
           <div class="method-source-code"
             id="inspect-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 86</span>
-86:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
-87:       <span class="ruby-node">&quot;#&lt;Change:#{object_id} #{date}&gt;&quot;</span>
-88:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="message--method" class="method-detail ">
-        <a name="method-i-message%3D"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">message=</span><span
-            class="method-args">(note)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="message--source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 30</span>
-30:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">message=</span>(<span class="ruby-identifier">note</span>)
-31:       <span class="ruby-ivar">@message</span>, <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">note</span>)
-32:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 72</span>
+72:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+73:       <span class="ruby-node">&quot;#&lt;Change:#{object_id} #{date}&gt;&quot;</span>
+74:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -546,162 +548,15 @@
           <div class="method-source-code"
             id="to-h-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 90</span>
-90:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
-91:       { <span class="ruby-value str">'author'</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@author</span>,
-92:         <span class="ruby-value str">'date'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@date</span>,
-93:         <span class="ruby-value str">'revision'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@revision</span>,
-94:         <span class="ruby-value str">'message'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@message</span>,
-95:         <span class="ruby-value str">'type'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type</span>
-96:       }
-97:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="type-number-method" class="method-detail ">
-        <a name="method-i-type_number"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">type_number</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="type-number-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 64</span>
-64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type_number</span>
-65:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
-66:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'maj'</span>, <span class="ruby-value str">'major'</span>
-67:         <span class="ruby-value">0</span>
-68:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'min'</span>, <span class="ruby-value str">'minor'</span>
-69:         <span class="ruby-value">1</span>
-70:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'bug'</span>
-71:         <span class="ruby-value">2</span>
-72:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">''</span>
-73:         <span class="ruby-value">4</span>
-74:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'-'</span>
-75:         <span class="ruby-value">5</span>
-76:       <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># other</span>
-77:         <span class="ruby-value">3</span>
-78:       <span class="ruby-keyword kw">end</span>
-79:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="type-phrase-method" class="method-detail ">
-        <a name="method-i-type_phrase"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">type_phrase</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="type-phrase-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 46</span>
-46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type_phrase</span>
-47:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>
-48:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'maj'</span>, <span class="ruby-value str">'major'</span>
-49:         <span class="ruby-value str">'Major Enhancements'</span>
-50:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'min'</span>, <span class="ruby-value str">'minor'</span>
-51:         <span class="ruby-value str">'Minor Enhancements'</span>
-52:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'bug'</span>
-53:         <span class="ruby-value str">'Bug Fixes'</span>
-54:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">''</span>
-55:         <span class="ruby-value str">'General Enhancements'</span>
-56:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'-'</span>
-57:         <span class="ruby-value str">'Administrative Changes'</span>
-58:       <span class="ruby-keyword kw">else</span>
-59:         <span class="ruby-node">&quot;#{type.capitalize} Enhancements&quot;</span>
-60:       <span class="ruby-keyword kw">end</span>
-61:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-    </div>
-  
-    <div id="private-instance-method-details" class="method-section section">
-      <h3 class="section-header">Private Instance Methods</h3>
-
-    
-      <div id="split-type-method" class="method-detail ">
-        <a name="method-i-split_type"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">split_type</span><span
-            class="method-args">(note)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Looks for a &#8220;[type]&#8221; indicator at the end of the commit
-message. If that is not found, it looks at front of message for
-&#8220;[type]&#8221; or &#8220;[type]:&#8221;. Failing that it tries just
-&#8220;type:&#8221;.
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="split-type-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 113</span>
-113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">split_type</span>(<span class="ruby-identifier">note</span>)
-114:       <span class="ruby-identifier">note</span> = <span class="ruby-identifier">note</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
-115:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\[(.*?)\]\Z/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
-116:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
-117:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">md</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">0</span>))]
-118:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A\[(.*?)\]\:?/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
-119:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
-120:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-identifier">md</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)<span class="ruby-operator">..</span><span class="ruby-value">1</span>]
-121:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-regexp re">/\A(\w+?)\:/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">note</span>)
-122:         <span class="ruby-identifier">t</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
-123:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">note</span>[<span class="ruby-identifier">md</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)<span class="ruby-operator">..</span><span class="ruby-value">1</span>]
-124:       <span class="ruby-keyword kw">else</span>
-125:         <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span> = <span class="ruby-identifier">note</span>, <span class="ruby-keyword kw">nil</span>
-126:       <span class="ruby-keyword kw">end</span>
-127:       <span class="ruby-identifier">n</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/^\s*?\n/</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># remove blank lines</span>
-128:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span>
-129:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/change.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
+77:       { <span class="ruby-value str">'author'</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@author</span>,
+78:         <span class="ruby-value str">'date'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@date</span>,
+79:         <span class="ruby-value str">'revision'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@revision</span>,
+80:         <span class="ruby-value str">'message'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@message</span>,
+81:         <span class="ruby-value str">'type'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type</span>
+82:       }
+83:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

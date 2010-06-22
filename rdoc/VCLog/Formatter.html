@@ -169,13 +169,7 @@
         
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="../ROADMAP_rdoc.html">ROADMAP.rdoc</a></li>
-        
-          <li class="file"><a href="../VERSION.html">VERSION</a></li>
-        
           <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
-        
-          <li class="file"><a href="../REQUIRE.html">REQUIRE</a></li>
         
         </ul>
       </div>
@@ -211,15 +205,39 @@
         
           <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
         
+          <li class="module"><a href="../VCLog/CLI.html">VCLog::CLI</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Abstract.html">VCLog::CLI::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Bump.html">VCLog::CLI::Bump</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Changelog.html">VCLog::CLI::Changelog</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Help.html">VCLog::CLI::Help</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/History.html">VCLog::CLI::History</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/List.html">VCLog::CLI::List</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Version.html">VCLog::CLI::Version</a></li>
+        
           <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
         
           <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
         
+          <li class="class"><a href="../VCLog/Config.html">VCLog::Config</a></li>
+        
           <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
         
-          <li class="module"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+          <li class="class"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Label.html">VCLog::Heuristics::Label</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Rule.html">VCLog::Heuristics::Rule</a></li>
         
           <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="module"><a href="../VCLog/Kernel.html">VCLog::Kernel</a></li>
         
           <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
         
@@ -316,17 +334,22 @@
 
         <div class="method-description">
           
-          
+          <p>
+New Formmater.
+</p>
+<p>
+vcs - an instance of a subclass of VCS::Abstract
+</p>
           
 
           
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 14</span>
-14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">vcs</span>)
-15:       <span class="ruby-ivar">@vcs</span> = <span class="ruby-identifier">vcs</span>
-16:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 17</span>
+17:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">vcs</span>)
+18:       <span class="ruby-ivar">@vcs</span> = <span class="ruby-identifier">vcs</span>
+19:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -354,17 +377,19 @@
 
         <div class="method-description">
           
-          
+          <p>
+Returns a Changelog object taken from the VCS.
+</p>
           
 
           
           <div class="method-source-code"
             id="changelog-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 19</span>
-19:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
-20:       <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">changelog</span>
-21:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 22</span>
+22:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
+23:       <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">changelog</span>
+24:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -379,7 +404,7 @@
         <div class="method-heading">
         
           <span class="method-name">display</span><span
-            class="method-args">(doctype, format, options={})</span>
+            class="method-args">(doctype, format, options)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -393,20 +418,30 @@
           <div class="method-source-code"
             id="display-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 65</span>
-65:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display</span>(<span class="ruby-identifier">doctype</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>={})
-66:       <span class="ruby-identifier">options</span> = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
-67: 
-68:       <span class="ruby-ivar">@doctype</span> = <span class="ruby-identifier">doctype</span>
-69:       <span class="ruby-ivar">@format</span>  = <span class="ruby-identifier">format</span>
-70:       <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
-71: 
-72:       <span class="ruby-identifier">require_formatter</span>(<span class="ruby-identifier">format</span>)
-73: 
-74:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-node">&quot;#{@doctype}.#{@format}&quot;</span>))
-75:       <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>)
-76:       <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
-77:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 72</span>
+72:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display</span>(<span class="ruby-identifier">doctype</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>)
+73:       <span class="ruby-identifier">options</span> = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">options</span>
+74: 
+75:       <span class="ruby-ivar">@doctype</span> = <span class="ruby-identifier">doctype</span>
+76:       <span class="ruby-ivar">@format</span>  = <span class="ruby-identifier">format</span>
+77:       <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+78: 
+79:       <span class="ruby-identifier">require_formatter</span>(<span class="ruby-identifier">format</span>)
+80: 
+81:       <span class="ruby-identifier">tmp_file</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DIR</span>, <span class="ruby-value str">'templates'</span>, <span class="ruby-node">&quot;#{@doctype}.#{@format}.{erb,rb}&quot;</span>)].<span class="ruby-identifier">first</span>
+82: 
+83:       <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">tmp_file</span>)
+84: 
+85:       <span class="ruby-keyword kw">case</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">tmp_file</span>)
+86:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.rb'</span>
+87:         <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-identifier">binding</span>)
+88:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.erb'</span>
+89:         <span class="ruby-identifier">erb</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value str">'&lt;&gt;'</span>)
+90:         <span class="ruby-identifier">erb</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+91:       <span class="ruby-keyword kw">else</span>
+92:         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unrecognized template - #{tmp_file}&quot;</span>
+93:       <span class="ruby-keyword kw">end</span>
+94:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -435,10 +470,10 @@
           <div class="method-source-code"
             id="email-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 34</span>
-34:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">email</span>
-35:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">email</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">user</span>
-36:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">email</span>
+38:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">email</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">user</span>
+39:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -460,17 +495,19 @@
 
         <div class="method-description">
           
-          
+          <p>
+Returns a <a href="History.html">History</a> object garnered form the VCS.
+</p>
           
 
           
           <div class="method-source-code"
             id="history-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 24</span>
-24:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">history</span>
-25:       <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">history</span>
-26:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 27</span>
+27:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">history</span>
+28:       <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">history</span>
+29:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -501,10 +538,10 @@ TODO
           <div class="method-source-code"
             id="homepage-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 49</span>
-49:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">homepage</span>
-50:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">homepage</span>
-51:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 52</span>
+52:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">homepage</span>
+53:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">homepage</span>
+54:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -533,10 +570,10 @@ TODO
           <div class="method-source-code"
             id="repository-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 39</span>
-39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">repository</span>
-40:       <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">repository</span>
-41:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 42</span>
+42:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">repository</span>
+43:       <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">repository</span>
+44:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -558,23 +595,25 @@ TODO
 
         <div class="method-description">
           
-          
+          <p>
+TODO: let be nil and let template make a default if wanted
+</p>
           
 
           
           <div class="method-source-code"
             id="title-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 54</span>
-54:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>
-55:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">title</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">title</span>
-56:       <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@doctype</span>
-57:       <span class="ruby-keyword kw">when</span> <span class="ruby-value">:history</span>
-58:         <span class="ruby-value str">&quot;Release History&quot;</span>
-59:       <span class="ruby-keyword kw">else</span>
-60:         <span class="ruby-value str">&quot;Change Log&quot;</span>
-61:       <span class="ruby-keyword kw">end</span>
-62:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 57</span>
+57:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>
+58:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">title</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">title</span>
+59:       <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@doctype</span>
+60:       <span class="ruby-keyword kw">when</span> <span class="ruby-value">:history</span>
+61:         <span class="ruby-value str">&quot;RELEASE HISTORY&quot;</span>
+62:       <span class="ruby-keyword kw">else</span>
+63:         <span class="ruby-value str">&quot;CHANGELOG&quot;</span>
+64:       <span class="ruby-keyword kw">end</span>
+65:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -605,10 +644,10 @@ TODO
           <div class="method-source-code"
             id="url-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 44</span>
-44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url</span>
-45:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">'/'</span>
-46:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 47</span>
+47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url</span>
+48:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">'/'</span>
+49:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -637,10 +676,10 @@ TODO
           <div class="method-source-code"
             id="user-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 29</span>
-29:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">user</span>
-30:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">user</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">user</span>
-31:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 32</span>
+32:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">user</span>
+33:       <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">user</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@vcs</span>.<span class="ruby-identifier">user</span>
+34:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -675,17 +714,17 @@ TODO
           <div class="method-source-code"
             id="h-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 92</span>
- 92:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">input</span>)
- 93:          <span class="ruby-identifier">result</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
- 94:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&amp;&quot;</span>, <span class="ruby-value str">&quot;&amp;amp;&quot;</span>)
- 95:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&lt;&quot;</span>, <span class="ruby-value str">&quot;&amp;lt;&quot;</span>)
- 96:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&gt;&quot;</span>, <span class="ruby-value str">&quot;&amp;gt;&quot;</span>)
- 97:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;'&quot;</span>, <span class="ruby-value str">&quot;&amp;apos;&quot;</span>)
- 98:          <span class="ruby-comment cmt">#result.gsub!(&quot;@&quot;, &quot;&amp;at;&quot;)</span>
- 99:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;\&quot;&quot;</span>, <span class="ruby-value str">&quot;&amp;quot;&quot;</span>)
-100:          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
-101:       <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 109</span>
+109:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">input</span>)
+110:          <span class="ruby-identifier">result</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+111:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&amp;&quot;</span>, <span class="ruby-value str">&quot;&amp;amp;&quot;</span>)
+112:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&lt;&quot;</span>, <span class="ruby-value str">&quot;&amp;lt;&quot;</span>)
+113:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&gt;&quot;</span>, <span class="ruby-value str">&quot;&amp;gt;&quot;</span>)
+114:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;'&quot;</span>, <span class="ruby-value str">&quot;&amp;apos;&quot;</span>)
+115:          <span class="ruby-comment cmt">#result.gsub!(&quot;@&quot;, &quot;&amp;at;&quot;)</span>
+116:          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;\&quot;&quot;</span>, <span class="ruby-value str">&quot;&amp;quot;&quot;</span>)
+117:          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+118:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -714,15 +753,15 @@ TODO
           <div class="method-source-code"
             id="require-formatter-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 82</span>
-82:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_formatter</span>(<span class="ruby-identifier">format</span>)
-83:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">to_s</span>
-84:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'yaml'</span>
-85:           <span class="ruby-identifier">require</span> <span class="ruby-value str">'yaml'</span>
-86:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'json'</span>
-87:           <span class="ruby-identifier">require</span> <span class="ruby-value str">'json'</span>
-88:         <span class="ruby-keyword kw">end</span>
-89:       <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/formatter.rb, line 99</span>
+ 99:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_formatter</span>(<span class="ruby-identifier">format</span>)
+100:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">to_s</span>
+101:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'yaml'</span>
+102:           <span class="ruby-identifier">require</span> <span class="ruby-value str">'yaml'</span>
+103:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'json'</span>
+104:           <span class="ruby-identifier">require</span> <span class="ruby-value str">'json'</span>
+105:         <span class="ruby-keyword kw">end</span>
+106:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

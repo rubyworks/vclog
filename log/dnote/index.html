@@ -16,83 +16,58 @@
     ul { margin: 0; padding: 0; text-align: left; }
     li { margin: 0; padding: 0; text-align: left; }
   </style>
+  <link rel="stylesheet" href="notes.css" type="text/css">
 </head>
 <body>
-
 <div class="main">
-
-<h1></h1>
-
-<div class="notes">
-<h2>CREDIT</h2>
-<ol class="set credit">
-<li><h3><a href="lib/vclog/facets.rb">lib/vclog/facets.rb</a></h3><ol class="file" href="lib/vclog/facets.rb">
-<li class="note credit" ref="25">Trans <sup>25</sup></li>
-<li class="note credit" ref="43">Gavin Sinclair <sup>43</sup></li>
-<li class="note credit" ref="56">Gavin Sinclair <sup>56</sup></li>
-<li class="note credit" ref="57">Trans <sup>57</sup></li>
-<li class="note credit" ref="92">Erik Veenstra <sup>92</sup></li>
-</ol></li>
-</ol>
-<h2>LOG</h2>
-<ol class="set log">
-<li><h3><a href="lib/vclog/vcs.rb">lib/vclog/vcs.rb</a></h3><ol class="file" href="lib/vclog/vcs.rb">
-<li class="note log" ref="10">entries in source files? <sup>10</sup></li>
-</ol></li>
-</ol>
-<h2>DEPRECATE</h2>
-<ol class="set deprecate">
-<li><h3><a href="lib/vclog/cli.rb">lib/vclog/cli.rb</a></h3><ol class="file" href="lib/vclog/cli.rb">
-<li class="note deprecate" ref="141"> <sup>141</sup></li>
-</ol></li>
-</ol>
-<h2>TODO</h2>
-<ol class="set todo">
-<li><h3><a href="lib/plugin/syckle/vclog.rb">lib/plugin/syckle/vclog.rb</a></h3><ol class="file" href="lib/plugin/syckle/vclog.rb">
-<li class="note todo" ref="74">apply_naming_policy ? -- <sup>74</sup></li>
-</ol></li>
-<li><h3><a href="lib/vclog/cli.rb">lib/vclog/cli.rb</a></h3><ol class="file" href="lib/vclog/cli.rb">
-<li class="note todo" ref="170">ensure latest <sup>170</sup></li>
-<li class="note todo" ref="174">ability to select types? <sup>174</sup></li>
-<li class="note todo" ref="180">ability to select types? <sup>180</sup></li>
-</ol></li>
-<li><h3><a href="lib/vclog/history.rb">lib/vclog/history.rb</a></h3><ol class="file" href="lib/vclog/history.rb">
-<li class="note todo" ref="24">Extract output formating from delta parser. <sup>24</sup></li>
-<li class="note todo" ref="76">get user name from vcs <sup>76</sup></li>
-<li class="note todo" ref="80">Do we need to add a Time.now tag? add current verion to release list (if given)
- previous_version = tags[0].name <sup>80</sup></li>
-<li class="note todo" ref="83">need to use natural comparision raise ArgumentError, &quot;Release version is less than previous version (#{previous_version}).&quot;
- end
- rels &lt;&lt; [current_version, current_release || Time.now]
- rels = rels.uniq      # only uniq releases <sup>83</sup></li>
-<li class="note todo" ref="124">What would GNU history look like? <sup>124</sup></li>
-<li class="note todo" ref="165">Generate HTML manually instead of converting the RDoc. This will allow better formatting and color support. <sup>165</sup></li>
-<li class="note todo" ref="344">need to extract message (?) <sup>344</sup></li>
-</ol></li>
-<li><h3><a href="lib/vclog/changelog.rb">lib/vclog/changelog.rb</a></h3><ol class="file" href="lib/vclog/changelog.rb">
-<li class="note todo" ref="69">Be able to specify which types to include or omit. def typed
- self.class.new(changes.select{ |e| e.type })
- end <sup>69</sup></li>
-</ol></li>
-<li><h3><a href="lib/vclog/vcs/darcs.rb">lib/vclog/vcs/darcs.rb</a></h3><ol class="file" href="lib/vclog/vcs/darcs.rb">
-<li class="note todo" ref="9">This needs to be fixed. <sup>9</sup></li>
-</ol></li>
-<li><h3><a href="lib/vclog/vcs.rb">lib/vclog/vcs.rb</a></h3><ol class="file" href="lib/vclog/vcs.rb">
-<li class="note todo" ref="9">Might we have a NO-VCS changelog based on <sup>9</sup></li>
-<li class="note todo" ref="70">ensure the latest version <sup>70</sup></li>
-<li class="note todo" ref="74">preserve split chars <sup>74</sup></li>
-</ol></li>
-</ol>
-<h2>NOTE</h2>
-<ol class="set note">
-<li><h3><a href="lib/vclog/facets.rb">lib/vclog/facets.rb</a></h3><ol class="file" href="lib/vclog/facets.rb">
-<li class="note note" ref="23">This may still need a bit of tweaking. <sup>23</sup></li>
-</ol></li>
-</ol>
+  <h1></h1>
+  <div class="notes">
+    <h2>TODO</h2>
+    <ol class="set todo">
+      <li><h3><a href="lib/vclog/cli/abstract.rb">lib/vclog/cli/abstract.rb</a></h3><ol class="file" href="lib/vclog/cli/abstract.rb">
+        <li class="note todo" ref="86">find root <sup>86</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/adapters/abstract.rb">lib/vclog/adapters/abstract.rb</a></h3><ol class="file" href="lib/vclog/adapters/abstract.rb">
+        <li class="note todo" ref="13">Might we have a NO-VCS changelog based on <sup>13</sup></li>
+        <li class="note todo" ref="82">allow config of these levels thresholds ? <sup>82</sup></li>
+        <li class="note todo" ref="99">ensure the latest version <sup>99</sup></li>
+        <li class="note todo" ref="105">preserve split chars <sup>105</sup></li>
+        <li class="note todo" ref="133">ensure the latest version <sup>133</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/cli.rb">lib/vclog/cli.rb</a></h3><ol class="file" href="lib/vclog/cli.rb">
+        <li class="note todo" ref="176">ensure latest <sup>176</sup></li>
+        <li class="note todo" ref="182">ability to select types? <sup>182</sup></li>
+        <li class="note todo" ref="189">ability to select types? <sup>189</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/adapters/hg.rb">lib/vclog/adapters/hg.rb</a></h3><ol class="file" href="lib/vclog/adapters/hg.rb">
+        <li class="note todo" ref="37">check .hgrc <sup>37</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/plugins/syckle/vclog.rb">lib/plugins/syckle/vclog.rb</a></h3><ol class="file" href="lib/plugins/syckle/vclog.rb">
+        <li class="note todo" ref="6">Support multiple formats in one pass. <sup>6</sup></li>
+        <li class="note todo" ref="77">apply_naming_policy ? <sup>77</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/history.rb">lib/vclog/history.rb</a></h3><ol class="file" href="lib/vclog/history.rb">
+        <li class="note todo" ref="19">Extract output formating from delta parser. Later---Huh? <sup>19</sup></li>
+        <li class="note todo" ref="77">Do we need to add a Time.now tag? <sup>77</sup></li>
+        <li class="note todo" ref="80">need to use natural comparision <sup>80</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/changelog.rb">lib/vclog/changelog.rb</a></h3><ol class="file" href="lib/vclog/changelog.rb">
+        <li class="note todo" ref="76">Be able to specify which types to include or omit. <sup>76</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/formatter.rb">lib/vclog/formatter.rb</a></h3><ol class="file" href="lib/vclog/formatter.rb">
+        <li class="note todo" ref="56">let be nil and let template make a default if wanted <sup>56</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/config.rb">lib/vclog/config.rb</a></h3><ol class="file" href="lib/vclog/config.rb">
+        <li class="note todo" ref="29">get from config file. <sup>29</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/adapters/darcs.rb">lib/vclog/adapters/darcs.rb</a></h3><ol class="file" href="lib/vclog/adapters/darcs.rb">
+        <li class="note todo" ref="10">This needs to be fixed. <sup>10</sup></li>
+      </ol></li>
+      <li><h3><a href="lib/vclog/adapters/svn.rb">lib/vclog/adapters/svn.rb</a></h3><ol class="file" href="lib/vclog/adapters/svn.rb">
+        <li class="note todo" ref="115">Best solution to SVN email? <sup>115</sup></li>
+      </ol></li>
+    </ol>
+  </div>
 </div>
-
-</div>
-
-</boby>
+</body>
 </html>
-

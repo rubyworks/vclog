@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <title>Module: VCLog::Adapters</title>
+  <title>Module: VCLog::Kernel</title>
 
   
     <link rel="SHORTCUT ICON" href="../assets/icon/module.png">
@@ -40,7 +40,7 @@
         <img src="../assets/icon/module.png" align="absmiddle">&nbsp;
       
       <a href="../index.html">VCLog</a>&nbsp;
-      <a href="/">VCLog::Adapters</a>
+      <a href="/">VCLog::Kernel</a>
     </h1>
   </div>
 
@@ -52,23 +52,8 @@
         <div class="section-body">
           <ul>
           
-            <li class="file"><a href="../lib/vclog/adapters_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/adapters.rb">lib/vclog/adapters.rb</a></li>
-          
-            <li class="file"><a href="../lib/vclog/adapters/darcs_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/adapters/darcs.rb">lib/vclog/adapters/darcs.rb</a></li>
-          
-            <li class="file"><a href="../lib/vclog/adapters/git_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/adapters/git.rb">lib/vclog/adapters/git.rb</a></li>
-          
-            <li class="file"><a href="../lib/vclog/adapters/abstract_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/adapters/abstract.rb">lib/vclog/adapters/abstract.rb</a></li>
-          
-            <li class="file"><a href="../lib/vclog/adapters/svn_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/adapters/svn.rb">lib/vclog/adapters/svn.rb</a></li>
-          
-            <li class="file"><a href="../lib/vclog/adapters/hg_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/adapters/hg.rb">lib/vclog/adapters/hg.rb</a></li>
+            <li class="file"><a href="../lib/vclog/kernel_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/kernel.rb">lib/vclog/kernel.rb</a></li>
           
           </ul>
         </div>
@@ -87,23 +72,6 @@
 
       <!-- Namespace Contents -->
       
-      <div id="namespace-list-section" class="section">
-        <h3 class="section-header">Namespace</h3>
-        <ul class="link-list">
-          
-          <li class="class"><a href="Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
-          
-          <li class="class"><a href="Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
-          
-          <li class="class"><a href="Adapters/Git.html">VCLog::Adapters::Git</a></li>
-          
-          <li class="class"><a href="Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
-          
-          <li class="class"><a href="Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
-          
-        </ul>
-      </div>
-      
 
       <!-- Method Quickref -->
       
@@ -112,13 +80,8 @@
         <ul class="link-list">
           
             
-            <li class="singleton">
-              <a href="#method-c-factory">::factory</a>
-            </li>
-          
-            
-            <li class="singleton">
-              <a href="#method-c-read_type">::read_type</a>
+            <li class="method">
+              <a href="#method-i-heuristics">#heuristics</a>
             </li>
           
         </ul>
@@ -243,7 +206,7 @@
 
     <div id="description">
       
-        <h1>Adapters</h1>
+        <h1>Kernel</h1>
       
 
       
@@ -257,17 +220,17 @@
 
     <!-- Methods -->
     
-    <div id="public-class-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="factory-method" class="method-detail ">
-        <a name="method-c-factory"></a>
+      <div id="heuristics-method" class="method-detail ">
+        <a name="method-i-heuristics"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">factory</span><span
-            class="method-args">(config)</span>
+          <span class="method-name">heuristics</span><span
+            class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -279,50 +242,12 @@
 
           
           <div class="method-source-code"
-            id="factory-source">
+            id="heuristics-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/adapters.rb, line 11</span>
-11:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">config</span>) <span class="ruby-comment cmt">#, options={})</span>
-12:       <span class="ruby-identifier">type</span> = <span class="ruby-identifier">read_type</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">root</span>)
-13:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Not a recognized version control system.&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">type</span>
-14:       <span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">capitalize</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>) <span class="ruby-comment cmt">#, options)</span>
-15:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="read-type-method" class="method-detail ">
-        <a name="method-c-read_type"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">read_type</span><span
-            class="method-args">(root)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="read-type-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/vclog/adapters.rb, line 18</span>
-18:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_type</span>(<span class="ruby-identifier">root</span>)
-19:       <span class="ruby-identifier">dir</span> = <span class="ruby-keyword kw">nil</span>
-20:       <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">root</span>) <span class="ruby-keyword kw">do</span>
-21:         <span class="ruby-identifier">dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-value str">&quot;{.svn,.git,.hg,_darcs}&quot;</span>).<span class="ruby-identifier">first</span>
-22:       <span class="ruby-keyword kw">end</span>
-23:       <span class="ruby-identifier">dir</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dir</span>
-24:     <span class="ruby-keyword kw">end</span></pre>
+   <span class="ruby-comment cmt"># File lib/vclog/kernel.rb, line 6</span>
+6:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">heuristics</span>
+7:       <span class="ruby-ivar">@heuristics</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Heuristics</span>.<span class="ruby-identifier">new</span>()
+8:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

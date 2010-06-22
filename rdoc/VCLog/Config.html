@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <title>Class: VCLog::Release</title>
+  <title>Class: VCLog::Config</title>
 
   
     <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
@@ -40,7 +40,7 @@
         <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
       
       <a href="../index.html">VCLog</a>&nbsp;
-      <a href="/">VCLog::Release</a>
+      <a href="/">VCLog::Config</a>
     </h1>
   </div>
 
@@ -52,8 +52,8 @@
         <div class="section-body">
           <ul>
           
-            <li class="file"><a href="../lib/vclog/release_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/vclog/release.rb">lib/vclog/release.rb</a></li>
+            <li class="file"><a href="../lib/vclog/config_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/config.rb">lib/vclog/config.rb</a></li>
           
           </ul>
         </div>
@@ -95,17 +95,17 @@
           
             
             <li class="method">
-              <a href="#method-i-%3C%3D%3E">#<=></a>
+              <a href="#method-i-heuristics">#heuristics</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-groups">#groups</a>
+              <a href="#method-i-heuristics_file">#heuristics_file</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-to_h">#to_h</a>
+              <a href="#method-i-lookup_root">#lookup_root</a>
             </li>
           
         </ul>
@@ -230,18 +230,34 @@
 
     <div id="description">
       
-        <h1>Release</h1>
+        <h1>Config</h1>
       
 
-      <p>
-A <a href="Release.html">Release</a> encapsulate a collection of  <a
-href="Change.html">Change</a> objects associated to a <a
-href="Tag.html">Tag</a>.
-</p>
-
+      
     </div>
 
     <!-- Constants -->
+    
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt><a name="CONFIG_GLOB">CONFIG_GLOB</a></dt>
+        
+        <dd class="description"><p>
+File glob used to find the vclog configuration directory.
+</p></dd>
+        
+      
+        <dt><a name="ROOT_GLOB">ROOT_GLOB</a></dt>
+        
+        <dd class="description"><p>
+File glob used to find project root directory.
+</p></dd>
+        
+      
+      </dl>
+    </div>
     
 
     <!-- Attributes -->
@@ -250,35 +266,57 @@ href="Tag.html">Tag</a>.
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="tag-attribute-method" class="method-detail">
-        <a name="tag"></a>
+      <div id="root-attribute-method" class="method-detail">
+        <a name="root"></a>
         
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">tag</span><span
+          <span class="method-name">root</span><span
             class="attribute-access-type">[R]</span>
         </div>
 
         <div class="method-description">
         
         <p>
-<a href="Tag.html">Tag</a> object this release represents.
+Project&#8217;s root directory.
 </p>
         
         </div>
       </div>
       
-      <div id="changes-attribute-method" class="method-detail">
-        <a name="changes"></a>
+      <div id="dir-attribute-method" class="method-detail">
+        <a name="dir"></a>
         
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">changes</span><span
+          <span class="method-name">dir</span><span
             class="attribute-access-type">[R]</span>
         </div>
 
         <div class="method-description">
         
         <p>
-Array of <a href="Change.html">Change</a> objects.
+Configuration directory.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="level-attribute-method" class="method-detail">
+        <a name="level"></a>
+        
+        <a name="level="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">level</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Default change level.
+</p>
+<p>
+TODO: get from config file.
 </p>
         
         </div>
@@ -299,31 +337,26 @@ Array of <a href="Change.html">Change</a> objects.
         <div class="method-heading">
         
           <span class="method-name">new</span><span
-            class="method-args">(tag, changes)</span>
+            class="method-args">(root=nil)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
 
         <div class="method-description">
           
-          <p>
-New <a href="Release.html">Release</a> object.
-</p>
-<p>
-tag    - <a href="Tag.html">Tag</a> object change - Array of <a
-href="Change.html">Change</a> objects
-</p>
+          
           
 
           
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 18</span>
-18:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">changes</span>)
-19:       <span class="ruby-ivar">@tag</span> = <span class="ruby-identifier">tag</span>
-20:       <span class="ruby-ivar">@changes</span> = <span class="ruby-identifier">changes</span>
-21:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/config.rb, line 15</span>
+15:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">root</span>=<span class="ruby-keyword kw">nil</span>)
+16:       <span class="ruby-ivar">@root</span>  = <span class="ruby-identifier">root</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lookup_root</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+17:       <span class="ruby-ivar">@dir</span>   = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-constant">CONFIG_GLOB</span>)]
+18:       <span class="ruby-ivar">@level</span> = <span class="ruby-value">0</span>
+19:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -338,32 +371,30 @@ href="Change.html">Change</a> objects
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3C%3D%3E"></a>
+      <div id="heuristics-method" class="method-detail ">
+        <a name="method-i-heuristics"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">&lt;=&gt;</span><span
-            class="method-args">(other)</span>
+          <span class="method-name">heuristics</span><span
+            class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
 
         <div class="method-description">
           
-          <p>
-Compare release by tag.
-</p>
+          
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="heuristics-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 32</span>
-32:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
-33:       <span class="ruby-ivar">@tag</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">tag</span>
-34:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/config.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">heuristics</span>
+34:       <span class="ruby-ivar">@heuristics</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Heuristics</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">heuristics_file</span>)
+35:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -372,12 +403,12 @@ Compare release by tag.
       </div>
 
     
-      <div id="groups-method" class="method-detail ">
-        <a name="method-i-groups"></a>
+      <div id="heuristics-file-method" class="method-detail ">
+        <a name="method-i-heuristics_file"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">groups</span><span
+          <span class="method-name">heuristics_file</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         
@@ -385,22 +416,17 @@ Compare release by tag.
 
         <div class="method-description">
           
-          <p>
-Group <tt>changes</tt> by type and sort by level. Returns an associative
-array of [type, changes].
-</p>
+          
           
 
           
           <div class="method-source-code"
-            id="groups-source">
+            id="heuristics-file-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 25</span>
-25:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>
-26:       <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> (
-27:         <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span> }.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">level</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">level</span> }
-28:       )
-29:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/config.rb, line 38</span>
+38:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">heuristics_file</span>
+39:       <span class="ruby-ivar">@heuristics_file</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-value str">'rules.rb'</span>)].<span class="ruby-identifier">first</span>
+40:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -409,12 +435,12 @@ array of [type, changes].
       </div>
 
     
-      <div id="to-h-method" class="method-detail ">
-        <a name="method-i-to_h"></a>
+      <div id="lookup-root-method" class="method-detail ">
+        <a name="method-i-lookup_root"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">to_h</span><span
+          <span class="method-name">lookup_root</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         
@@ -423,24 +449,33 @@ array of [type, changes].
         <div class="method-description">
           
           <p>
-Convert <a href="Release.html">Release</a> to Hash.
+Find project root. This searches up from the current working directory for
+the following paths (in order):
 </p>
+<pre>
+  .vclog/
+  .config/vclog/
+  config/vclog/
+  .git/
+  README*</pre>
           
 
           
           <div class="method-source-code"
-            id="to-h-source">
+            id="lookup-root-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/release.rb, line 37</span>
-37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
-38:       { <span class="ruby-value str">'version'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">name</span>,
-39:         <span class="ruby-value str">'date'</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>,
-40:         <span class="ruby-value str">'message'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">message</span>,
-41:         <span class="ruby-value str">'author'</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">author</span>,
-42:         <span class="ruby-value str">'revision'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">revision</span>,
-43:         <span class="ruby-value str">'changes'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">change</span><span class="ruby-operator">|</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">to_h</span>}
-44:       }
-45:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/config.rb, line 51</span>
+51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lookup_root</span>
+52:       <span class="ruby-identifier">root</span> = <span class="ruby-keyword kw">nil</span>
+53:       <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">ascend</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+54:         <span class="ruby-identifier">check</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">ROOT_GLOB</span>].<span class="ruby-identifier">first</span>
+55:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">check</span>
+56:           <span class="ruby-identifier">root</span> = <span class="ruby-identifier">path</span> 
+57:           <span class="ruby-keyword kw">break</span>
+58:         <span class="ruby-keyword kw">end</span>
+59:       <span class="ruby-keyword kw">end</span>
+60:       <span class="ruby-identifier">root</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+61:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
