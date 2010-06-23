@@ -7,7 +7,7 @@
   <link href="/" rel="self" />
   
   <id>git@github.com:proutils/vclog.git</id>
-  <updated>Mon Jun 21 22:12:06 -0400 2010</updated>
+  <updated>Wed Jun 23 18:45:18 -0400 2010</updated>
   <author>
     <name>7rans</name>
     <email>7rans</email>
@@ -19,7 +19,7 @@
     <title>HEAD</title>
     <id>current</id>
     <author>7rans</author>
-    <updated>2010-06-21</updated>
+    <updated>2010-06-23</updated>
     <summary type="html">
       <p>Current Development</p>
       

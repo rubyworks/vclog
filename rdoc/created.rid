@@ -1,4 +1,4 @@
-Mon, 21 Jun 2010 22:12:07 -0400
+Wed, 23 Jun 2010 18:45:19 -0400
 lib/vclog/kernel.rb	Mon, 21 Jun 2010 08:32:03 -0400
 lib/vclog/templates/changelog.xsl	Fri, 28 May 2010 18:28:27 -0400
 lib/vclog/templates/changelog.ansi.rb	Mon, 21 Jun 2010 16:16:01 -0400
@@ -24,14 +24,14 @@ lib/vclog/change.rb	Mon, 21 Jun 2010 09:18:35 -0400
 lib/vclog/templates/history.xml.erb	Mon, 21 Jun 2010 09:22:57 -0400
 lib/vclog/history.rb	Mon, 21 Jun 2010 17:36:43 -0400
 lib/vclog/changelog.rb	Mon, 21 Jun 2010 15:55:55 -0400
-lib/vclog/formatter.rb	Mon, 21 Jun 2010 16:40:45 -0400
+lib/vclog/formatter.rb	Wed, 23 Jun 2010 18:25:42 -0400
 lib/vclog/metadata.rb	Mon, 21 Jun 2010 08:43:13 -0400
 lib/vclog/templates/changelog.json.rb	Mon, 21 Jun 2010 10:39:22 -0400
 lib/vclog/config.rb	Mon, 21 Jun 2010 15:13:09 -0400
 lib/vclog/cli/changelog.rb	Mon, 21 Jun 2010 20:35:47 -0400
 lib/vclog/release.rb	Mon, 21 Jun 2010 15:43:03 -0400
 bin/vclog	Mon, 21 Jun 2010 12:10:04 -0400
-README.rdoc	Mon, 21 Jun 2010 20:46:16 -0400
+README.rdoc	Tue, 22 Jun 2010 01:23:06 -0400
 lib/vclog/adapters/darcs.rb	Mon, 21 Jun 2010 08:36:10 -0400
 lib/vclog/templates/history.json.rb	Mon, 21 Jun 2010 10:46:30 -0400
 lib/vclog/templates/changelog.html.erb	Fri, 28 May 2010 18:28:27 -0400

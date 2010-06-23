@@ -156,12 +156,12 @@
 
   <p>A variety of formats are available for Changelogs and Release Histories,
   here are examples of VCLog's own Release History in the <a href="log/vclog/history.html">HTML</a>,
-  <a href="log/vclog/history.atom">Atom</a>, and <a href="log/vclog/history.json">JSON</a>
+  <a href="log/vclog/history.atom">Atom</a>, and <a href="log/vclog/history.rdoc">RDoc</a>
   formats.</p>
 
   <p>Finally, VCLog recognizes commit types through a set of heuristics. You can define you own set of rules by creating a ./config/vclog/rules.rb file. See VCLog's own file for an example.</p>
 
-  <p>By default VCLog recognizes a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labeled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. VCLog recognizes <code>major</code> or <code>minor</code>, <code>[bug]</code> and <code>[admin]</code> or <code>[-]</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
+  <p>By default VCLog recognizes a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labeled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. VCLog recognizes <code>major</code> or <code>minor</code>, <code>bug</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
 
   <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs --though it would be even nicer if SCMs supported them directly, e.g. with a <code>--label</code> option.</p>
 

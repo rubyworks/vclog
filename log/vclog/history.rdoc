@@ -1,6 +1,6 @@
 = VCLog
 
-== HEAD / 2010-06-21
+== HEAD / 2010-06-23
 
 Current Development (7rans)
 
