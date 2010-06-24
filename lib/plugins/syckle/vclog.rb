@@ -24,11 +24,10 @@ module Syckle::Plugins
     # Supports +html+, +xml+, +json+, +yaml+, +rdoc+, +markdown+, and +gnu+.
     attr_accessor :formats
 
-    # Changelog layout type (+log+ or +rel+). Default is +log+.
+    # Changelog layout type (+changelog+ or +history+). Default is +changelog+.
     attr_accessor :type
 
-    # Output file to store changelog.
-    # The defualt is 'log/vclog/changelog.{format}'.
+    # Output directory store results.
     attr_accessor :output
 
     # Show revision numbers (true/false)?
@@ -40,8 +39,11 @@ module Syckle::Plugins
     # Some formats can reference an optional stylesheet (namely +xml+ and +html+).
     attr_accessor :style
 
-    # Minimu change level to include.
+    # Minimum change level to include.
     attr_accessor :level
+
+    # Reduced detail
+    attr_accessor :summary
 
     #
     def initialize_defaults
@@ -52,11 +54,12 @@ module Syckle::Plugins
       @formats    = ['atom']
       @type       = 'log'
       @level      = 0
+      @summary    = false
     end
 
     #
     def valid?
-      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt|atom|ansi)$/
+      return false unless format =~ /^(html|yaml|json|xml|rdoc|markdown|gnu|txt|atom|rss|ansi)$/
       return false unless type   =~ /^(log|rel|history|changelog)$/
       return true
     end
@@ -82,9 +85,11 @@ module Syckle::Plugins
       formats.each do |format|
         case type
         when 'rel', 'history'
-          file = output || (project.log + "vclog/history.#{format}").to_s
+          ext  = format_extension(format)
+          file = File.join(output || project.log, "vclog/history#{ext}")
         else
-          file = output || (project.log + "vclog/changelog.#{format}").to_s
+          ext  = format_extension(format)
+          file = File.join(output || project.log, "vclog/changelog#{ext}")
         end
         #apply_naming_policy('changelog', log_format.downcase)
         if dryrun?
@@ -155,12 +160,25 @@ module Syckle::Plugins
         :stylesheet => style,
         :revision   => rev,
         :version    => version,
-        :title      => title
+        :title      => title,
+        :extra      => !summary
       }
 
       vcs.display(doctype, format, options)
     end
 
+
+    #
+    def format_extension(format)
+      case format.to_s
+      when 'rss'
+        '-rss.xml'
+      when 'atom'
+        '-atom.xml'
+      else
+        ".#{format}"
+      end
+    end
 
 =begin
     #

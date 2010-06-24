@@ -20,11 +20,11 @@ module VCLog
   #
   # For XML format:
   #
-  #  $ vclog --xml
+  #  $ vclog -f xml
   #
   # Or for a micorformat-ish HTML:
   #
-  #  $ vclog --html
+  #  $ vclog -f html
   #
   # To use the library programmatically, please see the API documentation.
 

@@ -1,4 +1,5 @@
 require 'ostruct'
+#require 'ansi'
 
 module VCLog
 
@@ -35,7 +36,7 @@ module VCLog
 
     #
     def email
-      @options.email || @vcs.user
+      @options.email || @vcs.email
     end
 
     #
@@ -45,7 +46,7 @@ module VCLog
 
     # TODO
     def url
-      @options.url || '/'
+      @options.url || @vcs.repository
     end
 
     # TODO

@@ -1,26 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><%= title %> Feed</title>
-  <% if url %><link href="<%= url %>" rel="self" /><% end %>
+  <title><%= title %></title>
+
+  <% if url %><link href="<%= url %>" /><% end %>
+
   <% if homepage %><link href="<%= homepage %>" /><% end %>
+
   <id><% if vcs.uuid %>urn:uuid:<%= vcs.uuid %><% else %><%= vcs.repository %><% end %></id>
+
   <updated><%= Time.now %></updated>
+
   <author>
+
     <name><%= user %></name>
+
     <email><%= email %></email>
+
   </author>
 
-  <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+<% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+
   <entry>
-    <title><%= h entry.message.lines.first %></title>
-    <id><%= entry.revision %></id>
-    <author><%= entry.author %></author>
+
+    <title><%= h entry.message.lines.first.rstrip %></title>
+
+    <id><%= url %>#<%= entry.revision %></id>
+
+    <author><%= h entry.author %></author>
+
     <updated><%= entry.date %></updated>
-    <summary type="html"><%= h entry.message %></summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <%= entry.message %>
+
+      </div>
+
+    </content>
+
   </entry>
-  <% end %>
+
+<% end %>
 
 </feed>
 
