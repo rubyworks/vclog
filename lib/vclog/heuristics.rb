@@ -27,17 +27,18 @@ module VCLog
 
     #
     def lookup(message)
-      type = nil
-      @rules.find{ |rule| type = rule.call(message) }
+      type_msg = nil
+      @rules.find{|rule| type_msg = rule.call(message)}
+      type, msg = *type_msg
       if type
         type = type.to_sym
         if @labels.key?(type)
-           @labels[type].to_a
+           @labels[type].to_a + [msg || message]
         else
-          [type, 0, "#{type.to_s.capitalize} Enhancements"]
+          [type, 0, "#{type.to_s.capitalize} Enhancements", msg || message]
         end
       else
-        [nil, 0, 'General Enhancements']
+        [nil, 0, 'General Enhancements', msg || message]
       end
     end
 
@@ -80,8 +81,8 @@ module VCLog
       end
 
       def call(message)
-        if md = @pattern.match(message)
-          @block.call(*md[1..-1])
+        if matchdata = @pattern.match(message)
+          @block.call(message, matchdata)
         else
           nil
         end

@@ -38,15 +38,16 @@ module Adapters
     end
 
     #
+    # TODO: possbile to move heuristics lookup into Change class?
     def changes
       @changes ||= (
         changes = []
         extract_changes.each do |c|
           raise "how did this happen?" if Change == c
           rev, date, who, msg = *c
-          type, level, label = *heuristics.lookup(msg)
+          type, level, label, nmsg = *heuristics.lookup(msg)
           next if level < self.level
-          changes << Change.new(rev, date, who, msg, type, level, label)
+          changes << Change.new(rev, date, who, nmsg||msg, type, level, label)
         end
         changes
       )
