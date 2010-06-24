@@ -6,8 +6,10 @@ Current Development (7rans)
 
 Changes:
 
-* 8 General Enhancements
+* 10 General Enhancements
 
+    * add title to html changelog
+    * fix git email value and imporve feed formats
     * work on atom and rss output formats
     * handle unset labels gracefully and improve default heuristics
     * add version command and continue to improve cli help

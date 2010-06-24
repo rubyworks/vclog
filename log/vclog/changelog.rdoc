@@ -2,6 +2,8 @@
 
 == 2010-06-23 7rans
 
+* add title to html changelog
+* fix git email value and imporve feed formats
 * doc: clarify the scm vclog works on in README [doc]
 * work on atom and rss output formats
 

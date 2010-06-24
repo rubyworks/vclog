@@ -574,14 +574,14 @@ Reduced detail
 <pre>
      <span class="ruby-comment cmt"># File lib/plugins/syckle/vclog.rb, line 172</span>
 172:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format_extension</span>(<span class="ruby-identifier">format</span>)
-173:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">to_s</span>
-174:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'rss'</span>
-175:         <span class="ruby-value str">'-rss.xml'</span>
-176:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'atom'</span>
-177:         <span class="ruby-value str">'-atom.xml'</span>
-178:       <span class="ruby-keyword kw">else</span>
+173:       <span class="ruby-comment cmt">#case format.to_s</span>
+174:       <span class="ruby-comment cmt">#when 'rss'</span>
+175:       <span class="ruby-comment cmt">#  '-rss.xml'</span>
+176:       <span class="ruby-comment cmt">#when 'atom'</span>
+177:       <span class="ruby-comment cmt">#  '-atom.xml'</span>
+178:       <span class="ruby-comment cmt">#else</span>
 179:         <span class="ruby-node">&quot;.#{format}&quot;</span>
-180:       <span class="ruby-keyword kw">end</span>
+180:       <span class="ruby-comment cmt">#end</span>
 181:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           

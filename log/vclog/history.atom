@@ -6,13 +6,13 @@
 
   <subtitle>Release History</subtitle>
 
-  <link href="git@github.com:proutils/vclog.git" rel="self" />
+  <link href="git@github.com:proutils/vclog.git" />
  
   
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>2010-06-23T23:29:58-04:00</updated>
+  <updated>2010-06-23T23:54:14-04:00</updated>
 
   <author>
 
@@ -30,9 +30,9 @@
 
     <id>git@github.com:proutils/vclog.git#current</id>
 
-    <author>7rans</author>
+    <author><name>7rans<name></author>
 
-    <updated>2010-06-23T23:29:58-04:00</updated>
+    <updated>2010-06-23T23:54:14-04:00</updated>
 
     <summary>Current Development</summary>
 
@@ -44,9 +44,31 @@
 
 
 
-        <h2>8 General Enhancements</h2>
+        <h2>10 General Enhancements</h2>
 
         <ul class="log">
+
+
+          <li class="entry">
+
+            add title to html changelog<br/>
+
+            7rans 2010-06-23 23:52:31
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            fix git email value and imporve feed formats<br/>
+
+            7rans 2010-06-23 23:31:08
+
+            
+
+          </li>
 
 
           <li class="entry">
@@ -174,7 +196,7 @@
 
     <id>git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</id>
 
-    <author>7rans &lt;transfire@gmail.com&gt;</author>
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
     <updated>2010-05-28T18:03:28-04:00</updated>
 
@@ -304,7 +326,7 @@
 
     <id>git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</id>
 
-    <author>7rans &lt;transfire@gmail.com&gt;</author>
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
     <updated>2010-05-26T20:55:16-04:00</updated>
 
@@ -434,7 +456,7 @@
 
     <id>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
 
-    <author>7rans &lt;transfire@gmail.com&gt;</author>
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
     <updated>2010-02-08T11:07:19-05:00</updated>
 
@@ -553,7 +575,7 @@
 
     <id>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</id>
 
-    <author>7rans &lt;transfire@gmail.com&gt;</author>
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
     <updated>2009-10-26T16:18:35-04:00</updated>
 
@@ -664,7 +686,7 @@
 
     <id>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</id>
 
-    <author>7rans &lt;transfire@gmail.com&gt;</author>
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
     <updated>2009-10-23T10:30:05-04:00</updated>
 
@@ -800,7 +822,7 @@
 
     <id>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</id>
 
-    <author>7rans &lt;transfire@gmail.com&gt;</author>
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
     <updated>2009-10-12T11:40:15-04:00</updated>
 

@@ -10,7 +10,7 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>2010-06-23T23:30:04-04:00</updated>
+  <updated>2010-06-23T23:54:15-04:00</updated>
 
   <author>
 
@@ -19,6 +19,58 @@
     <email>transfire@gmail.com</email>
 
   </author>
+
+
+  <entry>
+
+    <title>add title to html changelog</title>
+
+    <id>git@github.com:proutils/vclog.git#6ab64c1e30ee1b060765c76efeab6039b8e02351</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-23T23:52:31-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add title to html changelog
+<br/>
+
+        7rans 2010-06-23 23:52:31
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>fix git email value and imporve feed formats</title>
+
+    <id>git@github.com:proutils/vclog.git#66f7fb2d968de625dd9a2b63cc692c9ef9112e81</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-23T23:31:08-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fix git email value and imporve feed formats
+<br/>
+
+        7rans 2010-06-23 23:31:08
+
+      </div>
+
+    </content>
+
+  </entry>
 
 
   <entry>
