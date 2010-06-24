@@ -10,7 +10,7 @@
 
   <id><% if vcs.uuid %>urn:uuid:<%= vcs.uuid %><% else %><%= vcs.repository %><% end %></id>
 
-  <updated><%= Time.now %></updated>
+  <updated><%= Time.now.xmlschema %></updated>
 
   <author>
 
@@ -28,15 +28,17 @@
 
     <id><%= url %>#<%= entry.revision %></id>
 
-    <author><%= h entry.author %></author>
+    <author><%= entry.author %></author>
 
-    <updated><%= entry.date %></updated>
+    <updated><%= entry.date.xmlschema %></updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        <%= entry.message %>
+        <%= entry.message %><br/>
+
+        <%= entry.author %> <%= entry.date.strftime('%Y-%m-%d %H:%M:%S') %>
 
       </div>
 

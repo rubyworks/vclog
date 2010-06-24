@@ -12,7 +12,7 @@
 
   <id><% if vcs.uuid %>urn:uuid:<%= vcs.uuid %><% else %><%= vcs.repository %><% end %></id>
 
-  <updated><%= Time.now %></updated>
+  <updated><%= Time.now.xmlschema %></updated>
 
   <author>
 
@@ -34,7 +34,7 @@
 
     <author><%= h tag.author %></author>
 
-    <updated><%= tag.date.strftime('%Y-%m-%d %H:%M:%S') %></updated>
+    <updated><%= tag.date.xmlschema %></updated>
 
     <summary><%= h tag.message %></summary>
 

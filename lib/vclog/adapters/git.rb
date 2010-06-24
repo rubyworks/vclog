@@ -63,7 +63,7 @@ module Adapters
 
     #
     def user
-      @email ||= `git config user.name`.strip
+      @user ||= `git config user.name`.strip
     end
 
     #

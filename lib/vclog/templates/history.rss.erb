@@ -14,9 +14,9 @@
 
     <language>en-us</language>
 
-    <pubDate><%= Time.now %></pubDate>
+    <pubDate><%= Time.now.rfc822 %></pubDate>
 
-    <lastBuildDate><%= Time.now %></lastBuildDate>
+    <lastBuildDate><%= Time.now.rfc822 %></lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
@@ -24,7 +24,7 @@
 
     <managingEditor><%= email %> (<%= user %>)</managingEditor>
 
-    <webMaster><%= email %> (<%= user %></webMaster>
+    <webMaster><%= email %> (<%= user %>)</webMaster>
 
 <% history.releases.sort.each do |release| %>
 
@@ -37,6 +37,10 @@
       <author><%= h tag.author %></author>
 
       <link><%= url %>#<%= tag.revision %></link>
+
+      <pubDate><%= tag.date.rfc822 %></pubDate>
+
+      <guid isPermaLink="false"><%= url %>#<%= tag.revision %></guid>
 
       <description><![CDATA[
 
@@ -71,10 +75,6 @@
 <% end %>
 
       ]]></description>
-
-      <pubDate><%= tag.date %></pubDate>
-
-      <guid><%= url %>#<%= tag.revision %></guid>
 
     </item>
 

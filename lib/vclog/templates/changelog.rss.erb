@@ -14,9 +14,9 @@
 
     <language>en-us</language>
 
-    <pubDate><%= Time.now %></pubDate>
+    <pubDate><%= Time.now.rfc822 %></pubDate>
 
-    <lastBuildDate><%= Time.now %></lastBuildDate>
+    <lastBuildDate><%= Time.now.rfc822 %></lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
@@ -32,19 +32,21 @@
 
       <title><%= h entry.message.lines.first.rstrip %></title>
 
-      <author><%= h entry.author %></author>
+      <author><%= entry.author %></author>
 
       <link></link>
 
-      <description><![CDATA[
-
-        <%= entry.message %>
-
-      ]]></description>
-
-      <pubDate><%= entry.date %></pubDate>
+      <pubDate><%= entry.date.rfc822 %></pubDate>
 
       <guid><%= url %>#<%= entry.revision %></guid>
+
+      <description><![CDATA[
+
+        <%= entry.message %><br/>
+
+        <%= entry.author %> <%= entry.date.strftime('%Y-%m-%d %H:%M:%S') %>
+
+      ]]></description>
 
     </item>
 
