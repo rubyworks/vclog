@@ -7,7 +7,7 @@
 == DESCRIPTION
 
 VCLog is a versitle cross-VCS/SCM changelog generator.
-It currently supports Git and Subversion.
+It currently supports Git, Hg and (limited) Subversion.
 
 
 == SYNOPSIS
