@@ -18,6 +18,7 @@
   <% end %>
 </head>
 <body>
+<h1><%= title %></h1>
 <div class="changelog">
   <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
   <div class="commit">
