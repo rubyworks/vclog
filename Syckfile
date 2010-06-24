@@ -49,10 +49,17 @@ stats:
   output   : ~
   active   : true
 
-vclog:
-  service  : VClog
-  format   : atom, rdoc, html
+vclog-history:
+  service  : VCLog
   type     : history
+  format   : atom, rss, rdoc, html
+  output   : ~
+  active   : true
+
+vclog-changelog:
+  service  : VCLog
+  type     : changelog
+  format   : atom, rss, rdoc, html
   output   : ~
   active   : true
 
