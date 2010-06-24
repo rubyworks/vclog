@@ -1,5 +1,10 @@
 = VCLog
 
+== 2010-06-23 7rans
+
+* doc: clarify the scm vclog works on in README [doc]
+* work on atom and rss output formats
+
 == 2010-06-21 7rans
 
 * handle unset labels gracefully and improve default heuristics

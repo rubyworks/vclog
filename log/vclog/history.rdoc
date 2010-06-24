@@ -6,8 +6,9 @@ Current Development (7rans)
 
 Changes:
 
-* 7 General Enhancements
+* 8 General Enhancements
 
+    * work on atom and rss output formats
     * handle unset labels gracefully and improve default heuristics
     * add version command and continue to improve cli help
     * cli uses closest matching subcommand
@@ -15,6 +16,10 @@ Changes:
     * filter history by level
     * cli has subcommands and templates can be .rb or .erb
     * Heuristics system for categorizing commits
+
+* 1 Doc Enhancements
+
+    * doc: clarify the scm vclog works on in README
 
 
 == 1.5.0 / 2010-05-28

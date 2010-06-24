@@ -14,9 +14,9 @@
 
     <language>en-us</language>
 
-    <pubDate>Wed Jun 23 23:02:55 -0400 2010</pubDate>
+    <pubDate>Wed Jun 23 23:08:12 -0400 2010</pubDate>
 
-    <lastBuildDate>Wed Jun 23 23:02:55 -0400 2010</lastBuildDate>
+    <lastBuildDate>Wed Jun 23 23:08:12 -0400 2010</lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
@@ -42,9 +42,20 @@
 
 
 
-        <h2>7 General Enhancements</h2>
+        <h2>8 General Enhancements</h2>
 
         <ul class="log">
+
+
+          <li class="entry">
+
+            work on atom and rss output formats<br/>
+
+            7rans 2010-06-23 23:05:40
+
+                       
+
+          </li>
 
 
           <li class="entry">
@@ -127,10 +138,29 @@
         </ul>
 
 
+        <h2>1 Doc Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            doc: clarify the scm vclog works on in README<br/>
+
+            7rans 2010-06-23 23:07:40
+
+                       
+
+          </li>
+
+
+        </ul>
+
+
 
       ]]></description>
 
-      <pubDate>Wed Jun 23 23:02:55 -0400 2010</pubDate>
+      <pubDate>Wed Jun 23 23:08:12 -0400 2010</pubDate>
 
       <guid>git@github.com:proutils/vclog.git#current</guid>
 

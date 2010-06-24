@@ -10,7 +10,7 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>Wed Jun 23 23:03:00 -0400 2010</updated>
+  <updated>Wed Jun 23 23:08:13 -0400 2010</updated>
 
   <author>
 
@@ -19,6 +19,54 @@
     <email>7rans</email>
 
   </author>
+
+
+  <entry>
+
+    <title>doc: clarify the scm vclog works on in README</title>
+
+    <id>git@github.com:proutils/vclog.git#f78ca1e7af3a618d41774f8f384316c063cab628</id>
+
+    <author>7rans</author>
+
+    <updated>Wed Jun 23 23:07:40 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        doc: clarify the scm vclog works on in README
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>work on atom and rss output formats</title>
+
+    <id>git@github.com:proutils/vclog.git#e308be8c4eb37cf7e0b2eb3b462d90c9c1e5f3fc</id>
+
+    <author>7rans</author>
+
+    <updated>Wed Jun 23 23:05:40 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        work on atom and rss output formats
+
+
+      </div>
+
+    </content>
+
+  </entry>
 
 
   <entry>

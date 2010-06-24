@@ -12,7 +12,7 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>Wed Jun 23 23:02:55 -0400 2010</updated>
+  <updated>Wed Jun 23 23:08:12 -0400 2010</updated>
 
   <author>
 
@@ -32,7 +32,7 @@
 
     <author>7rans</author>
 
-    <updated>2010-06-23 23:02:55</updated>
+    <updated>2010-06-23 23:08:12</updated>
 
     <summary>Current Development</summary>
 
@@ -44,9 +44,20 @@
 
 
 
-        <h2>7 General Enhancements</h2>
+        <h2>8 General Enhancements</h2>
 
         <ul class="log">
+
+
+          <li class="entry">
+
+            work on atom and rss output formats<br/>
+
+            7rans 2010-06-23 23:05:40
+
+            
+
+          </li>
 
 
           <li class="entry">
@@ -120,6 +131,25 @@
             Heuristics system for categorizing commits<br/>
 
             7rans 2010-06-21 13:13:00
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Doc Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            doc: clarify the scm vclog works on in README<br/>
+
+            7rans 2010-06-23 23:07:40
 
             
 
