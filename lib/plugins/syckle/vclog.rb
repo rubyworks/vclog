@@ -171,10 +171,10 @@ module Syckle::Plugins
     #
     def format_extension(format)
       case format.to_s
-      when 'rss'
-        '-rss.xml'
-      when 'atom'
-        '-atom.xml'
+      #when 'rss'
+      #  '-rss.xml'
+      #when 'atom'
+      #  '-atom.xml'
       else
         ".#{format}"
       end

@@ -6,7 +6,7 @@
 
   <subtitle>Release History</subtitle>
 
-  <% if url %><link href="<%= url %>" rel="self" /><% end %>
+  <% if url %><link href="<%= url %>" /><% end %>
  
   <% if homepage %><link href="<%= homepage %>" /><% end %>
 
@@ -32,7 +32,7 @@
 
     <id><%= url %>#<%= tag.revision %></id>
 
-    <author><%= h tag.author %></author>
+    <author><name><%= h tag.author %><name></author>
 
     <updated><%= tag.date.xmlschema %></updated>
 
