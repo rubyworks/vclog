@@ -1,14 +1,14 @@
-Wed, 23 Jun 2010 23:53:31 -0400
+Thu, 24 Jun 2010 19:40:35 -0400
 lib/vclog/kernel.rb	Mon, 21 Jun 2010 08:32:03 -0400
 lib/vclog/templates/changelog.xsl	Fri, 28 May 2010 18:28:27 -0400
 lib/vclog/templates/history.rss.erb	Wed, 23 Jun 2010 23:38:44 -0400
 lib/vclog/templates/changelog.ansi.rb	Mon, 21 Jun 2010 16:16:01 -0400
 lib/vclog/cli/abstract.rb	Wed, 23 Jun 2010 21:52:43 -0400
-lib/vclog/adapters/abstract.rb	Mon, 21 Jun 2010 20:34:29 -0400
+lib/vclog/adapters/abstract.rb	Thu, 24 Jun 2010 17:46:32 -0400
 lib/vclog/templates/changelog.xml.erb	Fri, 28 May 2010 18:28:27 -0400
 lib/vclog/templates/history.atom.erb	Wed, 23 Jun 2010 23:36:58 -0400
 lib/vclog/templates/changelog.atom.erb	Wed, 23 Jun 2010 23:28:11 -0400
-lib/vclog/heuristics.rb	Mon, 21 Jun 2010 21:01:23 -0400
+lib/vclog/heuristics.rb	Thu, 24 Jun 2010 17:46:01 -0400
 lib/vclog/cli/bump.rb	Mon, 21 Jun 2010 20:31:33 -0400
 PROFILE	Fri, 28 May 2010 18:28:27 -0400
 HISTORY.rdoc	Wed, 23 Jun 2010 23:51:24 -0400
@@ -20,7 +20,7 @@ lib/vclog/templates/changelog.gnu.rb	Mon, 21 Jun 2010 15:27:08 -0400
 lib/vclog/cli.rb	Wed, 23 Jun 2010 21:51:44 -0400
 lib/vclog/facets.rb	Fri, 28 May 2010 18:28:27 -0400
 LICENSE	Fri, 28 May 2010 18:28:27 -0400
-lib/vclog/heuristics/default.rb	Mon, 21 Jun 2010 21:04:37 -0400
+lib/vclog/heuristics/default.rb	Thu, 24 Jun 2010 17:51:40 -0400
 lib/vclog/change.rb	Mon, 21 Jun 2010 09:18:35 -0400
 lib/vclog/templates/history.xml.erb	Mon, 21 Jun 2010 09:22:57 -0400
 lib/vclog/history.rb	Mon, 21 Jun 2010 17:36:43 -0400

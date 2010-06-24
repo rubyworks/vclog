@@ -258,11 +258,11 @@
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 77</span>
-77:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pattern</span>, &amp;<span class="ruby-identifier">block</span>)
-78:         <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">pattern</span>
-79:         <span class="ruby-ivar">@block</span>   = <span class="ruby-identifier">block</span>        
-80:       <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 78</span>
+78:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pattern</span>, &amp;<span class="ruby-identifier">block</span>)
+79:         <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">pattern</span>
+80:         <span class="ruby-ivar">@block</span>   = <span class="ruby-identifier">block</span>        
+81:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -297,14 +297,14 @@
           <div class="method-source-code"
             id="call-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 82</span>
-82:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>)
-83:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@pattern</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">message</span>)
-84:           <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>(*<span class="ruby-identifier">md</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>])
-85:         <span class="ruby-keyword kw">else</span>
-86:           <span class="ruby-keyword kw">nil</span>
-87:         <span class="ruby-keyword kw">end</span>
-88:       <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 83</span>
+83:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>)
+84:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">matchdata</span> = <span class="ruby-ivar">@pattern</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">message</span>)
+85:           <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">matchdata</span>)
+86:         <span class="ruby-keyword kw">else</span>
+87:           <span class="ruby-keyword kw">nil</span>
+88:         <span class="ruby-keyword kw">end</span>
+89:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
