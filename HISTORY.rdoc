@@ -1,5 +1,17 @@
 = RELEASE HISTORY
 
+== 1.6.1 / 2010-06-23
+
+This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).
+
+Changes:
+
+* Repair and improve Atom feed format.
+* Add RSS feed format.
+* Fix Git email address value.
+* Add title to HTML Change Log format.
+
+
 == 1.6.0 / 2010-06-22
 
 Previous versions utilized a system of "commit tagging" to identify types of commits. This proved less than optimal --it was unconventional, but worse it was easy to forget to put the proper label in the message. The new version of VClog uses a customizable heuristics systems instead. Rather than be limited to a strict syntax structure, you can write matching rules in .config/vclog/rules.rb that determine the commit type, and set descriptive labels for each type. This makes it very easy to get excellent History output. Also in this release the command-line interface has changed to use subcommands. And the default output format is now an ANSI-color GNU-like format. Use `-f gnu` to get the old default format.
