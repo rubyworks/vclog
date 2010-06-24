@@ -1,6 +1,6 @@
 runtime:
-- facets >2.4
-- ansi
+- facets 2.4+
+- ansi 1.2+
 
 development:
 - syckle
