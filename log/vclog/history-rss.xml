@@ -14,17 +14,17 @@
 
     <language>en-us</language>
 
-    <pubDate>Wed Jun 23 23:08:12 -0400 2010</pubDate>
+    <pubDate>Wed, 23 Jun 2010 23:29:58 -0400</pubDate>
 
-    <lastBuildDate>Wed Jun 23 23:08:12 -0400 2010</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jun 2010 23:29:58 -0400</lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
     <generator>VCLog</generator>
 
-    <managingEditor>7rans (7rans)</managingEditor>
+    <managingEditor>transfire@gmail.com (7rans)</managingEditor>
 
-    <webMaster>7rans (7rans</webMaster>
+    <webMaster>transfire@gmail.com (7rans)</webMaster>
 
 
 
@@ -35,6 +35,10 @@
       <author>7rans</author>
 
       <link>git@github.com:proutils/vclog.git#current</link>
+
+      <pubDate>Wed, 23 Jun 2010 23:29:58 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#current</guid>
 
       <description><![CDATA[
 
@@ -160,10 +164,6 @@
 
       ]]></description>
 
-      <pubDate>Wed Jun 23 23:08:12 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#current</guid>
-
     </item>
 
 
@@ -175,6 +175,10 @@
       <author>7rans &lt;transfire@gmail.com&gt;</author>
 
       <link>git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</link>
+
+      <pubDate>Fri, 28 May 2010 18:03:28 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</guid>
 
       <description><![CDATA[
 
@@ -286,10 +290,6 @@
 
       ]]></description>
 
-      <pubDate>Fri May 28 18:03:28 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</guid>
-
     </item>
 
 
@@ -301,6 +301,10 @@
       <author>7rans &lt;transfire@gmail.com&gt;</author>
 
       <link>git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</link>
+
+      <pubDate>Wed, 26 May 2010 20:55:16 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</guid>
 
       <description><![CDATA[
 
@@ -412,10 +416,6 @@
 
       ]]></description>
 
-      <pubDate>Wed May 26 20:55:16 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</guid>
-
     </item>
 
 
@@ -427,6 +427,10 @@
       <author>7rans &lt;transfire@gmail.com&gt;</author>
 
       <link>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</link>
+
+      <pubDate>Mon, 08 Feb 2010 11:07:19 -0500</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
 
       <description><![CDATA[
 
@@ -527,10 +531,6 @@
 
       ]]></description>
 
-      <pubDate>Mon Feb 08 11:07:19 -0500 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
-
     </item>
 
 
@@ -542,6 +542,10 @@
       <author>7rans &lt;transfire@gmail.com&gt;</author>
 
       <link>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</link>
+
+      <pubDate>Mon, 26 Oct 2009 16:18:35 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
 
       <description><![CDATA[
 
@@ -634,10 +638,6 @@
 
       ]]></description>
 
-      <pubDate>Mon Oct 26 16:18:35 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
-
     </item>
 
 
@@ -649,6 +649,10 @@
       <author>7rans &lt;transfire@gmail.com&gt;</author>
 
       <link>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</link>
+
+      <pubDate>Fri, 23 Oct 2009 10:30:05 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
 
       <description><![CDATA[
 
@@ -766,10 +770,6 @@
 
       ]]></description>
 
-      <pubDate>Fri Oct 23 10:30:05 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
-
     </item>
 
 
@@ -781,6 +781,10 @@
       <author>7rans &lt;transfire@gmail.com&gt;</author>
 
       <link>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</link>
+
+      <pubDate>Mon, 12 Oct 2009 11:40:15 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
 
       <description><![CDATA[
 
@@ -853,10 +857,6 @@
 
 
       ]]></description>
-
-      <pubDate>Mon Oct 12 11:40:15 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
 
     </item>
 

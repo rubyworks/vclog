@@ -14,17 +14,17 @@
 
     <language>en-us</language>
 
-    <pubDate>Wed Jun 23 23:08:13 -0400 2010</pubDate>
+    <pubDate>Wed, 23 Jun 2010 23:30:05 -0400</pubDate>
 
-    <lastBuildDate>Wed Jun 23 23:08:13 -0400 2010</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jun 2010 23:30:05 -0400</lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
     <generator>VCLog</generator>
 
-    <managingEditor>7rans (7rans)</managingEditor>
+    <managingEditor>transfire@gmail.com (7rans)</managingEditor>
 
-    <webMaster>7rans (7rans</webMaster>
+    <webMaster>transfire@gmail.com (7rans</webMaster>
 
 
     <item>
@@ -35,16 +35,18 @@
 
       <link></link>
 
+      <pubDate>Wed, 23 Jun 2010 23:07:40 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#f78ca1e7af3a618d41774f8f384316c063cab628</guid>
+
       <description><![CDATA[
 
         doc: clarify the scm vclog works on in README
+<br/>
 
+        7rans 2010-06-23 23:07:40
 
       ]]></description>
-
-      <pubDate>Wed Jun 23 23:07:40 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#f78ca1e7af3a618d41774f8f384316c063cab628</guid>
 
     </item>
 
@@ -57,16 +59,18 @@
 
       <link></link>
 
+      <pubDate>Wed, 23 Jun 2010 23:05:40 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#e308be8c4eb37cf7e0b2eb3b462d90c9c1e5f3fc</guid>
+
       <description><![CDATA[
 
         work on atom and rss output formats
+<br/>
 
+        7rans 2010-06-23 23:05:40
 
       ]]></description>
-
-      <pubDate>Wed Jun 23 23:05:40 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#e308be8c4eb37cf7e0b2eb3b462d90c9c1e5f3fc</guid>
 
     </item>
 
@@ -79,16 +83,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 21:10:11 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#dc52b3b214b032ba60c8cdd1bd78a1d01a90a2b0</guid>
+
       <description><![CDATA[
 
         handle unset labels gracefully and improve default heuristics
+<br/>
 
+        7rans 2010-06-21 21:10:11
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 21:10:11 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#dc52b3b214b032ba60c8cdd1bd78a1d01a90a2b0</guid>
 
     </item>
 
@@ -101,16 +107,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 20:37:15 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#516b62ccb4c93153f6f558cfdccd43a8913d4181</guid>
+
       <description><![CDATA[
 
         add version command and continue to improve cli help
+<br/>
 
+        7rans 2010-06-21 20:37:15
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 20:37:15 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#516b62ccb4c93153f6f558cfdccd43a8913d4181</guid>
 
     </item>
 
@@ -123,16 +131,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 17:59:06 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d9186fd75b1d23478554d0a22a0dd91475b28acc</guid>
+
       <description><![CDATA[
 
         cli uses closest matching subcommand
+<br/>
 
+        7rans 2010-06-21 17:59:06
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 17:59:06 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#d9186fd75b1d23478554d0a22a0dd91475b28acc</guid>
 
     </item>
 
@@ -145,16 +155,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 17:40:34 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#43c6f53ed1a15ccbb8c0895ed97d78a03401d68f</guid>
+
       <description><![CDATA[
 
         add ansi format and fix tag date groupings
+<br/>
 
+        7rans 2010-06-21 17:40:34
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 17:40:34 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#43c6f53ed1a15ccbb8c0895ed97d78a03401d68f</guid>
 
     </item>
 
@@ -167,16 +179,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 14:10:06 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#177b44afa7459b6319319fdc0c0feac389fa290f</guid>
+
       <description><![CDATA[
 
         filter history by level
+<br/>
 
+        7rans 2010-06-21 14:10:06
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 14:10:06 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#177b44afa7459b6319319fdc0c0feac389fa290f</guid>
 
     </item>
 
@@ -189,16 +203,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 13:13:31 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#5b984dbb18bedf6c6e4019f7727bf96146c7a98e</guid>
+
       <description><![CDATA[
 
         cli has subcommands and templates can be .rb or .erb
+<br/>
 
+        7rans 2010-06-21 13:13:31
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 13:13:31 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#5b984dbb18bedf6c6e4019f7727bf96146c7a98e</guid>
 
     </item>
 
@@ -211,16 +227,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 21 Jun 2010 13:13:00 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#03b8f4c9b500b433cda52fc98a84f027d942d45e</guid>
+
       <description><![CDATA[
 
         Heuristics system for categorizing commits
+<br/>
 
+        7rans 2010-06-21 13:13:00
 
       ]]></description>
-
-      <pubDate>Mon Jun 21 13:13:00 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#03b8f4c9b500b433cda52fc98a84f027d942d45e</guid>
 
     </item>
 
@@ -233,16 +251,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 28 May 2010 17:55:17 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b5c9acfa2ee4a0a301854743488b766fb5633c91</guid>
+
       <description><![CDATA[
 
         Merge branch 'master' of git@github.com:proutils/vclog
+<br/>
 
+        7rans 2010-05-28 17:55:17
 
       ]]></description>
-
-      <pubDate>Fri May 28 17:55:17 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#b5c9acfa2ee4a0a301854743488b766fb5633c91</guid>
 
     </item>
 
@@ -255,16 +275,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 28 May 2010 15:42:00 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b7bdbe1c48b063a504f0d166884bdf06b9f33969</guid>
+
       <description><![CDATA[
 
         update syckle plugin to match refactoring
+<br/>
 
+        7rans 2010-05-28 15:42:00
 
       ]]></description>
-
-      <pubDate>Fri May 28 15:42:00 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#b7bdbe1c48b063a504f0d166884bdf06b9f33969</guid>
 
     </item>
 
@@ -277,16 +299,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 28 May 2010 15:32:07 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#442bab4f820285425fdf21cdafb970f5030a2a8d</guid>
+
       <description><![CDATA[
 
         add atom support for release history
+<br/>
 
+        7rans 2010-05-28 15:32:07
 
       ]]></description>
-
-      <pubDate>Fri May 28 15:32:07 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#442bab4f820285425fdf21cdafb970f5030a2a8d</guid>
 
     </item>
 
@@ -299,16 +323,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 28 May 2010 14:55:18 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d78139b1dc697f66e0a981d07488f99baef89dbc</guid>
+
       <description><![CDATA[
 
         info methods need to be public
+<br/>
 
+        7rans 2010-05-28 14:55:18
 
       ]]></description>
-
-      <pubDate>Fri May 28 14:55:18 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#d78139b1dc697f66e0a981d07488f99baef89dbc</guid>
 
     </item>
 
@@ -321,16 +347,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 28 May 2010 14:29:55 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</guid>
+
       <description><![CDATA[
 
         major: re-orient design about vcs classes (partially complete)
+<br/>
 
+        7rans 2010-05-28 14:29:55
 
       ]]></description>
-
-      <pubDate>Fri May 28 14:29:55 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</guid>
 
     </item>
 
@@ -343,16 +371,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 28 May 2010 09:39:07 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</guid>
+
       <description><![CDATA[
 
         bug: fixed delta groupings and other improvements
+<br/>
 
+        7rans 2010-05-28 09:39:07
 
       ]]></description>
-
-      <pubDate>Fri May 28 09:39:07 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</guid>
 
     </item>
 
@@ -365,16 +395,18 @@
 
       <link></link>
 
+      <pubDate>Thu, 27 May 2010 17:47:54 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</guid>
+
       <description><![CDATA[
 
         major: add Mercurial support; also renamed VCS to Adapters
+<br/>
 
+        7rans 2010-05-27 17:47:54
 
       ]]></description>
-
-      <pubDate>Thu May 27 17:47:54 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</guid>
 
     </item>
 
@@ -387,16 +419,18 @@
 
       <link></link>
 
+      <pubDate>Wed, 26 May 2010 20:27:33 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</guid>
+
       <description><![CDATA[
 
         add a canonical lib
+<br/>
 
+        7rans 2010-05-26 20:27:33
 
       ]]></description>
-
-      <pubDate>Wed May 26 20:27:33 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</guid>
 
     </item>
 
@@ -409,16 +443,18 @@
 
       <link></link>
 
+      <pubDate>Wed, 26 May 2010 20:27:14 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</guid>
+
       <description><![CDATA[
 
         use xmlsimple for SVN support
+<br/>
 
+        7rans 2010-05-26 20:27:14
 
       ]]></description>
-
-      <pubDate>Wed May 26 20:27:14 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</guid>
 
     </item>
 
@@ -431,16 +467,18 @@
 
       <link></link>
 
+      <pubDate>Wed, 26 May 2010 20:26:28 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</guid>
+
       <description><![CDATA[
 
         test: add first cucumber feature
+<br/>
 
+        7rans 2010-05-26 20:26:28
 
       ]]></description>
-
-      <pubDate>Wed May 26 20:26:28 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</guid>
 
     </item>
 
@@ -453,17 +491,19 @@
 
       <link></link>
 
-      <description><![CDATA[
-
-        bug: Sort release tags in correct order
-
-
-      ]]></description>
-
-      <pubDate>Wed May 26 10:22:26 -0400 2010</pubDate>
+      <pubDate>Wed, 26 May 2010 10:22:26 -0400</pubDate>
 
       <guid>git@github.com:proutils/vclog.git#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</guid>
 
+      <description><![CDATA[
+
+        bug: Sort release tags in correct order
+<br/>
+
+        7rans 2010-05-26 10:22:26
+
+      ]]></description>
+
     </item>
 
 
@@ -475,17 +515,19 @@
 
       <link></link>
 
-      <description><![CDATA[
-
-        bug: change 'git-log' to 'git log'
-
-
-      ]]></description>
-
-      <pubDate>Wed May 26 09:47:53 -0400 2010</pubDate>
+      <pubDate>Wed, 26 May 2010 09:47:53 -0400</pubDate>
 
       <guid>git@github.com:proutils/vclog.git#0699541316857eab778278b5aefb0b23125c5252</guid>
 
+      <description><![CDATA[
+
+        bug: change 'git-log' to 'git log'
+<br/>
+
+        7rans 2010-05-26 09:47:53
+
+      ]]></description>
+
     </item>
 
 
@@ -497,16 +539,18 @@
 
       <link></link>
 
+      <pubDate>Wed, 26 May 2010 09:40:54 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</guid>
+
       <description><![CDATA[
 
         bug: change 'git-log' to 'git log'
+<br/>
 
+        7rans 2010-05-26 09:40:54
 
       ]]></description>
-
-      <pubDate>Wed May 26 09:40:54 -0400 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</guid>
 
     </item>
 
@@ -519,16 +563,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 08 Feb 2010 11:07:19 -0500</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
+
       <description><![CDATA[
 
         bug: fix version bumping and display
+<br/>
 
+        7rans 2010-02-08 11:07:19
 
       ]]></description>
-
-      <pubDate>Mon Feb 08 11:07:19 -0500 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
 
     </item>
 
@@ -541,16 +587,18 @@
 
       <link></link>
 
+      <pubDate>Sat, 16 Jan 2010 15:05:52 -0500</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</guid>
+
       <description><![CDATA[
 
         major: use erb as template system for all formats
+<br/>
 
+        7rans 2010-01-16 15:05:52
 
       ]]></description>
-
-      <pubDate>Sat Jan 16 15:05:52 -0500 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</guid>
 
     </item>
 
@@ -563,16 +611,18 @@
 
       <link></link>
 
+      <pubDate>Sat, 16 Jan 2010 10:50:30 -0500</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</guid>
+
       <description><![CDATA[
 
         bug: syckle plugin now works with latest vclog changes
+<br/>
 
+        7rans 2010-01-16 10:50:30
 
       ]]></description>
-
-      <pubDate>Sat Jan 16 10:50:30 -0500 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</guid>
 
     </item>
 
@@ -585,16 +635,18 @@
 
       <link></link>
 
+      <pubDate>Sat, 02 Jan 2010 02:19:32 -0500</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</guid>
+
       <description><![CDATA[
 
         major: support 'type:' fromat commit types
+<br/>
 
+        7rans 2010-01-02 02:19:32
 
       ]]></description>
-
-      <pubDate>Sat Jan 02 02:19:32 -0500 2010</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</guid>
 
     </item>
 
@@ -607,16 +659,18 @@
 
       <link></link>
 
+      <pubDate>Sat, 14 Nov 2009 09:59:49 -0500</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#3d6a8a0a30bc845d007ec61e2c438bb311e43692</guid>
+
       <description><![CDATA[
 
         use meta/name and meta/suite
+<br/>
 
+        7rans 2009-11-14 09:59:49
 
       ]]></description>
-
-      <pubDate>Sat Nov 14 09:59:49 -0500 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#3d6a8a0a30bc845d007ec61e2c438bb311e43692</guid>
 
     </item>
 
@@ -629,16 +683,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 26 Oct 2009 16:20:35 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</guid>
+
       <description><![CDATA[
 
         prepare version 1.2 for release
+<br/>
 
+        7rans 2009-10-26 16:20:35
 
       ]]></description>
-
-      <pubDate>Mon Oct 26 16:20:35 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</guid>
 
     </item>
 
@@ -651,16 +707,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 26 Oct 2009 16:18:35 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
+
       <description><![CDATA[
 
         readded markup output for changelog
+<br/>
 
+        7rans 2009-10-26 16:18:35
 
       ]]></description>
-
-      <pubDate>Mon Oct 26 16:18:35 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
 
     </item>
 
@@ -673,16 +731,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 26 Oct 2009 15:43:04 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#7040af16068d1a52fe8c43de790a48b41fe39f36</guid>
+
       <description><![CDATA[
 
         renamed command.rb to cli.rb
+<br/>
 
+        7rans 2009-10-26 15:43:04
 
       ]]></description>
-
-      <pubDate>Mon Oct 26 15:43:04 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#7040af16068d1a52fe8c43de790a48b41fe39f36</guid>
 
     </item>
 
@@ -695,16 +755,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 26 Oct 2009 15:38:39 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</guid>
+
       <description><![CDATA[
 
         fixed spelling of revision (from revison) [bug]
+<br/>
 
+        7rans 2009-10-26 15:38:39
 
       ]]></description>
-
-      <pubDate>Mon Oct 26 15:38:39 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</guid>
 
     </item>
 
@@ -717,16 +779,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 26 Oct 2009 15:16:55 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#56340c886421803e3420d4ef22a79c1aabefd78e</guid>
+
       <description><![CDATA[
 
         more refactoring and fixed SVN support
+<br/>
 
+        7rans 2009-10-26 15:16:55
 
       ]]></description>
-
-      <pubDate>Mon Oct 26 15:16:55 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#56340c886421803e3420d4ef22a79c1aabefd78e</guid>
 
     </item>
 
@@ -739,16 +803,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 26 Oct 2009 09:15:32 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#769e640437f5d1ed3abab3c87061dc3a7ed60c51</guid>
+
       <description><![CDATA[
 
         rewrote release history generator
+<br/>
 
+        7rans 2009-10-26 09:15:32
 
       ]]></description>
-
-      <pubDate>Mon Oct 26 09:15:32 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#769e640437f5d1ed3abab3c87061dc3a7ed60c51</guid>
 
     </item>
 
@@ -761,16 +827,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:32:51 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#c3ade6a5bf31dcfc0c52a98f84f242b0a39e5f1d</guid>
+
       <description><![CDATA[
 
         added ad to website. I want my ! ;)
+<br/>
 
+        7rans 2009-10-23 10:32:51
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:32:51 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#c3ade6a5bf31dcfc0c52a98f84f242b0a39e5f1d</guid>
 
     </item>
 
@@ -783,16 +851,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:30:05 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
+
       <description><![CDATA[
 
         added some todo items
+<br/>
 
+        7rans 2009-10-23 10:30:05
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:30:05 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
 
     </item>
 
@@ -805,16 +875,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:21:12 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#ca0aa28da9ecba53bac1ae69858da234a88ec86a</guid>
+
       <description><![CDATA[
 
         removed rdoc.task (automatic mode gets it)
+<br/>
 
+        7rans 2009-10-23 10:21:12
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:21:12 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#ca0aa28da9ecba53bac1ae69858da234a88ec86a</guid>
 
     </item>
 
@@ -827,16 +899,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:19:25 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#4b261536f4e14587afec2144ff9b903ae8c8904b</guid>
+
       <description><![CDATA[
 
         adjust syckle config
+<br/>
 
+        7rans 2009-10-23 10:19:25
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:19:25 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#4b261536f4e14587afec2144ff9b903ae8c8904b</guid>
 
     </item>
 
@@ -849,16 +923,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:17:50 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#2fc69b9910d0b329853f1b9cae9a0c203d618357</guid>
+
       <description><![CDATA[
 
         upped version to 1.1
+<br/>
 
+        7rans 2009-10-23 10:17:50
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:17:50 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#2fc69b9910d0b329853f1b9cae9a0c203d618357</guid>
 
     </item>
 
@@ -871,16 +947,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:14:19 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#60d94af0e882333920dc5f6bd97e91e6a038702b</guid>
+
       <description><![CDATA[
 
         moved bin to command.rb
+<br/>
 
+        7rans 2009-10-23 10:14:19
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:14:19 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#60d94af0e882333920dc5f6bd97e91e6a038702b</guid>
 
     </item>
 
@@ -893,16 +971,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:13:56 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#eeb7b978f10f3fba6d8e2c70b142f26cb2ecf48d</guid>
+
       <description><![CDATA[
 
         add website examples
+<br/>
 
+        7rans 2009-10-23 10:13:56
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:13:56 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#eeb7b978f10f3fba6d8e2c70b142f26cb2ecf48d</guid>
 
     </item>
 
@@ -915,16 +995,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 10:13:40 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b2c9f083381f35e04ac2c186a926660d6ee3158f</guid>
+
       <description><![CDATA[
 
         moved bin to command.rb
+<br/>
 
+        7rans 2009-10-23 10:13:40
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 10:13:40 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#b2c9f083381f35e04ac2c186a926660d6ee3158f</guid>
 
     </item>
 
@@ -937,16 +1019,18 @@
 
       <link></link>
 
+      <pubDate>Fri, 23 Oct 2009 07:19:42 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#2183f7b7b81a6d34fc1edd7db75222c9a54d7bec</guid>
+
       <description><![CDATA[
 
         update pom metadata
+<br/>
 
+        7rans 2009-10-23 07:19:42
 
       ]]></description>
-
-      <pubDate>Fri Oct 23 07:19:42 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#2183f7b7b81a6d34fc1edd7db75222c9a54d7bec</guid>
 
     </item>
 
@@ -959,16 +1043,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 12 Oct 2009 11:47:58 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#70e98e8dc4baef6b50c4fa259127f55f6622a9e9</guid>
+
       <description><![CDATA[
 
         changed licenses to MIT
+<br/>
 
+        7rans 2009-10-12 11:47:58
 
       ]]></description>
-
-      <pubDate>Mon Oct 12 11:47:58 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#70e98e8dc4baef6b50c4fa259127f55f6622a9e9</guid>
 
     </item>
 
@@ -981,16 +1067,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 12 Oct 2009 11:40:15 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
+
       <description><![CDATA[
 
         fixed typo in LICENSE
+<br/>
 
+        7rans 2009-10-12 11:40:15
 
       ]]></description>
-
-      <pubDate>Mon Oct 12 11:40:15 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
 
     </item>
 
@@ -1003,16 +1091,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 12 Oct 2009 11:36:20 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#9f6a0c691b051d5254ca8ab1a0e23772e2cff74e</guid>
+
       <description><![CDATA[
 
         contact suffices
+<br/>
 
+        7rans 2009-10-12 11:36:20
 
       ]]></description>
-
-      <pubDate>Mon Oct 12 11:36:20 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#9f6a0c691b051d5254ca8ab1a0e23772e2cff74e</guid>
 
     </item>
 
@@ -1025,16 +1115,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 12 Oct 2009 11:33:59 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#42b9c6fa1a5924912842c0aef246de06c01ee108</guid>
+
       <description><![CDATA[
 
         fixed syckle config
+<br/>
 
+        7rans 2009-10-12 11:33:59
 
       ]]></description>
-
-      <pubDate>Mon Oct 12 11:33:59 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#42b9c6fa1a5924912842c0aef246de06c01ee108</guid>
 
     </item>
 
@@ -1047,16 +1139,18 @@
 
       <link></link>
 
+      <pubDate>Mon, 12 Oct 2009 11:32:59 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#860aa3a2f7eea9a0793c06920fa680b3f580240e</guid>
+
       <description><![CDATA[
 
         update tasks and metadata
+<br/>
 
+        7rans 2009-10-12 11:32:59
 
       ]]></description>
-
-      <pubDate>Mon Oct 12 11:32:59 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#860aa3a2f7eea9a0793c06920fa680b3f580240e</guid>
 
     </item>
 
@@ -1069,16 +1163,18 @@
 
       <link></link>
 
+      <pubDate>Tue, 06 Oct 2009 13:47:36 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d279fd3aee26a50c256d4a764b7bcc63c64f2304</guid>
+
       <description><![CDATA[
 
         reap became syckle
+<br/>
 
+        7rans 2009-10-06 13:47:36
 
       ]]></description>
-
-      <pubDate>Tue Oct 06 13:47:36 -0400 2009</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#d279fd3aee26a50c256d4a764b7bcc63c64f2304</guid>
 
     </item>
 
@@ -1091,15 +1187,17 @@
 
       <link></link>
 
-      <description><![CDATA[
-
-        first commit
-
-      ]]></description>
-
-      <pubDate>Mon Aug 17 14:44:24 -0400 2009</pubDate>
+      <pubDate>Mon, 17 Aug 2009 14:44:24 -0400</pubDate>
 
       <guid>git@github.com:proutils/vclog.git#e71a6d4815b152f3dba4695be28645a9172645cc</guid>
+
+      <description><![CDATA[
+
+        first commit<br/>
+
+        proutils 2009-08-17 14:44:24
+
+      ]]></description>
 
     </item>
 

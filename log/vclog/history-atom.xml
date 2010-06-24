@@ -12,13 +12,13 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>Wed Jun 23 23:08:12 -0400 2010</updated>
+  <updated>2010-06-23T23:29:58-04:00</updated>
 
   <author>
 
     <name>7rans</name>
 
-    <email>7rans</email>
+    <email>transfire@gmail.com</email>
 
   </author>
 
@@ -32,7 +32,7 @@
 
     <author>7rans</author>
 
-    <updated>2010-06-23 23:08:12</updated>
+    <updated>2010-06-23T23:29:58-04:00</updated>
 
     <summary>Current Development</summary>
 
@@ -176,7 +176,7 @@
 
     <author>7rans &lt;transfire@gmail.com&gt;</author>
 
-    <updated>2010-05-28 18:03:28</updated>
+    <updated>2010-05-28T18:03:28-04:00</updated>
 
     <summary>This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.</summary>
 
@@ -306,7 +306,7 @@
 
     <author>7rans &lt;transfire@gmail.com&gt;</author>
 
-    <updated>2010-05-26 20:55:16</updated>
+    <updated>2010-05-26T20:55:16-04:00</updated>
 
     <summary>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed &apos;git-log&apos; to &apos;git log&apos;, as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an &apos;svn log&apos; command is issued which is done once for each tag when a history is generated (any one know a better way?).</summary>
 
@@ -436,7 +436,7 @@
 
     <author>7rans &lt;transfire@gmail.com&gt;</author>
 
-    <updated>2010-02-08 11:07:19</updated>
+    <updated>2010-02-08T11:07:19-05:00</updated>
 
     <summary>For the an end-user the only significant change is the support of label: notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the label: notation to specify system module effected --a useful system of labeling.</summary>
 
@@ -555,7 +555,7 @@
 
     <author>7rans &lt;transfire@gmail.com&gt;</author>
 
-    <updated>2009-10-26 16:18:35</updated>
+    <updated>2009-10-26T16:18:35-04:00</updated>
 
     <summary>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface.</summary>
 
@@ -666,7 +666,7 @@
 
     <author>7rans &lt;transfire@gmail.com&gt;</author>
 
-    <updated>2009-10-23 10:30:05</updated>
+    <updated>2009-10-23T10:30:05-04:00</updated>
 
     <summary>This release adds yaml and json formats and improves the cli.</summary>
 
@@ -802,7 +802,7 @@
 
     <author>7rans &lt;transfire@gmail.com&gt;</author>
 
-    <updated>2009-10-12 11:40:15</updated>
+    <updated>2009-10-12T11:40:15-04:00</updated>
 
     <summary>This is the first production release of VCLog.</summary>
 

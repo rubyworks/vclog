@@ -10,13 +10,13 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>Wed Jun 23 23:08:13 -0400 2010</updated>
+  <updated>2010-06-23T23:30:04-04:00</updated>
 
   <author>
 
     <name>7rans</name>
 
-    <email>7rans</email>
+    <email>transfire@gmail.com</email>
 
   </author>
 
@@ -29,14 +29,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed Jun 23 23:07:40 -0400 2010</updated>
+    <updated>2010-06-23T23:07:40-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         doc: clarify the scm vclog works on in README
+<br/>
 
+        7rans 2010-06-23 23:07:40
 
       </div>
 
@@ -53,14 +55,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed Jun 23 23:05:40 -0400 2010</updated>
+    <updated>2010-06-23T23:05:40-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         work on atom and rss output formats
+<br/>
 
+        7rans 2010-06-23 23:05:40
 
       </div>
 
@@ -77,14 +81,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 21:10:11 -0400 2010</updated>
+    <updated>2010-06-21T21:10:11-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         handle unset labels gracefully and improve default heuristics
+<br/>
 
+        7rans 2010-06-21 21:10:11
 
       </div>
 
@@ -101,14 +107,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 20:37:15 -0400 2010</updated>
+    <updated>2010-06-21T20:37:15-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         add version command and continue to improve cli help
+<br/>
 
+        7rans 2010-06-21 20:37:15
 
       </div>
 
@@ -125,14 +133,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 17:59:06 -0400 2010</updated>
+    <updated>2010-06-21T17:59:06-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         cli uses closest matching subcommand
+<br/>
 
+        7rans 2010-06-21 17:59:06
 
       </div>
 
@@ -149,14 +159,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 17:40:34 -0400 2010</updated>
+    <updated>2010-06-21T17:40:34-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         add ansi format and fix tag date groupings
+<br/>
 
+        7rans 2010-06-21 17:40:34
 
       </div>
 
@@ -173,14 +185,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 14:10:06 -0400 2010</updated>
+    <updated>2010-06-21T14:10:06-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         filter history by level
+<br/>
 
+        7rans 2010-06-21 14:10:06
 
       </div>
 
@@ -197,14 +211,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 13:13:31 -0400 2010</updated>
+    <updated>2010-06-21T13:13:31-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         cli has subcommands and templates can be .rb or .erb
+<br/>
 
+        7rans 2010-06-21 13:13:31
 
       </div>
 
@@ -221,14 +237,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Jun 21 13:13:00 -0400 2010</updated>
+    <updated>2010-06-21T13:13:00-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         Heuristics system for categorizing commits
+<br/>
 
+        7rans 2010-06-21 13:13:00
 
       </div>
 
@@ -245,14 +263,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri May 28 17:55:17 -0400 2010</updated>
+    <updated>2010-05-28T17:55:17-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         Merge branch 'master' of git@github.com:proutils/vclog
+<br/>
 
+        7rans 2010-05-28 17:55:17
 
       </div>
 
@@ -269,14 +289,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri May 28 15:42:00 -0400 2010</updated>
+    <updated>2010-05-28T15:42:00-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         update syckle plugin to match refactoring
+<br/>
 
+        7rans 2010-05-28 15:42:00
 
       </div>
 
@@ -293,14 +315,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri May 28 15:32:07 -0400 2010</updated>
+    <updated>2010-05-28T15:32:07-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         add atom support for release history
+<br/>
 
+        7rans 2010-05-28 15:32:07
 
       </div>
 
@@ -317,14 +341,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri May 28 14:55:18 -0400 2010</updated>
+    <updated>2010-05-28T14:55:18-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         info methods need to be public
+<br/>
 
+        7rans 2010-05-28 14:55:18
 
       </div>
 
@@ -341,14 +367,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri May 28 14:29:55 -0400 2010</updated>
+    <updated>2010-05-28T14:29:55-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         major: re-orient design about vcs classes (partially complete)
+<br/>
 
+        7rans 2010-05-28 14:29:55
 
       </div>
 
@@ -365,14 +393,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri May 28 09:39:07 -0400 2010</updated>
+    <updated>2010-05-28T09:39:07-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         bug: fixed delta groupings and other improvements
+<br/>
 
+        7rans 2010-05-28 09:39:07
 
       </div>
 
@@ -389,14 +419,16 @@
 
     <author>7rans</author>
 
-    <updated>Thu May 27 17:47:54 -0400 2010</updated>
+    <updated>2010-05-27T17:47:54-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         major: add Mercurial support; also renamed VCS to Adapters
+<br/>
 
+        7rans 2010-05-27 17:47:54
 
       </div>
 
@@ -413,14 +445,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed May 26 20:27:33 -0400 2010</updated>
+    <updated>2010-05-26T20:27:33-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         add a canonical lib
+<br/>
 
+        7rans 2010-05-26 20:27:33
 
       </div>
 
@@ -437,14 +471,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed May 26 20:27:14 -0400 2010</updated>
+    <updated>2010-05-26T20:27:14-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         use xmlsimple for SVN support
+<br/>
 
+        7rans 2010-05-26 20:27:14
 
       </div>
 
@@ -461,14 +497,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed May 26 20:26:28 -0400 2010</updated>
+    <updated>2010-05-26T20:26:28-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         test: add first cucumber feature
+<br/>
 
+        7rans 2010-05-26 20:26:28
 
       </div>
 
@@ -485,14 +523,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed May 26 10:22:26 -0400 2010</updated>
+    <updated>2010-05-26T10:22:26-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         bug: Sort release tags in correct order
+<br/>
 
+        7rans 2010-05-26 10:22:26
 
       </div>
 
@@ -509,14 +549,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed May 26 09:47:53 -0400 2010</updated>
+    <updated>2010-05-26T09:47:53-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         bug: change 'git-log' to 'git log'
+<br/>
 
+        7rans 2010-05-26 09:47:53
 
       </div>
 
@@ -533,14 +575,16 @@
 
     <author>7rans</author>
 
-    <updated>Wed May 26 09:40:54 -0400 2010</updated>
+    <updated>2010-05-26T09:40:54-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         bug: change 'git-log' to 'git log'
+<br/>
 
+        7rans 2010-05-26 09:40:54
 
       </div>
 
@@ -557,14 +601,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Feb 08 11:07:19 -0500 2010</updated>
+    <updated>2010-02-08T11:07:19-05:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         bug: fix version bumping and display
+<br/>
 
+        7rans 2010-02-08 11:07:19
 
       </div>
 
@@ -581,14 +627,16 @@
 
     <author>7rans</author>
 
-    <updated>Sat Jan 16 15:05:52 -0500 2010</updated>
+    <updated>2010-01-16T15:05:52-05:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         major: use erb as template system for all formats
+<br/>
 
+        7rans 2010-01-16 15:05:52
 
       </div>
 
@@ -605,14 +653,16 @@
 
     <author>7rans</author>
 
-    <updated>Sat Jan 16 10:50:30 -0500 2010</updated>
+    <updated>2010-01-16T10:50:30-05:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         bug: syckle plugin now works with latest vclog changes
+<br/>
 
+        7rans 2010-01-16 10:50:30
 
       </div>
 
@@ -629,14 +679,16 @@
 
     <author>7rans</author>
 
-    <updated>Sat Jan 02 02:19:32 -0500 2010</updated>
+    <updated>2010-01-02T02:19:32-05:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         major: support 'type:' fromat commit types
+<br/>
 
+        7rans 2010-01-02 02:19:32
 
       </div>
 
@@ -653,14 +705,16 @@
 
     <author>7rans</author>
 
-    <updated>Sat Nov 14 09:59:49 -0500 2009</updated>
+    <updated>2009-11-14T09:59:49-05:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         use meta/name and meta/suite
+<br/>
 
+        7rans 2009-11-14 09:59:49
 
       </div>
 
@@ -677,14 +731,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 26 16:20:35 -0400 2009</updated>
+    <updated>2009-10-26T16:20:35-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         prepare version 1.2 for release
+<br/>
 
+        7rans 2009-10-26 16:20:35
 
       </div>
 
@@ -701,14 +757,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 26 16:18:35 -0400 2009</updated>
+    <updated>2009-10-26T16:18:35-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         readded markup output for changelog
+<br/>
 
+        7rans 2009-10-26 16:18:35
 
       </div>
 
@@ -725,14 +783,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 26 15:43:04 -0400 2009</updated>
+    <updated>2009-10-26T15:43:04-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         renamed command.rb to cli.rb
+<br/>
 
+        7rans 2009-10-26 15:43:04
 
       </div>
 
@@ -749,14 +809,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 26 15:38:39 -0400 2009</updated>
+    <updated>2009-10-26T15:38:39-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         fixed spelling of revision (from revison) [bug]
+<br/>
 
+        7rans 2009-10-26 15:38:39
 
       </div>
 
@@ -773,14 +835,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 26 15:16:55 -0400 2009</updated>
+    <updated>2009-10-26T15:16:55-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         more refactoring and fixed SVN support
+<br/>
 
+        7rans 2009-10-26 15:16:55
 
       </div>
 
@@ -797,14 +861,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 26 09:15:32 -0400 2009</updated>
+    <updated>2009-10-26T09:15:32-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         rewrote release history generator
+<br/>
 
+        7rans 2009-10-26 09:15:32
 
       </div>
 
@@ -821,14 +887,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:32:51 -0400 2009</updated>
+    <updated>2009-10-23T10:32:51-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         added ad to website. I want my ! ;)
+<br/>
 
+        7rans 2009-10-23 10:32:51
 
       </div>
 
@@ -845,14 +913,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:30:05 -0400 2009</updated>
+    <updated>2009-10-23T10:30:05-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         added some todo items
+<br/>
 
+        7rans 2009-10-23 10:30:05
 
       </div>
 
@@ -869,14 +939,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:21:12 -0400 2009</updated>
+    <updated>2009-10-23T10:21:12-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         removed rdoc.task (automatic mode gets it)
+<br/>
 
+        7rans 2009-10-23 10:21:12
 
       </div>
 
@@ -893,14 +965,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:19:25 -0400 2009</updated>
+    <updated>2009-10-23T10:19:25-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         adjust syckle config
+<br/>
 
+        7rans 2009-10-23 10:19:25
 
       </div>
 
@@ -917,14 +991,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:17:50 -0400 2009</updated>
+    <updated>2009-10-23T10:17:50-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         upped version to 1.1
+<br/>
 
+        7rans 2009-10-23 10:17:50
 
       </div>
 
@@ -941,14 +1017,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:14:19 -0400 2009</updated>
+    <updated>2009-10-23T10:14:19-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         moved bin to command.rb
+<br/>
 
+        7rans 2009-10-23 10:14:19
 
       </div>
 
@@ -965,14 +1043,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:13:56 -0400 2009</updated>
+    <updated>2009-10-23T10:13:56-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         add website examples
+<br/>
 
+        7rans 2009-10-23 10:13:56
 
       </div>
 
@@ -989,14 +1069,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 10:13:40 -0400 2009</updated>
+    <updated>2009-10-23T10:13:40-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         moved bin to command.rb
+<br/>
 
+        7rans 2009-10-23 10:13:40
 
       </div>
 
@@ -1013,14 +1095,16 @@
 
     <author>7rans</author>
 
-    <updated>Fri Oct 23 07:19:42 -0400 2009</updated>
+    <updated>2009-10-23T07:19:42-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         update pom metadata
+<br/>
 
+        7rans 2009-10-23 07:19:42
 
       </div>
 
@@ -1037,14 +1121,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 12 11:47:58 -0400 2009</updated>
+    <updated>2009-10-12T11:47:58-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         changed licenses to MIT
+<br/>
 
+        7rans 2009-10-12 11:47:58
 
       </div>
 
@@ -1061,14 +1147,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 12 11:40:15 -0400 2009</updated>
+    <updated>2009-10-12T11:40:15-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         fixed typo in LICENSE
+<br/>
 
+        7rans 2009-10-12 11:40:15
 
       </div>
 
@@ -1085,14 +1173,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 12 11:36:20 -0400 2009</updated>
+    <updated>2009-10-12T11:36:20-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         contact suffices
+<br/>
 
+        7rans 2009-10-12 11:36:20
 
       </div>
 
@@ -1109,14 +1199,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 12 11:33:59 -0400 2009</updated>
+    <updated>2009-10-12T11:33:59-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         fixed syckle config
+<br/>
 
+        7rans 2009-10-12 11:33:59
 
       </div>
 
@@ -1133,14 +1225,16 @@
 
     <author>7rans</author>
 
-    <updated>Mon Oct 12 11:32:59 -0400 2009</updated>
+    <updated>2009-10-12T11:32:59-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         update tasks and metadata
+<br/>
 
+        7rans 2009-10-12 11:32:59
 
       </div>
 
@@ -1157,14 +1251,16 @@
 
     <author>7rans</author>
 
-    <updated>Tue Oct 06 13:47:36 -0400 2009</updated>
+    <updated>2009-10-06T13:47:36-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         reap became syckle
+<br/>
 
+        7rans 2009-10-06 13:47:36
 
       </div>
 
@@ -1181,13 +1277,15 @@
 
     <author>proutils</author>
 
-    <updated>Mon Aug 17 14:44:24 -0400 2009</updated>
+    <updated>2009-08-17T14:44:24-04:00</updated>
 
     <content type="xhtml">
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        first commit
+        first commit<br/>
+
+        proutils 2009-08-17 14:44:24
 
       </div>
 
