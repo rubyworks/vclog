@@ -8,7 +8,7 @@
       padding: 0; 
       margin: 0;
       color: black;
-      font: 1em sans-serif;
+      font: 16px times;
       text-align: justify;
       background: url(../img/fade_yellow_up.jpg) bottom repeat-y;
     }
@@ -16,12 +16,13 @@
     a  { text-decoration: none; font-size: 10pt; color: tan;  font-weight: bold; }
     a:hover { text-decoration: underline; }
     h1 { font-size: 100px; margin: 20px; color: #552200; }
-    ul { margin: 0 auto; list-style-type: none; width: 300px; }
-    li { float: left; padding: 10px; text-align: center; }
+    ul { text-align: left; color: tan; }
+    li { padding: 2px; color: tan; }
+    li a { color: tan; font-size: 1.1em; }
     pre { font-size: 90%; background: tan; padding: 10px; -moz-border-radius: 10px; color: #552200; font-weight: bold; font-family: courier, monospace; }
     code { font-family: courier, monospace; color: #ecc; }
 
-    .menu { padding: 20px; text-align: center; background: #552200; }
+    .menu { padding: 20px 20px 20px 0; text-align: center; background: #552200; }
     .head { height: 250px; text-align: center; border-top: 2px solid tan; border-bottom: 2px solid tan; }
     .title { text-align: left; margin: 0 auto; width: 800px; }
     .body { background: #552200; color: white; border-bottom: 2px solid tan; }
@@ -154,14 +155,23 @@
       * first commit
   </pre>
 
-  <p>A variety of formats are available for Changelogs and Release Histories,
-  here are examples of VCLog's own Release History in the <a href="log/vclog/history.html">HTML</a>,
-  <a href="log/vclog/history.atom">Atom</a>, and <a href="log/vclog/history.rdoc">RDoc</a>
-  formats.</p>
+  <p>A variety of formats are available for Change Logs and Release Histories,
+  Here are examples of VCLog's own.
 
-  <p>Finally, VCLog recognizes commit types through a set of heuristics. You can define you own set of rules by creating a ./config/vclog/rules.rb file. See VCLog's own file for an example.</p>
+  <ul>
+    <li><a href="log/vclog/changelog.rdoc">changelog.rdoc</a></li>
+    <li><a href="log/vclog/changelog.html">changelog.html</a></li>
+    <li><a href="log/vclog/changelog-atom.xml">changelog-atom.xml</a></li>
+    <li><a href="log/vclog/changelog-rss.xml">changelog-rss.xml</a></li>
+    <li><a href="log/vclog/history.rdoc">history.rdoc</a></li>
+    <li><a href="log/vclog/history.html">history.html</a></li>
+    <li><a href="log/vclog/history-atom.xml">history-atom.xml</a></li>
+    <li><a href="log/vclog/history-rss.xml">history-rss.xml</a></li>
+  </ul>
 
-  <p>By default VCLog recognizes a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labeled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. VCLog recognizes <code>major</code> or <code>minor</code>, <code>bug</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
+  <p>Finally, VCLog recognizes commit types through a set of heuristics. You can define you own set by creating a <code>rules.rb</code> file in <code>.vclog/</code> or <code>.config/vclog/</code>. See VCLog's own file for an example.</p>
+
+  <p>By default VCLog heuristics recognize a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labeled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. VCLog recognizes <code>major</code> or <code>minor</code>, <code>bug</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
 
   <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs --though it would be even nicer if SCMs supported them directly, e.g. with a <code>--label</code> option.</p>
 

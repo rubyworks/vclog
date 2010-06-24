@@ -1,0 +1,1066 @@
+<?xml version="1.0"?>
+
+<rss version="2.0">
+
+  <channel>
+
+    <title>VCLog</title>
+
+    <link>git@github.com:proutils/vclog.git</link>
+
+    
+
+    <description>Release History</description>
+
+    <language>en-us</language>
+
+    <pubDate>Wed Jun 23 23:03:00 -0400 2010</pubDate>
+
+    <lastBuildDate>Wed Jun 23 23:03:00 -0400 2010</lastBuildDate>
+
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+
+    <generator>VCLog</generator>
+
+    <managingEditor>7rans (7rans)</managingEditor>
+
+    <webMaster>7rans (7rans</webMaster>
+
+
+    <item>
+
+      <title>handle unset labels gracefully and improve default heuristics</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        handle unset labels gracefully and improve default heuristics
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 21:10:11 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#dc52b3b214b032ba60c8cdd1bd78a1d01a90a2b0</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>add version command and continue to improve cli help</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        add version command and continue to improve cli help
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 20:37:15 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#516b62ccb4c93153f6f558cfdccd43a8913d4181</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>cli uses closest matching subcommand</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        cli uses closest matching subcommand
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 17:59:06 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d9186fd75b1d23478554d0a22a0dd91475b28acc</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>add ansi format and fix tag date groupings</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        add ansi format and fix tag date groupings
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 17:40:34 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#43c6f53ed1a15ccbb8c0895ed97d78a03401d68f</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>filter history by level</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        filter history by level
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 14:10:06 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#177b44afa7459b6319319fdc0c0feac389fa290f</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>cli has subcommands and templates can be .rb or .erb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        cli has subcommands and templates can be .rb or .erb
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 13:13:31 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#5b984dbb18bedf6c6e4019f7727bf96146c7a98e</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>Heuristics system for categorizing commits</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        Heuristics system for categorizing commits
+
+
+      ]]></description>
+
+      <pubDate>Mon Jun 21 13:13:00 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#03b8f4c9b500b433cda52fc98a84f027d942d45e</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>Merge branch &apos;master&apos; of git@github.com:proutils/vclog</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        Merge branch 'master' of git@github.com:proutils/vclog
+
+
+      ]]></description>
+
+      <pubDate>Fri May 28 17:55:17 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b5c9acfa2ee4a0a301854743488b766fb5633c91</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>update syckle plugin to match refactoring</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        update syckle plugin to match refactoring
+
+
+      ]]></description>
+
+      <pubDate>Fri May 28 15:42:00 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b7bdbe1c48b063a504f0d166884bdf06b9f33969</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>add atom support for release history</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        add atom support for release history
+
+
+      ]]></description>
+
+      <pubDate>Fri May 28 15:32:07 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#442bab4f820285425fdf21cdafb970f5030a2a8d</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>info methods need to be public</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        info methods need to be public
+
+
+      ]]></description>
+
+      <pubDate>Fri May 28 14:55:18 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d78139b1dc697f66e0a981d07488f99baef89dbc</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>major: re-orient design about vcs classes (partially complete)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        major: re-orient design about vcs classes (partially complete)
+
+
+      ]]></description>
+
+      <pubDate>Fri May 28 14:29:55 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>bug: fixed delta groupings and other improvements</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        bug: fixed delta groupings and other improvements
+
+
+      ]]></description>
+
+      <pubDate>Fri May 28 09:39:07 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>major: add Mercurial support; also renamed VCS to Adapters</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        major: add Mercurial support; also renamed VCS to Adapters
+
+
+      ]]></description>
+
+      <pubDate>Thu May 27 17:47:54 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>add a canonical lib</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        add a canonical lib
+
+
+      ]]></description>
+
+      <pubDate>Wed May 26 20:27:33 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>use xmlsimple for SVN support</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        use xmlsimple for SVN support
+
+
+      ]]></description>
+
+      <pubDate>Wed May 26 20:27:14 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>test: add first cucumber feature</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        test: add first cucumber feature
+
+
+      ]]></description>
+
+      <pubDate>Wed May 26 20:26:28 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>bug: Sort release tags in correct order</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        bug: Sort release tags in correct order
+
+
+      ]]></description>
+
+      <pubDate>Wed May 26 10:22:26 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        bug: change 'git-log' to 'git log'
+
+
+      ]]></description>
+
+      <pubDate>Wed May 26 09:47:53 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#0699541316857eab778278b5aefb0b23125c5252</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        bug: change 'git-log' to 'git log'
+
+
+      ]]></description>
+
+      <pubDate>Wed May 26 09:40:54 -0400 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>bug: fix version bumping and display</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        bug: fix version bumping and display
+
+
+      ]]></description>
+
+      <pubDate>Mon Feb 08 11:07:19 -0500 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>major: use erb as template system for all formats</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        major: use erb as template system for all formats
+
+
+      ]]></description>
+
+      <pubDate>Sat Jan 16 15:05:52 -0500 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>bug: syckle plugin now works with latest vclog changes</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        bug: syckle plugin now works with latest vclog changes
+
+
+      ]]></description>
+
+      <pubDate>Sat Jan 16 10:50:30 -0500 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>major: support &apos;type:&apos; fromat commit types</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        major: support 'type:' fromat commit types
+
+
+      ]]></description>
+
+      <pubDate>Sat Jan 02 02:19:32 -0500 2010</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>use meta/name and meta/suite</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        use meta/name and meta/suite
+
+
+      ]]></description>
+
+      <pubDate>Sat Nov 14 09:59:49 -0500 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#3d6a8a0a30bc845d007ec61e2c438bb311e43692</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>prepare version 1.2 for release</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        prepare version 1.2 for release
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 26 16:20:35 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>readded markup output for changelog</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        readded markup output for changelog
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 26 16:18:35 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>renamed command.rb to cli.rb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        renamed command.rb to cli.rb
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 26 15:43:04 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#7040af16068d1a52fe8c43de790a48b41fe39f36</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>fixed spelling of revision (from revison) [bug]</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        fixed spelling of revision (from revison) [bug]
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 26 15:38:39 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>more refactoring and fixed SVN support</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        more refactoring and fixed SVN support
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 26 15:16:55 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#56340c886421803e3420d4ef22a79c1aabefd78e</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>rewrote release history generator</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        rewrote release history generator
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 26 09:15:32 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#769e640437f5d1ed3abab3c87061dc3a7ed60c51</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>added ad to website. I want my ! ;)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        added ad to website. I want my ! ;)
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:32:51 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#c3ade6a5bf31dcfc0c52a98f84f242b0a39e5f1d</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>added some todo items</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        added some todo items
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:30:05 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>removed rdoc.task (automatic mode gets it)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        removed rdoc.task (automatic mode gets it)
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:21:12 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#ca0aa28da9ecba53bac1ae69858da234a88ec86a</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>adjust syckle config</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        adjust syckle config
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:19:25 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#4b261536f4e14587afec2144ff9b903ae8c8904b</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>upped version to 1.1</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        upped version to 1.1
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:17:50 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#2fc69b9910d0b329853f1b9cae9a0c203d618357</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>moved bin to command.rb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        moved bin to command.rb
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:14:19 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#60d94af0e882333920dc5f6bd97e91e6a038702b</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>add website examples</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        add website examples
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:13:56 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#eeb7b978f10f3fba6d8e2c70b142f26cb2ecf48d</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>moved bin to command.rb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        moved bin to command.rb
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 10:13:40 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#b2c9f083381f35e04ac2c186a926660d6ee3158f</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>update pom metadata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        update pom metadata
+
+
+      ]]></description>
+
+      <pubDate>Fri Oct 23 07:19:42 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#2183f7b7b81a6d34fc1edd7db75222c9a54d7bec</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>changed licenses to MIT</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        changed licenses to MIT
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 12 11:47:58 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#70e98e8dc4baef6b50c4fa259127f55f6622a9e9</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>fixed typo in LICENSE</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        fixed typo in LICENSE
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 12 11:40:15 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>contact suffices</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        contact suffices
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 12 11:36:20 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#9f6a0c691b051d5254ca8ab1a0e23772e2cff74e</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>fixed syckle config</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        fixed syckle config
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 12 11:33:59 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#42b9c6fa1a5924912842c0aef246de06c01ee108</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>update tasks and metadata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        update tasks and metadata
+
+
+      ]]></description>
+
+      <pubDate>Mon Oct 12 11:32:59 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#860aa3a2f7eea9a0793c06920fa680b3f580240e</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>reap became syckle</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        reap became syckle
+
+
+      ]]></description>
+
+      <pubDate>Tue Oct 06 13:47:36 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#d279fd3aee26a50c256d4a764b7bcc63c64f2304</guid>
+
+    </item>
+
+
+    <item>
+
+      <title>first commit</title>
+
+      <author>proutils</author>
+
+      <link></link>
+
+      <description><![CDATA[
+
+        first commit
+
+      ]]></description>
+
+      <pubDate>Mon Aug 17 14:44:24 -0400 2009</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#e71a6d4815b152f3dba4695be28645a9172645cc</guid>
+
+    </item>
+
+
+  </channel>
+
+</rss>
+

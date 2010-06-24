@@ -1,0 +1,1152 @@
+<?xml version="1.0"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>VCLog</title>
+
+  <link href="git@github.com:proutils/vclog.git" />
+
+  
+
+  <id>git@github.com:proutils/vclog.git</id>
+
+  <updated>Wed Jun 23 23:03:00 -0400 2010</updated>
+
+  <author>
+
+    <name>7rans</name>
+
+    <email>7rans</email>
+
+  </author>
+
+
+  <entry>
+
+    <title>handle unset labels gracefully and improve default heuristics</title>
+
+    <id>git@github.com:proutils/vclog.git#dc52b3b214b032ba60c8cdd1bd78a1d01a90a2b0</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 21:10:11 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        handle unset labels gracefully and improve default heuristics
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>add version command and continue to improve cli help</title>
+
+    <id>git@github.com:proutils/vclog.git#516b62ccb4c93153f6f558cfdccd43a8913d4181</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 20:37:15 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add version command and continue to improve cli help
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>cli uses closest matching subcommand</title>
+
+    <id>git@github.com:proutils/vclog.git#d9186fd75b1d23478554d0a22a0dd91475b28acc</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 17:59:06 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        cli uses closest matching subcommand
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>add ansi format and fix tag date groupings</title>
+
+    <id>git@github.com:proutils/vclog.git#43c6f53ed1a15ccbb8c0895ed97d78a03401d68f</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 17:40:34 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add ansi format and fix tag date groupings
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>filter history by level</title>
+
+    <id>git@github.com:proutils/vclog.git#177b44afa7459b6319319fdc0c0feac389fa290f</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 14:10:06 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        filter history by level
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>cli has subcommands and templates can be .rb or .erb</title>
+
+    <id>git@github.com:proutils/vclog.git#5b984dbb18bedf6c6e4019f7727bf96146c7a98e</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 13:13:31 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        cli has subcommands and templates can be .rb or .erb
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Heuristics system for categorizing commits</title>
+
+    <id>git@github.com:proutils/vclog.git#03b8f4c9b500b433cda52fc98a84f027d942d45e</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Jun 21 13:13:00 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Heuristics system for categorizing commits
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Merge branch &apos;master&apos; of git@github.com:proutils/vclog</title>
+
+    <id>git@github.com:proutils/vclog.git#b5c9acfa2ee4a0a301854743488b766fb5633c91</id>
+
+    <author>7rans</author>
+
+    <updated>Fri May 28 17:55:17 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Merge branch 'master' of git@github.com:proutils/vclog
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>update syckle plugin to match refactoring</title>
+
+    <id>git@github.com:proutils/vclog.git#b7bdbe1c48b063a504f0d166884bdf06b9f33969</id>
+
+    <author>7rans</author>
+
+    <updated>Fri May 28 15:42:00 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        update syckle plugin to match refactoring
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>add atom support for release history</title>
+
+    <id>git@github.com:proutils/vclog.git#442bab4f820285425fdf21cdafb970f5030a2a8d</id>
+
+    <author>7rans</author>
+
+    <updated>Fri May 28 15:32:07 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add atom support for release history
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>info methods need to be public</title>
+
+    <id>git@github.com:proutils/vclog.git#d78139b1dc697f66e0a981d07488f99baef89dbc</id>
+
+    <author>7rans</author>
+
+    <updated>Fri May 28 14:55:18 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        info methods need to be public
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: re-orient design about vcs classes (partially complete)</title>
+
+    <id>git@github.com:proutils/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</id>
+
+    <author>7rans</author>
+
+    <updated>Fri May 28 14:29:55 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        major: re-orient design about vcs classes (partially complete)
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: fixed delta groupings and other improvements</title>
+
+    <id>git@github.com:proutils/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</id>
+
+    <author>7rans</author>
+
+    <updated>Fri May 28 09:39:07 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        bug: fixed delta groupings and other improvements
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: add Mercurial support; also renamed VCS to Adapters</title>
+
+    <id>git@github.com:proutils/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</id>
+
+    <author>7rans</author>
+
+    <updated>Thu May 27 17:47:54 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        major: add Mercurial support; also renamed VCS to Adapters
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>add a canonical lib</title>
+
+    <id>git@github.com:proutils/vclog.git#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</id>
+
+    <author>7rans</author>
+
+    <updated>Wed May 26 20:27:33 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add a canonical lib
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>use xmlsimple for SVN support</title>
+
+    <id>git@github.com:proutils/vclog.git#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</id>
+
+    <author>7rans</author>
+
+    <updated>Wed May 26 20:27:14 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use xmlsimple for SVN support
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>test: add first cucumber feature</title>
+
+    <id>git@github.com:proutils/vclog.git#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</id>
+
+    <author>7rans</author>
+
+    <updated>Wed May 26 20:26:28 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        test: add first cucumber feature
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: Sort release tags in correct order</title>
+
+    <id>git@github.com:proutils/vclog.git#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</id>
+
+    <author>7rans</author>
+
+    <updated>Wed May 26 10:22:26 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        bug: Sort release tags in correct order
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+    <id>git@github.com:proutils/vclog.git#0699541316857eab778278b5aefb0b23125c5252</id>
+
+    <author>7rans</author>
+
+    <updated>Wed May 26 09:47:53 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        bug: change 'git-log' to 'git log'
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+    <id>git@github.com:proutils/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</id>
+
+    <author>7rans</author>
+
+    <updated>Wed May 26 09:40:54 -0400 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        bug: change 'git-log' to 'git log'
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: fix version bumping and display</title>
+
+    <id>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Feb 08 11:07:19 -0500 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        bug: fix version bumping and display
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: use erb as template system for all formats</title>
+
+    <id>git@github.com:proutils/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</id>
+
+    <author>7rans</author>
+
+    <updated>Sat Jan 16 15:05:52 -0500 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        major: use erb as template system for all formats
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: syckle plugin now works with latest vclog changes</title>
+
+    <id>git@github.com:proutils/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</id>
+
+    <author>7rans</author>
+
+    <updated>Sat Jan 16 10:50:30 -0500 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        bug: syckle plugin now works with latest vclog changes
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: support &apos;type:&apos; fromat commit types</title>
+
+    <id>git@github.com:proutils/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</id>
+
+    <author>7rans</author>
+
+    <updated>Sat Jan 02 02:19:32 -0500 2010</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        major: support 'type:' fromat commit types
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>use meta/name and meta/suite</title>
+
+    <id>git@github.com:proutils/vclog.git#3d6a8a0a30bc845d007ec61e2c438bb311e43692</id>
+
+    <author>7rans</author>
+
+    <updated>Sat Nov 14 09:59:49 -0500 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use meta/name and meta/suite
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>prepare version 1.2 for release</title>
+
+    <id>git@github.com:proutils/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 26 16:20:35 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        prepare version 1.2 for release
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>readded markup output for changelog</title>
+
+    <id>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 26 16:18:35 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        readded markup output for changelog
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>renamed command.rb to cli.rb</title>
+
+    <id>git@github.com:proutils/vclog.git#7040af16068d1a52fe8c43de790a48b41fe39f36</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 26 15:43:04 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        renamed command.rb to cli.rb
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>fixed spelling of revision (from revison) [bug]</title>
+
+    <id>git@github.com:proutils/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 26 15:38:39 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fixed spelling of revision (from revison) [bug]
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>more refactoring and fixed SVN support</title>
+
+    <id>git@github.com:proutils/vclog.git#56340c886421803e3420d4ef22a79c1aabefd78e</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 26 15:16:55 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        more refactoring and fixed SVN support
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>rewrote release history generator</title>
+
+    <id>git@github.com:proutils/vclog.git#769e640437f5d1ed3abab3c87061dc3a7ed60c51</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 26 09:15:32 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        rewrote release history generator
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>added ad to website. I want my ! ;)</title>
+
+    <id>git@github.com:proutils/vclog.git#c3ade6a5bf31dcfc0c52a98f84f242b0a39e5f1d</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:32:51 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        added ad to website. I want my ! ;)
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>added some todo items</title>
+
+    <id>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:30:05 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        added some todo items
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>removed rdoc.task (automatic mode gets it)</title>
+
+    <id>git@github.com:proutils/vclog.git#ca0aa28da9ecba53bac1ae69858da234a88ec86a</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:21:12 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        removed rdoc.task (automatic mode gets it)
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>adjust syckle config</title>
+
+    <id>git@github.com:proutils/vclog.git#4b261536f4e14587afec2144ff9b903ae8c8904b</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:19:25 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        adjust syckle config
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>upped version to 1.1</title>
+
+    <id>git@github.com:proutils/vclog.git#2fc69b9910d0b329853f1b9cae9a0c203d618357</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:17:50 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        upped version to 1.1
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>moved bin to command.rb</title>
+
+    <id>git@github.com:proutils/vclog.git#60d94af0e882333920dc5f6bd97e91e6a038702b</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:14:19 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        moved bin to command.rb
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>add website examples</title>
+
+    <id>git@github.com:proutils/vclog.git#eeb7b978f10f3fba6d8e2c70b142f26cb2ecf48d</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:13:56 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add website examples
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>moved bin to command.rb</title>
+
+    <id>git@github.com:proutils/vclog.git#b2c9f083381f35e04ac2c186a926660d6ee3158f</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 10:13:40 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        moved bin to command.rb
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>update pom metadata</title>
+
+    <id>git@github.com:proutils/vclog.git#2183f7b7b81a6d34fc1edd7db75222c9a54d7bec</id>
+
+    <author>7rans</author>
+
+    <updated>Fri Oct 23 07:19:42 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        update pom metadata
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>changed licenses to MIT</title>
+
+    <id>git@github.com:proutils/vclog.git#70e98e8dc4baef6b50c4fa259127f55f6622a9e9</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 12 11:47:58 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        changed licenses to MIT
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>fixed typo in LICENSE</title>
+
+    <id>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 12 11:40:15 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fixed typo in LICENSE
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>contact suffices</title>
+
+    <id>git@github.com:proutils/vclog.git#9f6a0c691b051d5254ca8ab1a0e23772e2cff74e</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 12 11:36:20 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        contact suffices
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>fixed syckle config</title>
+
+    <id>git@github.com:proutils/vclog.git#42b9c6fa1a5924912842c0aef246de06c01ee108</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 12 11:33:59 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fixed syckle config
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>update tasks and metadata</title>
+
+    <id>git@github.com:proutils/vclog.git#860aa3a2f7eea9a0793c06920fa680b3f580240e</id>
+
+    <author>7rans</author>
+
+    <updated>Mon Oct 12 11:32:59 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        update tasks and metadata
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>reap became syckle</title>
+
+    <id>git@github.com:proutils/vclog.git#d279fd3aee26a50c256d4a764b7bcc63c64f2304</id>
+
+    <author>7rans</author>
+
+    <updated>Tue Oct 06 13:47:36 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        reap became syckle
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>first commit</title>
+
+    <id>git@github.com:proutils/vclog.git#e71a6d4815b152f3dba4695be28645a9172645cc</id>
+
+    <author>proutils</author>
+
+    <updated>Mon Aug 17 14:44:24 -0400 2009</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        first commit
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+</feed>
+

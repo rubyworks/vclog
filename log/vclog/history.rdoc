@@ -4,33 +4,136 @@
 
 Current Development (7rans)
 
+Changes:
+
+* 7 General Enhancements
+
+    * handle unset labels gracefully and improve default heuristics
+    * add version command and continue to improve cli help
+    * cli uses closest matching subcommand
+    * add ansi format and fix tag date groupings
+    * filter history by level
+    * cli has subcommands and templates can be .rb or .erb
+    * Heuristics system for categorizing commits
+
 
 == 1.5.0 / 2010-05-28
 
 This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process. (7rans <transfire@gmail.com>)
+
+Changes:
+
+* 2 Major Enhancements
+
+    * major: re-orient design about vcs classes (partially complete)
+    * major: add Mercurial support; also renamed VCS to Adapters
+
+* 1 Bug Fixes
+
+    * bug: fixed delta groupings and other improvements
+
+* 4 General Enhancements
+
+    * Merge branch 'master' of git@github.com:proutils/vclog
+    * update syckle plugin to match refactoring
+    * add atom support for release history
+    * info methods need to be public
 
 
 == 1.4.0 / 2010-05-26
 
 This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?). (7rans <transfire@gmail.com>)
 
+Changes:
+
+* 2 General Enhancements
+
+    * add a canonical lib
+    * use xmlsimple for SVN support
+
+* 4 Bug Fixes
+
+    * bug: Sort release tags in correct order
+    * bug: change 'git-log' to 'git log'
+    * bug: change 'git-log' to 'git log'
+    * bug: fix version bumping and display
+
+* 1 Test Enhancements
+
+    * test: add first cucumber feature
+
 
 == 1.3.0 / 2010-02-08
 
 For the an end-user the only significant change is the support of label: notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the label: notation to specify system module effected --a useful system of labeling. (7rans <transfire@gmail.com>)
+
+Changes:
+
+* 2 Major Enhancements
+
+    * major: use erb as template system for all formats
+    * major: support 'type:' fromat commit types
+
+* 1 Bug Fixes
+
+    * bug: syckle plugin now works with latest vclog changes
+
+* 3 General Enhancements
+
+    * use meta/name and meta/suite
+    * prepare version 1.2 for release
+    * readded markup output for changelog
 
 
 == 1.2.0 / 2009-10-26
 
 Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface. (7rans <transfire@gmail.com>)
 
+Changes:
+
+* 5 General Enhancements
+
+    * renamed command.rb to cli.rb
+    * more refactoring and fixed SVN support
+    * rewrote release history generator
+    * added ad to website. I want my ! ;)
+    * added some todo items
+
+* 1 Bug Fixes
+
+    * fixed spelling of revision (from revison) [bug]
+
 
 == 1.1.0 / 2009-10-23
 
 This release adds yaml and json formats and improves the cli. (7rans <transfire@gmail.com>)
 
+Changes:
+
+* 9 General Enhancements
+
+    * removed rdoc.task (automatic mode gets it)
+    * adjust syckle config
+    * upped version to 1.1
+    * moved bin to command.rb
+    * add website examples
+    * moved bin to command.rb
+    * update pom metadata
+    * changed licenses to MIT
+    * fixed typo in LICENSE
+
 
 == 1.0.0 / 2009-10-12
 
 This is the first production release of VCLog. (7rans <transfire@gmail.com>)
+
+Changes:
+
+* 5 General Enhancements
+
+    * contact suffices
+    * fixed syckle config
+    * update tasks and metadata
+    * reap became syckle
+    * first commit
 
