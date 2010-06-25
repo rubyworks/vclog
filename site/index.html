@@ -13,22 +13,24 @@
       background: url(../img/fade_yellow_up.jpg) bottom repeat-y;
     }
     p { font-size: 100%; color: tan; font-weight: bold; text-align: justify; margin: 20px 0; }
-    a  { text-decoration: none; font-size: 10pt; color: tan;  font-weight: bold; }
+    a  { text-decoration: none; color: tan;  font-weight: bold; }
     a:hover { text-decoration: underline; }
     h1 { font-size: 100px; margin: 20px; color: #552200; }
     ul { text-align: left; color: tan; }
     li { padding: 2px; color: tan; }
     li a { color: tan; font-size: 1.1em; }
-    pre { font-size: 90%; background: tan; padding: 10px; -moz-border-radius: 10px; color: #552200; font-weight: bold; font-family: courier, monospace; }
+    pre { font-size: 0.8em; background: white; padding: 20px; -moz-border-radius: 5px; color: #222;
+          font-weight: bold; font-family: courier, monospace; }
     code { font-family: courier, monospace; color: #ecc; }
 
+    .bash { width: 780px; padding: 10px; background-color: white; -moz-border-radius: 5px; }
     .menu { padding: 20px 20px 20px 0; text-align: center; background: #552200; }
     .head { height: 250px; text-align: center; border-top: 2px solid tan; border-bottom: 2px solid tan; }
     .title { text-align: left; margin: 0 auto; width: 800px; }
     .body { background: #552200; color: white; border-bottom: 2px solid tan; }
     .doc { padding: 20px; text-align: justify; margin: 0 auto; width: 800px; }
     .doc a { color: fee; }
-    .foot { padding: 20px; text-align: center; margin: 0 auto; width: 800px; }
+    .foot { padding: 40px 0 0 0; text-align: center; margin: 0 auto; width: 800px; }
     .foot p { color: #552200; text-align: center; }
   </style>
 </HEAD>
@@ -48,7 +50,7 @@
 
 <div class="head">
   <div class="title">
-    <img src="assets/images/logo.jpg" style="height: 250px;" align="right"/><br/>
+    <img src="assets/logo.jpg" style="height: 250px;" align="right"/><br/>
     <h1>VCLog</h1>
   </div>
 </div>
@@ -60,14 +62,22 @@
   Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
   our output options limited. That's were VCLog comes in.</p>
 
-  <div style="margin: 20px 0px;">
-<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/Mya7mDjKWZQ&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/Mya7mDjKWZQ&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
-  </div>
+  <p>How about a Change Log in glorious technicolor:</p>
+
+  <img src="assets/vclog-changelog.png" class="bash" />
+
+  <p>Or a Release History to make you feel like a schoold girl with a box of crayons.</p>
+
+  <img src="assets/vclog-history.png"   class="bash" />
+
+  <!--<p><a href="assets/vclog.flv">Watch Flash Movie</a></p>-->
 
   <p>VCLog can provide a changelogs in a variety of uniform formats for different SCMs. If we ask vclog for help
   will see it's commandline interface is fairly self-explanatory.</p>
 
   <pre>
+  $ vclog help
+
   Usage: vclog [TYPE] [OPTIONS]
 
   OUTPUT TYPE: (choose one) 
@@ -82,6 +92,8 @@
   <p>Help for generating a Change Log looks like this:</p>
 
   <pre>
+  $ vclog log --help
+
   Usage: vclog [changelog | log] [options]
    
   Print a Change Log.
@@ -177,9 +189,11 @@
 
   <p>Finally, VCLog recognizes commit types through a set of heuristics. You can define you own set by creating a <code>rules.rb</code> file in <code>.vclog/</code> or <code>.config/vclog/</code>. See VCLog's own file for an example.</p>
 
-  <p>By default VCLog heuristics recognize a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can actually see this already in the previous example. No types were used so it labeled all the commits as "General Enhancements". If say a <code>[bug]</code> type were used it would have separated that commit out under <code>1 Bug Fixes</code>. VCLog recognizes <code>major</code> or <code>minor</code>, <code>bug</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>1 Doozy Enhancement</code>".</p>
+  <p>By default VCLog heuristics recognize a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can see this already in the previous examples. Out of thebox VCLog recognizes <code>major</code>, <code>minor</code>, <code>bug</code>, <code>doc</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>Doozy Enhancements</code>".</p>
 
-  <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs --though it would be even nicer if SCMs supported them directly, e.g. with a <code>--label</code> option.</p>
+  <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs. Wouldn't it be nice if SCMs supported commit types directly?</p>
+
+  <br/>
 
   </div>
 </div>
@@ -197,7 +211,7 @@
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   </script>
 
-  <br/><br/>
+  <br/>
 
   <p>Copyright (c) 2009 Thomas Sawyer</p>
 </div>
