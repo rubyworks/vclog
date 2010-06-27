@@ -12,16 +12,72 @@ It currently supports Git, Hg and (limited) Subversion.
 
 == SYNOPSIS
 
-The default format is a ANSI colored GNU-like text style.
+=== Creating Changelogs
+
+The default output is a ANSI colored GNU-like changelog.
 From a repository's root directory try:
 
   $ vclog
 
-To generate an XML formatted changelog use:
+The is the same as specifying 'changelog' or 'log'.
+
+  $ vclog log
+
+To generate an a different format use -f:
 
   $ vclog -f xml
 
+=== Creating Release Histories
+
+To get a release history specify 'history' or 'release' as the subcommand.
+
+  $ vclog history
+
+Again the default format is a ANSI colored GNU-like text style.
+
+Unlike Changelogs, Histories group changes by tags. The tag message is
+used as the release note. If the underlying SCM doesn't support 
+tag messages that the last commit message before the tag is used.
+
 See 'vclog help' for more options.
+
+=== Bumping Versions
+
+VCLog can also be used to intelligently bump versions. To see the current
+tag version:
+
+  $ vclog version
+  1.1.0
+
+To see the next reasonable version based on current changes:
+
+  $ vclog bump
+  1.2.0
+
+VCLog can determine the appropriate version based on commit level. Any
+commit with a level greater than 1 will bump the major number, while any
+commit with a level of 0 or 1 will bump the minor number. All lower
+level only bump the patch level.
+
+=== Writing Heuristics
+
+In your projects .vclog/rules.rb or .config/vclog/rules.rb file, you
+can create rules for labeling commit messages bassed on commit message.
+
+  on /updated? (README|VERSION|MANIFEST)/ do
+    :admin
+  end
+
+These rules can a also "massage" the commit message for output.
+
+  on /^admin:/ do |matchdata|
+    [:admin, matchdate.post_match]
+  end
+
+Labels are used to categorize and assign levels to commits. Use #set in
+the rules.rb to specify the level and description of a commit label.
+
+  set :admin, -2, "Administrative Adjustment"
 
 
 == NOTE ABOUT SUBVSERION
