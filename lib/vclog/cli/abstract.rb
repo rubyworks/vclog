@@ -22,9 +22,10 @@ module CLI
       [name.split('::').last.downcase]
     end
 
-    #
+    # TODO: change +extra+ to +summarize+ and reverse boolean value.
     def initialize
       @options = OpenStruct.new
+      @options.extra = true
     end
 
     #
@@ -65,8 +66,8 @@ module CLI
       parser.on('--title', '-t TITLE', "document title") do |string|
         options.title = string
       end
-      parser.on('--detail', '-d', "provide details") do
-        options.extra = true
+      parser.on('--summarize', '-s', "produce summary output") do
+        options.extra = false
       end
       parser.on('--id', "include revision id") do
         options.revision = true
