@@ -14,9 +14,9 @@
 
     <language>en-us</language>
 
-    <pubDate>Wed, 23 Jun 2010 23:59:01 -0400</pubDate>
+    <pubDate>Sun, 27 Jun 2010 15:30:55 -0400</pubDate>
 
-    <lastBuildDate>Wed, 23 Jun 2010 23:59:01 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jun 2010 15:30:55 -0400</lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
@@ -25,6 +25,102 @@
     <managingEditor>transfire@gmail.com (7rans)</managingEditor>
 
     <webMaster>transfire@gmail.com (7rans</webMaster>
+
+
+    <item>
+
+      <title>replace --detail option with opposite --summary option</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 27 Jun 2010 14:30:49 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#8265d034aedf058a392195645128d703e95c0bf8</guid>
+
+      <description><![CDATA[
+
+        replace --detail option with opposite --summary option
+<br/>
+
+        7rans 2010-06-27 14:30:49
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>rule block can take none, matadata, or message and matachdata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 27 Jun 2010 14:29:33 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#6212882725201b1dd7483c35d9d887f408e450ce</guid>
+
+      <description><![CDATA[
+
+        rule block can take none, matadata, or message and matachdata
+<br/>
+
+        7rans 2010-06-27 14:29:33
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>git adapter parses changes more robustly</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 27 Jun 2010 10:04:11 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#8c911b66be7984f9f254bfa338bc626681561c70</guid>
+
+      <description><![CDATA[
+
+        git adapter parses changes more robustly
+<br/>
+
+        7rans 2010-06-27 10:04:11
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> change interface of heuristics to accept message and matchdata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Thu, 24 Jun 2010 17:52:25 -0400</pubDate>
+
+      <guid>git@github.com:proutils/vclog.git#ba1299c491345caefc908f16ba89fdc676ff96e3</guid>
+
+      <description><![CDATA[
+
+         change interface of heuristics to accept message and matchdata
+<br/>
+
+        7rans 2010-06-24 17:52:25
+
+      ]]></description>
+
+    </item>
 
 
     <item>
@@ -69,30 +165,6 @@
 <br/>
 
         7rans 2010-06-23 23:31:08
-
-      ]]></description>
-
-    </item>
-
-
-    <item>
-
-      <title>doc: clarify the scm vclog works on in README</title>
-
-      <author>7rans</author>
-
-      <link></link>
-
-      <pubDate>Wed, 23 Jun 2010 23:07:40 -0400</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#f78ca1e7af3a618d41774f8f384316c063cab628</guid>
-
-      <description><![CDATA[
-
-        doc: clarify the scm vclog works on in README
-<br/>
-
-        7rans 2010-06-23 23:07:40
 
       ]]></description>
 
@@ -389,7 +461,7 @@
 
     <item>
 
-      <title>major: re-orient design about vcs classes (partially complete)</title>
+      <title> re-orient design about vcs classes (partially complete)</title>
 
       <author>7rans</author>
 
@@ -401,7 +473,7 @@
 
       <description><![CDATA[
 
-        major: re-orient design about vcs classes (partially complete)
+         re-orient design about vcs classes (partially complete)
 <br/>
 
         7rans 2010-05-28 14:29:55
@@ -413,7 +485,7 @@
 
     <item>
 
-      <title>bug: fixed delta groupings and other improvements</title>
+      <title> fixed delta groupings and other improvements</title>
 
       <author>7rans</author>
 
@@ -425,7 +497,7 @@
 
       <description><![CDATA[
 
-        bug: fixed delta groupings and other improvements
+         fixed delta groupings and other improvements
 <br/>
 
         7rans 2010-05-28 09:39:07
@@ -437,7 +509,7 @@
 
     <item>
 
-      <title>major: add Mercurial support; also renamed VCS to Adapters</title>
+      <title> add Mercurial support; also renamed VCS to Adapters</title>
 
       <author>7rans</author>
 
@@ -449,7 +521,7 @@
 
       <description><![CDATA[
 
-        major: add Mercurial support; also renamed VCS to Adapters
+         add Mercurial support; also renamed VCS to Adapters
 <br/>
 
         7rans 2010-05-27 17:47:54
@@ -509,7 +581,7 @@
 
     <item>
 
-      <title>test: add first cucumber feature</title>
+      <title> add first cucumber feature</title>
 
       <author>7rans</author>
 
@@ -521,7 +593,7 @@
 
       <description><![CDATA[
 
-        test: add first cucumber feature
+         add first cucumber feature
 <br/>
 
         7rans 2010-05-26 20:26:28
@@ -533,7 +605,7 @@
 
     <item>
 
-      <title>bug: Sort release tags in correct order</title>
+      <title> Sort release tags in correct order</title>
 
       <author>7rans</author>
 
@@ -545,7 +617,7 @@
 
       <description><![CDATA[
 
-        bug: Sort release tags in correct order
+         Sort release tags in correct order
 <br/>
 
         7rans 2010-05-26 10:22:26
@@ -557,7 +629,7 @@
 
     <item>
 
-      <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+      <title> change &apos;git-log&apos; to &apos;git log&apos;</title>
 
       <author>7rans</author>
 
@@ -569,7 +641,7 @@
 
       <description><![CDATA[
 
-        bug: change 'git-log' to 'git log'
+         change 'git-log' to 'git log'
 <br/>
 
         7rans 2010-05-26 09:47:53
@@ -581,7 +653,7 @@
 
     <item>
 
-      <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+      <title> change &apos;git-log&apos; to &apos;git log&apos;</title>
 
       <author>7rans</author>
 
@@ -593,7 +665,7 @@
 
       <description><![CDATA[
 
-        bug: change 'git-log' to 'git log'
+         change 'git-log' to 'git log'
 <br/>
 
         7rans 2010-05-26 09:40:54
@@ -605,7 +677,7 @@
 
     <item>
 
-      <title>bug: fix version bumping and display</title>
+      <title> fix version bumping and display</title>
 
       <author>7rans</author>
 
@@ -617,7 +689,7 @@
 
       <description><![CDATA[
 
-        bug: fix version bumping and display
+         fix version bumping and display
 <br/>
 
         7rans 2010-02-08 11:07:19
@@ -629,7 +701,7 @@
 
     <item>
 
-      <title>major: use erb as template system for all formats</title>
+      <title> use erb as template system for all formats</title>
 
       <author>7rans</author>
 
@@ -641,7 +713,7 @@
 
       <description><![CDATA[
 
-        major: use erb as template system for all formats
+         use erb as template system for all formats
 <br/>
 
         7rans 2010-01-16 15:05:52
@@ -653,7 +725,7 @@
 
     <item>
 
-      <title>bug: syckle plugin now works with latest vclog changes</title>
+      <title> syckle plugin now works with latest vclog changes</title>
 
       <author>7rans</author>
 
@@ -665,7 +737,7 @@
 
       <description><![CDATA[
 
-        bug: syckle plugin now works with latest vclog changes
+         syckle plugin now works with latest vclog changes
 <br/>
 
         7rans 2010-01-16 10:50:30
@@ -677,7 +749,7 @@
 
     <item>
 
-      <title>major: support &apos;type:&apos; fromat commit types</title>
+      <title> support &apos;type:&apos; fromat commit types</title>
 
       <author>7rans</author>
 
@@ -689,7 +761,7 @@
 
       <description><![CDATA[
 
-        major: support 'type:' fromat commit types
+         support 'type:' fromat commit types
 <br/>
 
         7rans 2010-01-02 02:19:32
@@ -717,30 +789,6 @@
 <br/>
 
         7rans 2009-11-14 09:59:49
-
-      ]]></description>
-
-    </item>
-
-
-    <item>
-
-      <title>prepare version 1.2 for release</title>
-
-      <author>7rans</author>
-
-      <link></link>
-
-      <pubDate>Mon, 26 Oct 2009 16:20:35 -0400</pubDate>
-
-      <guid>git@github.com:proutils/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</guid>
-
-      <description><![CDATA[
-
-        prepare version 1.2 for release
-<br/>
-
-        7rans 2009-10-26 16:20:35
 
       ]]></description>
 
@@ -797,7 +845,7 @@
 
     <item>
 
-      <title>fixed spelling of revision (from revison) [bug]</title>
+      <title>fixed spelling of revision (from revison)</title>
 
       <author>7rans</author>
 
@@ -809,8 +857,7 @@
 
       <description><![CDATA[
 
-        fixed spelling of revision (from revison) [bug]
-<br/>
+        fixed spelling of revision (from revison) <br/>
 
         7rans 2009-10-26 15:38:39
 

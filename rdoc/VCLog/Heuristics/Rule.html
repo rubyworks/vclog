@@ -211,7 +211,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.3.0
       <br/><br/>
     </div>
   </div>
@@ -258,11 +258,11 @@
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 78</span>
-78:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pattern</span>, &amp;<span class="ruby-identifier">block</span>)
-79:         <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">pattern</span>
-80:         <span class="ruby-ivar">@block</span>   = <span class="ruby-identifier">block</span>        
-81:       <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 79</span>
+79:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pattern</span>, &amp;<span class="ruby-identifier">block</span>)
+80:         <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">pattern</span>
+81:         <span class="ruby-ivar">@block</span>   = <span class="ruby-identifier">block</span>        
+82:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -290,21 +290,30 @@
 
         <div class="method-description">
           
-          
+          <p>
+Process the rule.
+</p>
           
 
           
           <div class="method-source-code"
             id="call-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 83</span>
-83:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>)
-84:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">matchdata</span> = <span class="ruby-ivar">@pattern</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">message</span>)
-85:           <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">matchdata</span>)
-86:         <span class="ruby-keyword kw">else</span>
-87:           <span class="ruby-keyword kw">nil</span>
-88:         <span class="ruby-keyword kw">end</span>
-89:       <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vclog/heuristics.rb, line 85</span>
+85:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>)
+86:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">matchdata</span> = <span class="ruby-ivar">@pattern</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">message</span>)
+87:           <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">arity</span>
+88:           <span class="ruby-keyword kw">when</span> <span class="ruby-value">0</span>
+89:             <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>
+90:           <span class="ruby-keyword kw">when</span> <span class="ruby-value">1</span>
+91:             <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">matchdata</span>)
+92:           <span class="ruby-keyword kw">else</span>
+93:             <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">matchdata</span>)
+94:           <span class="ruby-keyword kw">end</span>
+95:         <span class="ruby-keyword kw">else</span>
+96:           <span class="ruby-keyword kw">nil</span>
+97:         <span class="ruby-keyword kw">end</span>
+98:       <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

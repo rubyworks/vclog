@@ -10,7 +10,7 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>2010-06-23T23:59:01-04:00</updated>
+  <updated>2010-06-27T15:30:54-04:00</updated>
 
   <author>
 
@@ -19,6 +19,110 @@
     <email>transfire@gmail.com</email>
 
   </author>
+
+
+  <entry>
+
+    <title>replace --detail option with opposite --summary option</title>
+
+    <id>git@github.com:proutils/vclog.git#8265d034aedf058a392195645128d703e95c0bf8</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-27T14:30:49-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        replace --detail option with opposite --summary option
+<br/>
+
+        7rans 2010-06-27 14:30:49
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>rule block can take none, matadata, or message and matachdata</title>
+
+    <id>git@github.com:proutils/vclog.git#6212882725201b1dd7483c35d9d887f408e450ce</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-27T14:29:33-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        rule block can take none, matadata, or message and matachdata
+<br/>
+
+        7rans 2010-06-27 14:29:33
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>git adapter parses changes more robustly</title>
+
+    <id>git@github.com:proutils/vclog.git#8c911b66be7984f9f254bfa338bc626681561c70</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-27T10:04:11-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        git adapter parses changes more robustly
+<br/>
+
+        7rans 2010-06-27 10:04:11
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title> change interface of heuristics to accept message and matchdata</title>
+
+    <id>git@github.com:proutils/vclog.git#ba1299c491345caefc908f16ba89fdc676ff96e3</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-24T17:52:25-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+         change interface of heuristics to accept message and matchdata
+<br/>
+
+        7rans 2010-06-24 17:52:25
+
+      </div>
+
+    </content>
+
+  </entry>
 
 
   <entry>
@@ -65,32 +169,6 @@
 <br/>
 
         7rans 2010-06-23 23:31:08
-
-      </div>
-
-    </content>
-
-  </entry>
-
-
-  <entry>
-
-    <title>doc: clarify the scm vclog works on in README</title>
-
-    <id>git@github.com:proutils/vclog.git#f78ca1e7af3a618d41774f8f384316c063cab628</id>
-
-    <author>7rans</author>
-
-    <updated>2010-06-23T23:07:40-04:00</updated>
-
-    <content type="xhtml">
-
-      <div xmlns="http://www.w3.org/1999/xhtml">
-
-        doc: clarify the scm vclog works on in README
-<br/>
-
-        7rans 2010-06-23 23:07:40
 
       </div>
 
@@ -413,7 +491,7 @@
 
   <entry>
 
-    <title>major: re-orient design about vcs classes (partially complete)</title>
+    <title> re-orient design about vcs classes (partially complete)</title>
 
     <id>git@github.com:proutils/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</id>
 
@@ -425,7 +503,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        major: re-orient design about vcs classes (partially complete)
+         re-orient design about vcs classes (partially complete)
 <br/>
 
         7rans 2010-05-28 14:29:55
@@ -439,7 +517,7 @@
 
   <entry>
 
-    <title>bug: fixed delta groupings and other improvements</title>
+    <title> fixed delta groupings and other improvements</title>
 
     <id>git@github.com:proutils/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</id>
 
@@ -451,7 +529,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        bug: fixed delta groupings and other improvements
+         fixed delta groupings and other improvements
 <br/>
 
         7rans 2010-05-28 09:39:07
@@ -465,7 +543,7 @@
 
   <entry>
 
-    <title>major: add Mercurial support; also renamed VCS to Adapters</title>
+    <title> add Mercurial support; also renamed VCS to Adapters</title>
 
     <id>git@github.com:proutils/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</id>
 
@@ -477,7 +555,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        major: add Mercurial support; also renamed VCS to Adapters
+         add Mercurial support; also renamed VCS to Adapters
 <br/>
 
         7rans 2010-05-27 17:47:54
@@ -543,7 +621,7 @@
 
   <entry>
 
-    <title>test: add first cucumber feature</title>
+    <title> add first cucumber feature</title>
 
     <id>git@github.com:proutils/vclog.git#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</id>
 
@@ -555,7 +633,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        test: add first cucumber feature
+         add first cucumber feature
 <br/>
 
         7rans 2010-05-26 20:26:28
@@ -569,7 +647,7 @@
 
   <entry>
 
-    <title>bug: Sort release tags in correct order</title>
+    <title> Sort release tags in correct order</title>
 
     <id>git@github.com:proutils/vclog.git#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</id>
 
@@ -581,7 +659,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        bug: Sort release tags in correct order
+         Sort release tags in correct order
 <br/>
 
         7rans 2010-05-26 10:22:26
@@ -595,7 +673,7 @@
 
   <entry>
 
-    <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+    <title> change &apos;git-log&apos; to &apos;git log&apos;</title>
 
     <id>git@github.com:proutils/vclog.git#0699541316857eab778278b5aefb0b23125c5252</id>
 
@@ -607,7 +685,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        bug: change 'git-log' to 'git log'
+         change 'git-log' to 'git log'
 <br/>
 
         7rans 2010-05-26 09:47:53
@@ -621,7 +699,7 @@
 
   <entry>
 
-    <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+    <title> change &apos;git-log&apos; to &apos;git log&apos;</title>
 
     <id>git@github.com:proutils/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</id>
 
@@ -633,7 +711,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        bug: change 'git-log' to 'git log'
+         change 'git-log' to 'git log'
 <br/>
 
         7rans 2010-05-26 09:40:54
@@ -647,7 +725,7 @@
 
   <entry>
 
-    <title>bug: fix version bumping and display</title>
+    <title> fix version bumping and display</title>
 
     <id>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
 
@@ -659,7 +737,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        bug: fix version bumping and display
+         fix version bumping and display
 <br/>
 
         7rans 2010-02-08 11:07:19
@@ -673,7 +751,7 @@
 
   <entry>
 
-    <title>major: use erb as template system for all formats</title>
+    <title> use erb as template system for all formats</title>
 
     <id>git@github.com:proutils/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</id>
 
@@ -685,7 +763,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        major: use erb as template system for all formats
+         use erb as template system for all formats
 <br/>
 
         7rans 2010-01-16 15:05:52
@@ -699,7 +777,7 @@
 
   <entry>
 
-    <title>bug: syckle plugin now works with latest vclog changes</title>
+    <title> syckle plugin now works with latest vclog changes</title>
 
     <id>git@github.com:proutils/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</id>
 
@@ -711,7 +789,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        bug: syckle plugin now works with latest vclog changes
+         syckle plugin now works with latest vclog changes
 <br/>
 
         7rans 2010-01-16 10:50:30
@@ -725,7 +803,7 @@
 
   <entry>
 
-    <title>major: support &apos;type:&apos; fromat commit types</title>
+    <title> support &apos;type:&apos; fromat commit types</title>
 
     <id>git@github.com:proutils/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</id>
 
@@ -737,7 +815,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        major: support 'type:' fromat commit types
+         support 'type:' fromat commit types
 <br/>
 
         7rans 2010-01-02 02:19:32
@@ -767,32 +845,6 @@
 <br/>
 
         7rans 2009-11-14 09:59:49
-
-      </div>
-
-    </content>
-
-  </entry>
-
-
-  <entry>
-
-    <title>prepare version 1.2 for release</title>
-
-    <id>git@github.com:proutils/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</id>
-
-    <author>7rans</author>
-
-    <updated>2009-10-26T16:20:35-04:00</updated>
-
-    <content type="xhtml">
-
-      <div xmlns="http://www.w3.org/1999/xhtml">
-
-        prepare version 1.2 for release
-<br/>
-
-        7rans 2009-10-26 16:20:35
 
       </div>
 
@@ -855,7 +907,7 @@
 
   <entry>
 
-    <title>fixed spelling of revision (from revison) [bug]</title>
+    <title>fixed spelling of revision (from revison)</title>
 
     <id>git@github.com:proutils/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</id>
 
@@ -867,8 +919,7 @@
 
       <div xmlns="http://www.w3.org/1999/xhtml">
 
-        fixed spelling of revision (from revison) [bug]
-<br/>
+        fixed spelling of revision (from revison) <br/>
 
         7rans 2009-10-26 15:38:39
 

@@ -19,8 +19,55 @@
   <div class="title">VCLog</div>
 
 
-    <h1>HEAD / 2010-06-23</h1>
+    <h1>HEAD / 2010-06-27</h1>
     <p>Current Development</p>
+
+    <h2>1 Major Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          change interface of heuristics to accept message and matchdata
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="revision">#ba1299c491345caefc908f16ba89fdc676ff96e3</div>
+        <div class="date">Thu Jun 24 17:52:25 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
+    <h2>3 General Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          replace --detail option with opposite --summary option
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#8265d034aedf058a392195645128d703e95c0bf8</div>
+        <div class="date">Sun Jun 27 14:30:49 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          rule block can take none, matadata, or message and matachdata
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#6212882725201b1dd7483c35d9d887f408e450ce</div>
+        <div class="date">Sun Jun 27 14:29:33 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          git adapter parses changes more robustly
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#8c911b66be7984f9f254bfa338bc626681561c70</div>
+        <div class="date">Sun Jun 27 10:04:11 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
+    <h1>1.6.1 / 2010-06-23</h1>
+    <p>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</p>
 
     <h2>10 General Enhancements</h2>
     <ul class="log">
@@ -116,19 +163,6 @@
       </li>
     </ul>
 
-    <h2>1 Doc Enhancements</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          doc: clarify the scm vclog works on in README
-        </div>
-        <!-- <div class="type">doc</div> -->
-        <div class="revision">#f78ca1e7af3a618d41774f8f384316c063cab628</div>
-        <div class="date">Wed Jun 23 23:07:40 -0400 2010</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
     <h1>1.5.0 / 2010-05-28</h1>
     <p>This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.</p>
 
@@ -136,7 +170,7 @@
     <ul class="log">
       <li class="entry">
         <div class="message">
-          major: re-orient design about vcs classes (partially complete)
+          re-orient design about vcs classes (partially complete)
         </div>
         <!-- <div class="type">major</div> -->
         <div class="revision">#61a77b9ef3048c624db7ed220066fc77fa2758f4</div>
@@ -145,24 +179,11 @@
       </li>
       <li class="entry">
         <div class="message">
-          major: add Mercurial support; also renamed VCS to Adapters
+          add Mercurial support; also renamed VCS to Adapters
         </div>
         <!-- <div class="type">major</div> -->
         <div class="revision">#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</div>
         <div class="date">Thu May 27 17:47:54 -0400 2010</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
-    <h2>1 Bug Fixes</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          bug: fixed delta groupings and other improvements
-        </div>
-        <!-- <div class="type">bug</div> -->
-        <div class="revision">#79be281a80d2c1df44312ff338d9d1c8c4c116d4</div>
-        <div class="date">Fri May 28 09:39:07 -0400 2010</div>
         <div class="author">7rans</div>
       </li>
     </ul>
@@ -207,6 +228,19 @@
       </li>
     </ul>
 
+    <h2>1 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          fixed delta groupings and other improvements
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="revision">#79be281a80d2c1df44312ff338d9d1c8c4c116d4</div>
+        <div class="date">Fri May 28 09:39:07 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
     <h1>1.4.0 / 2010-05-26</h1>
     <p>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).</p>
 
@@ -232,11 +266,24 @@
       </li>
     </ul>
 
+    <h2>1 Test Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          add first cucumber feature
+        </div>
+        <!-- <div class="type">test</div> -->
+        <div class="revision">#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</div>
+        <div class="date">Wed May 26 20:26:28 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
     <h2>4 Bug Fixes</h2>
     <ul class="log">
       <li class="entry">
         <div class="message">
-          bug: Sort release tags in correct order
+          Sort release tags in correct order
         </div>
         <!-- <div class="type">bug</div> -->
         <div class="revision">#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</div>
@@ -245,7 +292,7 @@
       </li>
       <li class="entry">
         <div class="message">
-          bug: change &apos;git-log&apos; to &apos;git log&apos;
+          change &apos;git-log&apos; to &apos;git log&apos;
         </div>
         <!-- <div class="type">bug</div> -->
         <div class="revision">#0699541316857eab778278b5aefb0b23125c5252</div>
@@ -254,7 +301,7 @@
       </li>
       <li class="entry">
         <div class="message">
-          bug: change &apos;git-log&apos; to &apos;git log&apos;
+          change &apos;git-log&apos; to &apos;git log&apos;
         </div>
         <!-- <div class="type">bug</div> -->
         <div class="revision">#b198e6182c55894a4253cf70a315a9567652a362</div>
@@ -263,24 +310,11 @@
       </li>
       <li class="entry">
         <div class="message">
-          bug: fix version bumping and display
+          fix version bumping and display
         </div>
         <!-- <div class="type">bug</div> -->
         <div class="revision">#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</div>
         <div class="date">Mon Feb 08 11:07:19 -0500 2010</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
-    <h2>1 Test Enhancements</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          test: add first cucumber feature
-        </div>
-        <!-- <div class="type">test</div> -->
-        <div class="revision">#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</div>
-        <div class="date">Wed May 26 20:26:28 -0400 2010</div>
         <div class="author">7rans</div>
       </li>
     </ul>
@@ -292,7 +326,7 @@
     <ul class="log">
       <li class="entry">
         <div class="message">
-          major: use erb as template system for all formats
+          use erb as template system for all formats
         </div>
         <!-- <div class="type">major</div> -->
         <div class="revision">#0e92a0cd55993aca59f7b1b067247761d3267def</div>
@@ -301,7 +335,7 @@
       </li>
       <li class="entry">
         <div class="message">
-          major: support &apos;type:&apos; fromat commit types
+          support &apos;type:&apos; fromat commit types
         </div>
         <!-- <div class="type">major</div> -->
         <div class="revision">#5b244687f2f7978a2a2a2891363550cc37d97cce</div>
@@ -310,20 +344,7 @@
       </li>
     </ul>
 
-    <h2>1 Bug Fixes</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          bug: syckle plugin now works with latest vclog changes
-        </div>
-        <!-- <div class="type">bug</div> -->
-        <div class="revision">#2dbe74db852ebed67acd12c387006504b2a3841c</div>
-        <div class="date">Sat Jan 16 10:50:30 -0500 2010</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
-    <h2>3 General Enhancements</h2>
+    <h2>2 General Enhancements</h2>
     <ul class="log">
       <li class="entry">
         <div class="message">
@@ -336,20 +357,24 @@
       </li>
       <li class="entry">
         <div class="message">
-          prepare version 1.2 for release
-        </div>
-        <!-- <div class="type"></div> -->
-        <div class="revision">#9aff643083d751eb4ab5c801b7dba77956cad9ae</div>
-        <div class="date">Mon Oct 26 16:20:35 -0400 2009</div>
-        <div class="author">7rans</div>
-      </li>
-      <li class="entry">
-        <div class="message">
           readded markup output for changelog
         </div>
         <!-- <div class="type"></div> -->
         <div class="revision">#91bf6a289930767335b1a665a77c5481ba17cd78</div>
         <div class="date">Mon Oct 26 16:18:35 -0400 2009</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
+    <h2>1 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          syckle plugin now works with latest vclog changes
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="revision">#2dbe74db852ebed67acd12c387006504b2a3841c</div>
+        <div class="date">Sat Jan 16 10:50:30 -0500 2010</div>
         <div class="author">7rans</div>
       </li>
     </ul>
@@ -410,7 +435,7 @@
     <ul class="log">
       <li class="entry">
         <div class="message">
-          fixed spelling of revision (from revison) [bug]
+          fixed spelling of revision (from revison)
         </div>
         <!-- <div class="type">bug</div> -->
         <div class="revision">#d3c207c96740362147ec9dd864401e7066cad025</div>

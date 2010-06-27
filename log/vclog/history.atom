@@ -12,7 +12,7 @@
 
   <id>git@github.com:proutils/vclog.git</id>
 
-  <updated>2010-06-23T23:59:00-04:00</updated>
+  <updated>2010-06-27T15:30:54-04:00</updated>
 
   <author>
 
@@ -32,7 +32,7 @@
 
     <author><name>7rans<name></author>
 
-    <updated>2010-06-23T23:59:00-04:00</updated>
+    <updated>2010-06-27T15:30:54-04:00</updated>
 
     <summary>Current Development</summary>
 
@@ -41,6 +41,95 @@
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         <p>Current Development</p>
+
+
+
+        <h2>1 Major Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+             change interface of heuristics to accept message and matchdata<br/>
+
+            7rans 2010-06-24 17:52:25
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>3 General Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            replace --detail option with opposite --summary option<br/>
+
+            7rans 2010-06-27 14:30:49
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            rule block can take none, matadata, or message and matachdata<br/>
+
+            7rans 2010-06-27 14:29:33
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            git adapter parses changes more robustly<br/>
+
+            7rans 2010-06-27 10:04:11
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.6.1</title>
+
+    <id>git@github.com:proutils/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-06-23T23:52:44-04:00</updated>
+
+    <summary>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</p>
 
 
 
@@ -162,25 +251,6 @@
         </ul>
 
 
-        <h2>1 Doc Enhancements</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            doc: clarify the scm vclog works on in README<br/>
-
-            7rans 2010-06-23 23:07:40
-
-            
-
-          </li>
-
-
-        </ul>
-
-
 
       </div>
 
@@ -217,7 +287,7 @@
 
           <li class="entry">
 
-            major: re-orient design about vcs classes (partially complete)<br/>
+             re-orient design about vcs classes (partially complete)<br/>
 
             7rans 2010-05-28 14:29:55
 
@@ -228,28 +298,9 @@
 
           <li class="entry">
 
-            major: add Mercurial support; also renamed VCS to Adapters<br/>
+             add Mercurial support; also renamed VCS to Adapters<br/>
 
             7rans 2010-05-27 17:47:54
-
-            
-
-          </li>
-
-
-        </ul>
-
-
-        <h2>1 Bug Fixes</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            bug: fixed delta groupings and other improvements<br/>
-
-            7rans 2010-05-28 09:39:07
 
             
 
@@ -302,6 +353,25 @@
             info methods need to be public<br/>
 
             7rans 2010-05-28 14:55:18
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+             fixed delta groupings and other improvements<br/>
+
+            7rans 2010-05-28 09:39:07
 
             
 
@@ -370,6 +440,25 @@
         </ul>
 
 
+        <h2>1 Test Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+             add first cucumber feature<br/>
+
+            7rans 2010-05-26 20:26:28
+
+            
+
+          </li>
+
+
+        </ul>
+
+
         <h2>4 Bug Fixes</h2>
 
         <ul class="log">
@@ -377,7 +466,7 @@
 
           <li class="entry">
 
-            bug: Sort release tags in correct order<br/>
+             Sort release tags in correct order<br/>
 
             7rans 2010-05-26 10:22:26
 
@@ -388,7 +477,7 @@
 
           <li class="entry">
 
-            bug: change 'git-log' to 'git log'<br/>
+             change 'git-log' to 'git log'<br/>
 
             7rans 2010-05-26 09:47:53
 
@@ -399,7 +488,7 @@
 
           <li class="entry">
 
-            bug: change 'git-log' to 'git log'<br/>
+             change 'git-log' to 'git log'<br/>
 
             7rans 2010-05-26 09:40:54
 
@@ -410,28 +499,9 @@
 
           <li class="entry">
 
-            bug: fix version bumping and display<br/>
+             fix version bumping and display<br/>
 
             7rans 2010-02-08 11:07:19
-
-            
-
-          </li>
-
-
-        </ul>
-
-
-        <h2>1 Test Enhancements</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            test: add first cucumber feature<br/>
-
-            7rans 2010-05-26 20:26:28
 
             
 
@@ -477,7 +547,7 @@
 
           <li class="entry">
 
-            major: use erb as template system for all formats<br/>
+             use erb as template system for all formats<br/>
 
             7rans 2010-01-16 15:05:52
 
@@ -488,7 +558,7 @@
 
           <li class="entry">
 
-            major: support 'type:' fromat commit types<br/>
+             support 'type:' fromat commit types<br/>
 
             7rans 2010-01-02 02:19:32
 
@@ -500,26 +570,7 @@
         </ul>
 
 
-        <h2>1 Bug Fixes</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            bug: syckle plugin now works with latest vclog changes<br/>
-
-            7rans 2010-01-16 10:50:30
-
-            
-
-          </li>
-
-
-        </ul>
-
-
-        <h2>3 General Enhancements</h2>
+        <h2>2 General Enhancements</h2>
 
         <ul class="log">
 
@@ -537,20 +588,28 @@
 
           <li class="entry">
 
-            prepare version 1.2 for release<br/>
+            readded markup output for changelog<br/>
 
-            7rans 2009-10-26 16:20:35
+            7rans 2009-10-26 16:18:35
 
             
 
           </li>
 
 
+        </ul>
+
+
+        <h2>1 Bug Fixes</h2>
+
+        <ul class="log">
+
+
           <li class="entry">
 
-            readded markup output for changelog<br/>
+             syckle plugin now works with latest vclog changes<br/>
 
-            7rans 2009-10-26 16:18:35
+            7rans 2010-01-16 10:50:30
 
             
 
@@ -659,7 +718,7 @@
 
           <li class="entry">
 
-            fixed spelling of revision (from revison) [bug]<br/>
+            fixed spelling of revision (from revison)<br/>
 
             7rans 2009-10-26 15:38:39
 

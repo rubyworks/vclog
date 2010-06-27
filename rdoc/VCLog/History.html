@@ -236,7 +236,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.3.0
       <br/><br/>
     </div>
   </div>
@@ -503,10 +503,10 @@ Group <tt>changes</tt> by tag type.
           <div class="method-source-code"
             id="groups-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 120</span>
-120:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>(<span class="ruby-identifier">changes</span>)
-121:       <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span> }
-122:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 119</span>
+119:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>(<span class="ruby-identifier">changes</span>)
+120:       <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span> }
+121:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -567,28 +567,27 @@ Group <tt>changes</tt> by tag type.
  93:           <span class="ruby-identifier">delta</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>, [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>]]
  94:           <span class="ruby-identifier">last</span> = <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>
  95:         <span class="ruby-keyword kw">end</span>
- 96: 
- 97:         <span class="ruby-comment cmt"># gather changes for each delta</span>
- 98:         <span class="ruby-identifier">delta</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span>, (<span class="ruby-identifier">started</span>, <span class="ruby-identifier">ended</span>)<span class="ruby-operator">|</span>
- 99:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">started</span>
-100:             <span class="ruby-identifier">set</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">started</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ended</span>  }
-101:             <span class="ruby-comment cmt">#gt_vers, gt_date = gt.name, gt.date</span>
-102:             <span class="ruby-comment cmt">#lt_vers, lt_date = lt.name, lt.date</span>
-103:             <span class="ruby-comment cmt">#gt_date = Time.parse(gt_date) unless Time===gt_date</span>
-104:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
-105:             <span class="ruby-comment cmt">#log = changelog.after(gt).before(lt)</span>
-106:           <span class="ruby-keyword kw">else</span>
-107:             <span class="ruby-comment cmt">#lt_vers, lt_date = lt.name, lt.date</span>
-108:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
-109:             <span class="ruby-comment cmt">#log = changelog.before(lt_date)</span>
-110:             <span class="ruby-identifier">set</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ended</span> }
-111:           <span class="ruby-keyword kw">end</span>
-112: 
-113:           <span class="ruby-identifier">rel</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Release</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">set</span>)
-114:         <span class="ruby-keyword kw">end</span>
-115:         <span class="ruby-identifier">rel</span>
-116:       )
-117:     <span class="ruby-keyword kw">end</span></pre>
+ 96:         <span class="ruby-comment cmt"># gather changes for each delta</span>
+ 97:         <span class="ruby-identifier">delta</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span>, (<span class="ruby-identifier">started</span>, <span class="ruby-identifier">ended</span>)<span class="ruby-operator">|</span>
+ 98:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">started</span>
+ 99:             <span class="ruby-identifier">set</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">started</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ended</span>  }
+100:             <span class="ruby-comment cmt">#gt_vers, gt_date = gt.name, gt.date</span>
+101:             <span class="ruby-comment cmt">#lt_vers, lt_date = lt.name, lt.date</span>
+102:             <span class="ruby-comment cmt">#gt_date = Time.parse(gt_date) unless Time===gt_date</span>
+103:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
+104:             <span class="ruby-comment cmt">#log = changelog.after(gt).before(lt)</span>
+105:           <span class="ruby-keyword kw">else</span>
+106:             <span class="ruby-comment cmt">#lt_vers, lt_date = lt.name, lt.date</span>
+107:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
+108:             <span class="ruby-comment cmt">#log = changelog.before(lt_date)</span>
+109:             <span class="ruby-identifier">set</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ended</span> }
+110:           <span class="ruby-keyword kw">end</span>
+111: 
+112:           <span class="ruby-identifier">rel</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Release</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">set</span>)
+113:         <span class="ruby-keyword kw">end</span>
+114:         <span class="ruby-identifier">rel</span>
+115:       )
+116:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -651,10 +650,10 @@ Group <tt>changes</tt> by tag type.
           <div class="method-source-code"
             id="to-h-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 125</span>
-125:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
-126:       <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">rel</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">to_h</span> }
-127:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 124</span>
+124:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
+125:       <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">rel</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">to_h</span> }
+126:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
