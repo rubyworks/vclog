@@ -93,7 +93,6 @@ module VCLog
           delta << [tag, [last, tag.date]]
           last = tag.date
         end
-
         # gather changes for each delta
         delta.each do |tag, (started, ended)|
           if started

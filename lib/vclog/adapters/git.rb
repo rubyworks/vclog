@@ -11,8 +11,8 @@ module Adapters
     #
     def extract_changes
       list = []
-      changelog = `git log --pretty=format:"---%ci|~|%aN|~|%H|~|%s"`.strip
-      changes = changelog.split("---")
+      changelog = `git log --pretty=format:"\036|||%ci|~|%aN|~|%H|~|%s"`.strip
+      changes = changelog.split("\036|||")
       #changes = changelog.split(/^commit/m)
       changes.shift # throw the first (empty) entry away
       changes.each do |entry|
@@ -40,21 +40,34 @@ module Adapters
       tags = `git tag -l`
       tags.split(/\s+/).each do |tag|
         next unless version_tag?(tag) # only version tags
+        who, date, rev, msg = nil, nil, nil, nil
         info = `git show #{tag}`
-        md = /\Atag(.*?)\n(.*?)^commit/m.match(info)
-        who, date, *msg = *md[2].split(/\n/)
-        who  = who.split(':')[1].strip
-        date = date[date.index(':')+1..-1].strip
-        msg  = msg.join("\n")
+        info, *_ = info.split(/^(commit|diff|----)/)
+        if /\Atag/ =~ info
+          msg = ''
+          info.lines.to_a[1..-1].each do |line|
+            case line
+            when /^Tagger:/
+              who  = $'
+            when /^Date:/
+              date = $'
+            else
+              msg << line
+            end
+          end
+          msg = msg.strip
+          info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
+          date, rev, *_ = *info.split('|~|')
+        else
+          info = `git show #{tag} --pretty=format:"%cn|~|%ce|~|%ci|~|%H|~|%s|~|"`
+          who, email, date, rev, msg, *_ = *info.split('|~|')
+          who = who + ' ' + email
+        end          
 
-        info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
-        date, rev, *_ = *info.split('|~|')
-
-        #md = /\Atag(.*?)\n(.*?)^commit/m.match(info)
-        #_who, _date, *_msg = *md[2].split(/\n/)
-        #_who  = _who.split(':')[1].strip
-        #_date = _date[_date.index(':')+1..-1].strip
-        #_msg  = _msg.join("\n")
+        #if $DEBUG
+        #  p who, date, rev, msg
+        #  puts
+        #end
 
         list << [tag, rev, date, who, msg]
       end

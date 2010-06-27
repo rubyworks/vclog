@@ -85,7 +85,7 @@ module VCLog
 
       case File.extname(tmp_file)
       when '.rb'
-        eval(tmp, binding)
+        eval(tmp, binding, tmp_file)
       when '.erb'
         erb = ERB.new(tmp, nil, '<>')
         erb.result(binding)
