@@ -1,5 +1,15 @@
 = RELEASE HISTORY
 
+== 1.7.0 / 2010-06-27
+
+In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust. 
+
+Changes:
+
+* Pass message and matchadata to heuristics rule interface.
+* Improve git log parser, which should handle all possible cases now.
+
+
 == 1.6.1 / 2010-06-23
 
 This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).
