@@ -22,10 +22,10 @@ module Syckle::Plugins
 
     # Changelog format. Default is +html+.
     # Supports +html+, +xml+, +json+, +yaml+, +rdoc+, +markdown+, and +gnu+.
-    attr_accessor :formats
+    attr_reader :formats
 
     # Changelog layout type (+changelog+ or +history+). Default is +changelog+.
-    attr_accessor :type
+    attr_reader :type
 
     # Output directory store results.
     attr_accessor :output
@@ -47,8 +47,6 @@ module Syckle::Plugins
 
     #
     def initialize_defaults
-      require 'vclog'
-
       @version    = metadata.version
       @title      = metadata.title
       @formats    = ['atom']
@@ -82,6 +80,7 @@ module Syckle::Plugins
 
     #
     def document
+      require 'vclog'
       formats.each do |format|
         case type
         when 'rel', 'history'
