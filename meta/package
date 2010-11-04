@@ -1,0 +1,11 @@
+name    : vclog
+date    : 2010-06-27
+version : 1.7.0
+
+requires:
+  - facets 2.4+
+  - ansi 1.2+
+  - syckle   (build)
+  - cucumber (test)
+  - aruba    (test)
+
