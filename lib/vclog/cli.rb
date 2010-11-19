@@ -1,6 +1,6 @@
 module VCLog
 
-  # = vclog Command
+  # = vclog Command Line Interface
   #
   # == SYNOPSIS
   #
@@ -9,8 +9,7 @@ module VCLog
   # into a common model, which then can be used to
   # produce Changelogs in a variety of formats.
   #
-  # VCLog currently support SVN and Git. CVS, Darcs and
-  # Mercurial/Hg are in the works.
+  # VCLog currently support git, hg and svn, with cvs and darcs in the works.
   #
   # == EXAMPLES
   #
@@ -30,8 +29,7 @@ module VCLog
 
   module CLI
 
-    require 'vclog/config'
-    require 'vclog/adapters'
+    require 'vclog/repo'
 
     require 'vclog/cli/help'
     require 'vclog/cli/changelog'
@@ -39,8 +37,10 @@ module VCLog
     require 'vclog/cli/list'
     require 'vclog/cli/bump'
     require 'vclog/cli/version'
+    require 'vclog/cli/autotag'
 
-    def self.main(*argv)
+    # TODO: rename to #cli
+    def self.cli(*argv)
       argv ||= ARGV.dup
       begin
         #opt = global_parser.order!(argv)
@@ -73,6 +73,17 @@ module VCLog
 end
 
 # VCLog Copyright (c) 2008 Thomas Sawyer
+
+
+
+
+
+
+
+
+
+
+
 
 =begin
   #

@@ -1,4 +1,3 @@
-require 'ostruct'
 require 'optparse'
 
 module VCLog
@@ -24,8 +23,8 @@ module CLI
 
     # TODO: change +extra+ to +summarize+ and reverse boolean value.
     def initialize
-      @options = OpenStruct.new
-      @options.extra = true
+      @options = {}
+      @options[:extra] = true
     end
 
     #
@@ -58,22 +57,22 @@ module CLI
       parser.separator(" ")
       parser.separator("OUTPUT OPTIONS: (use varies with format)")
       parser.on('--format', '-f FORMAT', "output format") do |format|
-        options.format = format.to_sym
+        options[:format] = format.to_sym
       end
       parser.on('--style <URI>', "provide a stylesheet URI (css or xsl) for HTML or XML format") do |uri|
-        options.stylesheet = uri
+        options[:stylesheet] = uri
       end
       parser.on('--title', '-t TITLE', "document title") do |string|
-        options.title = string
+        options[:title] = string
       end
       parser.on('--summarize', '-s', "produce summary output") do
-        options.extra = false
+        options[:extra] = false
       end
       parser.on('--id', "include revision id") do
-        options.revision = true
+        options[:revision] = true
       end
       parser.on('--level', '-l NUMBER', "lowest level of commit to display [0]") do |num|
-        options.level = num.to_i
+        options[:level] = num.to_i
       end
       parser
     end
@@ -84,15 +83,22 @@ module CLI
 
       parser.parse!(argv)
 
-      @root = Dir.pwd  # TODO: find root
+      @arguments = argv
 
-      @conf = VCLog::Config.new(@root)
-      @conf.level = options.level if options.level
+      root  = Dir.pwd  # TODO: find root
 
-      @vcs  = VCLog::Adapters.factory(@conf)
+      @repo = VCLog::Repo.new(root, options)
 
       execute
     end
+
+    # Repo is set in #run.
+    def repo
+      @repo
+    end
+
+    #
+    attr :arguments
 
   end
 

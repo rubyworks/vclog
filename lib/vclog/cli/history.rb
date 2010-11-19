@@ -20,7 +20,7 @@ module CLI
         opt.separator(" ")
         opt.separator "SPECIAL OPTIONS:"
         opt.on('--version', '-v NUM', "use as if current version number") do |num|
-          options.version = num
+          options[:version] = num
         end
 
         template_options(opt)
@@ -30,7 +30,7 @@ module CLI
     #
     def execute
       format = options.format || 'ansi'
-      output = @vcs.display(:history, format, options)
+      output = repo.display(:history, format, options)
       puts output
     end
 

@@ -19,16 +19,21 @@ module CLI
 
     #
     def execute
-      puts "Usage: vclog [command] [options]"
-      puts
-      puts "COMMANDS:"
-      puts "  changelog      display a Change Log"
-      puts "  history        display a Release History"
-      puts "  version        display the current tag version"
-      puts "  bump           display next reasonable version"
-      puts "  list           display format options"
-      puts "  help           show help information"
-      puts
+      if cmd = arguments.first
+        VCLog::CLI.cli(cmd, '--help')
+      else
+        puts "Usage: vclog [command] [options]"
+        puts
+        puts "COMMANDS:"
+        puts "  changelog      produce a Change Log"
+        puts "  history        produce a Release History"
+        puts "  version        display the current tag version"
+        puts "  bump           display next reasonable version"
+        puts "  list           display format selection"
+        puts "  autotag        create tags for history entries"
+        puts "  help           show help information"
+        puts
+      end
     end
 
   end

@@ -23,7 +23,7 @@ module CLI
     #
     def execute
       format = options.format || 'ansi'
-      output = @vcs.display(:changelog, format, options)
+      output = repo.display(:changelog, format, options)
       puts output
     end
 

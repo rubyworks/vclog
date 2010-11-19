@@ -21,7 +21,7 @@ module CLI
 
     #
     def execute
-      puts @vcs.bump #(version)
+      puts repo.bump #(version)
     end
 
   end

@@ -21,7 +21,7 @@ module CLI
 
     #
     def execute
-      puts @vcs.version
+      puts repo.version
     end
 
   end
