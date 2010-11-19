@@ -1,0 +1,21 @@
+vclog-bump(1) - suggest next version
+====================================
+
+## SYNOPSIS
+
+`vclog bump`
+
+## DESCRIPTION
+
+Display the next most suitable version number, based on the current
+version number. The bump command considers the commit levels in
+determining if the next version should be a major or minor bump.
+
+## OPTIONS
+
+  * `--version`, `-v NUM`
+    Assume this version number is current.
+
+## SEE ALSO
+
+vclog(1)

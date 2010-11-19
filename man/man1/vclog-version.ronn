@@ -1,0 +1,14 @@
+vclog-version(1) - display current version
+==========================================
+
+## SYNOPSIS
+
+`vclog version`
+
+## DESCRIPTION
+
+Display current version number according to source control system.
+
+## SEE ALSO
+
+vclog(1)

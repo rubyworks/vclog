@@ -1,0 +1,20 @@
+vclog-autotag(1) - tag history entries
+======================================
+
+## SYNOPSIS
+
+`vclog autotag`
+
+## DESCRIPTION
+
+Ensure all HISTORY file entries have corresponding commit tags in
+the version control system.
+
+## OPTIONS
+
+  * `--force`, `-f`
+    Creatie tags without asking for confirmation.
+
+## SEE ALSO
+
+vclog(1)
