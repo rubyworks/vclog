@@ -7,7 +7,7 @@ module Adapters
   #
   # Provide Darcs SCM revision tools.
   #
-  # TODO: This needs to be fixed.
+  # TODO: This needs to be fixed!!!!!!!
   #
   class Darcs < Abstract
 
@@ -75,6 +75,11 @@ module Adapters
 
       return ver
       #format_version_stamp(ver, status) # ,released)
+    end
+
+    # TODO
+    def tag(ref, label, msg)
+      `darcs tag #{label}`
     end
 
   end

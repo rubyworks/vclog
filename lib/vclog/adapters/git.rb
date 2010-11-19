@@ -3,9 +3,18 @@ require 'vclog/adapters/abstract'
 module VCLog
 module Adapters
 
-  # = GIT Adapter
+  # The GIT Adapter utilizes the +grit+ gem.
   #
   class Git < Abstract
+
+    def initialize_framework
+      require 'grit'
+    end
+
+    #
+    def grit_repo
+      @grit_repo ||= Grit::Repo.new(root)
+    end
 
     # Collect changes.
     #
@@ -22,6 +31,13 @@ module Adapters
       end
       list
     end
+
+    # TODO
+    #def extract_changes
+    #  repo.commit.map do |commit|
+    #    [commit.id, commit.date, commit.author.to_s, commit.message]
+    #  end
+    #end
 
     # Collect tags.
     #
@@ -74,23 +90,37 @@ module Adapters
       list
     end
 
+    # TODO
+    #def extract_tags
+    #  repo.tags.map do |tag|
+    #    [tag.name, tag.commit.id, tag.commit.date, tag.commit.author.to_s, tag.commit.message]
+    #  end
+    #end
+
     #
     def user
-      @user ||= `git config user.name`.strip
+      @user ||= grit_repo.config['user.name']
+      #@user ||= `git config user.name`.strip
     end
 
     #
     def email
-      @email ||= `git config user.email`.strip
+      @email ||= grit_repo.config['user.email']
+      #@email ||= `git config user.email`.strip
     end
 
     #
     def repository
-      @repository ||= `git config remote.origin.url`.strip
+      @repository ||= grit_repo.config['remote.origin.url']
+      #@repository ||= `git config remote.origin.url`.strip
+    end
+
+    # Create a tag for the given commit reference.
+    def tag(ref, label, message)
+      `git tag -a #{label} -m "#{message} #{ref}"`
     end
 
   end#class Git
 
 end
 end
-

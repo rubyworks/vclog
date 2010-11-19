@@ -128,6 +128,13 @@ module Adapters
     end
 
     #
+    def tag(ref, label, message)
+      raise "SVN adapter does not support tagging (yet)"
+    end
+
+    private
+
+    #
     def info
       @info ||= YAML.load(`svn info`.strip)
     end

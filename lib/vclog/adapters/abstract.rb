@@ -16,6 +16,9 @@ module Adapters
   # = Version Control System
   class Abstract
 
+    #
+    attr :config
+
     # Root location.
     attr :root
 
@@ -26,16 +29,35 @@ module Adapters
     attr :level
 
     #
-    def initialize(config)
-      @root       = config.root  # File.expand_path(config.root)
-      @heuristics = config.heuristics
-      @level      = config.level.to_i
+    def initialize(repo)
+      @repo = repo
+
+      @root       = repo.root  
+      @heuristics = repo.heuristics
+      @level      = repo.level
+
+      initialize_framework
+    end
+
+    # This is used if the adapter is using an external library
+    # to interface with the repository.
+    def initialize_framework
+    end
+
+    #
+    def extract_tags
+      raise "Not Implemented"
+    end
+
+    #
+    def extract_changes
+      raise "Not Implemented"
     end
 
     #
     def tags
       @tags ||= extract_tags.map{ |t| Tag===t ? t : Tag.new(*t) }
-    end
+    end  
 
     #
     # TODO: possbile to move heuristics lookup into Change class?
@@ -54,13 +76,8 @@ module Adapters
     end
 
     #
-    def extract_tags
-      raise "Not Implemented"
-    end
-
-    #
-    def extract_changes
-      raise "Not Implemented"
+    def tag?(name)
+      tags.find{ |t| t.name == name }
     end
 
     #
@@ -137,6 +154,12 @@ module Adapters
         v = '0.0.0'
       end
       return v
+    end
+
+    # Return the latest commit as of a given date.
+    def change_by_date(date)
+      list = changes.select{ |c| c.date <= date }
+      list.sort_by{ |c| c.date }.first
     end
 
   private

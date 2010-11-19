@@ -44,7 +44,7 @@ module Adapters
       ENV['HGEMAIL'] || ENV['EMAIL']
     end
 
-    # 
+    #
     def repository
       @repository ||= `hg showconfig paths.default`.strip
     end
@@ -52,6 +52,11 @@ module Adapters
     #
     def uuid
       nil
+    end
+
+    #
+    def tag(ref, label, msg)
+      `hg tag -r #{ref} -m "#{msg}" #{label}`
     end
 
     private
