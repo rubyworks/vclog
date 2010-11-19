@@ -23,6 +23,7 @@ module VCLog
     # Location of this file in the file system.
     DIR = File.dirname(__FILE__)
 
+    #
     attr :vcs
 
     # Alternate title.
@@ -128,4 +129,3 @@ module VCLog
   end
 
 end
-

@@ -33,6 +33,10 @@ module VCLog
       @author = author.strip
     end
 
+    # Alternate name for revision.
+    alias_method :rev,  :revision
+    alias_method :rev=, :revision=
+
     #def clean_type(type)
     #  case type.to_s
     #  when 'maj', 'major' then :major

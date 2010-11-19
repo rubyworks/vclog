@@ -9,8 +9,8 @@ module VCLog
 
     #
     def initialize(name, rev, date, author, message)
-      self.revision = rev
       self.name     = name
+      self.revision = rev
       self.date     = date
       self.author   = author
       self.message  = message
@@ -26,7 +26,7 @@ module VCLog
 
     #
     def author=(author)
-      @author = author.strip
+      @author = author.to_s.strip
     end
 
     #
