@@ -5,6 +5,7 @@ version : 1.7.0
 requires:
   - facets 2.4+
   - ansi 1.2+
+  - grit
   - syckle   (build)
   - cucumber (test)
   - aruba    (test)
