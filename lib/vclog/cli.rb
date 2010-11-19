@@ -52,7 +52,7 @@ module VCLog
     require 'vclog/cli/help'
     require 'vclog/cli/changelog'
     require 'vclog/cli/history'
-    require 'vclog/cli/list'
+    require 'vclog/cli/formats'
     require 'vclog/cli/bump'
     require 'vclog/cli/version'
     require 'vclog/cli/autotag'

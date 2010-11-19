@@ -3,17 +3,17 @@ require 'vclog/cli/abstract'
 module VCLog
 module CLI
 
-  class List < Abstract
+  class Formats < Abstract
 
     #
     def self.terms
-      ['list', 'templates']
+      ['formats', 'templates']
     end
 
     #
     def parser
       super do |opt|
-        opt.banner = "Usage: vclog list"
+        opt.banner = "Usage: vclog formats"
       end
     end
 

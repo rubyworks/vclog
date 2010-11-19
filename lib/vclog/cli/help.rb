@@ -27,10 +27,10 @@ module CLI
         puts "COMMANDS:"
         puts "  changelog      produce a Change Log"
         puts "  history        produce a Release History"
-        puts "  version        display the current tag version"
+        puts "  formats        list available formats"
+        puts "  version        display the current version"
         puts "  bump           display next reasonable version"
-        puts "  list           display format selection"
-        puts "  autotag        create tags for history entries"
+        puts "  autotag        create tags for history file entries"
         puts "  help           show help information"
         puts
       end
