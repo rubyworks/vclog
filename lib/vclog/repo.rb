@@ -105,11 +105,11 @@ module VCLog
     # each new tag.
     def autotag
       history_file.tags.each do |tag|
-        if not repo.tag?(tag.name)
-          chg = repo.change_by_date(tag.date)
+        if not adapter.tag?(tag.name)
+          chg = adapter.change_by_date(tag.date)
           if chg
             if force? or ask_yn(new_tag_message(tag) + "\nCreate tag? [yN] ")
-              repo.tag(chg.rev, tag, desc)
+              adapter.tag(chg.rev, tag, desc)
             end
           else
             puts "No commit found for #{tag.name} #{tag.date.strftime('%y-%m-%d')}."

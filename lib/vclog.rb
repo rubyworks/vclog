@@ -3,4 +3,4 @@ module VCLog
   require 'vclog/adapters'
 end
 
-
+# VCLog Copyright (c) 2008 Thomas Sawyer

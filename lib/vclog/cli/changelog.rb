@@ -22,7 +22,7 @@ module CLI
 
     #
     def execute
-      format = options.format || 'ansi'
+      format = options[:format] || 'ansi'
       output = repo.display(:changelog, format, options)
       puts output
     end

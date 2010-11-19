@@ -74,6 +74,9 @@ module CLI
       parser.on('--level', '-l NUMBER', "lowest level of commit to display [0]") do |num|
         options[:level] = num.to_i
       end
+      #parser.on('--typed', "catagorize by commit type") do
+      #  typed = true
+      #end
       parser
     end
 

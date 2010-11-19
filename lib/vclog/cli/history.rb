@@ -22,14 +22,13 @@ module CLI
         opt.on('--version', '-v NUM', "use as if current version number") do |num|
           options[:version] = num
         end
-
         template_options(opt)
       end
     end
 
     #
     def execute
-      format = options.format || 'ansi'
+      format = options[:format] || 'ansi'
       output = repo.display(:history, format, options)
       puts output
     end
