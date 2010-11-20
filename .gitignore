@@ -1,8 +1,7 @@
 .cache
-ri
 log
+man
 pkg
+ri
 tmp
 site/doc
-man/man1/*.html
-man/man1/*.1

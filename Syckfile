@@ -69,7 +69,7 @@ ronn:
   service  : custom
   cycle    : main
   document : |
-    system 'ronn --manual="VCLog" --organization="RubyWorks" --style="toc" doc/ronn/*.ronn'
-    system 'mv doc/ronn/*.1 man/man1/'
-    system 'mv doc/ronn/*.html site/doc/man/'
+    system 'ronn --manual="VCLog" --organization="RubyWorks" --style="toc" ronn/*.ronn'
+    system 'mv ronn/*.1 man/man1/'
+    system 'mv ronn/*.html site/doc/man/'
 
