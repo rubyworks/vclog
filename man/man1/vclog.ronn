@@ -1,0 +1,36 @@
+vclog(1) - version control logging utility
+==========================================
+
+## SYNOPSIS
+
+`vclog [command]`
+
+## DESCRIPTION
+
+VCLog is a versitle cross-VCS/SCM changelog generator.
+It currently supports Git, Hg and (limited) Subversion.
+
+## COMMANDS
+
+VCLog provides a number of useful functions:
+
+  * `changelog`
+    Produce a Change Log.
+
+  * `history`
+    Produce a Release History.
+
+  * `version`
+    Show current tag version.
+
+  * `bump`
+    Suggest next tag version.
+
+  * `autotag`
+    Ensure a tag exists for each History entry.
+
+Both `changelog` and `history` can be produced in a variety of formats.
+
+## SEE ALSO
+
+vclog-changelog(1), vclog-history(1)
