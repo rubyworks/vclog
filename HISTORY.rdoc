@@ -1,5 +1,15 @@
 = RELEASE HISTORY
 
+== 1.8.0 / 2010-11-20
+
+Under the hood, VCLog now has a Repo class that acts as a central controller. This has improved the code base substantially and should could to do so as this new design is further embraced. This release also introdces a new `autotag` feature, which makes it possible to "reverse engineer" a Release History file. It will parse the entries from a HISTORY.* file and ensure that corresponding tags exists in the version control system.
+
+Changes:
+
+* Add Repo class which acts as central control.
+* Add autotag feature to ensure release history tags exits.
+
+
 == 1.7.0 / 2010-06-27
 
 In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust. 
