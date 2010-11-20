@@ -20,13 +20,14 @@ module CLI
         opt.separator("  Ensure each entry in History has been tagged.")
         opt.separator(" ")
         opt.separator("SPECIAL OPTIONS:")
+        opt.on('--prefix', '-p', 'tag label prefix'){ options[:prefix] = true }
         opt.on('--force', '-f', 'perform tagging without confirmation'){ options[:force] = true }
       end
     end
 
     #
     def execute
-      repo.autotag
+      repo.autotag(options[:prefix])
     end
 
   end

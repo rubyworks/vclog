@@ -40,7 +40,7 @@ module VCLog
       @adapter = Adapters.const_get(type.capitalize).new(self)
     end
 
-    #
+    # Returns instance of an Adapter subclass.
     def adapter
       @adapter
     end
@@ -70,7 +70,7 @@ module VCLog
     #   .vclog/
     #   .config/vclog/
     #   config/vclog/
-    #   .git/
+    #   .git/|.hg/|_darcs/
     #   README*
     #
     def lookup_root(dir)
@@ -103,16 +103,17 @@ module VCLog
     # Read history file and make a commit tag for any release not already
     # tagged. Unless the force option is set the user will be prompted for
     # each new tag.
-    def autotag
+    def autotag(prefix=nil)
       history_file.tags.each do |tag|
-        if not adapter.tag?(tag.name)
+        label = "#{prefix}#{tag.name}"
+        if not adapter.tag?(label)
           chg = adapter.change_by_date(tag.date)
           if chg
-            if force? or ask_yn(new_tag_message(tag) + "\nCreate tag? [yN] ")
-              adapter.tag(chg.rev, tag.name, tag.date, tag.message)
+            if force? or ask_yn(new_tag_message(label) + "\nCreate tag? [yN] ")
+              adapter.tag(chg.rev, label, tag.date, tag.message)
             end
           else
-            puts "No commit found for #{tag.name} #{tag.date.strftime('%y-%m-%d')}."
+            puts "No commit found for #{label} #{tag.date.strftime('%y-%m-%d')}."
           end
         end
       end
@@ -139,7 +140,7 @@ module VCLog
       end
     end
 
-    #
+    # Returns a String.
     def new_tag_message(tag)
       "#{tag.name} / #{tag.date.strftime('%y-%m-%d')}\n#{tag.message}"
     end
