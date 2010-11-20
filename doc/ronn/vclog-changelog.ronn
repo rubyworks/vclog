@@ -1,5 +1,5 @@
-vclog-log(1) - change log
-=========================
+vclog-changelog(1) - change log
+===============================
 
 ## SYNOPSIS
 

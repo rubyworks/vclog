@@ -33,4 +33,4 @@ Both `changelog` and `history` can be produced in a variety of formats.
 
 ## SEE ALSO
 
-vclog-changelog(1), vclog-history(1)
+vclog-changelog(1), vclog-history(1), vclog-version(1), vclog-bump(1), vclog-autotag(1)

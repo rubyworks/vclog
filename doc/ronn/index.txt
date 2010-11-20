@@ -1,0 +1,8 @@
+# manuals
+vclog(1)             vclog.1.ronn
+vclog-changelog(1)   vclog-changelog.1.ronn
+vclog-history(1)     vclog-history.1.ronn
+vclog-version(1)     vclog-version.1.ronn
+vclog-bump(1)        vclog-bump.1.ronn
+vclog-autotag(1)     vclog-autotag.1.ronn
+
