@@ -1,4 +1,4 @@
-#!mast -x Syckfile bin features lib man meta test [A-Z]*
+#!mast -x Syckfile bin features lib man meta ronn test [A-Z]*
 bin/vclog
 features/git.feature
 features/hg.feature
@@ -64,26 +64,21 @@ lib/vclog/templates/history.xml.erb
 lib/vclog/templates/history.yaml.rb
 lib/vclog.rb
 man/man1/vclog-autotag.1
-man/man1/vclog-autotag.1.html
-man/man1/vclog-autotag.ronn
 man/man1/vclog-bump.1
-man/man1/vclog-bump.1.html
-man/man1/vclog-bump.ronn
 man/man1/vclog-changelog.1
-man/man1/vclog-changelog.1.html
-man/man1/vclog-changelog.ronn
 man/man1/vclog-history.1
-man/man1/vclog-history.1.html
-man/man1/vclog-history.ronn
 man/man1/vclog-version.1
-man/man1/vclog-version.1.html
-man/man1/vclog-version.ronn
 man/man1/vclog.1
-man/man1/vclog.1.html
-man/man1/vclog.ronn
 meta/data.rb
 meta/package
 meta/profile
+ronn/index.txt
+ronn/vclog-autotag.ronn
+ronn/vclog-bump.ronn
+ronn/vclog-changelog.ronn
+ronn/vclog-history.ronn
+ronn/vclog-version.ronn
+ronn/vclog.ronn
 HISTORY.rdoc
 LICENSE
 README.rdoc
