@@ -1,7 +1,8 @@
 = VCLog
 
-* home: http://proutils.github.com/vclog
-* work: http://github.com/proutils/vclog
+* home: http://rubyworks.github.com/vclog
+* code: http://github.com/rubyworks/vclog
+* talk: http://googlegroups.com/group/rubyworks-mailinglist
 
 
 == DESCRIPTION
