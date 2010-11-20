@@ -5,6 +5,7 @@ module Adapters
 
   # = Mercurial Adapter
   #
+  # TODO: maybe use Amp gem for future version.
   class Hg < Abstract
 
     # Collect changes.
@@ -54,10 +55,15 @@ module Adapters
       nil
     end
 
-    #
+    # TODO: Will multi-line messages work okay this way?
     def tag(ref, label, date, msg)
-      date = date.strftime('%y-%m-%d') unless String===date
-      cmd  = %[hg tag -r #{ref} -d #{date} -m "#{msg.inspect}" #{label}]
+      mfile = Tempfile.new("message")
+      mfile.open{ |f| f << msg }
+
+      date = date.strftime('%Y-%m-%d') unless String===date
+
+      cmd  = %[hg tag -r #{ref} -d #{date} -m "$(cat #{mfile.path})" #{label}]
+
       puts cmd if $DEBUG
       `#{cmd}` unless $DRYRUN
     end

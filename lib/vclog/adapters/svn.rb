@@ -129,9 +129,11 @@ module Adapters
 
     #
     def tag(ref, label, date, message)
-      #raise "SVN adapter does not support tagging (yet)"
+      mfile = Tempfile.new("message")
+      mfile.open{ |f| f << message }
+
       Dir.chdir(root) do
-        cmd = %[svn copy -r #{ref} . #{tag_directory}/#{label} -m "#{message.inspect}"]
+        cmd = %[svn copy -r #{ref} -F "#{mfile.path}" . #{tag_directory}/#{label}]
         puts cmd if $DEBUG
         `#{cmd}` unless $DRYRUN
       end
