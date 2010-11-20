@@ -6,7 +6,7 @@
     h1{ }
     h2{ color: #555; }
     li{padding: 10px;}
-    .changelog{width:800px; margin:0 auto;}
+    .main{width:800px; margin:0 auto;}
     .title{font-size: 64px;}
     .date{font-weight: bold; color: green; float: left; padding-right: 15px;}
     .author{font-weight: bold; color: blue;}
@@ -15,12 +15,145 @@
   </style>
 </head>
 <body>
-<div class="history">
+<div class="main">
   <div class="title">VCLog</div>
+  <div class="history">
 
-
-    <h1>HEAD / 2010-06-27</h1>
+    <h1>HEAD / 2010-11-20</h1>
     <p>Current Development</p>
+
+    <h2>14 General Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          better history file glob
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#6f6dc9ff4d403d494eff1c012f5178505575d838</div>
+        <div class="date">Sat Nov 20 09:42:48 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          fix syckle plugin
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#5f0ddd3bb9e74c92bf57cd7251605230f1fa2991</div>
+        <div class="date">Sat Nov 20 09:42:22 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          use message file for all adapters
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#cc67e606354d884899152412a5e342d80e68c0c6</div>
+        <div class="date">Sat Nov 20 01:50:32 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          add dryrun and debugging output to tag method
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#11d6cdd1b82ba78a51a69cf683f85d0897949efb</div>
+        <div class="date">Sat Nov 20 01:16:51 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          autotag needs a list of all changes
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#e356c117abd620ca9317b975bf0f982f999b1b57</div>
+        <div class="date">Sat Nov 20 00:30:51 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          escape tag messages by using #inspect
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#35851842228921f898a7bc5409f8b05623167c9c</div>
+        <div class="date">Fri Nov 19 22:29:34 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          support tag prefix option
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#fd8121b82b6a36bcccf082036ca89ab5cafb858f</div>
+        <div class="date">Fri Nov 19 22:27:24 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          fix tag method in subversion adapter
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#78cffd9056412b78052d8c2cacf7e79db2cccee8</div>
+        <div class="date">Fri Nov 19 22:27:10 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          auto tagging needs to adjust date too
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#ffbcb8b4ae2440225f5d64aa8f40e7559bc5c151</div>
+        <div class="date">Fri Nov 19 20:30:04 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          rename  command to
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#d24e3bac6eabd776b51b42854035b2214871bb45</div>
+        <div class="date">Fri Nov 19 17:54:18 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          fix options as Hash instead of OpenStruct
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#a73e263d7a2912950b9126cd5aa8693562ab72f3</div>
+        <div class="date">Fri Nov 19 17:43:58 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          update cli commands to use repo
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#2b45e3b5fbc04474696e351ccb4fe49b2a600eb7</div>
+        <div class="date">Fri Nov 19 17:24:42 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          add #tag method to adapters
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#5289615d5acfe31c7b4223b6e6569a1a000ea861</div>
+        <div class="date">Fri Nov 19 17:23:52 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          use a Repo class as a central controller
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#da92b28faf08445f3d74b7300e140103dbba071d</div>
+        <div class="date">Fri Nov 19 17:23:23 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
+    <h1>1.7.0 / 2010-06-27</h1>
+    <p>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust.</p>
 
     <h2>1 Major Enhancements</h2>
     <ul class="log">
@@ -69,7 +202,7 @@
     <h1>1.6.1 / 2010-06-23</h1>
     <p>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</p>
 
-    <h2>10 General Enhancements</h2>
+    <h2>3 General Enhancements</h2>
     <ul class="log">
       <li class="entry">
         <div class="message">
@@ -98,6 +231,13 @@
         <div class="date">Wed Jun 23 23:05:40 -0400 2010</div>
         <div class="author">7rans</div>
       </li>
+    </ul>
+
+    <h1>1.6.0 / 2010-06-21</h1>
+    <p></p>
+
+    <h2>7 General Enhancements</h2>
+    <ul class="log">
       <li class="entry">
         <div class="message">
           handle unset labels gracefully and improve default heuristics
@@ -244,41 +384,6 @@
     <h1>1.4.0 / 2010-05-26</h1>
     <p>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).</p>
 
-    <h2>2 General Enhancements</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          add a canonical lib
-        </div>
-        <!-- <div class="type"></div> -->
-        <div class="revision">#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</div>
-        <div class="date">Wed May 26 20:27:33 -0400 2010</div>
-        <div class="author">7rans</div>
-      </li>
-      <li class="entry">
-        <div class="message">
-          use xmlsimple for SVN support
-        </div>
-        <!-- <div class="type"></div> -->
-        <div class="revision">#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</div>
-        <div class="date">Wed May 26 20:27:14 -0400 2010</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
-    <h2>1 Test Enhancements</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          add first cucumber feature
-        </div>
-        <!-- <div class="type">test</div> -->
-        <div class="revision">#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</div>
-        <div class="date">Wed May 26 20:26:28 -0400 2010</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
     <h2>4 Bug Fixes</h2>
     <ul class="log">
       <li class="entry">
@@ -315,6 +420,41 @@
         <!-- <div class="type">bug</div> -->
         <div class="revision">#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</div>
         <div class="date">Mon Feb 08 11:07:19 -0500 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
+    <h2>2 General Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          add a canonical lib
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</div>
+        <div class="date">Wed May 26 20:27:33 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          use xmlsimple for SVN support
+        </div>
+        <!-- <div class="type"></div> -->
+        <div class="revision">#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</div>
+        <div class="date">Wed May 26 20:27:14 -0400 2010</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
+    <h2>1 Test Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          add first cucumber feature
+        </div>
+        <!-- <div class="type">test</div> -->
+        <div class="revision">#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</div>
+        <div class="date">Wed May 26 20:26:28 -0400 2010</div>
         <div class="author">7rans</div>
       </li>
     </ul>
@@ -382,6 +522,19 @@
     <h1>1.2.0 / 2009-10-26</h1>
     <p>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface.</p>
 
+    <h2>1 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          fixed spelling of revision (from revison)
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="revision">#d3c207c96740362147ec9dd864401e7066cad025</div>
+        <div class="date">Mon Oct 26 15:38:39 -0400 2009</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
+
     <h2>5 General Enhancements</h2>
     <ul class="log">
       <li class="entry">
@@ -427,19 +580,6 @@
         <!-- <div class="type"></div> -->
         <div class="revision">#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</div>
         <div class="date">Fri Oct 23 10:30:05 -0400 2009</div>
-        <div class="author">7rans</div>
-      </li>
-    </ul>
-
-    <h2>1 Bug Fixes</h2>
-    <ul class="log">
-      <li class="entry">
-        <div class="message">
-          fixed spelling of revision (from revison)
-        </div>
-        <!-- <div class="type">bug</div> -->
-        <div class="revision">#d3c207c96740362147ec9dd864401e7066cad025</div>
-        <div class="date">Mon Oct 26 15:38:39 -0400 2009</div>
         <div class="author">7rans</div>
       </li>
     </ul>
@@ -584,6 +724,7 @@
       </li>
     </ul>
   </div>
+</div>
 </body>
 </html>
 

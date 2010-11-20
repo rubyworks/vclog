@@ -1,8 +1,32 @@
 = VCLog
 
-== HEAD / 2010-06-27
+== HEAD / 2010-11-20
 
 Current Development (7rans)
+
+Changes:
+
+* 14 General Enhancements
+
+    * better history file glob
+    * fix syckle plugin
+    * use message file for all adapters
+    * add dryrun and debugging output to tag method
+    * autotag needs a list of all changes
+    * escape tag messages by using #inspect
+    * support tag prefix option
+    * fix tag method in subversion adapter
+    * auto tagging needs to adjust date too
+    * rename  command to
+    * fix options as Hash instead of OpenStruct
+    * update cli commands to use repo
+    * add #tag method to adapters
+    * use a Repo class as a central controller
+
+
+== 1.7.0 / 2010-06-27
+
+In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust. (7rans <transfire@gmail.com>)
 
 Changes:
 
@@ -23,11 +47,21 @@ This release repairs the Atom feed format and adds an RSS feed format. Both form
 
 Changes:
 
-* 10 General Enhancements
+* 3 General Enhancements
 
     * add title to html changelog
     * fix git email value and imporve feed formats
     * work on atom and rss output formats
+
+
+== 1.6.0 / 2010-06-21
+
+ (7rans <transfire@gmail.com>)
+
+Changes:
+
+* 7 General Enhancements
+
     * handle unset labels gracefully and improve default heuristics
     * add version command and continue to improve cli help
     * cli uses closest matching subcommand
@@ -66,6 +100,13 @@ This release includes some basic improvments and a few bug fixes. The primary ch
 
 Changes:
 
+* 4 Bug Fixes
+
+    * Sort release tags in correct order
+    * change 'git-log' to 'git log'
+    * change 'git-log' to 'git log'
+    * fix version bumping and display
+
 * 2 General Enhancements
 
     * add a canonical lib
@@ -74,13 +115,6 @@ Changes:
 * 1 Test Enhancements
 
     * add first cucumber feature
-
-* 4 Bug Fixes
-
-    * Sort release tags in correct order
-    * change 'git-log' to 'git log'
-    * change 'git-log' to 'git log'
-    * fix version bumping and display
 
 
 == 1.3.0 / 2010-02-08
@@ -110,6 +144,10 @@ Version 1.2 overhuals the internals so that History output is based on scm tags,
 
 Changes:
 
+* 1 Bug Fixes
+
+    * fixed spelling of revision (from revison)
+
 * 5 General Enhancements
 
     * renamed command.rb to cli.rb
@@ -117,10 +155,6 @@ Changes:
     * rewrote release history generator
     * added ad to website. I want my ! ;)
     * added some todo items
-
-* 1 Bug Fixes
-
-    * fixed spelling of revision (from revison)
 
 
 == 1.1.0 / 2009-10-23

@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: VCLog::History</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">VCLog</a>&nbsp;
+      <a href="/">VCLog::History</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/vclog/history_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/history.rb">lib/vclog/history.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <li class="class">Object</li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-changelog">#changelog</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-changes">#changes</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-groups">#groups</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-releases">#releases</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-tags">#tags</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_h">#to_h</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../VCLog.html">VCLog</a></li>
+        
+          <li class="module"><a href="../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
+          <li class="module"><a href="../VCLog/CLI.html">VCLog::CLI</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Abstract.html">VCLog::CLI::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Autotag.html">VCLog::CLI::Autotag</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Bump.html">VCLog::CLI::Bump</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Changelog.html">VCLog::CLI::Changelog</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Formats.html">VCLog::CLI::Formats</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Help.html">VCLog::CLI::Help</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/History.html">VCLog::CLI::History</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Version.html">VCLog::CLI::Version</a></li>
+        
+          <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
+        
+          <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Label.html">VCLog::Heuristics::Label</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Rule.html">VCLog::Heuristics::Rule</a></li>
+        
+          <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="class"><a href="../VCLog/HistoryFile.html">VCLog::HistoryFile</a></li>
+        
+          <li class="module"><a href="../VCLog/Kernel.html">VCLog::Kernel</a></li>
+        
+          <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
+          <li class="class"><a href="../VCLog/Release.html">VCLog::Release</a></li>
+        
+          <li class="class"><a href="../VCLog/Repo.html">VCLog::Repo</a></li>
+        
+          <li class="class"><a href="../VCLog/Tag.html">VCLog::Tag</a></li>
+        
+          <li class="module"><a href="../Syckle.html">Syckle</a></li>
+        
+          <li class="module"><a href="../Syckle/Plugins.html">Syckle::Plugins</a></li>
+        
+          <li class="class"><a href="../Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+
+      <h1><a href="Release.html">Release</a> <a href="History.html">History</a> Class</h1>
+<p>
+A <a href="Release.html">Release</a> <a href="History.html">History</a> is
+very similar to a <a href="ChangeLog.html">ChangeLog</a>. It differs in
+that it is divided into releases with version, release date and release
+note.
+</p>
+<p>
+The release version, date and release note can be descerened from the
+underlying SCM by identifying the hard tag commits.
+</p>
+<p>
+TODO: Extract output formating from delta parser. Later&#8212;Huh?
+</p>
+
+    </div>
+
+    <!-- Constants -->
+    
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt><a name="DIR">DIR</a></dt>
+        
+        <dd class="description"><p>
+Location of this file in the file system.
+</p></dd>
+        
+      
+      </dl>
+    </div>
+    
+
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="vcs-attribute-method" class="method-detail">
+        <a name="vcs"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vcs</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="title-attribute-method" class="method-detail">
+        <a name="title"></a>
+        
+        <a name="title="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">title</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Alternate title.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="version-attribute-method" class="method-detail">
+        <a name="version"></a>
+        
+        <a name="version="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">version</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Current working version.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="extra-attribute-method" class="method-detail">
+        <a name="extra"></a>
+        
+        <a name="extra="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">extra</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Provide extra information.
+</p>
+        
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(vcs)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 39</span>
+39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">vcs</span>)
+40:       <span class="ruby-ivar">@vcs</span>     = <span class="ruby-identifier">vcs</span>
+41: 
+42:       <span class="ruby-comment cmt">#opts = OpenStruct.new(opts) if Hash === opts</span>
+43: 
+44:       <span class="ruby-comment cmt">#@title   = opts.title || &quot;RELEASE HISTORY&quot;</span>
+45:       <span class="ruby-comment cmt">#@extra   = opts.extra</span>
+46:       <span class="ruby-comment cmt">#@version = opts.version</span>
+47:       <span class="ruby-comment cmt">#@level =  opts.level || 0</span>
+48:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="changelog-method" class="method-detail ">
+        <a name="method-i-changelog"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">changelog</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Changelog object
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="changelog-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changelog</span>
+57:       <span class="ruby-ivar">@changlog</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changelog</span> <span class="ruby-comment cmt">#ChangeLog.new(changes)</span>
+58:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="changes-method" class="method-detail ">
+        <a name="method-i-changes"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">changes</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Change.html">Change</a> list from version control system filter
+for level setting.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="changes-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 61</span>
+61:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changes</span>
+62:       <span class="ruby-ivar">@changes</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">changes</span>
+63:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="groups-method" class="method-detail ">
+        <a name="method-i-groups"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">groups</span><span
+            class="method-args">(changes)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Group <tt>changes</tt> by tag type.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="groups-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 120</span>
+120:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>(<span class="ruby-identifier">changes</span>)
+121:       <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">group_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span> }
+122:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="releases-method" class="method-detail ">
+        <a name="method-i-releases"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">releases</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="releases-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 66</span>
+ 66:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">releases</span>
+ 67:       <span class="ruby-ivar">@releases</span> <span class="ruby-operator">||=</span> (
+ 68:         <span class="ruby-identifier">rel</span> = []
+ 69: 
+ 70:         <span class="ruby-identifier">tags</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">tags</span>
+ 71: 
+ 72:         <span class="ruby-comment cmt">#ver  = vcs.bump(version)</span>
+ 73:         <span class="ruby-identifier">user</span> = <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">user</span>
+ 74:         <span class="ruby-identifier">time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+ 75: 
+ 76:         <span class="ruby-identifier">tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-value str">'current'</span>, <span class="ruby-identifier">time</span>, <span class="ruby-identifier">user</span>, <span class="ruby-value str">&quot;Current Development&quot;</span>)
+ 77: 
+ 78:         <span class="ruby-comment cmt"># TODO: Do we need to add a Time.now tag?</span>
+ 79:         <span class="ruby-comment cmt"># add current verion to release list (if given)</span>
+ 80:         <span class="ruby-comment cmt">#previous_version = tags[0].name</span>
+ 81:         <span class="ruby-comment cmt">#if current_version &lt; previous_version  # TODO: need to use natural comparision</span>
+ 82:         <span class="ruby-comment cmt">#  raise ArgumentError, &quot;Release version is less than previous version (#{previous_version}).&quot;</span>
+ 83:         <span class="ruby-comment cmt">#end</span>
+ 84:         <span class="ruby-comment cmt">#rels &lt;&lt; [current_version, current_release || Time.now]</span>
+ 85:         <span class="ruby-comment cmt">#rels = rels.uniq      # only uniq releases</span>
+ 86: 
+ 87:         <span class="ruby-comment cmt"># sort by release date</span>
+ 88:         <span class="ruby-identifier">tags</span> = <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">date</span> }
+ 89: 
+ 90:         <span class="ruby-comment cmt"># organize into deltas</span>
+ 91:         <span class="ruby-identifier">delta</span> = []
+ 92:         <span class="ruby-identifier">last</span>  = <span class="ruby-keyword kw">nil</span>
+ 93:         <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+ 94:           <span class="ruby-identifier">delta</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>, [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>]]
+ 95:           <span class="ruby-identifier">last</span> = <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">date</span>
+ 96:         <span class="ruby-keyword kw">end</span>
+ 97:         <span class="ruby-comment cmt"># gather changes for each delta</span>
+ 98:         <span class="ruby-identifier">delta</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span>, (<span class="ruby-identifier">started</span>, <span class="ruby-identifier">ended</span>)<span class="ruby-operator">|</span>
+ 99:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">started</span>
+100:             <span class="ruby-identifier">set</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">started</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ended</span>  }
+101:             <span class="ruby-comment cmt">#gt_vers, gt_date = gt.name, gt.date</span>
+102:             <span class="ruby-comment cmt">#lt_vers, lt_date = lt.name, lt.date</span>
+103:             <span class="ruby-comment cmt">#gt_date = Time.parse(gt_date) unless Time===gt_date</span>
+104:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
+105:             <span class="ruby-comment cmt">#log = changelog.after(gt).before(lt)</span>
+106:           <span class="ruby-keyword kw">else</span>
+107:             <span class="ruby-comment cmt">#lt_vers, lt_date = lt.name, lt.date</span>
+108:             <span class="ruby-comment cmt">#lt_date = Time.parse(lt_date) unless Time===lt_date</span>
+109:             <span class="ruby-comment cmt">#log = changelog.before(lt_date)</span>
+110:             <span class="ruby-identifier">set</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ended</span> }
+111:           <span class="ruby-keyword kw">end</span>
+112: 
+113:           <span class="ruby-identifier">rel</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Release</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">set</span>)
+114:         <span class="ruby-keyword kw">end</span>
+115:         <span class="ruby-identifier">rel</span>
+116:       )
+117:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="tags-method" class="method-detail ">
+        <a name="method-i-tags"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">tags</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Tag.html">Tag</a> list from version control system.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="tags-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 51</span>
+51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tags</span>
+52:       <span class="ruby-ivar">@tags</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">vcs</span>.<span class="ruby-identifier">tags</span>
+53:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-h-method" class="method-detail ">
+        <a name="method-i-to_h"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_h</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-h-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/vclog/history.rb, line 125</span>
+125:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
+126:       <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">rel</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rel</span>.<span class="ruby-identifier">to_h</span> }
+127:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+

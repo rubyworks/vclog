@@ -6,13 +6,13 @@
 
   <subtitle>Release History</subtitle>
 
-  <link href="git@github.com:proutils/vclog.git" />
+  <link href="git@github.com:rubyworks/vclog.git" />
  
   
 
-  <id>git@github.com:proutils/vclog.git</id>
+  <id>git@github.com:rubyworks/vclog.git</id>
 
-  <updated>2010-06-27T15:30:54-04:00</updated>
+  <updated>2010-11-20T11:53:21-05:00</updated>
 
   <author>
 
@@ -28,11 +28,11 @@
 
     <title>HEAD</title>
 
-    <id>git@github.com:proutils/vclog.git#current</id>
+    <id>git@github.com:rubyworks/vclog.git#current</id>
 
     <author><name>7rans<name></author>
 
-    <updated>2010-06-27T15:30:54-04:00</updated>
+    <updated>2010-11-20T11:53:21-05:00</updated>
 
     <summary>Current Development</summary>
 
@@ -41,6 +41,197 @@
       <div xmlns="http://www.w3.org/1999/xhtml">
 
         <p>Current Development</p>
+
+
+
+        <h2>14 General Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            better history file glob<br/>
+
+            7rans 2010-11-20 09:42:48
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            fix syckle plugin<br/>
+
+            7rans 2010-11-20 09:42:22
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            use message file for all adapters<br/>
+
+            7rans 2010-11-20 01:50:32
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            add dryrun and debugging output to tag method<br/>
+
+            7rans 2010-11-20 01:16:51
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            autotag needs a list of all changes<br/>
+
+            7rans 2010-11-20 00:30:51
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            escape tag messages by using #inspect<br/>
+
+            7rans 2010-11-19 22:29:34
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            support tag prefix option<br/>
+
+            7rans 2010-11-19 22:27:24
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            fix tag method in subversion adapter<br/>
+
+            7rans 2010-11-19 22:27:10
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            auto tagging needs to adjust date too<br/>
+
+            7rans 2010-11-19 20:30:04
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            rename  command to<br/>
+
+            7rans 2010-11-19 17:54:18
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            fix options as Hash instead of OpenStruct<br/>
+
+            7rans 2010-11-19 17:43:58
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            update cli commands to use repo<br/>
+
+            7rans 2010-11-19 17:24:42
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            add #tag method to adapters<br/>
+
+            7rans 2010-11-19 17:23:52
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            use a Repo class as a central controller<br/>
+
+            7rans 2010-11-19 17:23:23
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.7.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#20e6990b521c77c32f2d0c2c65fe5dc2560cacb3</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-06-27T14:31:26-04:00</updated>
+
+    <summary>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to &quot;massage&quot; the message as needed. This release also improves the git log parser to be much more robust.</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust.</p>
 
 
 
@@ -117,7 +308,7 @@
 
     <title>1.6.1</title>
 
-    <id>git@github.com:proutils/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</id>
+    <id>git@github.com:rubyworks/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
@@ -133,7 +324,7 @@
 
 
 
-        <h2>10 General Enhancements</h2>
+        <h2>3 General Enhancements</h2>
 
         <ul class="log">
 
@@ -169,6 +360,43 @@
             
 
           </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.6.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#7e44abdcdb427b5df53f3dfa389f3bcf6e274660</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-06-21T21:39:38-04:00</updated>
+
+    <summary></summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p></p>
+
+
+
+        <h2>7 General Enhancements</h2>
+
+        <ul class="log">
 
 
           <li class="entry">
@@ -264,7 +492,7 @@
 
     <title>1.5.0</title>
 
-    <id>git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</id>
+    <id>git@github.com:rubyworks/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
@@ -394,7 +622,7 @@
 
     <title>1.4.0</title>
 
-    <id>git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</id>
+    <id>git@github.com:rubyworks/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
@@ -408,55 +636,6 @@
 
         <p>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).</p>
 
-
-
-        <h2>2 General Enhancements</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            add a canonical lib<br/>
-
-            7rans 2010-05-26 20:27:33
-
-            
-
-          </li>
-
-
-          <li class="entry">
-
-            use xmlsimple for SVN support<br/>
-
-            7rans 2010-05-26 20:27:14
-
-            
-
-          </li>
-
-
-        </ul>
-
-
-        <h2>1 Test Enhancements</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-             add first cucumber feature<br/>
-
-            7rans 2010-05-26 20:26:28
-
-            
-
-          </li>
-
-
-        </ul>
 
 
         <h2>4 Bug Fixes</h2>
@@ -511,6 +690,55 @@
         </ul>
 
 
+        <h2>2 General Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            add a canonical lib<br/>
+
+            7rans 2010-05-26 20:27:33
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            use xmlsimple for SVN support<br/>
+
+            7rans 2010-05-26 20:27:14
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Test Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+             add first cucumber feature<br/>
+
+            7rans 2010-05-26 20:26:28
+
+            
+
+          </li>
+
+
+        </ul>
+
+
 
       </div>
 
@@ -524,7 +752,7 @@
 
     <title>1.3.0</title>
 
-    <id>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
+    <id>git@github.com:rubyworks/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
@@ -632,7 +860,7 @@
 
     <title>1.2.0</title>
 
-    <id>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</id>
+    <id>git@github.com:rubyworks/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
@@ -646,6 +874,25 @@
 
         <p>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface.</p>
 
+
+
+        <h2>1 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fixed spelling of revision (from revison)<br/>
+
+            7rans 2009-10-26 15:38:39
+
+            
+
+          </li>
+
+
+        </ul>
 
 
         <h2>5 General Enhancements</h2>
@@ -711,25 +958,6 @@
         </ul>
 
 
-        <h2>1 Bug Fixes</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            fixed spelling of revision (from revison)<br/>
-
-            7rans 2009-10-26 15:38:39
-
-            
-
-          </li>
-
-
-        </ul>
-
-
 
       </div>
 
@@ -743,7 +971,7 @@
 
     <title>1.1.0</title>
 
-    <id>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</id>
+    <id>git@github.com:rubyworks/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
@@ -879,7 +1107,7 @@
 
     <title>1.0.0</title>
 
-    <id>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</id>
+    <id>git@github.com:rubyworks/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</id>
 
     <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 

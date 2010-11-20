@@ -6,7 +6,7 @@
 
     <title>VCLog</title>
 
-    <link>git@github.com:proutils/vclog.git</link>
+    <link>git@github.com:rubyworks/vclog.git</link>
 
     
 
@@ -14,9 +14,9 @@
 
     <language>en-us</language>
 
-    <pubDate>Sun, 27 Jun 2010 15:30:54 -0400</pubDate>
+    <pubDate>Sat, 20 Nov 2010 11:53:21 -0500</pubDate>
 
-    <lastBuildDate>Sun, 27 Jun 2010 15:30:54 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 20 Nov 2010 11:53:21 -0500</lastBuildDate>
 
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 
@@ -34,15 +34,202 @@
 
       <author>7rans</author>
 
-      <link>git@github.com:proutils/vclog.git#current</link>
+      <link>git@github.com:rubyworks/vclog.git#current</link>
 
-      <pubDate>Sun, 27 Jun 2010 15:30:54 -0400</pubDate>
+      <pubDate>Sat, 20 Nov 2010 11:53:21 -0500</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#current</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#current</guid>
 
       <description><![CDATA[
 
         <p>Current Development</p>
+
+
+
+        <h2>14 General Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            better history file glob<br/>
+
+            7rans 2010-11-20 09:42:48
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            fix syckle plugin<br/>
+
+            7rans 2010-11-20 09:42:22
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            use message file for all adapters<br/>
+
+            7rans 2010-11-20 01:50:32
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            add dryrun and debugging output to tag method<br/>
+
+            7rans 2010-11-20 01:16:51
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            autotag needs a list of all changes<br/>
+
+            7rans 2010-11-20 00:30:51
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            escape tag messages by using #inspect<br/>
+
+            7rans 2010-11-19 22:29:34
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            support tag prefix option<br/>
+
+            7rans 2010-11-19 22:27:24
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            fix tag method in subversion adapter<br/>
+
+            7rans 2010-11-19 22:27:10
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            auto tagging needs to adjust date too<br/>
+
+            7rans 2010-11-19 20:30:04
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            rename  command to<br/>
+
+            7rans 2010-11-19 17:54:18
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            fix options as Hash instead of OpenStruct<br/>
+
+            7rans 2010-11-19 17:43:58
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            update cli commands to use repo<br/>
+
+            7rans 2010-11-19 17:24:42
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            add #tag method to adapters<br/>
+
+            7rans 2010-11-19 17:23:52
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            use a Repo class as a central controller<br/>
+
+            7rans 2010-11-19 17:23:23
+
+                       
+
+          </li>
+
+
+        </ul>
+
+
+
+      ]]></description>
+
+    </item>
+
+
+
+    <item>
+
+      <title>1.7.0</title>
+
+      <author>7rans <transfire@gmail.com></author>
+
+      <link>git@github.com:rubyworks/vclog.git#20e6990b521c77c32f2d0c2c65fe5dc2560cacb3</link>
+
+      <pubDate>Sun, 27 Jun 2010 14:31:26 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#20e6990b521c77c32f2d0c2c65fe5dc2560cacb3</guid>
+
+      <description><![CDATA[
+
+        <p>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust.</p>
 
 
 
@@ -119,11 +306,11 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</link>
+      <link>git@github.com:rubyworks/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</link>
 
       <pubDate>Wed, 23 Jun 2010 23:52:44 -0400</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#96484712fdacc6b9149def426ee2cabb981feba8</guid>
 
       <description><![CDATA[
 
@@ -131,7 +318,7 @@
 
 
 
-        <h2>10 General Enhancements</h2>
+        <h2>3 General Enhancements</h2>
 
         <ul class="log">
 
@@ -167,6 +354,39 @@
                        
 
           </li>
+
+
+        </ul>
+
+
+
+      ]]></description>
+
+    </item>
+
+
+
+    <item>
+
+      <title>1.6.0</title>
+
+      <author>7rans <transfire@gmail.com></author>
+
+      <link>git@github.com:rubyworks/vclog.git#7e44abdcdb427b5df53f3dfa389f3bcf6e274660</link>
+
+      <pubDate>Mon, 21 Jun 2010 21:39:38 -0400</pubDate>
+
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#7e44abdcdb427b5df53f3dfa389f3bcf6e274660</guid>
+
+      <description><![CDATA[
+
+        <p></p>
+
+
+
+        <h2>7 General Enhancements</h2>
+
+        <ul class="log">
 
 
           <li class="entry">
@@ -262,11 +482,11 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</link>
+      <link>git@github.com:rubyworks/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</link>
 
       <pubDate>Fri, 28 May 2010 18:03:28 -0400</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#e98c462405b0b9e5e93c14b3328b6af7aa566dd8</guid>
 
       <description><![CDATA[
 
@@ -388,65 +608,16 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</link>
+      <link>git@github.com:rubyworks/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</link>
 
       <pubDate>Wed, 26 May 2010 20:55:16 -0400</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#d41f152d7844008c28274071843ae4490e750f4a</guid>
 
       <description><![CDATA[
 
         <p>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).</p>
 
-
-
-        <h2>2 General Enhancements</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            add a canonical lib<br/>
-
-            7rans 2010-05-26 20:27:33
-
-                       
-
-          </li>
-
-
-          <li class="entry">
-
-            use xmlsimple for SVN support<br/>
-
-            7rans 2010-05-26 20:27:14
-
-                       
-
-          </li>
-
-
-        </ul>
-
-
-        <h2>1 Test Enhancements</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-             add first cucumber feature<br/>
-
-            7rans 2010-05-26 20:26:28
-
-                       
-
-          </li>
-
-
-        </ul>
 
 
         <h2>4 Bug Fixes</h2>
@@ -501,6 +672,55 @@
         </ul>
 
 
+        <h2>2 General Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            add a canonical lib<br/>
+
+            7rans 2010-05-26 20:27:33
+
+                       
+
+          </li>
+
+
+          <li class="entry">
+
+            use xmlsimple for SVN support<br/>
+
+            7rans 2010-05-26 20:27:14
+
+                       
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Test Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+             add first cucumber feature<br/>
+
+            7rans 2010-05-26 20:26:28
+
+                       
+
+          </li>
+
+
+        </ul>
+
+
 
       ]]></description>
 
@@ -514,11 +734,11 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</link>
+      <link>git@github.com:rubyworks/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</link>
 
       <pubDate>Mon, 08 Feb 2010 11:07:19 -0500</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
 
       <description><![CDATA[
 
@@ -618,16 +838,35 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</link>
+      <link>git@github.com:rubyworks/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</link>
 
       <pubDate>Mon, 26 Oct 2009 16:18:35 -0400</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
 
       <description><![CDATA[
 
         <p>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface.</p>
 
+
+
+        <h2>1 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fixed spelling of revision (from revison)<br/>
+
+            7rans 2009-10-26 15:38:39
+
+                       
+
+          </li>
+
+
+        </ul>
 
 
         <h2>5 General Enhancements</h2>
@@ -693,25 +932,6 @@
         </ul>
 
 
-        <h2>1 Bug Fixes</h2>
-
-        <ul class="log">
-
-
-          <li class="entry">
-
-            fixed spelling of revision (from revison)<br/>
-
-            7rans 2009-10-26 15:38:39
-
-                       
-
-          </li>
-
-
-        </ul>
-
-
 
       ]]></description>
 
@@ -725,11 +945,11 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</link>
+      <link>git@github.com:rubyworks/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</link>
 
       <pubDate>Fri, 23 Oct 2009 10:30:05 -0400</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
 
       <description><![CDATA[
 
@@ -857,11 +1077,11 @@
 
       <author>7rans <transfire@gmail.com></author>
 
-      <link>git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</link>
+      <link>git@github.com:rubyworks/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</link>
 
       <pubDate>Mon, 12 Oct 2009 11:40:15 -0400</pubDate>
 
-      <guid isPermaLink="false">git@github.com:proutils/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
+      <guid isPermaLink="false">git@github.com:rubyworks/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
 
       <description><![CDATA[
 

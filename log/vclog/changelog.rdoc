@@ -1,5 +1,25 @@
 = VCLog
 
+== 2010-11-20 7rans
+
+* better history file glob
+* fix syckle plugin
+* use message file for all adapters
+* add dryrun and debugging output to tag method
+* autotag needs a list of all changes
+
+== 2010-11-19 7rans
+
+* escape tag messages by using #inspect
+* support tag prefix option
+* fix tag method in subversion adapter
+* auto tagging needs to adjust date too
+* rename  command to
+* fix options as Hash instead of OpenStruct
+* update cli commands to use repo
+* add #tag method to adapters
+* use a Repo class as a central controller
+
 == 2010-06-27 7rans
 
 * replace --detail option with opposite --summary option

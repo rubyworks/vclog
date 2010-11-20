@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Module: VCLog::CLI</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/module.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
+</head>
+<body class="module">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/module.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">VCLog</a>&nbsp;
+      <a href="/">VCLog::CLI</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/vclog/cli/changelog_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/changelog.rb">lib/vclog/cli/changelog.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/help_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/help.rb">lib/vclog/cli/help.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/bump_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/bump.rb">lib/vclog/cli/bump.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/history_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/history.rb">lib/vclog/cli/history.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/version_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/version.rb">lib/vclog/cli/version.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/formats_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/formats.rb">lib/vclog/cli/formats.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/abstract_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/abstract.rb">lib/vclog/cli/abstract.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli/autotag_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli/autotag.rb">lib/vclog/cli/autotag.rb</a></li>
+          
+            <li class="file"><a href="../lib/vclog/cli_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/vclog/cli.rb">lib/vclog/cli.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+
+      <!-- Namespace Contents -->
+      
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li class="class"><a href="CLI/Abstract.html">VCLog::CLI::Abstract</a></li>
+          
+          <li class="class"><a href="CLI/Autotag.html">VCLog::CLI::Autotag</a></li>
+          
+          <li class="class"><a href="CLI/Bump.html">VCLog::CLI::Bump</a></li>
+          
+          <li class="class"><a href="CLI/Changelog.html">VCLog::CLI::Changelog</a></li>
+          
+          <li class="class"><a href="CLI/Formats.html">VCLog::CLI::Formats</a></li>
+          
+          <li class="class"><a href="CLI/Help.html">VCLog::CLI::Help</a></li>
+          
+          <li class="class"><a href="CLI/History.html">VCLog::CLI::History</a></li>
+          
+          <li class="class"><a href="CLI/Version.html">VCLog::CLI::Version</a></li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-factory">::factory</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-register">::register</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../VCLog.html">VCLog</a></li>
+        
+          <li class="module"><a href="../VCLog/Adapters.html">VCLog::Adapters</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Abstract.html">VCLog::Adapters::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Darcs.html">VCLog::Adapters::Darcs</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Git.html">VCLog::Adapters::Git</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Hg.html">VCLog::Adapters::Hg</a></li>
+        
+          <li class="class"><a href="../VCLog/Adapters/Svn.html">VCLog::Adapters::Svn</a></li>
+        
+          <li class="module"><a href="../VCLog/CLI.html">VCLog::CLI</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Abstract.html">VCLog::CLI::Abstract</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Autotag.html">VCLog::CLI::Autotag</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Bump.html">VCLog::CLI::Bump</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Changelog.html">VCLog::CLI::Changelog</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Formats.html">VCLog::CLI::Formats</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Help.html">VCLog::CLI::Help</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/History.html">VCLog::CLI::History</a></li>
+        
+          <li class="class"><a href="../VCLog/CLI/Version.html">VCLog::CLI::Version</a></li>
+        
+          <li class="class"><a href="../VCLog/Change.html">VCLog::Change</a></li>
+        
+          <li class="class"><a href="../VCLog/ChangeLog.html">VCLog::ChangeLog</a></li>
+        
+          <li class="class"><a href="../VCLog/Formatter.html">VCLog::Formatter</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics.html">VCLog::Heuristics</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Label.html">VCLog::Heuristics::Label</a></li>
+        
+          <li class="class"><a href="../VCLog/Heuristics/Rule.html">VCLog::Heuristics::Rule</a></li>
+        
+          <li class="class"><a href="../VCLog/History.html">VCLog::History</a></li>
+        
+          <li class="class"><a href="../VCLog/HistoryFile.html">VCLog::HistoryFile</a></li>
+        
+          <li class="module"><a href="../VCLog/Kernel.html">VCLog::Kernel</a></li>
+        
+          <li class="class"><a href="../VCLog/Metadata.html">VCLog::Metadata</a></li>
+        
+          <li class="class"><a href="../VCLog/Release.html">VCLog::Release</a></li>
+        
+          <li class="class"><a href="../VCLog/Repo.html">VCLog::Repo</a></li>
+        
+          <li class="class"><a href="../VCLog/Tag.html">VCLog::Tag</a></li>
+        
+          <li class="module"><a href="../Syckle.html">Syckle</a></li>
+        
+          <li class="module"><a href="../Syckle/Plugins.html">Syckle::Plugins</a></li>
+        
+          <li class="class"><a href="../Syckle/Plugins/VClog.html">Syckle::Plugins::VClog</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+
+      <h1>Command Line Interface</h1>
+<h2>SYNOPSIS</h2>
+<p>
+<a href="../VCLog.html">VCLog</a> provides cross-vcs ChangeLogs. It works
+by parsing the native changelog a VCS system produces into a common model,
+which then can be used to produce Changelogs in a variety of formats.
+</p>
+<p>
+<a href="../VCLog.html">VCLog</a> currently support git, hg and svn, with
+cvs and darcs in the works.
+</p>
+<h2>EXAMPLES</h2>
+<p>
+To produce a GNU-like changelog:
+</p>
+<pre>
+ $ vclog
+</pre>
+<p>
+For XML format:
+</p>
+<pre>
+ $ vclog -f xml
+</pre>
+<p>
+Or for a micorformat-ish HTML:
+</p>
+<pre>
+ $ vclog -f html
+</pre>
+<p>
+To use the library programmatically, please see the API documentation.
+</p>
+
+    </div>
+
+    <!-- Constants -->
+    
+
+    <!-- Attributes -->
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="factory-method" class="method-detail ">
+        <a name="method-c-factory"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">factory</span><span
+            class="method-args">(name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="factory-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vclog/cli.rb, line 61</span>
+61:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">name</span>)
+62:       <span class="ruby-comment cmt"># find the closet matching term</span>
+63:       <span class="ruby-identifier">terms</span> = <span class="ruby-identifier">register</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cli</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">terms</span> }.<span class="ruby-identifier">flatten</span>
+64:       <span class="ruby-identifier">term</span> = <span class="ruby-identifier">terms</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">term</span><span class="ruby-operator">|</span> <span class="ruby-node">/^#{name}/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">term</span> }.<span class="ruby-identifier">first</span>
+65:       <span class="ruby-comment cmt"># get the class that goes with the term</span>
+66:       <span class="ruby-identifier">cmdclass</span> = <span class="ruby-identifier">register</span>.<span class="ruby-identifier">find</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cli</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">terms</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">term</span>) }
+67:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unknown command -- #{name}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">cmdclass</span>
+68:       <span class="ruby-identifier">cmdclass</span>.<span class="ruby-identifier">new</span>
+69:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="register-method" class="method-detail ">
+        <a name="method-c-register"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">register</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="register-source">
+<pre>
+   <span class="ruby-comment cmt"># File lib/vclog/cli/abstract.rb, line 7</span>
+7:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">register</span>
+8:     <span class="ruby-ivar">@register</span> <span class="ruby-operator">||=</span> []
+9:   <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+
