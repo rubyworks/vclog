@@ -1,9 +1,8 @@
 --- 
 title    : VCLog
-suite    : proutils
+suite    : rubyworks
 summary  : Cross-VCS/SCM ChangeLog Generator
-copyright: Copyright (c) 2009 Thomas Sawyer
-license  : MIT
+license  : Apache 2.0
 contact  : trans <transfire@gmail.com>
 created  : 2006-05-09
 authors  : Thomas Sawyer
@@ -12,6 +11,8 @@ description:
   VCLog is a cross-VCS/SCM ChangeLog generator.
 
 resources:
-  homepage: http://proutils.github.com/vclog
-  repository: git://github.com/proutils/vclog.git
+  home: http://rubyworks.github.com/vclog
+  code: http://github.com/rubyworks/vclog
+  repo: git://github.com/proutils/vclog.git
 
+copyright: Copyright (c) 2009 Thomas Sawyer
