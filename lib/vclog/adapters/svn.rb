@@ -129,7 +129,10 @@ module Adapters
 
     #
     def tag(ref, label, date, message)
-      raise "SVN adapter does not support tagging (yet)"
+      #raise "SVN adapter does not support tagging (yet)"
+      Dir.chdir(root) do
+        `svn copy -r #{ref} . #{tag_directory}/#{label} -m "#{message.inspect}"`
+      end
     end
 
     private
