@@ -3,32 +3,37 @@
   <title><%= title %></title>
   <style>
     body{font-family: sans-serif;}
-    h1{ }
+    h1{ font-weight: normal; font-size: 4em; margin: 0 0; }
     h2{ color: #555; }
     li{padding: 10px;}
-    .changelog{width:800px; margin:0 auto;}
-    .title{font-size: 64px;}
-    .date{font-weight: bold; color: green; float: left; padding-right: 15px;}
-    .author{font-weight: bold; color: blue;}
-    .message{padding: 5 0; font-weight: bold;}
-    .revision{font-size: 0.8em;}
+    .main{width:800px; margin:0 auto;}
+    .commit{ padding: 10px 0px; }
+    .date{font-weight: normal; color: green; float: left; padding-right: 15px; font-size: 0.9em;}
+    .author{font-weight: normal; color: blue;}
+    .message{ padding: 5px 0; font-weight: normal; font-size: 1.1em; }
+    .revision{font-size: 0.7em; color: #aaa; }
   </style>
   <% if options.stylesheet %>
     <link rel="stylesheet" href="#{options.stylesheet}" type="text/css">
   <% end %>
 </head>
 <body>
-<h1><%= title %></h1>
-<div class="changelog">
-  <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
-  <div class="commit">
-    <div class="revision">#<%= h entry.revision %></div>
-    <div class="date"><%= entry.date %></div>
-    <div class="author"><%= h entry.author %></div>
-    <div class="type"><%= h entry.type %></div>
-    <div class="message"><%= h entry.message %></div>
-  </commit>
-  <% end %>
+<div class="main">
+  <h1><%= title %></h1>
+  <h2>&nbsp;Timeline</h2>
+  <div class="changelog">
+    <ul>
+    <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
+    <li class="commit">
+      <div class="date"><%= entry.date %></div>
+      <div class="author"><%= h entry.author %></div>
+      <div class="type"><%= h entry.type %></div>
+      <div class="message"><%= h entry.message %></div>
+      <div class="revision">#<%= h entry.revision %></div>
+    </li>
+    <% end %>
+    </ul>
+  </div>
 </div>
 </body>
 </html>

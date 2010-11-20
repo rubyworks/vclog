@@ -25,7 +25,7 @@ rdoc:
   service : RDoc
   template: redfish
   include : ~
-  exclude : [Syckfile, REQUIRE, VERSION, PROJECT]
+  exclude : [Syckfile, lib/vclog/templates]
   output  : site/doc/api
   active  : true
 

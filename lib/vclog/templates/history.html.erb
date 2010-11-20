@@ -6,7 +6,7 @@
     h1{ }
     h2{ color: #555; }
     li{padding: 10px;}
-    .changelog{width:800px; margin:0 auto;}
+    .main{width:800px; margin:0 auto;}
     .title{font-size: 64px;}
     .date{font-weight: bold; color: green; float: left; padding-right: 15px;}
     .author{font-weight: bold; color: blue;}
@@ -18,9 +18,9 @@
 <% end %>
 </head>
 <body>
-<div class="history">
+<div class="main">
   <div class="title"><%= title %></div>
-
+  <div class="history">
 <% history.releases.sort.each do |release| %>
 <%   tag = release.tag %>
 
@@ -47,6 +47,7 @@
 <%   end %>
 <% end %>
   </div>
+</div>
 </body>
 </html>
 
