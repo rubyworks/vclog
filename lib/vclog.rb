@@ -1,6 +1,5 @@
 module VCLog
-  require 'vclog/config'
-  require 'vclog/adapters'
+  require 'vclog/meta/data'
 end
 
 # VCLog Copyright (c) 2008 Thomas Sawyer
