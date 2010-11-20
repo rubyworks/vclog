@@ -4,3 +4,5 @@ log
 pkg
 tmp
 site/docs
+man/man1/*.html
+man/man1/*.1
