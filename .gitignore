@@ -3,6 +3,6 @@ ri
 log
 pkg
 tmp
-site/docs
+site/doc
 man/man1/*.html
 man/man1/*.1
