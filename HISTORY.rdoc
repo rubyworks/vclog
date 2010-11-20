@@ -1,6 +1,6 @@
 = RELEASE HISTORY
 
-== 1.8.0 / 2010-11-20
+== 1.8.0 / 2010-11-21
 
 Under the hood, VCLog now has a Repo class that acts as a central controller. This has improved the code base substantially and should could to do so as this new design is further embraced. This release also introdces a new `autotag` feature, which makes it possible to "reverse engineer" a Release History file. It will parse the entries from a HISTORY.* file and ensure that corresponding tags exists in the version control system.
 
