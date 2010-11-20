@@ -6,11 +6,14 @@ module VCLog
   #
   class HistoryFile
 
-    FILE = 'HISTORY.*'
+    FILE = '{HISTORY,HISTORY.*}'
 
     LINE = /^[=#]/
     VERS = /(\d+\.)+\d+/
     DATE = /(\d+\-)+\d+/
+
+    #
+    CASEFOLD = File::FNM_CASEFOLD
 
     # Release tags.
     attr :tags
@@ -21,7 +24,7 @@ module VCLog
         @file = source
         @root = File.dirname(source)
       elsif File.directory?(source)
-        @file = Dir.glob(File.join(source,FILE)).first
+        @file = Dir.glob(File.join(source,FILE), CASEFOLD).first
         @root = source
       else
         @file = Dir.glob(FILE).first
