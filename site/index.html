@@ -20,10 +20,12 @@
     li { padding: 2px; color: tan; }
     li a { color: tan; font-size: 1.1em; }
     pre { font-size: 0.8em; background: white; padding: 20px; -moz-border-radius: 5px; color: #222;
-          font-weight: bold; font-family: courier, monospace; }
+          font-weight: bold; font-family: courier, monospace; border: 2px solid tan; }
     code { font-family: courier, monospace; color: #ecc; }
+    img { border: none; background-color: white; border-color: white; }
 
-    .bash { width: 780px; padding: 10px; background-color: white; -moz-border-radius: 5px; }
+    .bash { width: 780px; padding: 10px; background-color: white; -moz-border-radius: 5px; 
+            border: 2px solid tan; }
     .menu { padding: 20px 20px 20px 0; text-align: center; background: #552200; }
     .head { height: 250px; text-align: center; border-top: 2px solid tan; border-bottom: 2px solid tan; }
     .title { text-align: left; margin: 0 auto; width: 800px; }
@@ -39,13 +41,13 @@
 <div class="nav">
   <div class="menu">
     <a href="http://rubygems.org/gems/vclog">Gem</a> &nbsp;&nbsp;
-    <a href="doc/api/index.html">API</a> &nbsp;&nbsp;
     <a href="doc/man/vclog.1.html">Manual</a> &nbsp;&nbsp;
-    <!-- <a href="qedoc/index.html">QEDocs</a> &nbsp;&nbsp; -->
+    <a href="doc/api/index.html">API</a> &nbsp;&nbsp;
+    <!-- <a href="doc/qed/index.html">QEDocs</a> &nbsp;&nbsp; -->
     <a href="http://googlegroups.com/group/rubyworks-mailinglist">Forum</a> &nbsp;&nbsp;
-    <a href="http://wiki.github.com/proutils/vclog">Wiki</a> &nbsp;&nbsp;
-    <a href="http://github.com/proutils/vclog/issues">Issue</a> &nbsp;&nbsp;
-    <a href="http://github.com/proutils/vclog">Code</a> &nbsp;&nbsp;
+    <a href="http://wiki.github.com/rubyworks/vclog">Wiki</a> &nbsp;&nbsp;
+    <a href="http://github.com/rubyworks/vclog/issues">Issue</a> &nbsp;&nbsp;
+    <a href="http://github.com/rubyworks/vclog">Code</a> &nbsp;&nbsp;
   </div>
 </div>
 
@@ -65,11 +67,15 @@
 
   <p>How about a Change Log in glorious technicolor:</p>
 
-  <img src="assets/vclog-changelog.png" class="bash" />
+  <div class="bash">
+    <img src="assets/vclog-changelog.png" />
+  </div>
 
   <p>Or a Release History to make you feel like a schoold girl with a box of crayons.</p>
 
-  <img src="assets/vclog-history.png"   class="bash" />
+  <div class="bash">
+    <img src="assets/vclog-history.png" />
+  </div>
 
   <!--<p><a href="assets/vclog.flv">Watch Flash Movie</a></p>-->
 
@@ -196,6 +202,17 @@
 
   <br/>
 
+  <h2>Development</h2>
+
+  <p>VCLog's code repository is hosted on <a href="http://github.com">GitHub</a>.</p>
+
+  <p>
+  <b>Logs:</b>
+  &nbsp; <a href="log/stats/index.html">Code Stats</a> &nbsp;
+         <a href="log/dnote/index.html">Todo Notes</a>
+  </p>
+
+  <br/><br/><br/>
   </div>
 </div>
 
