@@ -4,8 +4,8 @@ email:
   file    : ~
   subject : ~
   mailto  :
-   - proutils@googlegroups.com
    - ruby-talk@ruby-lang.org
+   - rubyworks-mailinglist@googlegroups.com
   active  : true
 
 gemcutter:
@@ -26,12 +26,14 @@ rdoc:
   template: redfish
   include : ~
   exclude : [Syckfile, REQUIRE, VERSION, PROJECT]
+  output  : site/doc/api
   active  : true
 
 ridoc:
   service : RIDoc
   include : ~
   exclude : ~
+  output  : ri
   active  : true
 
 dnote:
@@ -62,4 +64,12 @@ vclog-changelog:
   format   : atom, rss, rdoc, html
   output   : ~
   active   : true
+
+ronn:
+  service  : custom
+  cycle    : main
+  document : |
+    system 'ronn --manual="VCLog" --organization="RubyWorks" --style="toc" doc/ronn/*.ronn'
+    system 'mv doc/ronn/*.1 man/man1/'
+    system 'mv doc/ronn/*.html site/doc/man/'
 
