@@ -57,7 +57,7 @@ module Adapters
     #
     def tag(ref, label, date, msg)
        date = date.strftime('%y-%m-%d') unless String===date
-      `hg tag -r #{ref} -d #{date} -m "#{msg}" #{label}`
+      `hg tag -r #{ref} -d #{date} -m "#{msg.inspect}" #{label}`
     end
 
     private
