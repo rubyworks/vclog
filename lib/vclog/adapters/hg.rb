@@ -56,8 +56,10 @@ module Adapters
 
     #
     def tag(ref, label, date, msg)
-       date = date.strftime('%y-%m-%d') unless String===date
-      `hg tag -r #{ref} -d #{date} -m "#{msg.inspect}" #{label}`
+      date = date.strftime('%y-%m-%d') unless String===date
+      cmd  = %[hg tag -r #{ref} -d #{date} -m "#{msg.inspect}" #{label}]
+      puts cmd if $DEBUG
+      `#{cmd}` unless $DRYRUN
     end
 
     private

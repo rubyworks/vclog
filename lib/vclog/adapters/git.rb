@@ -123,6 +123,7 @@ module Adapters
       mfile = Tempfile.new("message")
       mfile.open{ |f| f << message }
       date  = date.strftime('%Y-%m-%d 23:59') unless String===date
+
       cmd = %[GIT_AUTHOR_DATE='#{date}' GIT_COMMITTER_DATE='#{date}' git tag -a -F '#{mfile.path}' #{label} #{ref}]
       puts cmd if $DEBUG
       `#{cmd}` unless $DRYRUN
