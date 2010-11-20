@@ -109,7 +109,7 @@ module VCLog
           chg = adapter.change_by_date(tag.date)
           if chg
             if force? or ask_yn(new_tag_message(tag) + "\nCreate tag? [yN] ")
-              adapter.tag(chg.rev, tag, desc)
+              adapter.tag(chg.rev, tag.name, tag.date, tag.message)
             end
           else
             puts "No commit found for #{tag.name} #{tag.date.strftime('%y-%m-%d')}."

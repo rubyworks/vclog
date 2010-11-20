@@ -128,7 +128,7 @@ module Adapters
     end
 
     #
-    def tag(ref, label, message)
+    def tag(ref, label, date, message)
       raise "SVN adapter does not support tagging (yet)"
     end
 

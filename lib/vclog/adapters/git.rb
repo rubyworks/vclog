@@ -116,8 +116,9 @@ module Adapters
     end
 
     # Create a tag for the given commit reference.
-    def tag(ref, label, message)
-      `git tag -a #{label} -m "#{message} #{ref}"`
+    def tag(ref, label, date, message)
+      date = date.strftime('%y-%m-%d') unless String===date
+      `GIT_COMMITTER_DATE="#{date}" git tag -a #{label} -m "#{message}" #{ref}`
     end
 
   end#class Git
