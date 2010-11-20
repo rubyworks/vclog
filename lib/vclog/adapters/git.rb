@@ -1,4 +1,5 @@
 require 'vclog/adapters/abstract'
+require 'tempfile'
 
 module VCLog
 module Adapters
@@ -7,8 +8,9 @@ module Adapters
   #
   class Git < Abstract
 
+    # TODO: in the future we might use grit, if it improves enough.
     def initialize_framework
-      require 'grit'
+      #require 'grit'
     end
 
     #
@@ -90,35 +92,40 @@ module Adapters
       list
     end
 
-    # TODO
+    # TODO: grit doesn't provide the tag information.
     #def extract_tags
-    #  repo.tags.map do |tag|
-    #    [tag.name, tag.commit.id, tag.commit.date, tag.commit.author.to_s, tag.commit.message]
+    #  list = grit_repo.tags.map do |tag|
+    #    [tag.name, tag.commit.id, tag.commit.committed_date, tag.commit.author.to_s, tag.commit.message]
     #  end
+    #  list
     #end
 
     #
     def user
-      @user ||= grit_repo.config['user.name']
-      #@user ||= `git config user.name`.strip
+      #@user ||= grit_repo.config['user.name']
+      @user ||= `git config user.name`.strip
     end
 
     #
     def email
-      @email ||= grit_repo.config['user.email']
-      #@email ||= `git config user.email`.strip
+      #@email ||= grit_repo.config['user.email']
+      @email ||= `git config user.email`.strip
     end
 
     #
     def repository
-      @repository ||= grit_repo.config['remote.origin.url']
-      #@repository ||= `git config remote.origin.url`.strip
+      #@repository ||= grit_repo.config['remote.origin.url']
+      @repository ||= `git config remote.origin.url`.strip
     end
 
     # Create a tag for the given commit reference.
     def tag(ref, label, date, message)
-      date = date.strftime('%y-%m-%d') unless String===date
-      `GIT_COMMITTER_DATE="#{date}" git tag -a #{label} -m "#{message.inspect}" #{ref}`
+      mfile = Tempfile.new("message")
+      mfile.open{ |f| f << message }
+      date  = date.strftime('%Y-%m-%d 23:59') unless String===date
+      cmd = %[GIT_AUTHOR_DATE='#{date}' GIT_COMMITTER_DATE='#{date}' git tag -a -F '#{mfile.path}' #{label} #{ref}]
+      puts cmd if $DEBUG
+      `#{cmd}` unless $DRYRUN
     end
 
   end#class Git

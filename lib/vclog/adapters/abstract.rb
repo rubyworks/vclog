@@ -25,7 +25,7 @@ module Adapters
     # Heuristics object.
     attr :heuristics
 
-    # Minimu change level.
+    # Minimum change level.
     attr :level
 
     #
@@ -62,17 +62,23 @@ module Adapters
     #
     # TODO: possbile to move heuristics lookup into Change class?
     def changes
-      @changes ||= (
+      @changes ||= all_changes.select do |c|
+        c.level >= self.level
+      end
+    end
+
+    #
+    def all_changes
+      @all_changes ||= (
         changes = []
         extract_changes.each do |c|
           raise "how did this happen?" if Change == c
           rev, date, who, msg = *c
           type, level, label, nmsg = *heuristics.lookup(msg)
-          next if level < self.level
           changes << Change.new(rev, date, who, nmsg||msg, type, level, label)
         end
         changes
-      )
+      )     
     end
 
     #
@@ -158,8 +164,8 @@ module Adapters
 
     # Return the latest commit as of a given date.
     def change_by_date(date)
-      list = changes.select{ |c| c.date <= date }
-      list.sort_by{ |c| c.date }.first
+      list = all_changes.select{ |c| c.date <= date }
+      list.sort_by{ |c| c.date }.last
     end
 
   private

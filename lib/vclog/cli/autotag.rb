@@ -22,6 +22,7 @@ module CLI
         opt.separator("SPECIAL OPTIONS:")
         opt.on('--prefix', '-p', 'tag label prefix'){ options[:prefix] = true }
         opt.on('--force', '-f', 'perform tagging without confirmation'){ options[:force] = true }
+        opt.on('--dryrun', '-n', 'run in dryrun mode'){ $DRYRUN = true }
       end
     end
 
