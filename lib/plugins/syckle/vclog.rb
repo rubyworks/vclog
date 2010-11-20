@@ -135,18 +135,19 @@ module Syckle::Plugins
     #  )
     #end
 
-    def vclog_config
-      @vclog_config ||= (
-        vcf = VCLog::Config.new(project.root.to_s)
-        vcf.level = level
-        vcf
-      )
-    end
+    #def vclog_config
+    #  @vclog_config ||= (
+    #    vcf = VCLog::Config.new(project.root.to_s)
+    #    vcf.level = level
+    #    vcf
+    #  )
+    #end
 
     # Access to version control system.
     def vcs
       #@vcs ||= VCLog::VCS.new #(self)
-      @vcs ||= VCLog::Adapters.factory(vclog_config)
+      #@vcs ||= VCLog::Adapters.factory(vclog_config)
+      @vcs ||= VCLog::Repo.new(project.root.to_s, :level=>level)
     end
 
     # Convert log to desired format.
