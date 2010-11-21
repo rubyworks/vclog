@@ -9,8 +9,8 @@ module VCLog
     FILE = '{HISTORY,HISTORY.*}'
 
     LINE = /^[=#]/
-    VERS = /(\d+\.)+\d+/
-    DATE = /(\d+\-)+\d+/
+    VERS = /(\d+[._])+\d+/
+    DATE = /(\d+[-])+\d+/
 
     #
     CASEFOLD = File::FNM_CASEFOLD
