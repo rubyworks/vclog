@@ -12,8 +12,17 @@ the version control system.
 
 ## OPTIONS
 
-  * `--force`, `-f`
-    Creatie tags without asking for confirmation.
+  * `--force`, `-y`
+    Create tags without asking for confirmation.
+
+  * `--prefix`, `-p PREFIX`
+    Specify a prefix to add to version tags. Typically
+    this will be the letter 'v'.
+
+  * `--file`, `-f FILE`
+    Specify a specific history file to use. This is useful
+    is the history file does not conform to the usual naming
+    convention of `HISTORY.*`.
 
 ## SEE ALSO
 
