@@ -1,5 +1,4 @@
 require 'vclog/adapters/abstract'
-require 'tempfile'
 
 module VCLog
 module Adapters
@@ -27,9 +26,9 @@ module Adapters
       #changes = changelog.split(/^commit/m)
       changes.shift # throw the first (empty) entry away
       changes.each do |entry|
-        date, who, rev, msg = entry.split('|~|')
+        date, who, id, msg = entry.split('|~|')
         date = Time.parse(date)
-        list << [rev, date, who, msg]
+        list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg)
       end
       list
     end
@@ -66,20 +65,21 @@ module Adapters
           info.lines.to_a[1..-1].each do |line|
             case line
             when /^Tagger:/
-              who  = $'
+              who  = $'.strip
             when /^Date:/
-              date = $'
+              date = $'.strip
             else
               msg << line
             end
           end
           msg = msg.strip
           info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
-          date, rev, *_ = *info.split('|~|')
+          cdate, id, *_ = *info.split('|~|')
         else
           info = `git show #{tag} --pretty=format:"%cn|~|%ce|~|%ci|~|%H|~|%s|~|"`
-          who, email, date, rev, msg, *_ = *info.split('|~|')
-          who = who + ' ' + email
+          who, email, cdate, id, msg, *_ = *info.split('|~|')
+          who  = who + ' ' + email
+          date = cdate
         end          
 
         #if $DEBUG
@@ -87,7 +87,7 @@ module Adapters
         #  puts
         #end
 
-        list << [tag, rev, date, who, msg]
+        list << Tag.new(:name=>tag, :date=>date, :who=>who, :msg=>msg, :commit_id=>id, :commit_date=>cdate)
       end
       list
     end
@@ -120,12 +120,10 @@ module Adapters
 
     # Create a tag for the given commit reference.
     def tag(ref, label, date, message)
-      mfile = Tempfile.new("message")
-      mfile.open{ |f| f << message }
+      file = tempfile("message", message)
+      date = date.strftime('%Y-%m-%d 23:59') unless String===date
 
-      date  = date.strftime('%Y-%m-%d 23:59') unless String===date
-
-      cmd = %[GIT_AUTHOR_DATE='#{date}' GIT_COMMITTER_DATE='#{date}' git tag -a -F '#{mfile.path}' #{label} #{ref}]
+      cmd = %[GIT_AUTHOR_DATE='#{date}' GIT_COMMITTER_DATE='#{date}' git tag -a -F '#{file}' #{label} #{ref}]
       puts cmd if $DEBUG
       `#{cmd}` unless $DRYRUN
     end

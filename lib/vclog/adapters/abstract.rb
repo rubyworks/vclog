@@ -3,6 +3,7 @@ module Adapters
 
   require 'time'
   require 'pathname'
+  require 'tempfile'
 
   require 'vclog/formatter'
   require 'vclog/changelog'
@@ -56,7 +57,7 @@ module Adapters
 
     #
     def tags
-      @tags ||= extract_tags.map{ |t| Tag===t ? t : Tag.new(*t) }
+      @tags ||= extract_tags
     end  
 
     #
@@ -71,11 +72,13 @@ module Adapters
     def all_changes
       @all_changes ||= (
         changes = []
-        extract_changes.each do |c|
-          raise "how did this happen?" if Change == c
-          rev, date, who, msg = *c
-          type, level, label, nmsg = *heuristics.lookup(msg)
-          changes << Change.new(rev, date, who, nmsg||msg, type, level, label)
+        extract_changes.each do |change|
+          #raise "how did this happen?" if Change == c
+          #rev, date, who, msg = *c
+          #type, level, label, nmsg = *heuristics.lookup(msg)
+          #Change.new(rev, date, who, nmsg||msg, type, level, label)
+          change.apply_heuristics(heuristics)
+          changes << change 
         end
         changes
       )     
@@ -173,6 +176,13 @@ module Adapters
     #
     def version_tag?(tag_name)
       /(v|\d)/i =~ tag_name
+    end
+
+    #
+    def tempfile(name, content)
+      mfile = Tempfile.new(name)
+      File.open(mfile.path, 'w'){ |f| f << content }
+      mfile.path
     end
 
 =begin

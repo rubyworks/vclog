@@ -9,19 +9,18 @@ module Adapters
   class Hg < Abstract
 
     # Collect changes.
-    #
     def extract_changes
       list = []
       changelog = `hg log -v`.strip
       changes = changelog.split("\n\n\n")
       changes.each do |entry|
-        list << parse_entry(entry)
+        id, date, who, msg = *parse_entry(entry)
+        list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg)
       end
       list
     end
 
     # Collect tags.
-    #
     def extract_tags
       list = []
       if File.exist?('.hgtags')
@@ -29,7 +28,7 @@ module Adapters
           rev, tag = line.strip.split(' ')
           entry = `hg log -v -r #{rev}`.strip
           rev, date, who, msg, type = parse_entry(entry)
-          list << [tag, rev, date, who, msg]
+          list << Tag.new(:name=>tag, :id=>rev, :date=>date, :who=>who, :msg=>msg)
         end
       end
       list
@@ -57,12 +56,10 @@ module Adapters
 
     # TODO: Will multi-line messages work okay this way?
     def tag(ref, label, date, msg)
-      mfile = Tempfile.new("message")
-      mfile.open{ |f| f << msg }
-
+      file = tempfile("message", msg)
       date = date.strftime('%Y-%m-%d') unless String===date
 
-      cmd  = %[hg tag -r #{ref} -d #{date} -m "$(cat #{mfile.path})" #{label}]
+      cmd  = %[hg tag -r #{ref} -d #{date} -m "$(cat #{file})" #{label}]
 
       puts cmd if $DEBUG
       `#{cmd}` unless $DRYRUN

@@ -21,7 +21,7 @@ module Adapters
       super(root)
     end
 
-    #
+    # Extract changes.
     def extract_changes
       log = []
 
@@ -41,13 +41,13 @@ module Adapters
 
         date = Time.parse(date)
 
-        log << [rev, date, who, msg]
+        log << Change.new(:id=>rev, :date=>date, :who=>who, :msg=>msg)
       end
 
       log
     end
 
-    #
+    # Extract tags.
     def extract_tags
       list = []
       tagdir = tag_directory
@@ -78,7 +78,7 @@ module Adapters
         msg  = [commit["msg"]].flatten.compact.join('').strip
         date = [commit["date"]].flatten.compact.join('').strip
 
-        list << [name, rev, date, who, msg]
+        list << Tag.new(:name=>name, :id=>rev, :date=>date, :who=>who, :msg=>msg)
       end
       list
     end
@@ -127,10 +127,9 @@ module Adapters
       info['Repository UUID']
     end
 
-    #
+    # TODO: Need to effect svn tag date. How?
     def tag(ref, label, date, message)
-      mfile = Tempfile.new("message")
-      mfile.open{ |f| f << message }
+      file = tempfile("message", message)
 
       Dir.chdir(root) do
         cmd = %[svn copy -r #{ref} -F "#{mfile.path}" . #{tag_directory}/#{label}]
