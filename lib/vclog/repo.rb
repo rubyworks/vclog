@@ -97,7 +97,7 @@ module VCLog
 
     # Access to Repo's HISTORY file.
     def history_file
-      @history_file ||= HistoryFile.new(root)
+      @history_file ||= HistoryFile.new(options[:history_file] || root)
     end
 
     # Read history file and make a commit tag for any release not already

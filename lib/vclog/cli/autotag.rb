@@ -21,7 +21,8 @@ module CLI
         opt.separator(" ")
         opt.separator("SPECIAL OPTIONS:")
         opt.on('--prefix', '-p', 'tag label prefix'){ options[:prefix] = true }
-        opt.on('--force', '-f', 'perform tagging without confirmation'){ options[:force] = true }
+        opt.on('--file'  , '-f FILE', 'specify history file'){ options[:history_file] = file }
+        opt.on('--force' , '-y', 'perform tagging without confirmation'){ options[:force] = true }
         opt.on('--dryrun', '-n', 'run in dryrun mode'){ $DRYRUN = true }
       end
     end
