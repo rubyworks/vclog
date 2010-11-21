@@ -71,9 +71,9 @@ module VCLog
 
         #ver  = vcs.bump(version)
         user = vcs.user
-        time = ::Time.now
+        time = ::Time.now + (3600 * 24) # one day ahead
 
-        tags << Tag.new(nil, 'current', time, user, "Current Development")
+        tags << Tag.new(:name=>'HEAD', :id=>'HEAD', :date=>time, :who=>user, :msg=>"Current Development")
 
         # TODO: Do we need to add a Time.now tag?
         # add current verion to release list (if given)
@@ -91,8 +91,8 @@ module VCLog
         delta = []
         last  = nil
         tags.each do |tag|
-          delta << [tag, [last, tag.date]]
-          last = tag.date
+          delta << [tag, [last, tag.commit_date]]
+          last = tag.commit_date
         end
         # gather changes for each delta
         delta.each do |tag, (started, ended)|

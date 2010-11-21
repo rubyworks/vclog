@@ -2,15 +2,15 @@ require 'vclog/kernel'
 
 module VCLog
 
-  # = Change Log Entry class
+  # The Change class models an extry in a change log.
   #
   class Change
 
     include Comparable
 
-    attr_accessor :author
+    attr_accessor :id
     attr_accessor :date
-    attr_accessor :revision
+    attr_accessor :author
     attr_accessor :message
 
     attr_accessor :type
@@ -18,14 +18,10 @@ module VCLog
     attr_accessor :label
 
     #
-    def initialize(rev, date, author, message, type, level, label)
-      self.revision = rev
-      self.date     = date
-      self.author   = author
-      self.message  = message
-      self.type     = type
-      self.level    = level
-      self.label    = label
+    def initialize(data={}) #rev, date, author, message, type, level, label
+      data.each do |k,v|
+        __send__("#{k}=", v)
+      end
     end
 
     #
@@ -33,9 +29,28 @@ module VCLog
       @author = author.strip
     end
 
-    # Alternate name for revision.
-    alias_method :rev,  :revision
-    alias_method :rev=, :revision=
+    #
+    def date=(date)
+      @date = parse_date(date)
+    end
+
+    # Alternate name for id.
+    alias_method :rev,  :id
+    alias_method :rev=, :id=
+
+    # Alternate name for id.
+    alias_method :revision,  :id
+    alias_method :revision=, :id=
+
+    # Alternate name for message.
+    alias_method :msg,  :message
+    alias_method :msg=, :message=
+
+
+    # Alias for author.
+    alias_method :who,  :author
+    alias_method :who=, :author=
+
 
     #def clean_type(type)
     #  case type.to_s
@@ -94,6 +109,15 @@ module VCLog
     #  to_h.to_yaml(*args)
     #end
 
+    def apply_heuristics(heuristics)
+      type, level, label, msg = *heuristics.lookup(message)
+
+      self.type    = type
+      self.level   = level
+      self.label   = label
+      self.message = msg || @message
+    end
+
 =begin
     # Looks for a "[type]" indicator at the end of the commit message.
     # If that is not found, it looks at front of message for
@@ -118,6 +142,17 @@ module VCLog
     end
 =end
 
-  end #class Entry
+    private
+
+    def parse_date(date)
+      case date
+      when Time
+        date
+      else
+        Time.parse(date.to_s)
+      end
+    end
+
+  end
 
 end

@@ -55,7 +55,7 @@ module VCLog
         index = desc.index(/^Changes:/) || desc.index(/^\*/) || desc.size
         desc = desc[0...index].strip.fold
         #[vers, date, desc]
-        Tag.new(vers, nil, date, nil, desc)
+        Tag.new(:name=>vers, :date=>date, :msg=>desc)
       end
     end
 

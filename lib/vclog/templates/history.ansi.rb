@@ -8,7 +8,12 @@ history.releases.sort.each do |release|
 
   tag = release.tag
 
-  out << "\n#{tag.name} / #{tag.date.strftime('%Y-%m-%d')}".ansi(:bold)
+  # TODO: support verbose option
+  #if verbose?
+  #  out << "\n#{tag.name} / #{tag.date.strftime('%Y-%m-%d %H:%M')}".ansi(:bold)
+  #else
+    out << "\n#{tag.name} / #{tag.date.strftime('%Y-%m-%d')}".ansi(:bold)
+  #end
 
   out << "\n#{tag.message.strip} (#{tag.author})"
 
