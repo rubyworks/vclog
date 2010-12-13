@@ -23,7 +23,7 @@ box:
 
 rdoc:
   service : RDoc
-  template: redfish
+  template: newfish
   include : ~
   exclude : [Syckfile, lib/vclog/templates]
   output  : site/doc/api

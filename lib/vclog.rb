@@ -1,5 +1,5 @@
 module VCLog
-  require 'vclog/meta/data'
+  require 'vclog/metadata'
   require 'vclog/repo'
 end
 
