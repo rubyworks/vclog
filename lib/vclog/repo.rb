@@ -65,13 +65,14 @@ module VCLog
     end
 
     # Find project root. This searches up from the current working
-    # directory for a vclog configuration file or source control manager file:
+    # directory for a vclog configuration file or source control 
+    # manager file:
     #
     #   .vclog
-    #   .config/vclog
-    #   config/vclog
-    #   task/vclog
-    #   tasks/vclog
+    #   .config/vclog[.rb]
+    #   config/vclog[.rb]
+    #   task/vclog[.rb]
+    #   tasks/vclog[.rb]
     #   .git/
     #   .hg/
     #   .svn/
@@ -97,7 +98,7 @@ module VCLog
 
     # Heurtistics script.
     def heuristics_file
-      @heuristics_file ||= Dir[File.join(root, CONFIG_GLOB].first
+      @heuristics_file ||= Dir[File.join(root, CONFIG_GLOB)].first
     end
 
     # Access to Repo's HISTORY file.
