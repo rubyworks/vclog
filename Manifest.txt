@@ -74,7 +74,9 @@ ronn/vclog-changelog.ronn
 ronn/vclog-history.ronn
 ronn/vclog-version.ronn
 ronn/vclog.ronn
-HISTORY.rdoc
-LICENSE
+Profile
 README.rdoc
-VERSION
+Apache2.txt
+History.rdoc
+Version
+COPYING.rdoc

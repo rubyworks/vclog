@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 set :major,  1, "Major Enhancements"
 set :bug,    0, "Bug Fixes"
 set :minor, -1, "Minor Enhancements"

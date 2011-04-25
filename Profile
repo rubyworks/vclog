@@ -1,6 +1,6 @@
 --- 
 title    : VCLog
-comapny  : rubyworks
+company  : Rubyworks
 summary  : Cross-VCS/SCM ChangeLog Generator
 license  : Apache 2.0
 contact  : trans <transfire@gmail.com>
