@@ -62,8 +62,12 @@ level only bump the patch level.
 
 === Writing Heuristics
 
-In your projects .vclog/rules.rb or .config/vclog/rules.rb file, you
-can create rules for labeling commit messages bassed on commit message.
+You can create custom heuristics for your project in a vclog configuration
+file. VCLog will look for a `.vclog` file or a `vclog` file in `.config/`,
+`config/`, `task/` or tasks/` directory (the file can optionally end in `.rb`).
+
+In the file you define rules in Ruby script for labeling commits based
+on the commit message.
 
   on /updated? (README|VERSION|MANIFEST)/ do
     :admin

@@ -10,10 +10,10 @@ module VCLog
     %w{display}.each{ |name| undef_method(name) }
 
     # File glob used to find project root directory.
-    ROOT_GLOB = '{.vclog/,.config/vclog/,config/vclog/,.git/,.hg/,_darcs/,README*}/'
+    ROOT_GLOB = '{.git/,.hg/,_darcs/,.svn/}'
 
     # File glob used to find the vclog configuration directory.
-    CONFIG_GLOB = '{.vclog,.config/vclog,config/vclog}/'
+    CONFIG_GLOB = '{.,.config/,config/,task/,tasks/}vclog{,.rb}'
 
     # Project's root directory.
     attr :root
@@ -30,7 +30,7 @@ module VCLog
       @root    = root || lookup_root
       @options = options
 
-      @config_directory = Dir[File.join(@root, CONFIG_GLOB)]
+      #@config_directory = Dir[File.join(@root, CONFIG_GLOB)]
 
       @level = (options[:level] || 0).to_i
 
@@ -46,9 +46,9 @@ module VCLog
     end
 
     #
-    def config_directory
-      @config_directory
-    end
+    #def config_directory
+    #  @config_directory
+    #end
 
     #
     def force?
@@ -59,24 +59,29 @@ module VCLog
     def read_type
       dir = nil
       Dir.chdir(root) do
-        dir = Dir.glob("{.svn,.git,.hg,_darcs}").first
+        dir = Dir.glob("{.git,.hg,.svn,_darcs}").first
       end
       dir[1..-1] if dir
     end
 
     # Find project root. This searches up from the current working
-    # directory for the following paths (in order):
+    # directory for a vclog configuration file or source control manager file:
     #
-    #   .vclog/
-    #   .config/vclog/
-    #   config/vclog/
-    #   .git/|.hg/|_darcs/
-    #   README*
+    #   .vclog
+    #   .config/vclog
+    #   config/vclog
+    #   task/vclog
+    #   tasks/vclog
+    #   .git/
+    #   .hg/
+    #   .svn/
+    #   _darcs/
     #
+    # If all else fails the current directory is returned.
     def lookup_root(dir)
       root = nil
       Dir.ascend(dir || Dir.pwd) do |path|
-        check = Dir[ROOT_GLOB].first
+        check = Dir[CONFIG_GLOB].first || Dir[ROOT_GLOB].first
         if check
           root = path 
           break
@@ -92,7 +97,7 @@ module VCLog
 
     # Heurtistics script.
     def heuristics_file
-      @heuristics_file ||= Dir[File.join(config_directory, 'rules.rb')].first
+      @heuristics_file ||= Dir[File.join(root, CONFIG_GLOB].first
     end
 
     # Access to Repo's HISTORY file.
