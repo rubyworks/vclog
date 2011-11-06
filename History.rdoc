@@ -1,5 +1,19 @@
 = RELEASE HISTORY
 
+== 1.8.2 / 2011-11-06
+
+This release changes the way in which vclog is configured to use the Confection
+gem. This means VCLog custom configuration for a project must go in a `vclog do`
+block in the `.co.rb` project file. In addtion this release brings the build
+config up to date and switches the project over to the BSD-2-Clause license.
+
+Changes:
+
+* Use Confection gem for cusomt configs.
+* Modernize build config for latest tools.
+* Switch to BSD-2-Clause license.
+
+
 == 1.8.1 / 2010-11-22
 
 This release corrects the tag dates on Histories. Where possible the tag date is used rather than the commit date (of the most recent commit made relative to the tag). Primarily this effects git repositories --a separate tag date is not supported by all SCMs. This release also fixes a bug in the hg adapter that prevented auto-tagging.
