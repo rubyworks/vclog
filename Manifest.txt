@@ -1,4 +1,4 @@
-#!mast -x Syckfile -x PROFILE .ruby bin features lib man ronn test [A-Z]*
+#!mast .ruby .yardopts bin features lib man spec test [A-Z]*.*
 .ruby
 bin/vclog
 features/git.feature
@@ -61,22 +61,19 @@ lib/vclog/templates/history.rss.erb
 lib/vclog/templates/history.xml.erb
 lib/vclog/templates/history.yaml.rb
 lib/vclog.rb
+man/man1/index.txt
 man/man1/vclog-autotag.1
+man/man1/vclog-autotag.1.ronn
 man/man1/vclog-bump.1
+man/man1/vclog-bump.1.ronn
 man/man1/vclog-changelog.1
+man/man1/vclog-changelog.1.ronn
 man/man1/vclog-history.1
+man/man1/vclog-history.1.ronn
 man/man1/vclog-version.1
+man/man1/vclog-version.1.ronn
 man/man1/vclog.1
-ronn/index.txt
-ronn/vclog-autotag.ronn
-ronn/vclog-bump.ronn
-ronn/vclog-changelog.ronn
-ronn/vclog-history.ronn
-ronn/vclog-version.ronn
-ronn/vclog.ronn
-Profile
+man/man1/vclog.1.ronn
 README.rdoc
-Apache2.txt
 History.rdoc
-Version
 COPYING.rdoc

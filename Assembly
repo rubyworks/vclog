@@ -1,0 +1,36 @@
+---
+email:
+  mailto:
+   - ruby-talk@ruby-lang.org
+   - rubyworks-mailinglist@googlegroups.com
+
+gem:
+  active: true
+
+github:
+  folder: pages
+
+dnote:
+  output: log/notes.html
+
+locat:
+  output: log/locat.html
+
+vclog:
+  output:
+    - log/history.html
+    - log/changes.html
+
+ronn:
+  service  : custom
+  cycle    : main
+  document : |
+    system 'ronn --manual="VCLog" --organization="RubyWorks" --style="toc" man/man1/*.ronn'
+    system 'cp man/man1/*.html pages/man/'
+
+#ronn:
+#  path: man/man1/*.ronn
+#  title: VCLog
+#  style: toc
+#  organization: Rubyworks
+

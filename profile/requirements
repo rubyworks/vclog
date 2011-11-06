@@ -1,0 +1,6 @@
+---
+- facets 2.4+
+- ansi 1.2+
+- detroit  (build)
+- cucumber (test)
+- aruba    (test)

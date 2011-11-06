@@ -1,44 +1,47 @@
---- 
-spec_version: 1.0.0
-name: vclog
-title: VCLog
-respositories: 
-  public: git://github.com/proutils/vclog.git
-licenses:
-- Apache 2.0
-contact: trans <transfire@gmail.com>
-resources: 
-  code: http://github.com/rubyworks/vclog
-  home: http://rubyworks.github.com/vclog
-requires: 
-- group: []
-
-  name: facets
+---
+source:
+- profile
+authors:
+- name: Trans
+  email: transfire@gmail.com
+copyrights:
+- holder: Rubyworks
+  year: '2009'
+  license: BSD-2-Clause
+replacements: []
+alternatives: []
+requirements:
+- name: facets
   version: 2.4+
-- group: []
-
-  name: ansi
+- name: ansi
   version: 1.2+
-- group: 
+- name: detroit
+  groups:
   - build
-  name: syckle
-  version: 0+
-- group: 
+  development: true
+- name: cucumber
+  groups:
   - test
-  name: cucumber
-  version: 0+
-- group: 
+  development: true
+- name: aruba
+  groups:
   - test
-  name: aruba
-  version: 0+
-maintainers: 
-- Trans <transfire@gmail.com>
-manifest: Manifest.txt
-version: 1.8.2
-copyright: Copyright (c) 2009 Thomas Sawyer
-organization: Rubyworks
-description: VCLog is a cross-VCS/SCM ChangeLog generator.
-authors: 
-- Thomas Sawyer (trans)
+  development: true
+dependencies: []
+conflicts: []
+repositories: []
+resources:
+  home: http://rubyworks.github.com/vclog
+  code: http://github.com/rubyworks/vclog
+extra: {}
+load_path:
+- lib
+revision: 0
+created: '2006-05-09'
 summary: Cross-VCS/SCM ChangeLog Generator
-created: 2006-05-09
+title: VCLog
+version: 1.8.2
+name: vclog
+description: VCLog is a cross-VCS/SCM ChangeLog generator.
+organization: Rubyworks
+date: '2011-11-06'

@@ -1,7 +1,10 @@
-.cache
+.reap/digest
+.yardoc
+doc
 log
-man
 pkg
-ri
 tmp
-site/doc
+man/man1/index.txt
+man/man1/*.html
+man/man1/*.1
+
