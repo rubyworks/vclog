@@ -1,8 +1,10 @@
 = VCLog
 
-* home: http://rubyworks.github.com/vclog
-* code: http://github.com/rubyworks/vclog
-* talk: http://googlegroups.com/group/rubyworks-mailinglist
+{Homepage}[http://rubyworks.github.com/vclog] |
+{Source Code}[http://github.com/rubyworks/vclog] |
+{Mailing List}[http://googlegroups.com/group/rubyworks-mailinglist]
+
+{<img src="http://travis-ci.org/rubyworks/vclog.png" />}[http://travis-ci.org/rubyworks/vclog]
 
 
 == DESCRIPTION
@@ -102,17 +104,10 @@ Please see HISTORY file.
 
 == COPYRIGHTS
 
-Copyright (c) 2009 Thomas Sawyer
+Copyright (c) 2008 Rubyworks
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+VCLog is distributable in accordance with the terms of the BSD-2-Clause license.
 
-   http://www.apache.org/licenses/LICENSE-2.0
+See COPYING.rdoc for detiails.
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
 
