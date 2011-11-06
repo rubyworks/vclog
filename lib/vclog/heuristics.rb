@@ -1,28 +1,26 @@
+require 'vclog/heuristics/label'
+require 'vclog/heuristics/rule'
+
 module VCLog
 
   #
   class Heuristics
 
-    # Load heuristics from a configruation file.
+    # Load heuristics from a designated file.
     #
-    # config - the configuration directory
+    # @param file [String] configuration file
     #
     def self.load(file)
-      if file
-        raise LoadError unless File.exist?(file)
-      else
-        file = File.dirname(__FILE__) + '/heuristics/default.rb'
-      end
-
-      h = new
-      h.instance_eval(File.read(file), file)
-      h
+      raise LoadError unless File.exist?(file)
+      new{ instance_eval(File.read(file), file) }
     end
 
     #
-    def initialize
+    def initialize(&block)
       @rules  = []
       @labels = {}
+
+      instance_eval(&block) if block
     end
 
     #
@@ -52,49 +50,30 @@ module VCLog
       @labels[type.to_sym] = Label.new(type, level, label)
     end
 
-    #
-    class Label
-      #
-      def initialize(type, level, label)
-        @type  = type
-        @level = level.to_i
-        @label = label.to_s
+    # Default settings.
+    def default
+      set :major,  1, "Major Enhancements"
+      set :bug,    0, "Bug Fixes"
+      set :minor, -1, "Minor Enhancements"
+      set :doc,   -1, "Documentation Changes"
+      set :admin, -2, "Administrative Changes"
+
+      on /^(\w+):/ do |msg, md|
+        word = md[1]
+        [word.to_sym, md.post_match]
       end
 
-      attr :type
-
-      attr :level
-
-      attr :label
-
-      #
-      def to_a
-        [type, level, label]
-      end
-    end
-
-    #
-    class Rule
-      #
-      def initialize(pattern, &block)
-        @pattern = pattern
-        @block   = block        
+      on /\[(\w+)\]\s*$/ do |msg, md|
+        word = md[1]
+        [word.to_sym, md.pre_match]
       end
 
-      # Process the rule.
-      def call(message)
-        if matchdata = @pattern.match(message)
-          case @block.arity
-          when 0
-            @block.call
-          when 1
-            @block.call(matchdata)
-          else
-            @block.call(message, matchdata)
-          end
-        else
-          nil
-        end
+      on /updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/ do
+        :admin
+      end
+
+      on /(bump|bumped|prepare) version/ do
+        :admin
       end
     end
 

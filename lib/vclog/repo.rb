@@ -1,3 +1,5 @@
+require 'confection'
+
 require 'vclog/adapters'
 require 'vclog/heuristics'
 require 'vclog/history_file'
@@ -13,7 +15,7 @@ module VCLog
     ROOT_GLOB = '{.git/,.hg/,_darcs/,.svn/}'
 
     # File glob used to find the vclog configuration directory.
-    CONFIG_GLOB = '{.,.config/,config/,task/,tasks/}vclog{,.rb}'
+    #CONFIG_GLOB = '{.,.config/,config/,task/,tasks/}vclog{,.rb}'
 
     # Project's root directory.
     attr :root
@@ -65,24 +67,20 @@ module VCLog
     end
 
     # Find project root. This searches up from the current working
-    # directory for a vclog configuration file or source control 
-    # manager file:
+    # directory for a Confection configuration file or source control 
+    # manager directory.
     #
-    #   .vclog
-    #   .config/vclog[.rb]
-    #   config/vclog[.rb]
-    #   task/vclog[.rb]
-    #   tasks/vclog[.rb]
+    #   .co
     #   .git/
     #   .hg/
     #   .svn/
     #   _darcs/
     #
     # If all else fails the current directory is returned.
-    def lookup_root(dir)
+    def lookup_root
       root = nil
-      Dir.ascend(dir || Dir.pwd) do |path|
-        check = Dir[CONFIG_GLOB].first || Dir[ROOT_GLOB].first
+      Dir.ascend(Dir.pwd) do |path|
+        check = Dir[ROOT_GLOB].first
         if check
           root = path 
           break
@@ -93,13 +91,13 @@ module VCLog
 
     # Load heuristics script.
     def heuristics
-      @heuristics ||= Heuristics.load(heuristics_file)
+      @heuristics ||= Heuristics.new(&Confection[:vclog])
     end
 
     # Heurtistics script.
-    def heuristics_file
-      @heuristics_file ||= Dir[File.join(root, CONFIG_GLOB)].first
-    end
+    #def heuristics_file
+    #  @heuristics_file ||= Dir[File.join(root, CONFIG_GLOB)].first
+    #end
 
     # Access to Repo's HISTORY file.
     def history_file

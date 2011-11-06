@@ -247,25 +247,6 @@ module Adapters
     end
 =end
 
-    # Find vclog config directory. This searches up from the current
-    # working directory for the following paths (in order):
-    #
-    #   .vclog/
-    #   .config/vclog/
-    #    config/vclog/
-    #
-    def lookup_config
-      conf = nil
-      Dir.ascend(Dir.pwd) do |path|
-        check = Dir['{.vclog/,.config/vclog/,config/vclog/}/'].first
-        if check
-          conf = path 
-          break
-        end
-      end
-      conf
-    end
-
   public
 
     #
