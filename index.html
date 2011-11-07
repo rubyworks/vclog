@@ -2,56 +2,68 @@
 <HEAD>
   <TITLE>VCLog</TITLE>
   <link REL="SHORTCUT ICON" HREF="assets/logo.jpg"/>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
   <style>
     html { font-size: 12px; }
     body {
       padding: 0; 
       margin: 0;
       color: black;
-      font: 16px times;
+      font: 16px sans-serif;
       text-align: justify;
-      background: url(../img/fade_yellow_up.jpg) bottom repeat-y;
     }
-    p { font-size: 100%; color: tan; font-weight: bold; text-align: justify; margin: 20px 0; }
-    a  { text-decoration: none; color: tan;  font-weight: bold; }
+    p { font-size: 1.6em; color: #ffe; text-align: justify; margin: 20px 0; }
+    a { text-decoration: none; }
     a:hover { text-decoration: underline; }
-    h1 { font-size: 100px; margin: 20px; color: #552200; }
+    h1 { font-size: 140px; margin: 20px; color: #552200; font-family: courier; }
+    h2 { font-size: 3em; }
     ul { text-align: left; color: tan; }
     li { padding: 2px; color: tan; }
     li a { color: tan; font-size: 1.1em; }
     pre { font-size: 0.8em; background: white; padding: 20px; -moz-border-radius: 5px; color: #222;
           font-weight: bold; font-family: courier, monospace; border: 2px solid tan; }
     code { font-family: courier, monospace; color: #ecc; }
-    img { border: none; background-color: white; border-color: white; }
+    img { border: none; }
 
     .bash { width: 780px; padding: 10px; background-color: white; -moz-border-radius: 5px; 
             border: 2px solid tan; }
-    .menu { padding: 20px 20px 20px 0; text-align: center; background: #552200; }
-    .head { height: 250px; text-align: center; border-top: 2px solid tan; border-bottom: 2px solid tan; }
+
+    .head { height: 320px; text-align: center; border-top: 2px solid tan; border-bottom: 2px solid tan; }
+    .menu { padding: 20px 50px 20px 0; text-align: center; color: #222; }
+    .menu a { font-family: sans-serif; font-size: 0.9em; padding: 0 0.5em; color: #222; }
     .title { text-align: left; margin: 0 auto; width: 800px; }
+
     .body { background: #552200; color: white; border-bottom: 2px solid tan; }
+
     .doc { padding: 20px; text-align: justify; margin: 0 auto; width: 800px; }
-    .doc a { color: fee; }
+    .doc a { color: fcc; font-size: 0.9em; }
+
     .foot { padding: 40px 0 0 0; text-align: center; margin: 0 auto; width: 800px; }
-    .foot p { color: #552200; text-align: center; }
+    .foot p { color: #552200; text-align: center; font-size: 1em; }
+    .examples li { font-family: monospace; }
   </style>
+
+  <script>
+    $(document).ready(function(){
+    });
+   </script>
 </HEAD>
 <BODY>
 
-<div class="nav">
-  <div class="menu">
-    <a href="http://rubygems.org/gems/vclog">Gem</a> &nbsp;&nbsp;
-    <a href="man/vclog.1.html">Manual</a> &nbsp;&nbsp;
-    <a href="http://rubydoc.info/gems/vclog/frames">API</a> &nbsp;&nbsp;
-    <!-- <a href="doc/qed/index.html">QEDocs</a> &nbsp;&nbsp; -->
-    <a href="http://groups.google.com/group/rubyworks-mailinglist">Forum</a> &nbsp;&nbsp;
-    <a href="http://wiki.github.com/rubyworks/vclog">Wiki</a> &nbsp;&nbsp;
-    <a href="http://github.com/rubyworks/vclog/issues">Issue</a> &nbsp;&nbsp;
-    <a href="http://github.com/rubyworks/vclog">Code</a> &nbsp;&nbsp;
-  </div>
-</div>
-
 <div class="head">
+  <div class="nav">
+    <div class="menu">
+      <a href="http://wiki.github.com/rubyworks/vclog">User's Guide</a> &middot;
+      <a href="http://rubydoc.info/gems/vclog/frames">API</a> &middot;
+      <a href="man/vclog.1.html">Man-page</a> &middot;
+      <!-- <a href="doc/qed/index.html">QEDocs</a> &nbsp;&nbsp; -->
+      <a href="http://groups.google.com/group/rubyworks-mailinglist">Miling List</a> &middot;
+      <a href="http://github.com/rubyworks/vclog/issues">Issue Tracker</a> &middot;
+      <a href="http://github.com/rubyworks/vclog">Source Code</a> &middot;
+      <a href="http://rubygems.org/gems/vclog">Gem Package</a>
+    </div>
+  </div>
+
   <div class="title">
     <img src="assets/logo.jpg" style="height: 250px;" align="right"/><br/>
     <h1>VCLog</h1>
@@ -61,11 +73,15 @@
 <div class="body">
   <div class="doc">
 
-  <p>Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
+  <p style="line-height: 2em;">Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
   Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
-  our output options limited. That's were VCLog comes in.</p>
+  our output options limited. That's were VCLog comes in. &nbsp; <a href="javascript: $('#toggle').toggle();">Learn More...</a></p>
 
-  <p>How about a Change Log in glorious technicolor:</p>
+<div id="toggle" style="display: none;">
+
+  <br/><br/>
+
+  <p>How about a Change Log in glorious technicolor!</p>
 
   <div class="bash">
     <img src="assets/vclog-changelog.png" />
@@ -183,36 +199,43 @@
   <p>A variety of formats are available for Change Logs and Release Histories,
   Here are examples of VCLog's own.
 
-  <ul>
-    <li><a href="log/vclog/changelog.rdoc">changelog.rdoc</a></li>
-    <li><a href="log/vclog/changelog.html">changelog.html</a></li>
-    <li><a href="log/vclog/changelog.atom">changelog.atom</a></li>
-    <li><a href="log/vclog/changelog.rss">changelog.rss</a></li>
-    <li><a href="log/vclog/history.rdoc">history.rdoc</a></li>
-    <li><a href="log/vclog/history.html">history.html</a></li>
-    <li><a href="log/vclog/history.atom">history.atom</a></li>
-    <li><a href="log/vclog/history.rss">history.rss</a></li>
+  <ul class="examples">
+    <li><a href="eg/changes.rdoc">Changes.rdoc</a></li>
+    <li><a href="eg/changes.html">Changes.html</a></li>
+    <li><a href="eg/changelog.atom">Changes.atom</a></li>
+    <li><a href="eg/changelog.rss">Changes.rss</a></li>
+    <li><a href="eg/history.rdoc">History.rdoc</a></li>
+    <li><a href="eg/history.html">History.html</a></li>
+    <li><a href="eg/history.atom">History.atom</a></li>
+    <li><a href="eg/history.rss">History.rss</a></li>
   </ul>
-
-  <p>Finally, VCLog recognizes commit types through a set of heuristics. You can define you own set by creating a <code>rules.rb</code> file in <code>.vclog/</code> or <code>.config/vclog/</code>. See VCLog's own file for an example.</p>
-
-  <p>By default VCLog heuristics recognize a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can see this already in the previous examples. Out of thebox VCLog recognizes <code>major</code>, <code>minor</code>, <code>bug</code>, <code>doc</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>Doozy Enhancements</code>".</p>
-
-  <p>Commit types can be very useful to way to categorize your commits and thus present more readable changelogs. Wouldn't it be nice if SCMs supported commit types directly?</p>
 
   <br/>
 
+
+  <h2>Custom Heuristics</h2>
+
+  <p>Finally, VCLog recognizes commit types through a set of heuristics. You can define you own set by creating a `vclog` block in a <code>config.rb</code> file or <code>.config.rb</code>. See VCLog's own file for an example.</p>
+
+  <p>By default VCLog heuristics recognize a single-word marker placed at the beginning of the commit message separated by a colon, or placed at the at the end of a commit messages wrapped in square brackets. It you utilize these, e.g. <code>git commit -m "bug: fixed foo issue"</code> or <code>git commit -m "fixed foo issue [bug]"</code>, then you can sort the changelog output by type.  You can see this already in the previous examples. Out of thebox VCLog recognizes <code>major</code>, <code>minor</code>, <code>bug</code>, <code>doc</code> and <code>admin</code>. Any other label is treated verbatim, e.g. <code>doozy</code> would show up as "<code>Doozy Enhancements</code>".</p>
+
+  <p>Commit types can be a very useful way to categorize your commits and thus present more readable changelogs. Wouldn't it be nice if SCMs supported commit types directly?</p>
+
+  <br/>
+
+
   <h2>Development</h2>
 
-  <p>VCLog's code repository is hosted on <a href="http://github.com">GitHub</a>.</p>
+  <p>VCLog's code repository is hosted on <a href="http://rubyworks/github.com/vclog">GitHub</a>.</p>
 
-  <p>
-  <b>Logs:</b>
-  &nbsp; <a href="log/stats/index.html">Code Stats</a> &nbsp;
-         <a href="log/dnote/index.html">Todo Notes</a>
-  </p>
+  <p>If you have a feauture question, or a problem to report please do not hesitate to sumbit
+  an <a href="http://rubyworks/github.com/vclog/issues">issue report</a>.</p>
 
-  <br/><br/><br/>
+  <p>Our development <a href="log">Logs</a> may also be helpful.</p>
+
+</div>
+
+  <br/><br/>
   </div>
 </div>
 
@@ -231,9 +254,18 @@
 
   <br/>
 
-  <p>Copyright (c) 2009 Thomas Sawyer</p>
+  <p>Copyright (c) 2009 <a href="http://rubyworks.github.com">Rubyworks</a>. All Rights Reserved.</p>
 </div>
 
+<div style="position: absolute; top: 0; right: 0;">
+  <a href="http://github.com/rubyworks/vclog"><img src="http://rubyworks.github.com/assets/images/fork-me.png"/></a>
+</div>
+
+<div id="rubyworks" style="position: fixed; bottom: 5px; right: 10px; padding: 0;">
+  <a href="http://rubyworks.github.com">
+    <img src="http://rubyworks.github.com/assets/images/seal.png" height="175px" />
+  </a>
+</div>
 
 </BODY>
 </HTML>

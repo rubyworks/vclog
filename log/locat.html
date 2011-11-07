@@ -1,0 +1,422 @@
+<html>
+
+<head>
+<title>LOCat - The LOCat on VCLog</title>
+<link rel="icon" type="image/jpg" href="http://rubyworks.github.com/locat/assets/images/icon.jpg" />
+
+<style>
+  body{ background: white; padding: 5px 30px; }
+  table{ border-collapse:collapse; }
+  table,th,td{ border: 1px solid #ccc; }
+  th,td{ padding: 0.5em 1em; margin: 0; }
+  h1{ font-size: 2.5em; }
+  h2{ font-size: 2.0em; }
+  button{ background: transparent; border: 1px solid #ccc; padding: 10px;
+    border-bottom: 0; font-weight: bold;
+  }
+  button:hover{ background: yellow; }
+
+  #footer{ font-size: 0.8em; color: #666; padding-top: 5px; }
+
+  .tab{ padding: 20px; border: 1px solid #ccc; }
+  .chart{ padding-bottom: 40px; }
+  .chart-select{ text-align: left; font-size: 12px; padding-left: 20px; }
+</style>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/2.1.6/highcharts.js" type="text/javascript"></script>
+
+<script>
+
+function create_chart(chart_id, chart_table, chart_type){
+  options = chart_options(chart_id, chart_table, chart_type);
+  return(new Highcharts.Chart(options));
+};
+
+function chart_options(chart_id, chart_table, chart_type){
+  options = {
+      chart: {
+          renderTo: 'container-' + chart_id,
+          type: chart_type
+      },
+      title: {
+          text: chart_id
+      },
+      tooltip: {
+          enable: true 
+      },
+      xAxis: {
+          categories: []
+      },
+      yAxis: {
+          title: {
+              text: '' //chart_id
+          }
+      },
+      series: []
+  };
+
+  $.each(chart_table, function(lineNo, line) {
+      // header line containes categories
+      if (lineNo == 0) {
+          $.each(line, function(itemNo, item) {
+              if (itemNo > 0) options.xAxis.categories.push(item);
+          });
+      }
+      // the rest of the lines contain data with their name in the first position
+      else {
+          var series = {
+              data: []
+          };
+          $.each(line, function(itemNo, item) {
+              if (itemNo == 0) {
+                  series.name = item;
+                  //series.type = chart_type;
+              } else {
+                  series.data.push(parseFloat(item));
+              }
+          });
+          options.series.push(series);
+      }
+  });
+  return(options);
+};
+
+
+</script>
+
+<script>
+var data = {"loc":[[null,"Code","Blank","Comment"],["loc",1869,617,573]],"pcnt":[[null,"Code","Blank","Comment"],["%",61,20,18]],"ratio":[[null,"Code","Blank","Comment","Total"],["Code",1.0,0.33,0.307,1.637],["Blank",3.029,1.0,0.929,4.958],["Comment",3.262,1.077,1.0,5.339],["Total",0.611,0.202,0.187,1.0]],"scm":[[null,"09 10 12","09 10 23","09 10 23","09 10 26","10 01 02","10 02 08","10 05 26","10 05 26","10 05 28","10 05 28","10 05 28","10 06 21","10 06 21","10 06 21","10 06 23","10 06 24","10 06 27","10 11 19","10 11 19","10 11 19","10 11 20","10 11 20","10 11 20","10 11 21","11 04 25","11 11 06","11 11 07"],["Code",558,687,687,1108,1244,1175,1180,1193,1421,1403,1387,1694,1806,1846,1861,1859,1882,1941,1939,1940,1961,1956,1956,2006,1996,1996,1869],["Blank",143,176,176,259,304,320,326,329,391,385,387,551,598,605,607,607,605,618,615,615,622,623,623,646,643,643,617],["Comment",166,198,198,325,379,387,407,398,474,475,488,531,569,572,574,582,583,594,603,603,608,617,617,636,644,645,573],["Total",867,1061,1061,1692,1927,1882,1913,1920,2286,2263,2262,2776,2973,3023,3042,3048,3070,3153,3157,3158,3191,3196,3196,3288,3283,3284,3059]]};
+</script>
+
+<script>
+  var chart = {};
+
+  $(document).ready(function() {
+    chart['pcnt']  = create_chart('pcnt',  data['pcnt'],  'pie');
+    chart['loc']   = create_chart('loc',   data['loc'],   'column');
+    chart['ratio'] = create_chart('ratio', data['ratio'], 'column');
+    chart['scm']   = create_chart('scm',   data['scm'],   'line');
+  });
+</script>
+
+<script>
+  function rechart(chart_id, chart_type){
+    chart[chart_id].destroy();
+    chart[chart_id] = create_chart(chart_id, data[chart_id], chart_type);
+  };
+
+  function change_tab(chart_id){
+    $('.tab').hide(function(){
+      $('#tab-' + chart_id).show();
+    });
+  };
+</script>
+</head>
+
+<body>
+  <h1>The LOCat on VCLog</h1>
+
+  <div id="nav">
+    <button onclick="change_tab('loc');">Counts</button>
+    <button onclick="change_tab('pcnt');">Percentages</button>
+    <button onclick="change_tab('ratio');">Ratios</button>
+    
+      <button onclick="change_tab('scm');">Timeline</button>
+    
+  </div>
+
+  <!-- LOC CHART -->
+
+  <div id="tab-loc" class="tab">
+
+    <h2>LINE COUNTS</h2>
+
+    <div class="chart">
+      <table id="loc" border="1">
+        <thead>
+        <tr>
+        
+          <th>Code</th>
+        
+          <th>Blank</th>
+        
+          <th>Comment</th>
+        
+        <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+          
+            <td>1869</td>
+          
+            <td>617</td>
+          
+            <td>573</td>
+          
+          <td>3059</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="container-loc" style="width: 95%; height: 450px;"></div>
+
+    <div class="chart-select">
+      <input type="radio" name="loc" value="column"     onclick="rechart('loc', 'column');" />     Column
+      <input type="radio" name="loc" value="bar"        onclick="rechart('loc', 'bar');" />        Bar
+      <input type="radio" name="loc" value="scatter"    onclick="rechart('loc', 'scatter');" />    Scatter
+      <!--
+      <input type="radio" name="loc" value="line"       onclick="rechart('loc', 'line');" />       Line
+      <input type="radio" name="loc" value="spline"     onclick="rechart('loc', 'spline');" />     Spline
+      <input type="radio" name="loc" value="area"       onclick="rechart('loc', 'area');" />       Area
+      <input type="radio" name="loc" value="areaspline" onclick="rechart('loc', 'areaspline');" /> Area Spline
+      -->
+      <input type="radio" name="loc" value="pie"        onclick="rechart('loc', 'pie');" />        Pie Chart
+    </div>
+
+  </div>
+
+  <!-- PERCENTAGE CHART -->
+
+  <div id="tab-pcnt" class="tab" style="display: none;">
+
+    <h2>PERCENTAGES</h2>
+
+    <div class="chart">
+      <table id="pcnt">
+        <thead>
+        <tr>
+        
+          <th scope="col"></th>
+        
+          <th scope="col">Code</th>
+        
+          <th scope="col">Blank</th>
+        
+          <th scope="col">Comment</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+        
+          <tr>
+            
+              
+                <th>%</th>
+              
+            
+              
+                <td>61</td>
+              
+            
+              
+                <td>20</td>
+              
+            
+              
+                <td>18</td>
+              
+            
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+
+    <div id="container-pcnt" style="width: 95%; height: 450px;"></div>
+
+    <div class="chart-select">
+      <input type="radio" name="pcnt" value="column"     onclick="rechart('pcnt', 'column');" />     Column
+      <input type="radio" name="pcnt" value="bar"        onclick="rechart('pcnt', 'bar');" />        Bar
+      <input type="radio" name="pcnt" value="scatter"    onclick="rechart('pcnt', 'scatter');" />    Scatter
+      <!--
+      <input type="radio" name="pcnt" value="line"       onclick="rechart('pcnt', 'line');" />       Line
+      <input type="radio" name="pcnt" value="spline"     onclick="rechart('pcnt', 'spline');" />     Spline
+      <input type="radio" name="pcnt" value="area"       onclick="rechart('pcnt', 'area');" />       Area
+      <input type="radio" name="pcnt" value="areaspline" onclick="rechart('pcnt', 'areaspline');" /> Area Spline
+      -->
+      <input type="radio" name="pcnt" value="pie"        onclick="rechart('pcnt', 'pie');" />        Pie Chart
+    </div>
+
+  </div>
+
+  <!-- RATIO CHART -->
+
+  <div id="tab-ratio" class="tab" style="display: none;">
+
+    <h2>RATIOS</h2>
+
+    <div class="chart">
+      <table id="ratio">
+        <thead>
+        <tr>
+        
+          <th scope="col"></th>
+        
+          <th scope="col">Code</th>
+        
+          <th scope="col">Blank</th>
+        
+          <th scope="col">Comment</th>
+        
+          <th scope="col">Total</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+        
+          <tr>
+            
+              
+                <th>Code</th>
+              
+            
+              
+                <td>1.0</td>
+              
+            
+              
+                <td>0.33</td>
+              
+            
+              
+                <td>0.307</td>
+              
+            
+              
+                <td>1.637</td>
+              
+            
+          </tr>
+        
+          <tr>
+            
+              
+                <th>Blank</th>
+              
+            
+              
+                <td>3.029</td>
+              
+            
+              
+                <td>1.0</td>
+              
+            
+              
+                <td>0.929</td>
+              
+            
+              
+                <td>4.958</td>
+              
+            
+          </tr>
+        
+          <tr>
+            
+              
+                <th>Comment</th>
+              
+            
+              
+                <td>3.262</td>
+              
+            
+              
+                <td>1.077</td>
+              
+            
+              
+                <td>1.0</td>
+              
+            
+              
+                <td>5.339</td>
+              
+            
+          </tr>
+        
+          <tr>
+            
+              
+                <th>Total</th>
+              
+            
+              
+                <td>0.611</td>
+              
+            
+              
+                <td>0.202</td>
+              
+            
+              
+                <td>0.187</td>
+              
+            
+              
+                <td>1.0</td>
+              
+            
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+
+    <div id="container-ratio" style="width: 95%; height: 450px;"></div>
+
+    <div class="chart-select">
+      <input type="radio" name="ratio" value="column"     onclick="rechart('ratio', 'column');" />     Column
+      <input type="radio" name="ratio" value="bar"        onclick="rechart('ratio', 'bar');" />        Bar
+      <input type="radio" name="ratio" value="scatter"    onclick="rechart('ratio', 'scatter');" />    Scatter
+      <!--
+      <input type="radio" name="ratio" value="line"       onclick="rechart('ratio', 'line');" />       Line
+      <input type="radio" name="ratio" value="spline"     onclick="rechart('ratio', 'spline');" />     Spline
+      <input type="radio" name="ratio" value="area"       onclick="rechart('ratio', 'area');" />       Area
+      <input type="radio" name="ratio" value="areaspline" onclick="rechart('ratio', 'areaspline');" /> Area Spline
+      <input type="radio" name="ratio" value="pie"        onclick="rechart('ratio', 'pie');" />        Pie Chart
+      -->
+    </div>
+
+  </div>
+
+
+
+  <!-- SCM CHART -->
+
+  <div id="tab-scm" class="tab" style="display: none;">
+
+    <h2>TIMELINE</h2>
+
+    <div id="container-scm" style="width: 95%; height: 450px;"></div>
+
+    <div class="chart-select">
+      <input type="radio" name="scm" value="column"     onclick="rechart('scm', 'column');" />     Column
+      <input type="radio" name="scm" value="scatter"    onclick="rechart('scm', 'scatter');" />    Scatter
+      <input type="radio" name="scm" value="line"       onclick="rechart('scm', 'line');" />       Line
+      <input type="radio" name="scm" value="spline"     onclick="rechart('scm', 'spline');" />     Spline
+      <!--
+      <input type="radio" name="scm" value="area"       onclick="rechart('scm', 'area');" />       Area
+      <input type="radio" name="scm" value="areaspline" onclick="rechart('scm', 'areaspline');" /> Area Spline
+      <input type="radio" name="scm" value="pie"        onclick="rechart('scm', 'pie');" />        Pie Chart
+      -->
+    </div>
+
+  </div>
+
+
+
+  <!-- FOOTER -->
+
+  <div id="footer">
+    <a href="http://rubyworks.github.com/locat">LOCat v0.1.0</a>,
+    Copyright &copy; 2011 Thomas Sawyer, <a href="http://rubyworks.github.com">Rubyworks</a>
+  </div>
+
+</body>
+
+</html>

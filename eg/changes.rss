@@ -1,0 +1,1854 @@
+<?xml version="1.0"?>
+
+<rss version="2.0">
+
+  <channel>
+
+    <title>VCLog</title>
+
+    <link>git@github.com:rubyworks/vclog.git</link>
+
+    
+
+    <description>Release History</description>
+
+    <language>en-us</language>
+
+    <pubDate>Mon, 07 Nov 2011 18:35:26 -0500</pubDate>
+
+    <lastBuildDate>Mon, 07 Nov 2011 18:35:26 -0500</lastBuildDate>
+
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+
+    <generator>VCLog</generator>
+
+    <managingEditor>transfire@gmail.com (7rans)</managingEditor>
+
+    <webMaster>transfire@gmail.com (7rans</webMaster>
+
+
+    <item>
+
+      <title>Use confection library for vclog config.</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 06 Nov 2011 16:23:00 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#b6d5b6c9ba9c699d78339aa7d70aaa8ff4c7c542</guid>
+
+      <description><![CDATA[
+
+        Use confection library for vclog config. <br/>
+
+        7rans 2011-11-06 16:23:00
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fix glob bug for rc file</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 25 Apr 2011 18:37:56 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#9615aec89fdc53511440bb2ebcb100e8aa110c3b</guid>
+
+      <description><![CDATA[
+
+        fix glob bug for rc file
+<br/>
+
+        7rans 2011-04-25 18:37:56
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>use .vclog or config/vclog file rather than rules.rb file for configuration</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 25 Apr 2011 13:03:47 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#f47b5be5ba3e37a6a6834e7a17a9c0f5f9f9a201</guid>
+
+      <description><![CDATA[
+
+        use .vclog or config/vclog file rather than rules.rb file for configuration
+<br/>
+
+        7rans 2011-04-25 13:03:47
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>change case of meta files</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Tue, 19 Apr 2011 16:38:55 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#05e679cf2c98738de9499f863404c7709b24f58d</guid>
+
+      <description><![CDATA[
+
+        change case of meta files
+<br/>
+
+        7rans 2011-04-19 16:38:55
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>history file versions can use underscores (subversion style)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 21 Nov 2010 12:54:43 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#bc05fd5e4ad8d5ba335bbbb8353b41f11ee63bb6</guid>
+
+      <description><![CDATA[
+
+        history file versions can use underscores (subversion style)
+<br/>
+
+        7rans 2010-11-21 12:54:43
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>autotag can take alternate history file option</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 21 Nov 2010 12:54:05 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#415b5f135b28497a9f05297363aff61a9404e69c</guid>
+
+      <description><![CDATA[
+
+        autotag can take alternate history file option
+<br/>
+
+        7rans 2010-11-21 12:54:05
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>tag commit date is not necessarily the same as the tag date</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 21 Nov 2010 11:41:01 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#72d4fc97b692008a8eb4613f42419cc32ea3d2ca</guid>
+
+      <description><![CDATA[
+
+        tag commit date is not necessarily the same as the tag date
+<br/>
+
+        7rans 2010-11-21 11:41:01
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>extraction methods return objects instead of arrays</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 21 Nov 2010 11:40:25 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#60f146eb1bb8f2e255c6017453ea8d56abbb9267</guid>
+
+      <description><![CDATA[
+
+        extraction methods return objects instead of arrays
+<br/>
+
+        7rans 2010-11-21 11:40:25
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>better history file glob</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 20 Nov 2010 09:42:48 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#6f6dc9ff4d403d494eff1c012f5178505575d838</guid>
+
+      <description><![CDATA[
+
+        better history file glob
+<br/>
+
+        7rans 2010-11-20 09:42:48
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fix syckle plugin</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 20 Nov 2010 09:42:22 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#5f0ddd3bb9e74c92bf57cd7251605230f1fa2991</guid>
+
+      <description><![CDATA[
+
+        fix syckle plugin
+<br/>
+
+        7rans 2010-11-20 09:42:22
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>use message file for all adapters</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 20 Nov 2010 01:50:32 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#cc67e606354d884899152412a5e342d80e68c0c6</guid>
+
+      <description><![CDATA[
+
+        use message file for all adapters
+<br/>
+
+        7rans 2010-11-20 01:50:32
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add dryrun and debugging output to tag method</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 20 Nov 2010 01:16:51 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#11d6cdd1b82ba78a51a69cf683f85d0897949efb</guid>
+
+      <description><![CDATA[
+
+        add dryrun and debugging output to tag method
+<br/>
+
+        7rans 2010-11-20 01:16:51
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>autotag needs a list of all changes</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 20 Nov 2010 00:30:51 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#e356c117abd620ca9317b975bf0f982f999b1b57</guid>
+
+      <description><![CDATA[
+
+        autotag needs a list of all changes
+<br/>
+
+        7rans 2010-11-20 00:30:51
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>escape tag messages by using #inspect</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 22:29:34 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#35851842228921f898a7bc5409f8b05623167c9c</guid>
+
+      <description><![CDATA[
+
+        escape tag messages by using #inspect
+<br/>
+
+        7rans 2010-11-19 22:29:34
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>support tag prefix option</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 22:27:24 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#fd8121b82b6a36bcccf082036ca89ab5cafb858f</guid>
+
+      <description><![CDATA[
+
+        support tag prefix option
+<br/>
+
+        7rans 2010-11-19 22:27:24
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fix tag method in subversion adapter</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 22:27:10 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#78cffd9056412b78052d8c2cacf7e79db2cccee8</guid>
+
+      <description><![CDATA[
+
+        fix tag method in subversion adapter
+<br/>
+
+        7rans 2010-11-19 22:27:10
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>auto tagging needs to adjust date too</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 20:30:04 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#ffbcb8b4ae2440225f5d64aa8f40e7559bc5c151</guid>
+
+      <description><![CDATA[
+
+        auto tagging needs to adjust date too
+<br/>
+
+        7rans 2010-11-19 20:30:04
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>rename  command to</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 17:54:18 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#d24e3bac6eabd776b51b42854035b2214871bb45</guid>
+
+      <description><![CDATA[
+
+        rename  command to
+<br/>
+
+        7rans 2010-11-19 17:54:18
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fix options as Hash instead of OpenStruct</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 17:43:58 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#a73e263d7a2912950b9126cd5aa8693562ab72f3</guid>
+
+      <description><![CDATA[
+
+        fix options as Hash instead of OpenStruct
+<br/>
+
+        7rans 2010-11-19 17:43:58
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>update cli commands to use repo</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 17:24:42 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#2b45e3b5fbc04474696e351ccb4fe49b2a600eb7</guid>
+
+      <description><![CDATA[
+
+        update cli commands to use repo
+<br/>
+
+        7rans 2010-11-19 17:24:42
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add #tag method to adapters</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 17:23:52 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#5289615d5acfe31c7b4223b6e6569a1a000ea861</guid>
+
+      <description><![CDATA[
+
+        add #tag method to adapters
+<br/>
+
+        7rans 2010-11-19 17:23:52
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>use a Repo class as a central controller</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 19 Nov 2010 17:23:23 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#da92b28faf08445f3d74b7300e140103dbba071d</guid>
+
+      <description><![CDATA[
+
+        use a Repo class as a central controller
+<br/>
+
+        7rans 2010-11-19 17:23:23
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>replace --detail option with opposite --summary option</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 27 Jun 2010 14:30:49 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#8265d034aedf058a392195645128d703e95c0bf8</guid>
+
+      <description><![CDATA[
+
+        replace --detail option with opposite --summary option
+<br/>
+
+        7rans 2010-06-27 14:30:49
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>rule block can take none, matadata, or message and matachdata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 27 Jun 2010 14:29:33 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#6212882725201b1dd7483c35d9d887f408e450ce</guid>
+
+      <description><![CDATA[
+
+        rule block can take none, matadata, or message and matachdata
+<br/>
+
+        7rans 2010-06-27 14:29:33
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>git adapter parses changes more robustly</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sun, 27 Jun 2010 10:04:11 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#8c911b66be7984f9f254bfa338bc626681561c70</guid>
+
+      <description><![CDATA[
+
+        git adapter parses changes more robustly
+<br/>
+
+        7rans 2010-06-27 10:04:11
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> change interface of heuristics to accept message and matchdata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Thu, 24 Jun 2010 17:52:25 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#ba1299c491345caefc908f16ba89fdc676ff96e3</guid>
+
+      <description><![CDATA[
+
+         change interface of heuristics to accept message and matchdata
+<br/>
+
+        7rans 2010-06-24 17:52:25
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add title to html changelog</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 23 Jun 2010 23:52:31 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#6ab64c1e30ee1b060765c76efeab6039b8e02351</guid>
+
+      <description><![CDATA[
+
+        add title to html changelog
+<br/>
+
+        7rans 2010-06-23 23:52:31
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fix git email value and imporve feed formats</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 23 Jun 2010 23:31:08 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#66f7fb2d968de625dd9a2b63cc692c9ef9112e81</guid>
+
+      <description><![CDATA[
+
+        fix git email value and imporve feed formats
+<br/>
+
+        7rans 2010-06-23 23:31:08
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>work on atom and rss output formats</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 23 Jun 2010 23:05:40 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#e308be8c4eb37cf7e0b2eb3b462d90c9c1e5f3fc</guid>
+
+      <description><![CDATA[
+
+        work on atom and rss output formats
+<br/>
+
+        7rans 2010-06-23 23:05:40
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>handle unset labels gracefully and improve default heuristics</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 21:10:11 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#dc52b3b214b032ba60c8cdd1bd78a1d01a90a2b0</guid>
+
+      <description><![CDATA[
+
+        handle unset labels gracefully and improve default heuristics
+<br/>
+
+        7rans 2010-06-21 21:10:11
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add version command and continue to improve cli help</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 20:37:15 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#516b62ccb4c93153f6f558cfdccd43a8913d4181</guid>
+
+      <description><![CDATA[
+
+        add version command and continue to improve cli help
+<br/>
+
+        7rans 2010-06-21 20:37:15
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>cli uses closest matching subcommand</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 17:59:06 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#d9186fd75b1d23478554d0a22a0dd91475b28acc</guid>
+
+      <description><![CDATA[
+
+        cli uses closest matching subcommand
+<br/>
+
+        7rans 2010-06-21 17:59:06
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add ansi format and fix tag date groupings</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 17:40:34 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#43c6f53ed1a15ccbb8c0895ed97d78a03401d68f</guid>
+
+      <description><![CDATA[
+
+        add ansi format and fix tag date groupings
+<br/>
+
+        7rans 2010-06-21 17:40:34
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>filter history by level</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 14:10:06 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#177b44afa7459b6319319fdc0c0feac389fa290f</guid>
+
+      <description><![CDATA[
+
+        filter history by level
+<br/>
+
+        7rans 2010-06-21 14:10:06
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>cli has subcommands and templates can be .rb or .erb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 13:13:31 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#5b984dbb18bedf6c6e4019f7727bf96146c7a98e</guid>
+
+      <description><![CDATA[
+
+        cli has subcommands and templates can be .rb or .erb
+<br/>
+
+        7rans 2010-06-21 13:13:31
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>Heuristics system for categorizing commits</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 21 Jun 2010 13:13:00 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#03b8f4c9b500b433cda52fc98a84f027d942d45e</guid>
+
+      <description><![CDATA[
+
+        Heuristics system for categorizing commits
+<br/>
+
+        7rans 2010-06-21 13:13:00
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>Merge branch &apos;master&apos; of git@github.com:proutils/vclog</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 17:55:17 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#b5c9acfa2ee4a0a301854743488b766fb5633c91</guid>
+
+      <description><![CDATA[
+
+        Merge branch 'master' of git@github.com:proutils/vclog
+<br/>
+
+        7rans 2010-05-28 17:55:17
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> log examples</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 17:49:11 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#436e442c656c45dd6b890a7bb442dce2f5f72cf9</guid>
+
+      <description><![CDATA[
+
+         log examples
+<br/>
+
+        7rans 2010-05-28 17:49:11
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>update syckle plugin to match refactoring</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 15:42:00 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#b7bdbe1c48b063a504f0d166884bdf06b9f33969</guid>
+
+      <description><![CDATA[
+
+        update syckle plugin to match refactoring
+<br/>
+
+        7rans 2010-05-28 15:42:00
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add atom support for release history</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 15:32:07 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#442bab4f820285425fdf21cdafb970f5030a2a8d</guid>
+
+      <description><![CDATA[
+
+        add atom support for release history
+<br/>
+
+        7rans 2010-05-28 15:32:07
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>info methods need to be public</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 14:55:18 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#d78139b1dc697f66e0a981d07488f99baef89dbc</guid>
+
+      <description><![CDATA[
+
+        info methods need to be public
+<br/>
+
+        7rans 2010-05-28 14:55:18
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> re-orient design about vcs classes (partially complete)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 14:29:55 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</guid>
+
+      <description><![CDATA[
+
+         re-orient design about vcs classes (partially complete)
+<br/>
+
+        7rans 2010-05-28 14:29:55
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> fixed delta groupings and other improvements</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 28 May 2010 09:39:07 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</guid>
+
+      <description><![CDATA[
+
+         fixed delta groupings and other improvements
+<br/>
+
+        7rans 2010-05-28 09:39:07
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> add Mercurial support; also renamed VCS to Adapters</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Thu, 27 May 2010 17:47:54 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</guid>
+
+      <description><![CDATA[
+
+         add Mercurial support; also renamed VCS to Adapters
+<br/>
+
+        7rans 2010-05-27 17:47:54
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add a canonical lib</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 26 May 2010 20:27:33 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#20f18a0f555fcd906f79a4647cba1eee9b6ebac1</guid>
+
+      <description><![CDATA[
+
+        add a canonical lib
+<br/>
+
+        7rans 2010-05-26 20:27:33
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>use xmlsimple for SVN support</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 26 May 2010 20:27:14 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#4e2c69c712f8482cf2ffafdaf3fd5d979c8226c3</guid>
+
+      <description><![CDATA[
+
+        use xmlsimple for SVN support
+<br/>
+
+        7rans 2010-05-26 20:27:14
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> add first cucumber feature</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 26 May 2010 20:26:28 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#71f718bf0f9235aa5e03a9416387e1228b4b7b2c</guid>
+
+      <description><![CDATA[
+
+         add first cucumber feature
+<br/>
+
+        7rans 2010-05-26 20:26:28
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> Sort release tags in correct order</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 26 May 2010 10:22:26 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</guid>
+
+      <description><![CDATA[
+
+         Sort release tags in correct order
+<br/>
+
+        7rans 2010-05-26 10:22:26
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 26 May 2010 09:47:53 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#0699541316857eab778278b5aefb0b23125c5252</guid>
+
+      <description><![CDATA[
+
+         change 'git-log' to 'git log'
+<br/>
+
+        7rans 2010-05-26 09:47:53
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Wed, 26 May 2010 09:40:54 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</guid>
+
+      <description><![CDATA[
+
+         change 'git-log' to 'git log'
+<br/>
+
+        7rans 2010-05-26 09:40:54
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> fix version bumping and display</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 08 Feb 2010 11:07:19 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</guid>
+
+      <description><![CDATA[
+
+         fix version bumping and display
+<br/>
+
+        7rans 2010-02-08 11:07:19
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> use erb as template system for all formats</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 16 Jan 2010 15:05:52 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</guid>
+
+      <description><![CDATA[
+
+         use erb as template system for all formats
+<br/>
+
+        7rans 2010-01-16 15:05:52
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> syckle plugin now works with latest vclog changes</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 16 Jan 2010 10:50:30 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</guid>
+
+      <description><![CDATA[
+
+         syckle plugin now works with latest vclog changes
+<br/>
+
+        7rans 2010-01-16 10:50:30
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title> support &apos;type:&apos; fromat commit types</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 02 Jan 2010 02:19:32 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</guid>
+
+      <description><![CDATA[
+
+         support 'type:' fromat commit types
+<br/>
+
+        7rans 2010-01-02 02:19:32
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>use meta/name and meta/suite</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Sat, 14 Nov 2009 09:59:49 -0500</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#3d6a8a0a30bc845d007ec61e2c438bb311e43692</guid>
+
+      <description><![CDATA[
+
+        use meta/name and meta/suite
+<br/>
+
+        7rans 2009-11-14 09:59:49
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>readded markup output for changelog</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 26 Oct 2009 16:18:35 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#91bf6a289930767335b1a665a77c5481ba17cd78</guid>
+
+      <description><![CDATA[
+
+        readded markup output for changelog
+<br/>
+
+        7rans 2009-10-26 16:18:35
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>renamed command.rb to cli.rb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 26 Oct 2009 15:43:04 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#7040af16068d1a52fe8c43de790a48b41fe39f36</guid>
+
+      <description><![CDATA[
+
+        renamed command.rb to cli.rb
+<br/>
+
+        7rans 2009-10-26 15:43:04
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fixed spelling of revision (from revison)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 26 Oct 2009 15:38:39 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</guid>
+
+      <description><![CDATA[
+
+        fixed spelling of revision (from revison) <br/>
+
+        7rans 2009-10-26 15:38:39
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>more refactoring and fixed SVN support</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 26 Oct 2009 15:16:55 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#56340c886421803e3420d4ef22a79c1aabefd78e</guid>
+
+      <description><![CDATA[
+
+        more refactoring and fixed SVN support
+<br/>
+
+        7rans 2009-10-26 15:16:55
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>rewrote release history generator</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 26 Oct 2009 09:15:32 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#769e640437f5d1ed3abab3c87061dc3a7ed60c51</guid>
+
+      <description><![CDATA[
+
+        rewrote release history generator
+<br/>
+
+        7rans 2009-10-26 09:15:32
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>added ad to website. I want my ! ;)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:32:51 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#c3ade6a5bf31dcfc0c52a98f84f242b0a39e5f1d</guid>
+
+      <description><![CDATA[
+
+        added ad to website. I want my ! ;)
+<br/>
+
+        7rans 2009-10-23 10:32:51
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>added some todo items</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:30:05 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#9abf6d38ca10e66cb5610ffbbdcb786c31130a7c</guid>
+
+      <description><![CDATA[
+
+        added some todo items
+<br/>
+
+        7rans 2009-10-23 10:30:05
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>removed rdoc.task (automatic mode gets it)</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:21:12 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#ca0aa28da9ecba53bac1ae69858da234a88ec86a</guid>
+
+      <description><![CDATA[
+
+        removed rdoc.task (automatic mode gets it)
+<br/>
+
+        7rans 2009-10-23 10:21:12
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>adjust syckle config</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:19:25 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#4b261536f4e14587afec2144ff9b903ae8c8904b</guid>
+
+      <description><![CDATA[
+
+        adjust syckle config
+<br/>
+
+        7rans 2009-10-23 10:19:25
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>upped version to 1.1</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:17:50 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#2fc69b9910d0b329853f1b9cae9a0c203d618357</guid>
+
+      <description><![CDATA[
+
+        upped version to 1.1
+<br/>
+
+        7rans 2009-10-23 10:17:50
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>moved bin to command.rb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:14:19 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#60d94af0e882333920dc5f6bd97e91e6a038702b</guid>
+
+      <description><![CDATA[
+
+        moved bin to command.rb
+<br/>
+
+        7rans 2009-10-23 10:14:19
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>add website examples</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:13:56 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#eeb7b978f10f3fba6d8e2c70b142f26cb2ecf48d</guid>
+
+      <description><![CDATA[
+
+        add website examples
+<br/>
+
+        7rans 2009-10-23 10:13:56
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>moved bin to command.rb</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 10:13:40 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#b2c9f083381f35e04ac2c186a926660d6ee3158f</guid>
+
+      <description><![CDATA[
+
+        moved bin to command.rb
+<br/>
+
+        7rans 2009-10-23 10:13:40
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>update pom metadata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Fri, 23 Oct 2009 07:19:42 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#2183f7b7b81a6d34fc1edd7db75222c9a54d7bec</guid>
+
+      <description><![CDATA[
+
+        update pom metadata
+<br/>
+
+        7rans 2009-10-23 07:19:42
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>changed licenses to MIT</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 12 Oct 2009 11:47:58 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#70e98e8dc4baef6b50c4fa259127f55f6622a9e9</guid>
+
+      <description><![CDATA[
+
+        changed licenses to MIT
+<br/>
+
+        7rans 2009-10-12 11:47:58
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fixed typo in LICENSE</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 12 Oct 2009 11:40:15 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#87f3e3c71898d79b555c2c4dd0dda6a55de01330</guid>
+
+      <description><![CDATA[
+
+        fixed typo in LICENSE
+<br/>
+
+        7rans 2009-10-12 11:40:15
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>contact suffices</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 12 Oct 2009 11:36:20 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#9f6a0c691b051d5254ca8ab1a0e23772e2cff74e</guid>
+
+      <description><![CDATA[
+
+        contact suffices
+<br/>
+
+        7rans 2009-10-12 11:36:20
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>fixed syckle config</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 12 Oct 2009 11:33:59 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#42b9c6fa1a5924912842c0aef246de06c01ee108</guid>
+
+      <description><![CDATA[
+
+        fixed syckle config
+<br/>
+
+        7rans 2009-10-12 11:33:59
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>update tasks and metadata</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Mon, 12 Oct 2009 11:32:59 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#860aa3a2f7eea9a0793c06920fa680b3f580240e</guid>
+
+      <description><![CDATA[
+
+        update tasks and metadata
+<br/>
+
+        7rans 2009-10-12 11:32:59
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>reap became syckle</title>
+
+      <author>7rans</author>
+
+      <link></link>
+
+      <pubDate>Tue, 06 Oct 2009 13:47:36 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#d279fd3aee26a50c256d4a764b7bcc63c64f2304</guid>
+
+      <description><![CDATA[
+
+        reap became syckle
+<br/>
+
+        7rans 2009-10-06 13:47:36
+
+      ]]></description>
+
+    </item>
+
+
+    <item>
+
+      <title>first commit</title>
+
+      <author>proutils</author>
+
+      <link></link>
+
+      <pubDate>Mon, 17 Aug 2009 14:44:24 -0400</pubDate>
+
+      <guid>git@github.com:rubyworks/vclog.git#e71a6d4815b152f3dba4695be28645a9172645cc</guid>
+
+      <description><![CDATA[
+
+        first commit<br/>
+
+        proutils 2009-08-17 14:44:24
+
+      ]]></description>
+
+    </item>
+
+
+  </channel>
+
+</rss>
+
