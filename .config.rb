@@ -1,5 +1,14 @@
 # encoding: UTF-8
 
+rake do
+  require 'cucumber'
+  require 'cucumber/rake/task'
+
+  ::Cucumber::Rake::Task.new(:features) do |t|
+    t.cucumber_opts = "features --format pretty"
+  end
+end
+
 vclog do
   set :major,  1, "Major Enhancements"
   set :bug,    0, "Bug Fixes"
@@ -23,3 +32,4 @@ vclog do
     :admin
   end
 end
+
