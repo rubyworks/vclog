@@ -18,7 +18,7 @@ Given /a suitable Subversion repository/ do
 end
 
 Given /a suitable Git repository/ do
-  url    = "git://github.com/proutils/vclog.git"
+  url    = "git://github.com/rubyworks/vclog.git"
   name   = "vclog"
   type   = "git"
   marker = ".git"
@@ -53,6 +53,7 @@ Given /a suitable Mercurial repository/ do
   #cd(name)
 end
 
+# TODO
 Given /a suitable Darcs repository/ do
   url  = 
   name = 
