@@ -15,6 +15,7 @@ requirements:
   version: 2.4+
 - name: ansi
   version: 1.2+
+- name: confection
 - name: detroit
   groups:
   - build
@@ -24,6 +25,10 @@ requirements:
   - test
   development: true
 - name: aruba
+  groups:
+  - test
+  development: true
+- name: ae
   groups:
   - test
   development: true
@@ -44,4 +49,4 @@ version: 1.8.2
 name: vclog
 description: VCLog is a cross-VCS/SCM ChangeLog generator.
 organization: Rubyworks
-date: '2011-11-06'
+date: '2011-11-07'

@@ -11,15 +11,23 @@ github:
   folder: pages
 
 dnote:
-  output: log/notes.html
+  output: pages/log/notes.html
 
 locat:
-  output: log/locat.html
+  output: pages/log/locat.html
 
 vclog:
   output:
-    - log/history.html
-    - log/changes.html
+    - pages/log/history.html
+    - pages/log/changes.html
+    - pages/eg/history.html
+    - pages/eg/changes.html
+    - pages/eg/history.rdoc
+    - pages/eg/changes.rdoc
+    - pages/eg/history.atom
+    - pages/eg/changes.atom
+    - pages/eg/history.rss
+    - pages/eg/changes.rss
 
 ronn:
   service  : custom
