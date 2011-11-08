@@ -2,7 +2,7 @@
 - facets 2.4+
 - ansi 1.2+
 - confection
-- xmlsimple
+- xml-simple
 - detroit  (build)
 - cucumber (test)
 - aruba    (test)
