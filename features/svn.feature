@@ -5,82 +5,82 @@ Feature: Subversion Support
 
   Scenario: Subversion Changelog
     Given a suitable Subversion repository
-    When I run "vclog"
+    When I run `vclog`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in RDoc
     Given a suitable Subversion repository
-    When I run "vclog -f rdoc"
+    When I run `vclog -f rdoc`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in Markdown
     Given a suitable Subversion repository
-    When I run "vclog -f markdown"
+    When I run `vclog -f markdown`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in HTML
     Given a suitable Subversion repository
-    When I run "vclog -f html"
+    When I run `vclog -f html`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in XML
     Given a suitable Subversion repository
-    When I run "vclog -f xml"
+    When I run `vclog -f xml`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in Atom
     Given a suitable Subversion repository
-    When I run "vclog -f atom"
+    When I run `vclog -f atom`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in YAML
     Given a suitable Subversion repository
-    When I run "vclog -f yaml"
+    When I run `vclog -f yaml`
     Then the exit status should be 0
 
   Scenario: Subversion Changelog in JSON
     Given a suitable Subversion repository
-    When I run "vclog -f json"
+    When I run `vclog -f json`
     Then the exit status should be 0
 
 
   Scenario: Subversion Release History
     Given a suitable Subversion repository
-    When I run "vclog rel"
+    When I run `vclog rel`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in RDoc
     Given a suitable Subversion repository
-    When I run "vclog rel -f rdoc"
+    When I run `vclog rel -f rdoc`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in Markdown
     Given a suitable Subversion repository
-    When I run "vclog rel -f markdown"
+    When I run `vclog rel -f markdown`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in HTML
     Given a suitable Subversion repository
-    When I run "vclog rel -f html"
+    When I run `vclog rel -f html`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in XML
     Given a suitable Subversion repository
-    When I run "vclog rel -f xml"
+    When I run `vclog rel -f xml`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in Atom
     Given a suitable Subversion repository
-    When I run "vclog rel -f atom"
+    When I run `vclog rel -f atom`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in YAML
     Given a suitable Subversion repository
-    When I run "vclog rel -f yaml"
+    When I run `vclog rel -f yaml`
     Then the exit status should be 0
 
   Scenario: Subversion Release History in JSON
     Given a suitable Subversion repository
-    When I run "vclog rel -f json"
+    When I run `vclog rel -f json`
     Then the exit status should be 0
 

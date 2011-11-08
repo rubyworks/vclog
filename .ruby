@@ -16,6 +16,7 @@ requirements:
 - name: ansi
   version: 1.2+
 - name: confection
+- name: xmlsimple
 - name: detroit
   groups:
   - build

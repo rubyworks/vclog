@@ -16,7 +16,7 @@ module Adapters
       begin
         require 'xmlsimple'
       rescue LoadError
-        "VCLog requires xmlsimple for SVN support"
+        raise LoadError, "VCLog requires xml-simple for SVN support."
       end
       super(root)
     end
