@@ -17,7 +17,7 @@ It currently supports Git, Hg and (limited) Subversion.
 
 === Creating Changelogs
 
-The default output is a ANSI colored GNU-like changelog.
+The default output is an ANSI colored GNU-like changelog.
 From a repository's root directory try:
 
   $ vclog
@@ -36,7 +36,7 @@ To get a release history specify 'history' or 'release' as the subcommand.
 
   $ vclog history
 
-Again the default format is a ANSI colored GNU-like text style.
+Again the default format is an ANSI colored GNU-like text style.
 
 Unlike Changelogs, Histories group changes by tags. The tag message is
 used as the release note. If the underlying SCM doesn't support 
