@@ -9,7 +9,7 @@
 
 == DESCRIPTION
 
-VCLog is a versitle cross-VCS/SCM changelog generator.
+VCLog is a versatile cross-VCS/SCM changelog generator.
 It currently supports Git, Hg and (limited) Subversion.
 
 
@@ -87,7 +87,7 @@ the rules.rb to specify the level and description of a commit label.
   set :admin, -2, "Administrative Adjustment"
 
 
-== NOTE ABOUT SUBVSERION
+== NOTE ABOUT SUBVERSION
 
 Because Subversion is a centralized version control system, it contacts
 the server every time 'svn log' is run. For this reason, having vclog
@@ -108,6 +108,6 @@ Copyright (c) 2008 Rubyworks
 
 VCLog is distributable in accordance with the terms of the BSD-2-Clause license.
 
-See COPYING.rdoc for detiails.
+See COPYING.rdoc for details.
 
 
