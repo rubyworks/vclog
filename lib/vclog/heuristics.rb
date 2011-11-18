@@ -20,7 +20,11 @@ module VCLog
       @rules  = []
       @labels = {}
 
-      instance_eval(&block) if block
+      if block
+        instance_eval(&block)
+      else
+        default
+      end
     end
 
     #
