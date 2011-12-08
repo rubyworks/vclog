@@ -8,10 +8,10 @@ gem:
   active: true
 
 github:
-  folder: pages
+  folder: web
 
 dnote:
-  files: lib/
+  title: Source Notes
   output: pages/log/notes.html
 
 locat:
