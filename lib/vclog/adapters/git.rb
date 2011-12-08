@@ -7,8 +7,11 @@ module Adapters
   #
   class Git < Abstract
 
-    COMMIT_MARKER = '=====%n'
-    FIELD_MARKER  = '-----%n'
+    GIT_COMMIT_MARKER = '=====%n'
+    GIT_FIELD_MARKER  = '-----%n'
+
+    RUBY_COMMIT_MARKER = "=====\n"
+    RUBY_FIELD_MARKER  = "-----\n"
 
     # TODO: in the future we might use grit, if it improves enough.
     def initialize_framework
@@ -27,31 +30,27 @@ module Adapters
       changelog = `git log --pretty=format:"\036|||%ci|~|%aN|~|%H|~|%s"`.strip
 
       command = 'git log --name-only --pretty=format:"' +
-                  COMMIT_MARKER +
+                  GIT_COMMIT_MARKER +
                   '%ci' +
-                  FIELD_MARKER +
+                  GIT_FIELD_MARKER +
                   '%aN' +
-                  FIELD_MARKER +
+                  GIT_FIELD_MARKER +
                   '%H' +
-                  FIELD_MARKER +
-                  '%s'
-                  FIELD_MARKER +
+                  GIT_FIELD_MARKER +
+                  '%s' +
+                  GIT_FIELD_MARKER +
                   '"'
 
-      changes = `#{command}`.split(COMMIT_MARKER)
-p changes
+      changes = `#{command}`.split(RUBY_COMMIT_MARKER)
       changes.shift # throw the first (empty) entry away
       changes.each do |entry|
-        date, who, id, msg, files = entry.split(FIELD_MARKER)
+        date, who, id, msg, files = entry.split(RUBY_FIELD_MARKER)
         date  = Time.parse(date)
         files = files.split("\n")
         list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
       end
       list
-    end
-
-      logs = 
-      
+    end  
 
     #
     #def extract_files(change_list)
