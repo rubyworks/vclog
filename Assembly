@@ -12,30 +12,31 @@ github:
 
 dnote:
   title: Source Notes
-  output: pages/log/notes.html
+  output: log/notes.html
+  files: lib/**/*.rb
 
 locat:
-  output: pages/log/locat.html
+  output: log/locat.html
 
 vclog:
   output:
-    - pages/log/history.html
-    - pages/log/changes.html
-    - pages/eg/history.html
-    - pages/eg/changes.html
-    - pages/eg/history.rdoc
-    - pages/eg/changes.rdoc
-    - pages/eg/history.atom
-    - pages/eg/changes.atom
-    - pages/eg/history.rss
-    - pages/eg/changes.rss
+    - web/log/history.html
+    - web/log/changes.html
+    - web/eg/history.html
+    - web/eg/changes.html
+    - web/eg/history.rdoc
+    - web/eg/changes.rdoc
+    - web/eg/history.atom
+    - web/eg/changes.atom
+    - web/eg/history.rss
+    - web/eg/changes.rss
 
 ronn:
   service  : custom
   cycle    : main
   document : |
     system 'ronn --manual="VCLog" --organization="RubyWorks" --style="toc" man/man1/*.ronn'
-    system 'cp man/man1/*.html pages/man/'
+    system 'cp man/man1/*.html web/man/'
 
 #ronn:
 #  path: man/man1/*.ronn
