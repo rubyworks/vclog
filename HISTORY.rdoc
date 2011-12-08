@@ -1,11 +1,12 @@
 = RELEASE HISTORY
 
-== 1.8.2 / 2011-11-06
+== 1.8.2 / 2011-12-08
 
 This release changes the way in which vclog is configured to use the Confection
 gem. This means VCLog custom configuration for a project must go in a `vclog do`
-block in the `.co.rb` project file. In addtion this release brings the build
-config up to date and switches the project over to the BSD-2-Clause license.
+block in the `Confile` or `.confile` project file. In addtion this release
+brings the build config up to date and switches the project over to the
+BSD-2-Clause license.
 
 Changes:
 
