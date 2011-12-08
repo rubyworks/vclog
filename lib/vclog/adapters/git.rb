@@ -7,6 +7,9 @@ module Adapters
   #
   class Git < Abstract
 
+    COMMIT_MARKER = '=====%n'
+    FIELD_MARKER  = '-----%n'
+
     # TODO: in the future we might use grit, if it improves enough.
     def initialize_framework
       #require 'grit'
@@ -22,16 +25,42 @@ module Adapters
     def extract_changes
       list = []
       changelog = `git log --pretty=format:"\036|||%ci|~|%aN|~|%H|~|%s"`.strip
-      changes = changelog.split("\036|||")
-      #changes = changelog.split(/^commit/m)
+
+      command = 'git log --name-only --pretty=format:"' +
+                  COMMIT_MARKER +
+                  '%ci' +
+                  FIELD_MARKER +
+                  '%aN' +
+                  FIELD_MARKER +
+                  '%H' +
+                  FIELD_MARKER +
+                  '%s'
+                  FIELD_MARKER +
+                  '"'
+
+      changes = `#{command}`.split(COMMIT_MARKER)
+p changes
       changes.shift # throw the first (empty) entry away
       changes.each do |entry|
-        date, who, id, msg = entry.split('|~|')
-        date = Time.parse(date)
-        list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg)
+        date, who, id, msg, files = entry.split(FIELD_MARKER)
+        date  = Time.parse(date)
+        files = files.split("\n")
+        list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
       end
       list
     end
+
+      logs = 
+      
+
+    #
+    #def extract_files(change_list)
+    #  change_list.each do |change|
+    #    files = `git show --pretty="format:" --name-only #{c.id}`
+    #    files = files.split("\n")
+    #    change.files = files
+    #  end
+    #end
 
     # TODO
     #def extract_changes

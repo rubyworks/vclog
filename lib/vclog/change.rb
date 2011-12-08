@@ -2,23 +2,33 @@ require 'vclog/kernel'
 
 module VCLog
 
-  # The Change class models an extry in a change log.
+  # The Change class models an entry in a change log.
   #
   class Change
 
     include Comparable
 
+    # Commit reference id.
     attr_accessor :id
+
+    # Date/time of commit.
     attr_accessor :date
+
+    # Committer.
     attr_accessor :author
+
+    # Commit message.
     attr_accessor :message
+
+    # List of files changed in the commit.
+    attr_accessor :files
 
     attr_accessor :type
     attr_accessor :level
     attr_accessor :label
 
     #
-    def initialize(data={}) #rev, date, author, message, type, level, label
+    def initialize(data={})
       data.each do |k,v|
         __send__("#{k}=", v)
       end
@@ -35,17 +45,26 @@ module VCLog
     end
 
     # Alternate name for id.
+    alias_method :ref,  :id
+    alias_method :ref=, :id=
+    alias_method :reference,  :id
+    alias_method :reference=, :id=
+
+    # Alternate name for id.
+    #
+    # @deprecated
     alias_method :rev,  :id
     alias_method :rev=, :id=
 
     # Alternate name for id.
+    #
+    # @deprecated
     alias_method :revision,  :id
     alias_method :revision=, :id=
 
     # Alternate name for message.
     alias_method :msg,  :message
     alias_method :msg=, :message=
-
 
     # Alias for author.
     alias_method :who,  :author
@@ -63,26 +82,6 @@ module VCLog
     #  end
     #end
 
-=begin
-    #
-    def type_phrase
-      case type.to_s
-      when 'maj', 'major'
-        'Major Enhancements'
-      when 'min', 'minor'
-        'Minor Enhancements'
-      when 'bug'
-        'Bug Fixes'
-      when ''
-        'General Enhancements'
-      when '-'
-        'Administrative Changes'
-      else
-        "#{type.to_s.capitalize} Enhancements"
-      end
-    end
-=end
-
     #
     def <=>(other)
       other.date <=> date
@@ -92,6 +91,9 @@ module VCLog
       "#<Change:#{object_id} #{date}>"
     end
 
+    # TODO: Rename revision to `referece` or `ref`.
+
+    #
     def to_h
       { 'author'   => @author,
         'date'     => @date,
@@ -119,6 +121,24 @@ module VCLog
     end
 
 =begin
+    #
+    def type_phrase
+      case type.to_s
+      when 'maj', 'major'
+        'Major Enhancements'
+      when 'min', 'minor'
+        'Minor Enhancements'
+      when 'bug'
+        'Bug Fixes'
+      when ''
+        'General Enhancements'
+      when '-'
+        'Administrative Changes'
+      else
+        "#{type.to_s.capitalize} Enhancements"
+      end
+    end
+
     # Looks for a "[type]" indicator at the end of the commit message.
     # If that is not found, it looks at front of message for
     # "[type]" or "[type]:". Failing that it tries just "type:".
