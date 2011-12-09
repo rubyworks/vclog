@@ -1,15 +1,17 @@
 require 'vclog/adapters/abstract'
 
-module VCLog
-module Adapters
+module VCLog::Adapters
 
-  # = Darcs
+  # Darcs SCM adapter.
   #
-  # Provide Darcs SCM revision tools.
-  #
-  # TODO: This needs to be fixed!!!!!!!
+  # FIXME: This needs to be fixed!!!!!!!
   #
   class Darcs < Abstract
+
+    #
+    def initialize(*)
+      raise "Darcs is not yet supported. Please help us fix that!"
+    end
 
     # Is a darcs repository?
     def repository?
@@ -84,5 +86,4 @@ module Adapters
 
   end
 
-end
 end

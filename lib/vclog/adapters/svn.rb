@@ -1,7 +1,6 @@
 require 'vclog/adapters/abstract'
 
-module VCLog
-module Adapters
+module VCLog::Adapters
 
   # = SVN
   #
@@ -20,6 +19,8 @@ module Adapters
       end
       super(root)
     end
+
+    # TODO: Need to gets files effected by each commit and add to Change.
 
     # Extract changes.
     def extract_changes
@@ -148,5 +149,3 @@ module Adapters
   end
 
 end
-end
-

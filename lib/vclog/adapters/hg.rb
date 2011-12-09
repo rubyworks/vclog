@@ -1,11 +1,9 @@
 require 'vclog/adapters/abstract'
 
-module VCLog
-module Adapters
+module VCLog::Adapters
 
-  # = Mercurial Adapter
+  # Mercurial Adapter
   #
-  # TODO: maybe use Amp gem for future version.
   class Hg < Abstract
 
     # Collect changes.
@@ -14,8 +12,8 @@ module Adapters
       changelog = `hg log -v`.strip
       changes = changelog.split("\n\n\n")
       changes.each do |entry|
-        id, date, who, msg = *parse_entry(entry)
-        list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg)
+        id, date, who, msg, files = *parse_entry(entry)
+        list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
       end
       list
     end
@@ -27,14 +25,16 @@ module Adapters
         File.readlines('.hgtags').each do |line|
           rev, tag = line.strip.split(' ')
           entry = `hg log -v -r #{rev}`.strip
-          rev, date, who, msg, type = parse_entry(entry)
-          list << Tag.new(:name=>tag, :id=>rev, :date=>date, :who=>who, :msg=>msg)
+          id, date, who, msg, type, files = parse_entry(entry)
+          list << Tag.new(:name=>tag, :id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
         end
       end
       list
     end
 
-    # TODO: check .hgrc
+    # TODO: check .hgrc for user and email.
+
+    #
     def user
       ENV['HGUSER'] || ENV['USER']
     end
@@ -65,29 +65,37 @@ module Adapters
       `#{cmd}` unless $DRYRUN
     end
 
-    private
+   private
 
-      def parse_entry(entry)
-        rev, date, who, msg = nil, nil, nil, nil
-        entry.strip!
-        if md = /^changeset:(.*?)$/.match(entry)
-          rev = md[1].strip
-        end
-        if md = /^date:(.*?)$/.match(entry)
-          date = md[1].strip
-        end
-        if md = /^user:(.*?)$/.match(entry)
-          who = md[1].strip
-        end
-        if md = /^description:(.*?)\Z/m.match(entry)
-          msg = md[1].strip
-        end
-        date = Time.parse(date)
-        #msg, type = *split_type(msg)
-        return rev, date, who, msg
+    # Parse log entry.
+    def parse_entry(entry)
+      settings = {}
+
+      entry.strip!
+
+      if md = /^changeset:(.*?)$/.match(entry)
+        settings[:id] = md[1].strip
       end
+
+      if md = /^date:(.*?)$/.match(entry)
+        settings[:date] = Time.parse(md[1].strip)
+      end
+
+      if md = /^user:(.*?)$/.match(entry)
+        settings[:who] = md[1].strip
+      end
+
+      if md = /^files:(.*?)$/.match(entry)
+        settings[:files] = md[1].strip.split(' ')
+      end
+
+      if md = /^description:(.*?)\Z/m.match(entry)
+        settings[:msg] = md[1].strip
+      end
+
+      return settings
+    end
 
   end
 
-end
 end

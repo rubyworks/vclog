@@ -1,9 +1,8 @@
 require 'vclog/adapters/abstract'
 
-module VCLog
-module Adapters
+module VCLog::Adapters
 
-  # The GIT Adapter utilizes the +grit+ gem.
+  # GIT Adapter.
   #
   class Git < Abstract
 
@@ -13,21 +12,9 @@ module Adapters
     RUBY_COMMIT_MARKER = "=====\n"
     RUBY_FIELD_MARKER  = "-----\n"
 
-    # TODO: in the future we might use grit, if it improves enough.
-    def initialize_framework
-      #require 'grit'
-    end
-
-    #
-    def grit_repo
-      @grit_repo ||= Grit::Repo.new(root)
-    end
-
-    # Collect changes.
-    #
+    # Collect changes, i.e. commits.
     def extract_changes
       list = []
-      #changelog = `git log --pretty=format:"\036|||%ci|~|%aN|~|%H|~|%s"`.strip
 
       command = 'git log --name-only --pretty=format:"' +
                   GIT_COMMIT_MARKER +
@@ -42,14 +29,17 @@ module Adapters
                   '"'
 
       changes = `#{command}`.split(RUBY_COMMIT_MARKER)
+
       changes.shift # throw the first (empty) entry away
+
       changes.each do |entry|
         date, who, id, msg, files = entry.split(RUBY_FIELD_MARKER)
         date  = Time.parse(date)
         files = files.split("\n")
         list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
       end
-      list
+
+      return list
     end  
 
     #
@@ -58,13 +48,6 @@ module Adapters
     #    files = `git show --pretty="format:" --name-only #{c.id}`
     #    files = files.split("\n")
     #    change.files = files
-    #  end
-    #end
-
-    # TODO
-    #def extract_changes
-    #  repo.commit.map do |commit|
-    #    [commit.id, commit.date, commit.author.to_s, commit.message]
     #  end
     #end
 
@@ -117,32 +100,22 @@ module Adapters
 
         list << Tag.new(:name=>tag, :date=>date, :who=>who, :msg=>msg, :commit_id=>id, :commit_date=>cdate)
       end
-      list
-    end
 
-    # TODO: grit doesn't provide the tag information.
-    #def extract_tags
-    #  list = grit_repo.tags.map do |tag|
-    #    [tag.name, tag.commit.id, tag.commit.committed_date, tag.commit.author.to_s, tag.commit.message]
-    #  end
-    #  list
-    #end
+      return list
+    end
 
     #
     def user
-      #@user ||= grit_repo.config['user.name']
       @user ||= `git config user.name`.strip
     end
 
     #
     def email
-      #@email ||= grit_repo.config['user.email']
       @email ||= `git config user.email`.strip
     end
 
     #
     def repository
-      #@repository ||= grit_repo.config['remote.origin.url']
       @repository ||= `git config remote.origin.url`.strip
     end
 
@@ -156,7 +129,6 @@ module Adapters
       `#{cmd}` unless $DRYRUN
     end
 
-  end#class Git
+  end
 
-end
 end

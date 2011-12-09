@@ -14,7 +14,10 @@ module Adapters
   # TODO: Might we have a NO-VCS changelog based on
   #       LOG: entries in source files?
 
-  # = Version Control System
+  # TODO: maybe use Amp or SCM gem for future version.
+
+  # Abstract base class for all version control system adapters.
+  #
   class Abstract
 
     #
