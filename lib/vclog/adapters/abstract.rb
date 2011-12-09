@@ -63,9 +63,10 @@ module Adapters
     #
     # TODO: possbile to move heuristics lookup into Change class?
     def changes
-      @changes ||= all_changes.select do |c|
-        c.level >= self.level
-      end
+      #@changes ||= all_changes.select do |c|
+      #  c.level >= self.level
+      #end
+      all_changes
     end
 
     #
@@ -85,74 +86,32 @@ module Adapters
     end
 
     #
+    def change_points
+      @change_points ||= changes.map{ |c| c.points }.flatten
+    end
+
+    #
     def tag?(name)
       tags.find{ |t| t.name == name }
     end
 
     #
-    def changelog
-      ChangeLog.new(changes)
-    end
+    #def changelog
+    #  ChangeLog.new(changes)
+    #end
 
     #
-    def history
-      @history ||= History.new(self)
-    end
+    #def history
+    #  @history ||= History.new(self)
+    #end
 
     #
-    def display(type, format, options)
-      @options = options
-      formatter = Formatter.new(self)
-      formatter.display(type, format, options)
-    end
+    #def display(type, format, options)
+    #  @options = options
+    #  formatter = Formatter.new(self)
+    #  formatter.display(type, format, options)
+    #end
 
-    # TODO: allow config of these levels thresholds ?
-    def bump
-      max = history.releases[0].changes.map{ |c| c.level }.max
-      if max > 1
-        bump_part('major')
-      elsif max >= 0
-        bump_part('minor')
-      else
-        bump_part('patch')
-      end
-    end
-
-    # Provides a bumped version number.
-    def bump_part(part=nil)
-      raise "bad version part - #{part}" unless ['major', 'minor', 'patch', 'build', ''].include?(part.to_s)
-
-      if tags.last
-        v = tags[-1].name # TODO: ensure the latest version
-        v = tags[-2].name if v == 'HEAD'
-      else
-        v = '0.0.0'
-      end
-
-      v = v.split(/\W/)    # TODO: preserve split chars
-
-      case part.to_s
-      when 'major'
-        v[0] = v[0].succ
-        (1..(v.size-1)).each{ |i| v[i] = '0' }
-        v.join('.')
-      when 'minor'
-        v[1] = '0' unless v[1]
-        v[1] = v[1].succ
-        (2..(v.size-1)).each{ |i| v[i] = '0' }
-        v.join('.')
-      when 'patch'
-        v[1] = '0' unless v[1]
-        v[2] = '0' unless v[2]
-        v[2] = v[2].succ
-        (3..(v.size-1)).each{ |i| v[i] = '0' }
-        v.join('.')
-      else
-        v[-1] = '0' unless v[-1]
-        v[-1] = v[-1].succ
-        v.join('.')
-      end
-    end
 
     # Returns the current verion string.
     def version

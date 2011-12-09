@@ -3,13 +3,6 @@ module VCLog
   require 'vclog/facets'
   require 'vclog/change'
 
-  # Supports output formats:
-  #
-  #   xml
-  #   html
-  #   yaml
-  #   json
-  #   text
   #
   class ChangeLog
 
@@ -42,8 +35,8 @@ module VCLog
     #end
 
     # Add a change entry to the log.
-    def change(rev, date, who, note, type=nil)
-      @changes << Change.new(rev, date, who, note, type)
+    def change(ref, date, who, note, type=nil)
+      @changes << Change.new(ref, date, who, note, type)
     end
 
     #
@@ -136,6 +129,33 @@ module VCLog
     def to_h
       map{ |change| change.to_h }
     end
+
+   private
+
+    # TODO: why is this here?
+    def h(input)
+      result = input.to_s.dup
+      result.gsub!("&", "&amp;")
+      result.gsub!("<", "&lt;")
+      result.gsub!(">", "&gt;")
+      result.gsub!("'", "&apos;")
+      #result.gsub!("@", "&at;")
+      result.gsub!("\"", "&quot;")
+      return result
+    end
+
+  end
+
+end
+
+
+
+
+
+
+
+
+
 
 
     # O U T P U T  F O R M A T S
@@ -287,25 +307,6 @@ module VCLog
       return x.join("\n")
     end
 =end
-
-  private
-
-    #
-    def h(input)
-       result = input.to_s.dup
-       result.gsub!("&", "&amp;")
-       result.gsub!("<", "&lt;")
-       result.gsub!(">", "&gt;")
-       result.gsub!("'", "&apos;")
-       #result.gsub!("@", "&at;")
-       result.gsub!("\"", "&quot;")
-       return result
-    end
-
-  end
-
-end
-
 
 
 

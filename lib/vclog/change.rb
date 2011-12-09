@@ -1,4 +1,5 @@
 require 'vclog/kernel'
+require 'vclog/change_point'
 
 module VCLog
 
@@ -112,7 +113,7 @@ module VCLog
     #end
 
     def apply_heuristics(heuristics)
-      type, level, label, msg = *heuristics.lookup(message)
+      type, level, label, msg = *heuristics.lookup(self)
 
       self.type    = type
       self.level   = level
@@ -121,24 +122,6 @@ module VCLog
     end
 
 =begin
-    #
-    def type_phrase
-      case type.to_s
-      when 'maj', 'major'
-        'Major Enhancements'
-      when 'min', 'minor'
-        'Minor Enhancements'
-      when 'bug'
-        'Bug Fixes'
-      when ''
-        'General Enhancements'
-      when '-'
-        'Administrative Changes'
-      else
-        "#{type.to_s.capitalize} Enhancements"
-      end
-    end
-
     # Looks for a "[type]" indicator at the end of the commit message.
     # If that is not found, it looks at front of message for
     # "[type]" or "[type]:". Failing that it tries just "type:".
@@ -162,7 +145,11 @@ module VCLog
     end
 =end
 
-    private
+    def points
+      @points ||= parse_points
+    end
+
+  private
 
     def parse_date(date)
       case date
@@ -170,6 +157,14 @@ module VCLog
         date
       else
         Time.parse(date.to_s)
+      end
+    end
+
+    # TODO: Improve the parsing of point messages.
+    def parse_points
+      point_messages = message.split(/^[\*]/)
+      point_messages.map do |msg|
+        ChangePoint.new(self, msg)
       end
     end
 

@@ -24,7 +24,7 @@ module VCLog
       @vcs.changelog
     end
 
-    # Returns a History object garnered form the VCS.
+    # Returns a History object garnered from the VCS.
     def history
       @vcs.history
     end
@@ -94,7 +94,7 @@ module VCLog
       end
     end
 
-    private
+   private
 
       #
       def require_formatter(format)

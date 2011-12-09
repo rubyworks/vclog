@@ -24,7 +24,7 @@ module VCLog
     DIR = File.dirname(__FILE__)
 
     #
-    attr :vcs
+    attr :repo
 
     # Alternate title.
     attr_accessor :title
@@ -36,8 +36,8 @@ module VCLog
     attr_accessor :extra
 
     #
-    def initialize(vcs)
-      @vcs     = vcs
+    def initialize(repo)
+      @repo = repo
 
       #opts = OpenStruct.new(opts) if Hash === opts
 
@@ -49,17 +49,23 @@ module VCLog
 
     # Tag list from version control system.
     def tags
-      @tags ||= vcs.tags
+      @tags ||= repo.tags
     end
 
     # Changelog object
-    def changelog
-      @changlog ||= vcs.changelog #ChangeLog.new(changes)
-    end
+    #def changelog
+    #  @changlog ||= repo.changelog #ChangeLog.new(changes)
+    #end
 
     # Change list from version control system filter for level setting.
     def changes
-      @changes ||= vcs.changes
+      @changes ||= (
+        if @repo.point
+          repo.change_points
+        else
+          repo.changes
+        end
+      )
     end
 
     #
@@ -69,8 +75,8 @@ module VCLog
 
         tags = self.tags
 
-        #ver  = vcs.bump(version)
-        user = vcs.user
+        #ver  = repo.bump(version)
+        user = repo.user
         time = ::Time.now + (3600 * 24) # one day ahead
 
         tags << Tag.new(:name=>'HEAD', :id=>'HEAD', :date=>time, :who=>user, :msg=>"Current Development")

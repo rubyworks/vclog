@@ -27,7 +27,7 @@ module Adapters
     #
     def extract_changes
       list = []
-      changelog = `git log --pretty=format:"\036|||%ci|~|%aN|~|%H|~|%s"`.strip
+      #changelog = `git log --pretty=format:"\036|||%ci|~|%aN|~|%H|~|%s"`.strip
 
       command = 'git log --name-only --pretty=format:"' +
                   GIT_COMMIT_MARKER +

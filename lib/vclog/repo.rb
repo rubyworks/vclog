@@ -8,14 +8,15 @@ module VCLog
 
   #
   class Repo
-    # Remove some undeeded methods to make way for delegation to scm adapter.
-    %w{display}.each{ |name| undef_method(name) }
+
+    ## Remove some undeeded methods to make way for delegation to scm adapter.
+    #%w{display}.each{ |name| undef_method(name) }
+    #
+    ## File glob used to find the vclog configuration directory.
+    #CONFIG_GLOB = '{.,.config/,config/,task/,tasks/}vclog{,.rb}'
 
     # File glob used to find project root directory.
     ROOT_GLOB = '{.git/,.hg/,_darcs/,.svn/}'
-
-    # File glob used to find the vclog configuration directory.
-    #CONFIG_GLOB = '{.,.config/,config/,task/,tasks/}vclog{,.rb}'
 
     # Project's root directory.
     attr :root
@@ -27,6 +28,9 @@ module VCLog
     # TODO: get from config file?
     attr :level
 
+    # Use change points, instead of whole changes?
+    attr :point
+
     #
     def initialize(root, options={})
       @root    = root || lookup_root
@@ -35,8 +39,10 @@ module VCLog
       #@config_directory = Dir[File.join(@root, CONFIG_GLOB)]
 
       @level = (options[:level] || 0).to_i
+      @point = true #(options[:point] || false)
 
       type = read_type
+
       raise ArgumentError, "Not a recognized version control system." unless type
 
       @adapter = Adapters.const_get(type.capitalize).new(self)
@@ -123,7 +129,83 @@ module VCLog
       end
     end
 
-    # Delegate to SCM adapter.
+    #
+    def changes
+      @changes ||= adapter.changes.select do |c|
+        c.level >= self.level
+      end
+    end
+
+    #
+    def change_points
+      changes.map{ |c| c.points }.flatten
+    end
+
+    #
+    def changelog
+      @changelog ||= ChangeLog.new(changes)
+    end
+
+    #
+    def history
+      @history ||= History.new(self)
+    end
+
+    #
+    def display(type, format, options)
+      formatter = Formatter.new(self)  #, options)
+      formatter.display(type, format, options)
+    end
+
+    # TODO: allow config of these levels thresholds ?
+    def bump
+      max = history.releases[0].changes.map{ |c| c.level }.max
+      if max > 1
+        bump_part('major')
+      elsif max >= 0
+        bump_part('minor')
+      else
+        bump_part('patch')
+      end
+    end
+
+    # Provides a bumped version number.
+    def bump_part(part=nil)
+      raise "bad version part - #{part}" unless ['major', 'minor', 'patch', 'build', ''].include?(part.to_s)
+
+      if tags.last
+        v = tags[-1].name # TODO: ensure the latest version
+        v = tags[-2].name if v == 'HEAD'
+      else
+        v = '0.0.0'
+      end
+
+      v = v.split(/\W/)    # TODO: preserve split chars
+
+      case part.to_s
+      when 'major'
+        v[0] = v[0].succ
+        (1..(v.size-1)).each{ |i| v[i] = '0' }
+        v.join('.')
+      when 'minor'
+        v[1] = '0' unless v[1]
+        v[1] = v[1].succ
+        (2..(v.size-1)).each{ |i| v[i] = '0' }
+        v.join('.')
+      when 'patch'
+        v[1] = '0' unless v[1]
+        v[2] = '0' unless v[2]
+        v[2] = v[2].succ
+        (3..(v.size-1)).each{ |i| v[i] = '0' }
+        v.join('.')
+      else
+        v[-1] = '0' unless v[-1]
+        v[-1] = v[-1].succ
+        v.join('.')
+      end
+    end
+
+    # Delegate missing methods to SCM adapter.
     def method_missing(s, *a, &b)
       if adapter.respond_to?(s)
         adapter.send(s, *a, &b)
@@ -132,7 +214,7 @@ module VCLog
       end
     end
 
-    private
+   private
 
     # Ask yes/no question.
     def ask_yn(message)
