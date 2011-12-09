@@ -38,8 +38,8 @@ module VCLog
 
       #@config_directory = Dir[File.join(@root, CONFIG_GLOB)]
 
-      @level = (options[:level] || 0).to_i
-      @point = true #(options[:point] || false)
+      @point   = options[:point]
+      @level   = (options[:level] || 0).to_i
 
       type = read_type
 
@@ -131,14 +131,26 @@ module VCLog
 
     #
     def changes
-      @changes ||= adapter.changes.select do |c|
-        c.level >= self.level
-      end
+      @changes ||= (
+        apply_heuristics(adapter.changes)
+      )
     end
 
     #
     def change_points
-      changes.map{ |c| c.points }.flatten
+      @change_points ||= (
+         apply_heuristics(adapter.change_points)
+      )
+    end
+
+    #
+    def apply_heuristics(changes)
+      changes.each do |change|
+        change.apply_heuristics(heuristics)
+      end
+      changes.select do |change|
+        change.level >= self.level
+      end
     end
 
     #
@@ -152,9 +164,9 @@ module VCLog
     end
 
     #
-    def display(type, format, options)
+    def report(options)
       formatter = Formatter.new(self)  #, options)
-      formatter.display(type, format, options)
+      formatter.report(options)
     end
 
     # TODO: allow config of these levels thresholds ?

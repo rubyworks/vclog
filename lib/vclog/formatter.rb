@@ -3,50 +3,53 @@ require 'ostruct'
 
 module VCLog
 
+  # The formatter class acts a a controller for outputing 
+  # change log / release history.
   #
   class Formatter
 
+    # Directory of this file, so as to locate templates.
     DIR = File.dirname(__FILE__)
 
-    #
-    attr :vcs
+    # Instance of VCLog::Repo.
+    attr :repo
 
     # New Formmater.
     #
-    # vcs - an instance of a subclass of VCS::Abstract
+    # repo - instance of VCLog::Repo
     #
-    def initialize(vcs)
-      @vcs = vcs
+    def initialize(repo)
+      @repo = repo
     end
 
     # Returns a Changelog object taken from the VCS.
     def changelog
-      @vcs.changelog
+      @repo.changelog
     end
 
     # Returns a History object garnered from the VCS.
     def history
-      @vcs.history
+      @repo.history
     end
 
     #
     def user
-      @options.user || @vcs.user
+      @options.user || @repo.user
     end
 
     #
     def email
-      @options.email || @vcs.email
+      @options.email || @repo.email
     end
 
     #
     def repository
-      @vcs.repository
+      @repo.repository
     end
 
     # TODO
     def url
-      @options.url || @vcs.repository
+      @options.url || @repo.repository
     end
 
     # TODO
@@ -54,7 +57,9 @@ module VCLog
       @options.homepage
     end
 
-    # TODO: let be nil and let template make a default if wanted
+    # TODO: Let the title be nil and the template can set a default if it needs to.
+
+    #
     def title
       return @options.title if @options.title
       case @doctype
@@ -65,12 +70,15 @@ module VCLog
       end
     end
 
-    #
-    #--
     # NOTE: ERBs trim_mode is broken --it removes an extra space. 
     # So we can't use it for plain text templates.
-    #++
-    def display(doctype, format, options)
+
+    #
+    #
+    def report(options)
+      doctype = options.delete(:report) || 'changelog'
+      format  = options.delete(:format) || 'ansi'
+
       options = OpenStruct.new(options) if Hash === options
 
       @doctype = doctype
@@ -96,27 +104,27 @@ module VCLog
 
    private
 
-      #
-      def require_formatter(format)
-        case format.to_s
-        when 'yaml'
-          require 'yaml'
-        when 'json'
-          require 'json'
-        end
+    # Depending on the format special libraries may by required.
+    def require_formatter(format)
+      case format.to_s
+      when 'yaml'
+        require 'yaml'
+      when 'json'
+        require 'json'
       end
+    end
 
-      #
-      def h(input)
-         result = input.to_s.dup
-         result.gsub!("&", "&amp;")
-         result.gsub!("<", "&lt;")
-         result.gsub!(">", "&gt;")
-         result.gsub!("'", "&apos;")
-         #result.gsub!("@", "&at;")
-         result.gsub!("\"", "&quot;")
-         return result
-      end
+    #
+    def h(input)
+       result = input.to_s.dup
+       result.gsub!("&", "&amp;")
+       result.gsub!("<", "&lt;")
+       result.gsub!(">", "&gt;")
+       result.gsub!("'", "&apos;")
+       #result.gsub!("@", "&at;")
+       result.gsub!("\"", "&quot;")
+       return result
+    end
 
   end
 

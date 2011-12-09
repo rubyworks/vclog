@@ -57,13 +57,11 @@
 <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
 
           <li class="entry">
-
             <%= entry.message.rstrip %><br/>
 
             <%= entry.author %> <%= entry.date.strftime('%Y-%m-%d %H:%M:%S') %>
 
-            <% if options.revision %>(#<%= h entry.revision %>)<% end %>           
-
+            <% if options.reference %>(#<%= h entry.id %>)<% end %>           
           </li>
 
 <% end %>

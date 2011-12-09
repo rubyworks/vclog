@@ -16,11 +16,11 @@
     <commit-group type="<%= changes[0].type %>" label="<%= changes[0].label %>">
       <% changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
       <commit>
-        <revision>#<%= h entry.revision %></revision>
+        <id>#<%= h entry.revision %></id>
         <date><%= entry.date %></date>
         <author><%= h entry.author %></author>
         <type><%= h entry.type %></type>
-        <message><%= h entry.message %></message>
+        <message><%= h entry.message.strip %></message>
       </commit>
       <% end %>
     </commit-group>

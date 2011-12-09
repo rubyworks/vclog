@@ -29,7 +29,6 @@
 <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
 
     <item>
-
       <title><%= h entry.message.lines.first.rstrip %></title>
 
       <author><%= entry.author %></author>
@@ -38,14 +37,11 @@
 
       <pubDate><%= entry.date.rfc822 %></pubDate>
 
-      <guid><%= url %>#<%= entry.revision %></guid>
+      <guid><%= url %>#<%= entry.id %></guid>
 
       <description><![CDATA[
-
         <%= entry.message %><br/>
-
         <%= entry.author %> <%= entry.date.strftime('%Y-%m-%d %H:%M:%S') %>
-
       ]]></description>
 
     </item>

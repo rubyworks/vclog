@@ -20,13 +20,10 @@ history.releases.sort.each do |release|
       out << "\n* #{changes.size} #{changes[0].label }\n"
 
       changes.sort{|a,b| b.date <=> a.date}.each do |entry|
+        msg = entry.message.strip      
+        msg << "\n(##{entry.id})" if options.reference
 
-        out << "    * #{entry.message.strip}"
-
-        if options.revision
-          out.last <<  "(##{entry.revision})"
-        end
-
+        out << msg.tabto(6).sub('      ','    * ')
       end
 
     end

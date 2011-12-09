@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'vclog/cli/bump'
+
+VCLog::CLI::Bump.run(ARGV)
+

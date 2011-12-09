@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'vclog/cli/autotag'
+
+VCLog::CLI::Autotag.run(ARGV)
+

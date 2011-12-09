@@ -13,34 +13,30 @@ changelog.by_date.each do |date, date_changes|
     author_changes.sort!{|a,b| b.level <=> a.level}
 
     author_changes.each do |entry|
-
-      line = "#{entry.message.strip}"
+      msg = entry.message.strip
 
       if options.extra && entry.type
-        line << " <#{ entry.type }>"
-      end
-
-      if options.revision
-        line << " (##{entry.revision})"
+        msg << " <#{ entry.type }>"
       end
 
       case entry.level
       when 1
-        line = line.ansi(:yellow)
+        msg = msg.ansi(:yellow)
       when 0
-        line = line.ansi(:green)
+        msg = msg.ansi(:green)
       when -1
-        line = line.ansi(:cyan)
+        msg = msg.ansi(:cyan)
       else
         if entry.level > 1
-          line = line.ansi(:red) 
+          msg = msg.ansi(:red) 
         else
-          line = line.ansi(:blue)
+          msg = msg.ansi(:blue)
         end
       end
 
-      out << "  * " + line
+      msg << "\n(##{entry.id})" if options.reference
 
+      out << msg.tabto(4).sub('    ','  * ')
     end
 
     out << ""

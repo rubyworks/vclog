@@ -37,7 +37,7 @@ module Adapters
                   GIT_FIELD_MARKER +
                   '%H' +
                   GIT_FIELD_MARKER +
-                  '%s' +
+                  '%s%n%n%b' +
                   GIT_FIELD_MARKER +
                   '"'
 

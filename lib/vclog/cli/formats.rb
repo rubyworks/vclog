@@ -1,8 +1,9 @@
 require 'vclog/cli/abstract'
 
-module VCLog
-module CLI
+module VCLog::CLI
 
+  # Command to display a list of available formats.
+  #
   class Formats < Abstract
 
     #
@@ -13,7 +14,7 @@ module CLI
     #
     def parser
       super do |opt|
-        opt.banner = "Usage: vclog formats"
+        opt.banner = "Usage: vclog-formats"
       end
     end
 
@@ -24,5 +25,4 @@ module CLI
 
   end
 
-end
 end

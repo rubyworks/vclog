@@ -5,7 +5,6 @@ out = []
 out << "#{title.ansi(:bold)}"
 
 history.releases.sort.each do |release|
-
   tag = release.tag
 
   # TODO: support verbose option
@@ -26,30 +25,26 @@ history.releases.sort.each do |release|
       out << "\n* " + "#{changes.size} #{changes[0].label}\n"
 
       changes.sort{|a,b| b.date <=> a.date}.each do |entry|
-
-        line = "#{entry.message.strip}"
-
-        if options.revision
-          out.last <<  "(##{entry.revision})"
-        end
+        msg = entry.message.strip
 
         case entry.level
         when 1
-          line = line.ansi(:yellow)
+          msg = msg.ansi(:yellow)
         when 0
-          line = line.ansi(:green)
+          msg = msg.ansi(:green)
         when -1
-          line = line.ansi(:cyan)
+          msg = msg.ansi(:cyan)
         else
           if entry.level > 1
-            line = line.ansi(:red) 
+            msg = msg.ansi(:red) 
           else
-            line = line.ansi(:blue)
+            msg = msg.ansi(:blue)
           end
         end
 
-        out << "    * " + line
+        msg << "\n(##{entry.id})" if options.reference
 
+        out << msg.tabto(6).sub('      ','    * ')
       end
 
     end
@@ -57,8 +52,6 @@ history.releases.sort.each do |release|
   end 
 
   out << ""
-
 end
 
 out.join("\n") + "\n"
-

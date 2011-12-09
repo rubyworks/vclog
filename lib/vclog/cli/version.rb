@@ -1,8 +1,9 @@
 require 'vclog/cli/abstract'
 
-module VCLog
-module CLI
+module VCLog::CLI
 
+  # Display the current version.
+  #
   class Version < Abstract
 
     #
@@ -26,5 +27,4 @@ module CLI
 
   end
 
-end
 end

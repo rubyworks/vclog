@@ -5,25 +5,17 @@ out << "#{title}\n" if title
 changelog.by_date.each do |date, date_changes|
 
   date_changes.by_author.each do |author, author_changes|
-
     out << "#{ date }  #{ author }\n"
 
     author_changes.each do |entry|
+      msg = entry.message.strip
+      msg << " <#{ entry.type }>" if options.extra && entry.type
+      msg << "\n(##{entry.id})" if options.reference
 
-      out << "        * #{entry.message.strip}"
- 
-      if options.extra && entry.type
-        out.last << " <#{ entry.type }>"
-      end
-
-      if options.revision
-        out.last << "(##{entry.revision})"
-      end
-
+      out << msg.tabto(8).sub('        ','      * ')
     end
 
     out << ""
-
   end
 
 end

@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'vclog/cli/formats'
+
+VCLog::CLI::Formats.run(ARGV)
+

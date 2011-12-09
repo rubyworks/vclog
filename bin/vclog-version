@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'vclog/cli/version'
+
+VCLog::CLI::Version.run(ARGV)
+

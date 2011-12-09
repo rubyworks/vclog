@@ -1,7 +1,6 @@
 require 'vclog/cli/abstract'
 
-module VCLog
-module CLI
+module VCLog::CLI
 
   #
   class Autotag < Abstract
@@ -34,5 +33,4 @@ module CLI
 
   end
 
-end
 end

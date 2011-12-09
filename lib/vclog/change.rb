@@ -24,8 +24,13 @@ module VCLog
     # List of files changed in the commit.
     attr_accessor :files
 
+    # Type of change, as assigned by hueristics.
     attr_accessor :type
+
+    # The integer level that coorepsonds ot the type.
     attr_accessor :level
+
+    # The descriptive label that coorepsonds ot the type.
     attr_accessor :label
 
     #
@@ -35,12 +40,12 @@ module VCLog
       end
     end
 
-    #
+    # Set authors attributes, ensuring the value is stripped of white space.
     def author=(author)
       @author = author.strip
     end
 
-    #
+    # Set date attribute, converting vale given to an instance of Time.
     def date=(date)
       @date = parse_date(date)
     end
@@ -48,8 +53,19 @@ module VCLog
     # Alternate name for id.
     alias_method :ref,  :id
     alias_method :ref=, :id=
+
     alias_method :reference,  :id
     alias_method :reference=, :id=
+
+    # Alternate name for message.
+    alias_method :msg,  :message
+    alias_method :msg=, :message=
+
+    # Alias for author.
+    alias_method :who,  :author
+    alias_method :who=, :author=
+
+
 
     # Alternate name for id.
     #
@@ -63,13 +79,6 @@ module VCLog
     alias_method :revision,  :id
     alias_method :revision=, :id=
 
-    # Alternate name for message.
-    alias_method :msg,  :message
-    alias_method :msg=, :message=
-
-    # Alias for author.
-    alias_method :who,  :author
-    alias_method :who=, :author=
 
 
     #def clean_type(type)
@@ -83,24 +92,23 @@ module VCLog
     #  end
     #end
 
-    #
+    # Compare changes by date.
     def <=>(other)
       other.date <=> date
     end
 
+    #
     def inspect
       "#<Change:#{object_id} #{date}>"
     end
 
-    # TODO: Rename revision to `referece` or `ref`.
-
-    #
+    # Convert to Hash.
     def to_h
-      { 'author'   => @author,
-        'date'     => @date,
-        'revision' => @revision,
-        'message'  => @message,
-        'type'     => @type
+      { 'author'   => self.author,
+        'date'     => self.date,
+        'id'       => self.id,
+        'message'  => self.message,
+        'type'     => self.type
       }
     end
 
@@ -112,13 +120,21 @@ module VCLog
     #  to_h.to_yaml(*args)
     #end
 
+    # Apply heuristic rules to change.
     def apply_heuristics(heuristics)
       type, level, label, msg = *heuristics.lookup(self)
 
       self.type    = type
       self.level   = level
       self.label   = label
-      self.message = msg || @message
+      self.message = msg if msg
+    end
+
+    # Parse point entries from commit message. Point entries
+    # are outlined changes via line that start with an asterisk.
+    #
+    def points
+      @points ||= parse_points
     end
 
 =begin
@@ -145,12 +161,9 @@ module VCLog
     end
 =end
 
-    def points
-      @points ||= parse_points
-    end
+   private
 
-  private
-
+    #
     def parse_date(date)
       case date
       when Time
@@ -161,8 +174,11 @@ module VCLog
     end
 
     # TODO: Improve the parsing of point messages.
+
+    # Split message into individual points.
+    #
     def parse_points
-      point_messages = message.split(/^[\*]/)
+      point_messages = message.split(/^\*/)
       point_messages.map do |msg|
         ChangePoint.new(self, msg)
       end

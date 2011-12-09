@@ -1,8 +1,8 @@
 require 'vclog/cli/abstract'
 
-module VCLog
-module CLI
+module VCLog::CLI
 
+  #
   class Bump < Abstract
 
     #
@@ -13,7 +13,7 @@ module CLI
     #
     def parser
       super do |opt|
-        opt.banner = "Usage: vclog bump"
+        opt.banner = "Usage: vclog-bump"
         opt.separator(" ")
         opt.separator("Display a bumped version number.")
       end
@@ -26,5 +26,4 @@ module CLI
 
   end
 
-end
 end

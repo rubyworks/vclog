@@ -74,11 +74,7 @@ module Adapters
       @all_changes ||= (
         changes = []
         extract_changes.each do |change|
-          #raise "how did this happen?" if Change == c
-          #rev, date, who, msg = *c
-          #type, level, label, nmsg = *heuristics.lookup(msg)
-          #Change.new(rev, date, who, nmsg||msg, type, level, label)
-          change.apply_heuristics(heuristics)
+          #change.apply_heuristics(heuristics)
           changes << change 
         end
         changes

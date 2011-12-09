@@ -1,6 +1,6 @@
 module VCLog
 
-  require 'vclog/facets'
+  require 'vclog/core_ext'
   require 'vclog/change'
 
   #

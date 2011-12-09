@@ -94,7 +94,7 @@ module VCLog
     end
 
     #
-    def default
+    def default2
       set :major,    2, "Major Enhancements"
       set :minor,    1, "Minor Enhancements"
       set :bug,      0, "Bug Fixes"
