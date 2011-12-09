@@ -10,7 +10,7 @@
  
   <% if homepage %><link href="<%= homepage %>" /><% end %>
 
-  <id><% if vcs.uuid %>urn:uuid:<%= vcs.uuid %><% else %><%= vcs.repository %><% end %></id>
+  <id><% if repo.uuid %>urn:uuid:<%= repo.uuid %><% else %><%= repo.repository %><% end %></id>
 
   <updated><%= Time.now.xmlschema %></updated>
 
