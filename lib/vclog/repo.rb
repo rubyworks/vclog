@@ -41,11 +41,11 @@ module VCLog
       @point   = options[:point]
       @level   = (options[:level] || 0).to_i
 
-      type = read_type
+      vcs_type = read_vcs_type
 
-      raise ArgumentError, "Not a recognized version control system." unless type
+      raise ArgumentError, "Not a recognized version control system." unless vcs_type
 
-      @adapter = Adapters.const_get(type.capitalize).new(self)
+      @adapter = Adapters.const_get(vcs_type.capitalize).new(self)
     end
 
     # Returns instance of an Adapter subclass.
@@ -64,7 +64,7 @@ module VCLog
     end
 
     #
-    def read_type
+    def read_vcs_type
       dir = nil
       Dir.chdir(root) do
         dir = Dir.glob("{.git,.hg,.svn,_darcs}").first

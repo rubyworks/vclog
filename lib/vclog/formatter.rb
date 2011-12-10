@@ -76,7 +76,7 @@ module VCLog
     #
     #
     def report(options)
-      doctype = options.delete(:report) || 'changelog'
+      doctype = options.delete(:type)   || 'changelog'
       format  = options.delete(:format) || 'ansi'
 
       options = OpenStruct.new(options) if Hash === options

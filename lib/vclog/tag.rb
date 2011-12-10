@@ -1,5 +1,6 @@
 module VCLog
 
+  #
   class Tag
     attr_accessor :name
     attr_accessor :date
