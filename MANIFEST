@@ -72,12 +72,6 @@ man/man1/vclog-autotag.1.ronn
 man/man1/vclog-bump.1
 man/man1/vclog-bump.1.html
 man/man1/vclog-bump.1.ronn
-man/man1/vclog-changelog.1
-man/man1/vclog-changelog.1.html
-man/man1/vclog-changelog.1.ronn
-man/man1/vclog-history.1
-man/man1/vclog-history.1.html
-man/man1/vclog-history.1.ronn
 man/man1/vclog-version.1
 man/man1/vclog-version.1.html
 man/man1/vclog-version.1.ronn

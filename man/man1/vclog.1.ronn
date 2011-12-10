@@ -1,36 +1,46 @@
-vclog(1) - version control logging utility
-==========================================
+vclog(1) - version control logs
+===============================
 
 ## SYNOPSIS
 
-`vclog [command]`
+`vclog [options]`
 
 ## DESCRIPTION
 
-VCLog is a versitle cross-VCS/SCM changelog generator.
+VCLog is a versitle cross-VCS/SCM changelog and release history generator.
 It currently supports Git, Hg and (limited) Subversion.
 
-## COMMANDS
+## OPTIONS
 
-VCLog provides a number of useful functions:
+Note that not all formats support all options, and some formats use them
+in variant manners.
 
-  * `changelog`
-    Produce a Change Log.
+  * `-f`, `--format <FORMAT>`
+    Output format (ansi, rdoc, html, etc.)
 
-  * `history`
-    Produce a Release History.
+  * `--style <URI>`
+    Provide a stylesheet URI (css or xsl) for HTML or XML format.
 
-  * `version`
-    Show current tag version.
+  * `-p`, `--point`
+    Divide commit messages into commit points.
 
-  * `bump`
-    Suggest next tag version.
+  * `--version`, `-v <VERSION>`
+    Use as current version number.
 
-  * `autotag`
-    Ensure a tag exists for each History entry.
+  * `-t`, `--title TITLE`
+    Document title.
 
-Both `changelog` and `history` can be produced in a variety of formats.
+  * `-s`, `--summarize`
+    Produce summary output.
+
+  * `i`, `--id`
+    Include revision/reference id in output.
+
+  * `-l`, `--level <NUMBER>`
+    Lowest level of commit to display, default is `0`.
+
+Both changelog and release history can be produced in a variety of formats.
 
 ## SEE ALSO
 
-vclog-changelog(1), vclog-history(1), vclog-version(1), vclog-bump(1), vclog-autotag(1)
+vclog-version(1), vclog-bump(1), vclog-autotag(1)
