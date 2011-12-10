@@ -13,10 +13,10 @@ changelog.by_date.each do |date, date_changes|
     author_changes.sort!{|a,b| b.level <=> a.level}
 
     author_changes.each do |entry|
-      msg = entry.message.strip
+      msg = entry.to_s(:summary=>!options.extra)
 
       if options.extra && entry.type
-        msg << " <#{ entry.type }>"
+        msg << " [#{ entry.type }]"
       end
 
       case entry.level

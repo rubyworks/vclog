@@ -9,12 +9,14 @@ changelog.by_date.each do |date, date_changes|
     out << "\n== #{date} #{author}\n"
 
     author_changes.each do |entry|
-      #out << "* #{entry.message.strip}"
-      msg = entry.message.strip
+      msg = entry.to_s(:summary=>!options.extra)
+
       out << msg.tabto(2).sub('  ','* ')
+
       if entry.type
         out.last << " [#{entry.type}]"
       end
+
       if options.reference
         out.last << " (##{entry.id})"
       end

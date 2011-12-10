@@ -25,7 +25,7 @@ history.releases.sort.each do |release|
       out << "\n* " + "#{changes.size} #{changes[0].label}\n"
 
       changes.sort{|a,b| b.date <=> a.date}.each do |entry|
-        msg = entry.message.strip
+        msg = entry.to_s(:summary=>!options.extra)
 
         case entry.level
         when 1
