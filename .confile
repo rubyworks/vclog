@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 
 rake do
   require 'cucumber'
@@ -9,18 +10,19 @@ rake do
 end
 
 vclog do
-  set :major,  1, "Major Enhancements"
-  set :bug,    0, "Bug Fixes"
-  set :minor, -1, "Minor Enhancements"
-  set :doc,   -1, "Documentation Changes"
-  set :admin, -2, "Administrative Changes"
+  set :major,    2, "Major Enhancements"
+  set :minor,    1, "Minor Enhancements"
+  set :bug,      0, "Bug Fixes"
+  set :doc,     -1, "Documentation Changes"
+  set :default, -2, "Nominal Changes"
+  set :admin,   -3, "Administrative Changes"
 
-  on /^(\w+):/ do |msg, md|
-    [md[1].to_sym, md.post_match]
+  on /^(\w+):/ do |commit, md|
+    [md[1].to_sym, commit.message.sub(md[0],'').strip]
   end
 
-  on /\[(\w+)\]\s*$/ do |msg, md|
-    [md[1].to_sym, md.pre_match]
+  on /\[(\w+)\]\s*$/ do |commit, md|
+    [md[1].to_sym, commit.message.chomp(md[0]).strip]
   end
 
   on /updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/ do
