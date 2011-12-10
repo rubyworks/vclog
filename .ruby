@@ -50,8 +50,8 @@ revision: 0
 created: '2006-05-09'
 summary: Cross-VCS/SCM ChangeLog Generator
 title: VCLog
-version: 2.0.0
+version: 1.9.0
 name: vclog
 description: VCLog is a cross-VCS/SCM ChangeLog generator.
 organization: Rubyworks
-date: '2011-12-09'
+date: '2011-12-10'
