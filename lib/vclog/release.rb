@@ -39,7 +39,7 @@ module VCLog
         'date'     => tag.date,
         'message'  => tag.message,
         'author'   => tag.author,
-        'revision' => tag.revision,
+        'id'       => tag.id,
         'changes'  => changes.map{|change| change.to_h}
       }
     end
