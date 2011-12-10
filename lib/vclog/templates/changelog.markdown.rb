@@ -9,7 +9,7 @@ changelog.by_date.each do |date, date_changes|
     out << "\n## #{date} #{author}\n"
 
     author_changes.each do |entry|
-      msg = entry.to_s(:summary=>!options.extra)
+      msg = entry.to_s(:summary=>!options.message)
 
       out << msg.tabto(2).sub('  ','* ')
 

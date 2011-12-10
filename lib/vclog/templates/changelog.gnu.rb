@@ -8,7 +8,7 @@ changelog.by_date.each do |date, date_changes|
     out << "#{ date }  #{ author }\n"
 
     author_changes.each do |entry|
-      msg = entry.to_s(:summary=>!options.extra)
+      msg = entry.to_s(:summary=>!options.message)
 
       msg << " [#{entry.type}]" if options.extra && entry.type
       msg << "\n(##{entry.id})" if options.reference
