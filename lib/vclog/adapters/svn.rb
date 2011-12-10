@@ -8,7 +8,7 @@ module VCLog
     #
     # NOTE: Unfortunately the SVN adapater is very slow. If hits the server
     # every time the 'svn log' command is issued. When generating a History
-    # that's one hit for every tag. If anyone knows a better way please have
+    # that's two hits for every tag. If anyone knows a better way please have
     # at it --maybe future versions of SVN will improve the situation.
     #
     class Svn < Abstract
@@ -22,29 +22,29 @@ module VCLog
         super(root)
       end
 
-      # TODO: Need to gets files effected by each commit and add to Change.
-
       # Extract changes.
       def extract_changes
         log = []
 
-        xml = `svn log --xml`.strip
+        xml = `svn log -v --xml`.strip
 
         commits = XmlSimple.xml_in(xml, {'KeyAttr' => 'rev'})
         commits = commits['logentry']
 
         commits.each do |com|
-          rev  = com["revision"]
-          msg  = [com["msg"]].flatten.compact.join('').strip
-          who  = [com["author"]].flatten.compact.join('').strip
-          date = [com["date"]].flatten.compact.join('').strip
+          rev  = com['revision']
+          msg  = [com['msg']].flatten.compact.join('').strip
+          who  = [com['author']].flatten.compact.join('').strip
+          date = [com['date']].flatten.compact.join('').strip
+
+          files = com['paths'].map{ |h| h['path'].map{ |y| y['content'] } }.flatten
 
           next if msg.empty?
           next if msg == "*** empty log message ***"
 
           date = Time.parse(date)
 
-          log << Change.new(:id=>rev, :date=>date, :who=>who, :msg=>msg)
+          log << Change.new(:id=>rev, :date=>date, :who=>who, :msg=>msg, :files=>files)
         end
 
         log
