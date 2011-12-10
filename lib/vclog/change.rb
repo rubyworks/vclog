@@ -9,7 +9,7 @@ module VCLog
 
     include Comparable
 
-    # Commit reference id.
+    # Commit revision/reference id.
     attr_accessor :id
 
     # Date/time of commit.
@@ -51,9 +51,18 @@ module VCLog
     end
 
     # Alternate name for id.
+    alias_method :rev,  :id
+    alias_method :rev=, :id=
+
+    # Alternate name for id.
+    alias_method :revision,  :id
+    alias_method :revision=, :id=
+
+    # Alternate name for id.
     alias_method :ref,  :id
     alias_method :ref=, :id=
 
+    # Alternate name for id.
     alias_method :reference,  :id
     alias_method :reference=, :id=
 
@@ -65,21 +74,10 @@ module VCLog
     alias_method :who,  :author
     alias_method :who=, :author=
 
-
-
-    # Alternate name for id.
     #
-    # @deprecated
-    alias_method :rev,  :id
-    alias_method :rev=, :id=
-
-    # Alternate name for id.
-    #
-    # @deprecated
-    alias_method :revision,  :id
-    alias_method :revision=, :id=
-
-
+    def summary
+      @summary ||= message.lines.first.strip
+    end
 
     #def clean_type(type)
     #  case type.to_s
@@ -160,6 +158,15 @@ module VCLog
       return n, t
     end
 =end
+
+    # Output message with optional adjustments.
+    def to_s(opts={})
+      if opts[:summary]
+        summary
+      else
+        message.strip
+      end
+    end
 
    private
 
