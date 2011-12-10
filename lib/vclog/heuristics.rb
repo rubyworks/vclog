@@ -31,7 +31,7 @@ module VCLog
     def lookup(commit)
       type_msg = nil
 
-      @rules.find{|rule| type_msg = rule.call(commit)}
+      rule = @rules.find{|rule| type_msg = rule.call(commit)}
 
       type, msg = *type_msg
 
@@ -74,14 +74,14 @@ module VCLog
       set :admin,   -2, "Administrative Changes"
       set :default, -3, "Nominal Changes"
 
-      on /^(\w+):/ do |msg, md|
+      on /\A(\w+):/ do |commit, md|
         word = md[1]
-        [word.to_sym, md.post_match]
+        [word.to_sym, commit.message.sub(md[0],'')]
       end
 
-      on /\[(\w+)\]\s*$/ do |msg, md|
+      on /\[(\w+)\]\s*$/ do |commit, md|
         word = md[1]
-        [word.to_sym, md.pre_match]
+        [word.to_sym, commit.message.chomp(md[0])]
       end
 
       on /updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/ do

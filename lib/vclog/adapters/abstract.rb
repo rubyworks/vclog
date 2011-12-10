@@ -95,24 +95,6 @@ module VCLog
         tags.find{ |t| t.name == name }
       end
 
-      #
-      #def changelog
-      #  ChangeLog.new(changes)
-      #end
-
-      #
-      #def history
-      #  @history ||= History.new(self)
-      #end
-
-      #
-      #def display(type, format, options)
-      #  @options = options
-      #  formatter = Formatter.new(self)
-      #  formatter.display(type, format, options)
-      #end
-
-
       # Returns the current verion string.
       def version
         if tags.last
