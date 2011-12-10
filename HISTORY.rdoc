@@ -1,5 +1,30 @@
 = RELEASE HISTORY
 
+== 1.9.0 / 2011-12-10
+
+The most notable change of this release is the command line interface no
+longer uses a subcommand. Instead independent commands have been created
+for each, e.g. `vclog-version` instead of `vclog version`. In addtion the
+plain `vclog` command now handles both changelog and release history reports.
+To get a release history insead of a changelog, use the `-r` option.
+
+This release also adds in full commit message support, where as previous
+versions were limited to one line message summaries. Also, the `-p`/`--point`
+option has been added which will split a commit message into separate points
+(points are recognized by astrisks flush to the left margin).
+
+Lastly, hueristics configuration rules no longer receive the commit message,
+but the commit object instead. This allows for categorization rules to be 
+much more flexible.
+
+Changes:
+
+* Separate commands and new cli interface.
+* Support for full commit messages.
+* Point option splits commit messages into point messages.
+* Heuristic rules receive commit object instead of message.
+
+
 == 1.8.2 / 2011-12-08
 
 This release changes the way in which vclog is configured to use the Confection

@@ -27,7 +27,6 @@ lib/vclog/cli/abstract.rb
 lib/vclog/cli/autotag.rb
 lib/vclog/cli/bump.rb
 lib/vclog/cli/formats.rb
-lib/vclog/cli/history.rb
 lib/vclog/cli/log.rb
 lib/vclog/cli/version.rb
 lib/vclog/cli.rb
