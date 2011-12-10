@@ -41,11 +41,11 @@ module VCLog::CLI
         parser.separator("Print a change log or release history.")
         parser.separator(" ")
         parser.separator("OPTIONS: (use varies with format)")
-        parser.on('-r', '--release', '--rel', "group commits by release") do |num|
-          options[:report] = :history
-        end
-        parser.on('-f', '--format FORMAT', "output format") do |format|
+        parser.on('-f', '--format FORMAT', "output format (ansi,text,html,...)") do |format|
           options[:format] = format.to_sym
+        end
+        parser.on('-r', '--release', '--history', "show release history, instead of changelog") do
+          options[:type] = :history
         end
         parser.on('--style <URI>', "provide a stylesheet URI (css or xsl) for HTML or XML format") do |uri|
           options[:stylesheet] = uri
@@ -56,8 +56,8 @@ module VCLog::CLI
         parser.on('-s', '--summarize', "produce summary output") do
           options[:extra] = false
         end
-        parser.on('-i', '--id', '--reference', '--ref', "include reference id") do
-          options[:reference] = true
+        parser.on('-i', '--id', 'include reference/revision id in output') do
+          options[:reference] = true  # TODO: change to :id ?
         end
         parser.on('-l', '--level NUMBER', "lowest level of commit to display [0]") do |num|
           options[:level] = num.to_i
