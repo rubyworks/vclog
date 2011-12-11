@@ -4,17 +4,29 @@ module VCLog
   #
   class ChangePoint
 
+    # Type of change, as assigned by hueristics.
     attr_accessor :type
 
+    # The priority level of this change, as assigned by hueristics.
+    # This can be `nil`, as Heuristics will always make sure a
+    # commit has an inteer level before going out to template.
     attr_accessor :level
 
+    # The descriptive label of this change, as assigned by hueristics.
     attr_accessor :label
+
+    # ANSI color to apply. Actually this can be a list
+    # of any support ansi gem terms, but usually it's 
+    # just the color term, such as `:red`.
+    attr_accessor :color
 
     #
     def initialize(change, message)
       @change  = change
       @message = message.strip
-      @level   = 0
+
+      @label = nil
+      @level = nil
     end
 
     # Change from which point is derived.
@@ -39,14 +51,9 @@ module VCLog
       []
     end
 
-    #
+    # Apply heuristic rules to change.
     def apply_heuristics(heuristics)
-      type, level, label, msg = *heuristics.lookup(self)
-
-      self.type    = type
-      self.level   = level
-      self.label   = label
-      self.message = msg if msg
+      heuristics.apply(self)
     end
 
     #
