@@ -33,15 +33,16 @@ To generate an a different format use -f:
 
 === Creating Release Histories
 
-To get a release history specify 'history' or 'release' as the subcommand.
+To get a release history specify `-r`, `--release` or `--history` option.
 
-  $ vclog history
+  $ vclog -r
 
 Again the default format is an ANSI colored GNU-like text style.
 
-Unlike Changelogs, Histories group changes by tags. The tag message is
-used as the release note. If the underlying SCM doesn't support 
-tag messages that the last commit message before the tag is used.
+Unlike change logs, release histories group changes by tags. The tag
+message is used as the release note. If the underlying SCM doesn't
+support tag messages than the message of the first commit prior to
+the tag is used.
 
 See 'vclog help' for more options.
 
@@ -71,24 +72,38 @@ handle configuration, and will look for a `.confile` or `Confile` in
 which to find a `vclog` section.
 
   vclog do
+    ...
+  end
+
+Within this block we can define rules via the #on method.
+
+    on /updated? (README|VERSION|MANIFEST)/ do |commit|
+      commit.label = "Adminstrative Changes"
+      commit.level = -3
+    end
+
+To make things easier we can setup commit types. Types make it easier
+to categorize commits, assigning them labels and levels base on the 
+type name. Use #type in the rules to specify the level and label of 
+a commit type.
+
+    type :admin,  -2, "Administrave Changes"
 
     on /updated? (README|VERSION|MANIFEST)/ do |commit|
       commit.type = :admin
     end
 
-These rules can also "massage" the commit message for output.
+These rules can also "massage" the commit message.
 
     on /\Aadmin:/ do |commit, matchdata|
       commit.type    = :admin
       commit.message = matchdate.post_match
     end
 
-Labels are used to categorize and assign levels to commits. Use #set in
-the rules to specify the level and description of a commit label.
+Lastly, we can customize the colorization of the certain formats via #colors
+method.
 
-    set :admin, -2, "Administrative Adjustment"
-
-  end
+    colors :blue, :cyan, :green, :yellow, :red
 
 
 == SUBVERSION ISSUES
@@ -113,4 +128,3 @@ Copyright (c) 2008 Rubyworks
 VCLog is distributable in accordance with the terms of the *FreeBSD* license.
 
 See COPYING.rdoc for details.
-
