@@ -19,22 +19,25 @@ in variant manners.
     Output format (ansi, rdoc, html, etc.)
 
   * `--style <URI>`
-    Provide a stylesheet URI (css or xsl) for HTML or XML format.
+    Provide a stylesheet URI, either css or xsl, for HTML or XML formats.
+
+  * `-d`, `--detail`
+    Include commit message details.
 
   * `-p`, `--point`
     Divide commit messages into commit points.
 
-  * `--version`, `-v <VERSION>`
+  * `-v`, `--version <VERSION>`
     Use as current version number.
 
   * `-t`, `--title TITLE`
-    Document title.
+    Document title (for format that supports it).
 
-  * `-s`, `--summarize`
-    Produce summary output.
+  * `-s`, `--summary
+    Omit change points. (Applies only to release history report.)
 
   * `i`, `--id`
-    Include revision/reference id in output.
+    Include revision/reference ids. (Does not apply to xml/html formats.)
 
   * `-l`, `--level <NUMBER>`
     Lowest level of commit to display, default is `0`.

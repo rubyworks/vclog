@@ -35,10 +35,9 @@ module VCLog
         [name.split('::').last.downcase]
       end
 
-      # TODO: change +extra+ to +summarize+ and reverse boolean value.
+      #
       def initialize
         @options = {}
-        @options[:extra] = true
       end
 
       #

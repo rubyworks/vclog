@@ -25,12 +25,20 @@
     <ul>
     <% changelog.changes.sort{|a,b| b.date <=> a.date}.each do |entry| %>
     <li class="commit">
-      <div class="id">#<%= h entry.id %></div>
+      <div class="id"><%= h entry.id %></div>
       <div class="date"><%= entry.date %></div>
       <div class="author"><%= h entry.author %></div>
       <div class="type"><%= h entry.type %></div>
-      <div class="summary"><%= h entry.summary %></div>
-      <div class="message"><%= h entry.message %></div>
+      <div class="message">
+        <div class="summary"><%= h entry.summary %></div>
+<% if entry.details.empty? %>
+        <div class="details"></div>
+<% else %>
+        <div class="details">
+<%= r entry.details %>
+        </div>
+<% end %>
+      </div>
     </li>
     <% end %>
     </ul>

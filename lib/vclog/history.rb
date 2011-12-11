@@ -6,8 +6,6 @@ module VCLog
   require 'vclog/release'
   require 'erb'
 
-  # = Release History Class
-  #
   # A Release History is very similar to a ChangeLog.
   # It differs in that it is divided into releases with
   # version, release date and release note.
@@ -26,14 +24,14 @@ module VCLog
     #
     attr :repo
 
-    # Alternate title.
-    attr_accessor :title
+    ## Alternate title.
+    #attr_accessor :title
 
-    # Current working version.
-    attr_accessor :version
+    ## Current working version.
+    #attr_accessor :version
 
-    # Provide extra information.
-    attr_accessor :extra
+    ## Exclude commit details.
+    #attr_accessor :summary
 
     #
     def initialize(repo)

@@ -10,7 +10,7 @@ history.releases.sort.each do |release|
 
   out << "\n#{tag.message.strip} (#{tag.author})"
 
-  if options.extra && !release.changes.empty?
+  if !(options.summary or release.changes.empty?)
 
     out << "\nChanges:"
 
@@ -19,7 +19,7 @@ history.releases.sort.each do |release|
       out << "\n* #{changes.size} #{changes[0].label }\n"
 
       changes.sort{|a,b| b.date <=> a.date}.each do |entry|
-        msg = entry.to_s(:summary=>!options.message)
+        msg = entry.to_s(:summary=>!options.detail)
 
         msg << "\n(##{entry.id})" if options.reference
 
