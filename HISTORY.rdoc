@@ -2,20 +2,28 @@
 
 == 1.9.0 / 2011-12-10
 
-The most notable change of this release is the command line interface no
-longer uses a subcommand. Instead independent commands have been created
-for each, e.g. `vclog-version` instead of `vclog version`. In addtion the
-plain `vclog` command now handles both changelog and release history reports.
-To get a release history insead of a changelog, use the `-r` option.
+This is a BIG release as much has changed, so listen up.
 
-This release also adds in full commit message support, where as previous
-versions were limited to one line message summaries. Also, the `-p`/`--point`
-option has been added which will split a commit message into separate points
-(points are recognized by astrisks flush to the left margin).
+First of all, the command line interface no longer uses the subcommand pattern.
+Instead independent commands have been created for each use, e.g. `vclog-version`
+instead of `vclog version`. In addition the plain `vclog` command now handles
+both changelog and release history reports. To get a release history insead of
+a changelog, use the `-r` option.
 
-Lastly, hueristics configuration rules no longer receive the commit message,
-but the commit object instead. This allows for categorization rules to be 
-much more flexible.
+Next up, this release also adds in full commit message support via the `-d`/`--detail`
+option, where as previously some formats were limited to one-line message summaries.
+Also, the `-p`/`--point` option has been added which will split a commit message
+into separate points (points are recognized by astrisks flush to the left margin).
+
+Custom hueristics configuration blocks no longer receive the commit message,
+but the commit object instead, which can be manipulated directly, rather then
+return a limited set of possible changes. This allows for rules to be much more
+flexible.
+
+Since the last release wasn't widely publisized we also want to mention again that
+configuration is now handled by the `confection` gem, meaning custom heuristics
+must be place in a projects `.confile` or `Confile`. See the latest README for more
+details.
 
 Changes:
 

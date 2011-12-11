@@ -18,19 +18,23 @@ vclog do
   set :admin,   -3, "Administrative Changes"
 
   on /^(\w+):/ do |commit, md|
-    [md[1].to_sym, commit.message.sub(md[0],'').strip]
+    commit.type = md[1].to_sym
+    commit.message = commit.message.sub(md[0],'').strip
+    true
   end
 
   on /\[(\w+)\]\s*$/ do |commit, md|
-    [md[1].to_sym, commit.message.chomp(md[0]).strip]
+    commit.type = md[1].to_sym
+    commit.message = commit.message.sub(md[0],'').strip
+    true
   end
 
-  on /updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/ do
-    :admin
+  on /updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/ do |commit|
+    commit.type = :admin
   end
 
-  on /(bump|bumped|prepare) version/ do
-    :admin
+  on /(bump|bumped|prepare) version/ do |commit|
+    commit.type = :admin
   end
 end
 

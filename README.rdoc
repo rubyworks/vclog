@@ -1,7 +1,8 @@
 = VCLog
 
-{Homepage}[http://rubyworks.github.com/vclog] |
+{Website}[http://rubyworks.github.com/vclog] |
 {Source Code}[http://github.com/rubyworks/vclog] |
+{Report Issue}[http://github.com/rubyworks/vclog/issues] |
 {Mailing List}[http://googlegroups.com/group/rubyworks-mailinglist]
 
 {<img src="http://travis-ci.org/rubyworks/vclog.png" />}[http://travis-ci.org/rubyworks/vclog]
@@ -64,30 +65,33 @@ level only bump the patch level.
 
 === Writing Heuristics
 
-You can create custom heuristics for your project in a vclog configuration
-file. VCLog will look for a `.vclog` file or a `vclog` file in `.config/`,
-`config/`, `task/` or tasks/` directory (the file can optionally end in `.rb`).
+You can configure custom log heuristics for your project. VCLog uses
+the {confection gem}[http://rubyworks.github.com/confection] to
+handle configuration, and will look for a `.confile` or `Confile` in
+which to find a `vclog` section.
 
-In the file you define rules in Ruby script for labeling commits based
-on the commit message.
+  vclog do
 
-  on /updated? (README|VERSION|MANIFEST)/ do
-    :admin
-  end
+    on /updated? (README|VERSION|MANIFEST)/ do |commit|
+      commit.type = :admin
+    end
 
 These rules can also "massage" the commit message for output.
 
-  on /^admin:/ do |matchdata|
-    [:admin, matchdate.post_match]
-  end
+    on /\Aadmin:/ do |commit, matchdata|
+      commit.type    = :admin
+      commit.message = matchdate.post_match
+    end
 
 Labels are used to categorize and assign levels to commits. Use #set in
-the rules.rb to specify the level and description of a commit label.
+the rules to specify the level and description of a commit label.
 
-  set :admin, -2, "Administrative Adjustment"
+    set :admin, -2, "Administrative Adjustment"
+
+  end
 
 
-== NOTE ABOUT SUBVERSION
+== SUBVERSION ISSUES
 
 Because Subversion is a centralized version control system, it contacts
 the server every time 'svn log' is run. For this reason, having vclog
@@ -106,8 +110,7 @@ Please see HISTORY file.
 
 Copyright (c) 2008 Rubyworks
 
-VCLog is distributable in accordance with the terms of the BSD-2-Clause license.
+VCLog is distributable in accordance with the terms of the *FreeBSD* license.
 
 See COPYING.rdoc for details.
-
 

@@ -33,6 +33,13 @@ module VCLog
     # The descriptive label that coorepsonds ot the type.
     attr_accessor :label
 
+    # ANSI color to apply. Actually this can be a list
+    # of any support ansi gem terms, but usually it's 
+    # just the color term, such as `:red`.
+    #
+    # NOTE: This is not yet used.
+    attr_accessor :color
+
     #
     def initialize(data={})
       data.each do |k,v|
@@ -48,6 +55,17 @@ module VCLog
     # Set date attribute, converting vale given to an instance of Time.
     def date=(date)
       @date = parse_date(date)
+    end
+
+    #
+    def message=(msg)
+      @message = msg
+
+      lines = msg.lines.to_a
+      @summary = lines.first.strip
+      @details = lines[1..-1].join('').strip
+
+      msg
     end
 
     # Alternate name for id.
@@ -74,10 +92,9 @@ module VCLog
     alias_method :who,  :author
     alias_method :who=, :author=
 
-    #
-    def summary
-      @summary ||= message.lines.first.strip
-    end
+    attr_reader :summary
+
+    attr_reader :details
 
     #def clean_type(type)
     #  case type.to_s
@@ -120,12 +137,7 @@ module VCLog
 
     # Apply heuristic rules to change.
     def apply_heuristics(heuristics)
-      type, level, label, msg = *heuristics.lookup(self)
-
-      self.type    = type
-      self.level   = level
-      self.label   = label
-      self.message = msg if msg
+      heuristics.apply(self)
     end
 
     # Parse point entries from commit message. Point entries
