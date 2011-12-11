@@ -27,21 +27,26 @@ module VCLog
     # Type of change, as assigned by hueristics.
     attr_accessor :type
 
-    # The integer level that coorepsonds ot the type.
+    # The priority level of this change, as assigned by hueristics.
+    # This can be `nil`, as Heuristics will always make sure a
+    # commit has an inteer level before going out to template.
     attr_accessor :level
 
-    # The descriptive label that coorepsonds ot the type.
+    # The descriptive label of this change, as assigned by hueristics.
     attr_accessor :label
 
     # ANSI color to apply. Actually this can be a list
     # of any support ansi gem terms, but usually it's 
     # just the color term, such as `:red`.
-    #
-    # NOTE: This is not yet used.
     attr_accessor :color
 
-    #
+    # Setup new Change instance.
     def initialize(data={})
+      @type  = :default
+      @level = nil
+      @label = nil
+      @color = []
+
       data.each do |k,v|
         __send__("#{k}=", v)
       end
@@ -66,6 +71,16 @@ module VCLog
       @details = lines[1..-1].join('').strip
 
       msg
+    end
+
+    #
+    def color=(code)
+      @color = [code].flatten
+    end
+
+    #
+    def type=(type)
+      @type = type.to_sym
     end
 
     # Alternate name for id.

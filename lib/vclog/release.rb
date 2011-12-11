@@ -24,7 +24,7 @@ module VCLog
     # Returns an associative array of [type, changes].
     def groups
       @groups ||= (
-        changes.group_by{ |e| e.type }.sort{ |a,b| b[1][0].level <=> a[1][0].level }
+        changes.group_by{ |e| e.label }.sort{ |a,b| b[1][0].level <=> a[1][0].level }
       )
     end
 

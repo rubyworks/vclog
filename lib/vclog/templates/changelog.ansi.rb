@@ -19,20 +19,7 @@ changelog.by_date.each do |date, date_changes|
       #  msg << " [#{ entry.type }]"
       #end
 
-      case entry.level
-      when 1
-        msg = msg.ansi(:yellow)
-      when 0
-        msg = msg.ansi(:green)
-      when -1
-        msg = msg.ansi(:cyan)
-      else
-        if entry.level > 1
-          msg = msg.ansi(:red) 
-        else
-          msg = msg.ansi(:blue)
-        end
-      end
+      msg = msg.ansi(*entry.color) unless entry.color.empty?
 
       msg << "\n(##{entry.id})" if options.reference
 

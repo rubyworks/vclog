@@ -122,7 +122,7 @@ module VCLog
 
     # Group +changes+ by tag type.
     def groups(changes)
-      @groups ||= changes.group_by{ |e| e.type }
+      @groups ||= changes.group_by{ |e| e.label }  #type
     end
 
     #

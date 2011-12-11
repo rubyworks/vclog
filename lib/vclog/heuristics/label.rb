@@ -4,10 +4,10 @@ module VCLog
 
     #
     #
-    class Label
+    class Type
       #
       def initialize(type, level, label)
-        @type  = type
+        @type  = type.to_sym
         @level = level.to_i
         @label = label.to_s
       end
