@@ -53,10 +53,15 @@ module VCLog
     def to_h
       { 'author'   => change.author,
         'date'     => change.date,
-        'revision' => change.revision,
+        'id'       => change.id,
         'message'  => message,
         'type'     => type
       }
+    end
+
+    #
+    def to_s(*)
+      message
     end
 
   end
