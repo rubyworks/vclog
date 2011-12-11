@@ -111,17 +111,6 @@ module VCLog
 
     attr_reader :details
 
-    #def clean_type(type)
-    #  case type.to_s
-    #  when 'maj', 'major' then :major
-    #  when 'min', 'minor' then :minor
-    #  when 'bug'          then :bug
-    #  when ''             then :other
-    #  else
-    #    type.to_sym
-    #  end
-    #end
-
     # Compare changes by date.
     def <=>(other)
       other.date <=> date

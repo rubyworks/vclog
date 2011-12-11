@@ -12,13 +12,13 @@ module VCLog
     VERS = /(\d+[._])+\d+/
     DATE = /(\d+[-])+\d+/
 
-    #
+    # Alias for `File::FNM_CASEFOLD`.
     CASEFOLD = File::FNM_CASEFOLD
 
     # Release tags.
     attr :tags
 
-    #
+    # Setup new HistoryFile instance.
     def initialize(source=nil)
       if File.file?(source)
         @file = source

@@ -1,8 +1,10 @@
-require 'vclog/heuristics/label'
+require 'vclog/heuristics/type'
 require 'vclog/heuristics/rule'
 
 module VCLog
 
+  # Heuristics stores a set of rules to be applied to commmits
+  # in order to assign them priority levels and report labels.
   #
   class Heuristics
 
@@ -32,6 +34,10 @@ module VCLog
       end
     end
 
+    # Apply heuristics to a commit.
+    #
+    # @param [Change] commit
+    #   Instance of Change encapsulates an SCM commit.
     #
     def apply(commit)
       # apply rules, breaking on first rule found that fits.
@@ -44,25 +50,6 @@ module VCLog
       unless commit.label
         commit.label = types[commit.type].label
       end
-
-      # a degree of backwards compatibility
-      #commit.type ||= type if Symbol === type
-
-      #if commit.type
-      #  if @labels.key?(commit.type)
-      #    category = @labels[commit.type]
-      #    level = category.level
-      #    label = category.label
-      #  else
-      #    category = @labels[:default]
-      #    level = category.level
-      #    label = "#{commit.type.to_s.capitalize} Enhancements"
-      #  end
-      #else
-      #  category = @labels[:default]
-      #  level = category.level
-      #  label = category.label
-      #end
 
       # apply color for commit level
       color = @colors[commit.level + (@colors.size / 2)]
@@ -155,21 +142,16 @@ module VCLog
 
    private
 
+    # TODO: applies types that are "close", to help overlook typos.
     #
-    #def standard_color(level)
-    #  case level
-    #  when 1
-    #    color = :yellow
-    #  when 0
-    #    color = :green
-    #  when -1
-    #    color = :cyan
+    #def close_type(type)
+    #  case type.to_s
+    #  when 'maj', 'major' then :major
+    #  when 'min', 'minor' then :minor
+    #  when 'bug'          then :bug
+    #  when ''             then :other
     #  else
-    #    if level > 1
-    #      color = :red
-    #    else
-    #      color = :blue
-    #    end
+    #    type.to_sym
     #  end
     #end
 
