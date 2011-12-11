@@ -38,6 +38,6 @@ vclog do
     commit.type = :admin
   end
 
-  colors [:red, :bold], :yellow, :green, :cyan, :blue, :blue
+  colors :blue, :blue, :cyan, :green, :yellow, :red, [:red, :bold]
 end
 

@@ -25,7 +25,7 @@ module VCLog
       @types = Hash.new{ |h,k| h[k] = h[:default] }
       @types[:default] = Type.new(:default, -1, "Nominal Changes")
 
-      @colors = [:red, :red, :yellow, :green, :cyan, :blue, :blue]
+      @colors = [:blue, :blue, :cyan, :green, :yellow, :red, :red]
 
       if block
         instance_eval(&block)
@@ -86,7 +86,7 @@ module VCLog
     #   colors :red, :yellow, :green, :cyan, :blue
     #
     def colors(*list)
-      @colors = list.reverse
+      @colors = list
     end
 
     # Default settings.
