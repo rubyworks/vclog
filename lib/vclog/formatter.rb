@@ -62,7 +62,7 @@ module VCLog
     #
     def title
       return @options.title if @options.title
-      case @doctype
+      case @options.type
       when :history
         "RELEASE HISTORY"
       else
@@ -76,18 +76,16 @@ module VCLog
     #
     #
     def report(options)
-      doctype = options.delete(:type)   || 'changelog'
-      format  = options.delete(:format) || 'ansi'
-
       options = OpenStruct.new(options) if Hash === options
 
-      @doctype = doctype
-      @format  = format
+      options.type   ||= 'changelog'
+      options.format ||= 'ansi'
+
       @options = options
 
-      require_formatter(format)
+      require_formatter(@options.format)
 
-      tmp_file = Dir[File.join(DIR, 'templates', "#{@doctype}.#{@format}.{erb,rb}")].first
+      tmp_file = Dir[File.join(DIR, 'templates', "#{@options.type}.#{@options.format}.{erb,rb}")].first
 
       tmp = File.read(tmp_file)
 
@@ -124,6 +122,20 @@ module VCLog
        #result.gsub!("@", "&at;")
        result.gsub!("\"", "&quot;")
        return result
+    end
+
+    #
+    def r(input)
+      rdoc.convert(input)
+    end
+
+    #
+    def rdoc
+      @_rdoc ||= (
+        gem 'rdoc' rescue nil  # to ensure latest version
+        require 'rdoc'
+        RDoc::Markup::ToHtml.new
+      )
     end
 
   end
