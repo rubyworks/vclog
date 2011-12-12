@@ -47,7 +47,7 @@ module VCLog
       @color = []
 
       data.each do |k,v|
-        __send__("#{k}=", v)
+        __send__("#{k}=", v) if respond_to?("#{k}=")
       end
     end
 

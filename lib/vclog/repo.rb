@@ -173,7 +173,9 @@ module VCLog
       user = adapter.user
       date = ::Time.now + (3600 * 24) # one day ahead
 
-      tags << Tag.new(:name=>name, :id=>'HEAD', :date=>date, :who=>user, :msg=>"Current Development")
+      change = Change.new(:id=>'HEAD', :date=>date, :who=>user)
+
+      tags << Tag.new(:name=>name, :date=>date, :who=>user, :msg=>"Current Development", :commit=>change)
 
       # TODO: Do we need to add a Time.now tag?
       # add current verion to release list (if given)
@@ -189,8 +191,8 @@ module VCLog
       delta = []
       last  = nil
       tags.each do |tag|
-        delta << [tag, [last, tag.commit_date]]
-        last = tag.commit_date
+        delta << [tag, [last, tag.commit.date]]
+        last = tag.commit.date
       end
 
       # gather changes for each delta

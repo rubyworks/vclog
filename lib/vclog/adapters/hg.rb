@@ -8,7 +8,9 @@ module VCLog
     #
     class Hg < Abstract
 
+      #
       # Collect changes.
+      #
       def extract_changes
         list = []
         changelog = `hg log -v`.strip
@@ -20,7 +22,11 @@ module VCLog
         list
       end
 
+      #
       # Collect tags.
+      #
+      # @todo Extract first commit prior to tag and provide it with Tag object.
+      #
       def extract_tags
         list = []
         if File.exist?('.hgtags')
@@ -35,29 +41,44 @@ module VCLog
         list
       end
 
-      # TODO: check .hgrc for user and email.
-
+      #
+      # Username.
+      #
+      # @todo check .hgrc for user.
       #
       def user
         ENV['HGUSER'] || ENV['USER']
       end
 
       #
+      # User's email address.
+      #
+      # @todo check .hgrc for email.
+      #
       def email
         ENV['HGEMAIL'] || ENV['EMAIL']
       end
 
       #
-      def repository
-        @repository ||= `hg showconfig paths.default`.strip
+      # URI of repository.
+      #
+      def uri
+        @uri ||= `hg showconfig paths.default`.strip
       end
 
+      # @deprecated
+      alias_method :repository, :uri
+
+      #
+      #
       #
       def uuid
         nil
       end
 
+      #
       # TODO: Will multi-line messages work okay this way?
+      #
       def tag(ref, label, date, msg)
         file = tempfile("message", msg)
         date = date.strftime('%Y-%m-%d') unless String===date
@@ -70,7 +91,9 @@ module VCLog
 
      private
 
+      #
       # Parse log entry.
+      #
       def parse_entry(entry)
         settings = {}
 

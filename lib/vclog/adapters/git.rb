@@ -65,6 +65,9 @@ module VCLog
       #   commit
       #   ...
       #
+      # @todo This code is pretty poor, but it suffices for now.
+      #       And we need not worry about it the future b/c eventually
+      #       we will replace it by using the `amp` or `scm` gem.
       def extract_tags
         list = []
         tags = `git tag -l`
@@ -86,13 +89,28 @@ module VCLog
               end
             end
             msg = msg.strip
-            info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
-            cdate, id, *_ = *info.split('|~|')
+
+            #info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
+            #cdate, id, *_ = *info.split('|~|')
+
+            info = git_show("#{tag}^")
+
+            change = Change.new(info)
+
+            list << Tag.new(:name=>tag, :date=>date, :who=>who, :msg=>msg, :commit=>change)
           else
-            info = `git show #{tag} --pretty=format:"%cn|~|%ce|~|%ci|~|%H|~|%s|~|"`
-            who, email, cdate, id, msg, *_ = *info.split('|~|')
-            who  = who + ' ' + email
-            date = cdate
+            #info = `git show #{tag} --pretty=format:"%cn|~|%ce|~|%ci|~|%H|~|%s|~|"`
+            info   = git_show(tag)
+            change = Change.new(info)
+
+            tag_info = {
+              :name   => tag,
+              :who    => info[:who],
+              :date   => info[:date],
+              :msg    => info[:message],
+              :commit => change
+            }
+            list << Tag.new(tag_info)
           end          
 
           #if $DEBUG
@@ -100,7 +118,7 @@ module VCLog
           #  puts
           #end
 
-          list << Tag.new(:name=>tag, :date=>date, :who=>who, :msg=>msg, :commit_id=>id, :commit_date=>cdate)
+          #list << tag
         end
 
         return list
@@ -131,6 +149,36 @@ module VCLog
         cmd = %[GIT_AUTHOR_DATE='#{date}' GIT_COMMITTER_DATE='#{date}' git tag -a -F '#{file}' #{label} #{ref}]
         puts cmd if $DEBUG
         `#{cmd}` unless $DRYRUN
+      end
+
+    private
+
+      #
+      #
+      #
+      def git_show(ref)
+        command = 'git show ' + ref.to_s + ' --name-only --pretty=format:"' +
+                    '%ci' +
+                    GIT_FIELD_MARKER +
+                    '%cn' +
+                    GIT_FIELD_MARKER +
+                    '%ce' +
+                    GIT_FIELD_MARKER +
+                    '%H' +
+                    GIT_FIELD_MARKER +
+                    '%s%n%n%b' +
+                    GIT_FIELD_MARKER +
+                    '"'
+
+        entry = `#{command}`
+
+        date, who, email, id, msg, files = entry.split(RUBY_FIELD_MARKER)
+
+        who = who + ' ' + email
+        date  = Time.parse(date)
+        files = files.split("\n")
+
+        return { :date=>date, :who=>who, :id=>id, :message=>msg, :files=>files }
       end
 
     end
