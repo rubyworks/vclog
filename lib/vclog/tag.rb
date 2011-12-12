@@ -33,7 +33,10 @@ module VCLog
     #
     attr_accessor :commit
 
-    # FIXME: Hg is using this at the moment but it really shouldn't be here.
+    #
+    # @todo Hg is using this at the moment but it really shouldn't be here,
+    #   since it is take care of by `commit.files`.
+    #
     attr_accessor :files
 
     #
