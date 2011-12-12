@@ -1,8 +1,9 @@
 = RELEASE HISTORY
 
-== 1.9.0 / 2011-12-10
+== 1.9.0 / 2011-12-12
 
-This is a BIG release as much has changed, so listen up.
+This is a BIG release and much has changed, so be sure to read the following
+carefully if you've used VClog before.
 
 First of all, the command line interface no longer uses the subcommand pattern.
 Instead independent commands have been created for each use, e.g. `vclog-version`
@@ -20,7 +21,7 @@ but the commit object instead, which can be manipulated directly, rather then
 return a limited set of possible changes. This allows for rules to be much more
 flexible.
 
-Since the last release wasn't widely publisized we also want to mention again that
+Since the last release wasn't widely publisized, I also want to mention again that
 configuration is now handled by the `confection` gem, meaning custom heuristics
 must be place in a projects `.confile` or `Confile`. See the latest README for more
 details.
