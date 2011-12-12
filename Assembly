@@ -20,8 +20,8 @@ locat:
 
 vclog:
   output:
-    - web/log/history.html
-    - web/log/changes.html
+    - log/history.html
+    - log/changes.html
     - web/eg/history.html
     - web/eg/changes.html
     - web/eg/history.rdoc
