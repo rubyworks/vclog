@@ -1,163 +1,968 @@
-[1mVCLog[0m
-[1m
-HEAD / 2011-12-13[0m
+<?xml version="1.0"?>
 
-Current Development (7rans)
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-* 3 Major Enhancements
+  <title>VCLog Feed</title>
 
-    * [31mRules must now effect commit directly.[0m
-    * [31mAdd support for change points.[0m
-    * [31mChange rules to take commits instead of messages.[0m
+  <subtitle>Release History</subtitle>
 
-* 2 Bug Fixes
+  <link href="git@github.com:rubyworks/vclog.git" />
+ 
+  
 
-    * [32mFix change point option.[0m
-    * [32mFix defualt heuristics so full message is returned.[0m
+  <id>git@github.com:rubyworks/vclog.git</id>
 
-[1m
-1.8.2 / 2011-12-08[0m
+  <updated>2011-12-12T14:49:08-05:00</updated>
 
-This release changes the way in which vclog is configured to use the Confection
+  <author>
+
+    <name>7rans</name>
+
+    <email>transfire@gmail.com</email>
+
+  </author>
+
+
+
+  <entry>
+
+    <title>HEAD</title>
+
+    <id>git@github.com:rubyworks/vclog.git#</id>
+
+    <author><name>7rans<name></author>
+
+    <updated>2011-12-13T14:49:08-05:00</updated>
+
+    <summary>Current Development</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>Current Development</p>
+
+
+
+        <h2>3 Major Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            Rules must now effect commit directly.<br/>
+
+            7rans 2011-12-11 00:54:01
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            Add support for change points.<br/>
+
+            7rans 2011-12-09 01:51:59
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            Change rules to take commits instead of messages.<br/>
+
+            7rans 2011-12-09 01:51:59
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>3 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            Fix git tag id.<br/>
+
+            7rans 2011-12-12 14:46:43
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            Fix change point option.<br/>
+
+            7rans 2011-12-11 16:14:39
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            Fix defualt heuristics so full message is returned.<br/>
+
+            7rans 2011-12-10 15:43:11
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.8.2</title>
+
+    <id>git@github.com:rubyworks/vclog.git#dc03bed3bd9cff189b17e2118d4628cbaa56a671</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2011-12-08T10:07:00-05:00</updated>
+
+    <summary>This release changes the way in which vclog is configured to use the Confection
 gem. This means VCLog custom configuration for a project must go in a `vclog do`
-block in the `Confile` or `.confile` project file. In addtion this release
-brings the build config up to date and switches the project over to the
-BSD-2-Clause license. (7rans <transfire@gmail.com>)
+BSD-2-Clause license.</summary>
 
-* 1 Major Enhancements
+    <content type="xhtml">
 
-    * [31mUse confection library for vclog config.[0m
+      <div xmlns="http://www.w3.org/1999/xhtml">
 
-* 1 Minor Enhancements
+        <p>This release changes the way in which vclog is configured to use the Confection
+gem. This means VCLog custom configuration for a project must go in a `vclog do`
+BSD-2-Clause license.</p>
 
-    * [33mAdd file list to Changes class.[0m
 
-* 1 Bug Fixes
 
-    * [32mFix git adapter markers.[0m
+        <h2>1 Major Enhancements</h2>
 
-[1m
-1.8.0 / 2010-11-21[0m
+        <ul class="log">
 
- (7rans <transfire@gmail.com>)
 
-* 5 Minor Enhancements
+          <li class="entry">
 
-    * [33mpolish html templates[0m
-    * [33muse #cli instead of #main method[0m
-    * [33madd #rev alias to Change class; other adjustments[0m
-    * [33madd manpages[0m
-    * [33mprevent warnings about method redefinition[0m
+            Use confection library for vclog config.<br/>
 
-[1m
-1.7.0 / 2010-06-27[0m
+            7rans 2011-11-06 16:23:00
 
-In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust. (7rans <transfire@gmail.com>)
+            
 
-* 1 Major Enhancements
+          </li>
 
-    * [31mchange interface of heuristics to accept message and matchdata[0m
 
-* 1 Minor Enhancements
+        </ul>
 
-    * [33mfix format for syckle plugin[0m
 
-[1m
-1.6.1 / 2010-06-24[0m
+        <h2>1 Minor Enhancements</h2>
 
-This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict). (7rans <transfire@gmail.com>)
+        <ul class="log">
 
-* 2 Minor Enhancements
 
-    * [33muse .rss and .atom extensions[0m
-    * [33mupdates to website[0m
+          <li class="entry">
 
-[1m
-1.6.0 / 2010-06-22[0m
+            Add file list to Changes class.<br/>
 
- (7rans <transfire@gmail.com>)
+            7rans 2011-12-08 09:36:51
 
-* 4 Minor Enhancements
+            
 
-    * [33mfix help command add help banners[0m
-    * [33mplugin should use project.root not root, and Syckfile entry needs files not loadpath[0m
-    * [33madd level to syckle plugin[0m
-    * [33mupdate features to use subcommand[0m
+          </li>
 
-[1m
-1.5.0 / 2010-05-28[0m
 
-This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process. (7rans <transfire@gmail.com>)
+        </ul>
 
-* 2 Major Enhancements
 
-    * [31mre-orient design about vcs classes (partially complete)[0m
-    * [31madd Mercurial support; also renamed VCS to Adapters[0m
+        <h2>1 Bug Fixes</h2>
 
-* 1 Minor Enhancements
+        <ul class="log">
 
-    * [33madjust commandline help[0m
 
-* 1 Bug Fixes
+          <li class="entry">
 
-    * [32mfixed delta groupings and other improvements[0m
+            Fix git adapter markers.<br/>
 
-[1m
-1.4.0 / 2010-05-26[0m
+            7rans 2011-12-08 09:44:15
 
-This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?). (7rans <transfire@gmail.com>)
+            
 
-* 2 Minor Enhancements
+          </li>
 
-    * [33mneed to use -e or --extra option to see Changes list in release history[0m
-    * [33muse gits --pretty option to simplify parsing[0m
 
-* 4 Bug Fixes
+        </ul>
 
-    * [32mSort release tags in correct order[0m
-    * [32mchange 'git-log' to 'git log'[0m
-    * [32mchange 'git-log' to 'git log'[0m
-    * [32mfix version bumping and display[0m
 
-[1m
-1.3.0 / 2010-02-08[0m
 
-For the an end-user the only significant change is the support of 'label:' notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the 'label:' notation to specify 'system module' effected --a useful system of labeling. (7rans <transfire@gmail.com>)
+      </div>
 
-* 2 Major Enhancements
+    </content>
 
-    * [31muse erb as template system for all formats[0m
-    * [31msupport 'type:' fromat commit types[0m
+  </entry>
 
-* 2 Minor Enhancements
 
-    * [33mmove lib/plugin to lib/plugins per new standard or PLugin gem[0m
-    * [33muse rdoc to generate history html (for now)[0m
 
-* 1 Bug Fixes
+  <entry>
 
-    * [32msyckle plugin now works with latest vclog changes[0m
+    <title>1.8.0</title>
 
-[1m
-1.2.0 / 2009-10-26[0m
+    <id>git@github.com:rubyworks/vclog.git#850ec9acfed7c981086f74b965332396c24796c8</id>
 
-Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface. (7rans <transfire@gmail.com>) (7rans <transfire@gmail.com>)
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
 
-* 1 Minor Enhancements
+    <updated>2010-11-21T23:59:00-05:00</updated>
 
-    * [33mrenamed verbose to extra[0m
+    <summary></summary>
 
-* 1 Bug Fixes
+    <content type="xhtml">
 
-    * [32mfixed spelling of revision (from revison)[0m
+      <div xmlns="http://www.w3.org/1999/xhtml">
 
-[1m
-1.1.0 / 2009-10-23[0m
+        <p></p>
 
-This release adds yaml and json formats an improves the command. (7rans <transfire@gmail.com>)
 
-[1m
-1.0.0 / 2009-10-13[0m
 
-This is the first "production" release of VCLog. (7rans <transfire@gmail.com>)
+        <h2>5 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            polish html templates<br/>
+
+            7rans 2010-11-20 11:51:32
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            use #cli instead of #main method<br/>
+
+            7rans 2010-11-19 17:26:27
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            add #rev alias to Change class; other adjustments<br/>
+
+            7rans 2010-11-19 17:26:04
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            add manpages<br/>
+
+            7rans 2010-11-19 17:20:39
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            prevent warnings about method redefinition<br/>
+
+            7rans 2010-11-04 12:03:03
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.7.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#d21e632f830044e88bef05adc93593657a2ffab7</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-06-27T15:32:04-04:00</updated>
+
+    <summary>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to &quot;massage&quot; the message as needed. This release also improves the git log parser to be much more robust.</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust.</p>
+
+
+
+        <h2>1 Major Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            change interface of heuristics to accept message and matchdata<br/>
+
+            7rans 2010-06-24 17:52:25
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fix format for syckle plugin<br/>
+
+            7rans 2010-06-23 23:53:50
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.6.1</title>
+
+    <id>git@github.com:rubyworks/vclog.git#0d0f361dec0160d60ea56877a91660103024e47e</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-06-24T00:02:09-04:00</updated>
+
+    <summary>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</p>
+
+
+
+        <h2>2 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            use .rss and .atom extensions<br/>
+
+            7rans 2010-06-23 23:41:17
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            updates to website<br/>
+
+            7rans 2010-06-23 23:07:00
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.6.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#e3be2046b0e85916751e528dcff5c600a967cfb2</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-06-22T23:59:00-04:00</updated>
+
+    <summary></summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p></p>
+
+
+
+        <h2>4 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fix help command add help banners<br/>
+
+            7rans 2010-06-21 20:26:32
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            plugin should use project.root not root, and Syckfile entry needs files not loadpath<br/>
+
+            7rans 2010-06-21 20:12:52
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            add level to syckle plugin<br/>
+
+            7rans 2010-06-21 18:50:57
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            update features to use subcommand<br/>
+
+            7rans 2010-06-21 18:50:19
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.5.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#6ef5bb19c3d7339d63594eeef47a4ee416d79947</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-05-28T19:00:00-04:00</updated>
+
+    <summary>This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.</p>
+
+
+
+        <h2>2 Major Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            re-orient design about vcs classes (partially complete)<br/>
+
+            7rans 2010-05-28 14:29:55
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            add Mercurial support; also renamed VCS to Adapters<br/>
+
+            7rans 2010-05-27 17:47:54
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            adjust commandline help<br/>
+
+            7rans 2010-05-28 14:56:47
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fixed delta groupings and other improvements<br/>
+
+            7rans 2010-05-28 09:39:07
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.4.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#ab9fe610cbbb1c7abaf2d00ac05f4b1ee13dbb21</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-05-26T22:00:00-04:00</updated>
+
+    <summary>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed &apos;git-log&apos; to &apos;git log&apos;, as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an &apos;svn log&apos; command is issued which is done once for each tag when a history is generated (any one know a better way?).</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).</p>
+
+
+
+        <h2>2 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            need to use -e or --extra option to see Changes list in release history<br/>
+
+            7rans 2010-05-26 11:18:49
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            use gits --pretty option to simplify parsing<br/>
+
+            7rans 2010-05-26 11:18:04
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>3 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            Sort release tags in correct order<br/>
+
+            7rans 2010-05-26 10:22:26
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            change 'git-log' to 'git log'<br/>
+
+            7rans 2010-05-26 09:47:53
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            change 'git-log' to 'git log'<br/>
+
+            7rans 2010-05-26 09:40:54
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.3.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#15fb8612a97cdb489b398e377b0fcca433a2355a</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2010-02-08T23:59:00-05:00</updated>
+
+    <summary>For the an end-user the only significant change is the support of &apos;label:&apos; notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the &apos;label:&apos; notation to specify &apos;system module&apos; effected --a useful system of labeling.</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>For the an end-user the only significant change is the support of 'label:' notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the 'label:' notation to specify 'system module' effected --a useful system of labeling.</p>
+
+
+
+        <h2>2 Major Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            use erb as template system for all formats<br/>
+
+            7rans 2010-01-16 15:05:52
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            support 'type:' fromat commit types<br/>
+
+            7rans 2010-01-02 02:19:32
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>2 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            move lib/plugin to lib/plugins per new standard or PLugin gem<br/>
+
+            7rans 2010-02-08 07:35:24
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            use rdoc to generate history html (for now)<br/>
+
+            7rans 2010-01-16 10:49:17
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>2 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fix version bumping and display<br/>
+
+            7rans 2010-02-08 11:07:19
+
+            
+
+          </li>
+
+
+          <li class="entry">
+
+            syckle plugin now works with latest vclog changes<br/>
+
+            7rans 2010-01-16 10:50:30
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.2.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#9aff643083d751eb4ab5c801b7dba77956cad9ae</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2009-10-26T23:59:00-04:00</updated>
+
+    <summary>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface. (7rans &lt;transfire@gmail.com&gt;)</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface. (7rans <transfire@gmail.com>)</p>
+
+
+
+        <h2>1 Minor Enhancements</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            renamed verbose to extra<br/>
+
+            7rans 2009-10-26 15:51:07
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+        <h2>1 Bug Fixes</h2>
+
+        <ul class="log">
+
+
+          <li class="entry">
+
+            fixed spelling of revision (from revison)<br/>
+
+            7rans 2009-10-26 15:38:39
+
+            
+
+          </li>
+
+
+        </ul>
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.1.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#c3ade6a5bf31dcfc0c52a98f84f242b0a39e5f1d</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2009-10-23T23:59:00-04:00</updated>
+
+    <summary>This release adds yaml and json formats an improves the command.</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>This release adds yaml and json formats an improves the command.</p>
+
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+
+  <entry>
+
+    <title>1.0.0</title>
+
+    <id>git@github.com:rubyworks/vclog.git#70e98e8dc4baef6b50c4fa259127f55f6622a9e9</id>
+
+    <author><name>7rans &lt;transfire@gmail.com&gt;<name></author>
+
+    <updated>2009-10-13T23:59:00-04:00</updated>
+
+    <summary>This is the first &quot;production&quot; release of VCLog.</summary>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>This is the first "production" release of VCLog.</p>
+
+
+
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+</feed>
 

@@ -1,94 +1,479 @@
-[1mVCLog
-[0m
-[1m2011-12-11  7rans
-[0m
-  * [31mRules must now effect commit directly.[0m
-  * [32mFix change point option.[0m
-
-[1m2011-12-10  7rans
-[0m
-  * [32mFix defualt heuristics so full message is returned.[0m
-
-[1m2011-12-09  7rans
-[0m
-  * [31mAdd support for change points.[0m
-  * [31mChange rules to take commits instead of messages.[0m
-
-[1m2011-12-08  7rans
-[0m
-  * [33mAdd file list to Changes class.[0m
-  * [32mFix git adapter markers.[0m
-
-[1m2011-11-06  7rans
-[0m
-  * [31mUse confection library for vclog config.[0m
-
-[1m2010-11-20  7rans
-[0m
-  * [33mpolish html templates[0m
-
-[1m2010-11-19  7rans
-[0m
-  * [33muse #cli instead of #main method[0m
-  * [33madd #rev alias to Change class; other adjustments[0m
-  * [33madd manpages[0m
-
-[1m2010-11-04  7rans
-[0m
-  * [33mprevent warnings about method redefinition[0m
-
-[1m2010-06-24  7rans
-[0m
-  * [31mchange interface of heuristics to accept message and matchdata[0m
-
-[1m2010-06-23  7rans
-[0m
-  * [33mfix format for syckle plugin[0m
-  * [33muse .rss and .atom extensions[0m
-  * [33mupdates to website[0m
-
-[1m2010-06-21  7rans
-[0m
-  * [33mfix help command add help banners[0m
-  * [33mplugin should use project.root not root, and Syckfile entry needs files not loadpath[0m
-  * [33madd level to syckle plugin[0m
-  * [33mupdate features to use subcommand[0m
-
-[1m2010-05-28  7rans
-[0m
-  * [31mre-orient design about vcs classes (partially complete)[0m
-  * [33madjust commandline help[0m
-  * [32mfixed delta groupings and other improvements[0m
-
-[1m2010-05-27  7rans
-[0m
-  * [31madd Mercurial support; also renamed VCS to Adapters[0m
-
-[1m2010-05-26  7rans
-[0m
-  * [33mneed to use -e or --extra option to see Changes list in release history[0m
-  * [33muse gits --pretty option to simplify parsing[0m
-  * [32mSort release tags in correct order[0m
-  * [32mchange 'git-log' to 'git log'[0m
-  * [32mchange 'git-log' to 'git log'[0m
-
-[1m2010-02-08  7rans
-[0m
-  * [33mmove lib/plugin to lib/plugins per new standard or PLugin gem[0m
-  * [32mfix version bumping and display[0m
-
-[1m2010-01-16  7rans
-[0m
-  * [31muse erb as template system for all formats[0m
-  * [33muse rdoc to generate history html (for now)[0m
-  * [32msyckle plugin now works with latest vclog changes[0m
-
-[1m2010-01-02  7rans
-[0m
-  * [31msupport 'type:' fromat commit types[0m
-
-[1m2009-10-26  7rans
-[0m
-  * [33mrenamed verbose to extra[0m
-  * [32mfixed spelling of revision (from revison)[0m
+<html>
+<head>
+  <title>VCLog</title>
+  <style>
+    body{font-family: sans-serif;}
+    h1{ font-weight: normal; font-size: 4em; margin: 0 0; }
+    h2{ color: #555; }
+    li{padding: 10px;}
+    .main{width:800px; margin:0 auto;}
+    .commit{ padding: 10px 0px; }
+    .date{font-weight: normal; color: green; float: left; padding-right: 15px; font-size: 0.9em;}
+    .author{font-weight: normal; color: blue;}
+    .message{ padding: 5px 0; font-weight: normal; font-size: 1.1em; }
+    .revision{font-size: 0.7em; color: #aaa; }
+  </style>
+  
+</head>
+<body>
+<div class="main">
+  <h1>VCLog</h1>
+  <h2>&nbsp;Timeline</h2>
+  <div class="changelog">
+    <ul>
+    
+    <li class="commit">
+      <div class="id">e1a4fa9fd79dd65d80a31627a64bb33ee1065766</div>
+      <div class="date">2011-12-12 14:46:43 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">Fix git tag id. [bug]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">80ee8f8ce8475d203ba13067bd997483c2943863</div>
+      <div class="date">2011-12-11 16:14:39 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">Fix change point option. [bug]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">832c8c614807b789669c47fbfa79fd26fb9c3670</div>
+      <div class="date">2011-12-11 00:54:01 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">Rules must now effect commit directly. [major]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">3f059313d32ae9978206b4994bdd9e3fe71e2dca</div>
+      <div class="date">2011-12-10 15:43:11 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">Fix defualt heuristics so full message is returned. [bug]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">c7fcac42508b3264fcab73f1388e7861a1c5fbe0</div>
+      <div class="date">2011-12-09 01:51:59 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">Intermediate progress on refectoring and new features.</div>
+        <div class="details">
+<ul><li>
+<p>Add support for change points. [major]</p>
+</li><li>
+<p>Change rules to take commits instead of messages. [major]</p>
+</li><li>
+<p>Refactor scm adapters as “dumb” data stores.</p>
+</li><li>
+<p>Refactor git log parser.</p>
+</li></ul>
+        </div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">c7fcac42508b3264fcab73f1388e7861a1c5fbe0</div>
+      <div class="date">2011-12-09 01:51:59 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">Intermediate progress on refectoring and new features.</div>
+        <div class="details">
+<ul><li>
+<p>Add support for change points. [major]</p>
+</li><li>
+<p>Change rules to take commits instead of messages. [major]</p>
+</li><li>
+<p>Refactor scm adapters as “dumb” data stores.</p>
+</li><li>
+<p>Refactor git log parser.</p>
+</li></ul>
+        </div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">f5fcb38662805d26cd7e0456f79b2e990ac8ffe2</div>
+      <div class="date">2011-12-08 09:44:15 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">Fix git adapter markers. [bug]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">58ed072d191e882339dd4bd2740e76d29041a7f7</div>
+      <div class="date">2011-12-08 09:36:51 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">Add file list to Changes class. [minor]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">b6d5b6c9ba9c699d78339aa7d70aaa8ff4c7c542</div>
+      <div class="date">2011-11-06 16:23:00 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">Use confection library for vclog config. [major]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">cb128b06f7a5d46c1a02a186d3fc60e26d32c4eb</div>
+      <div class="date">2010-11-20 11:51:32 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: polish html templates</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">5731d89efd12eb1921dbd5139f4475a618c45712</div>
+      <div class="date">2010-11-19 17:26:27 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: use #cli instead of #main method</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">9136e8c1a8406816c149f7f00ca46721257b1891</div>
+      <div class="date">2010-11-19 17:26:04 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: add #rev alias to Change class; other adjustments</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">49dfa006ded3e2db77e1a68e86e1981f550525e8</div>
+      <div class="date">2010-11-19 17:20:39 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: add manpages</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">f5b56f3a48436771ee50965b45c80abcd9844620</div>
+      <div class="date">2010-11-04 12:03:03 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: prevent warnings about method redefinition</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">ba1299c491345caefc908f16ba89fdc676ff96e3</div>
+      <div class="date">2010-06-24 17:52:25 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">major: change interface of heuristics to accept message and matchdata</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">0d0f361dec0160d60ea56877a91660103024e47e</div>
+      <div class="date">2010-06-23 23:53:50 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: fix format for syckle plugin</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">0d2fcdd883b5d642085883ed9cad81b2403d0f5f</div>
+      <div class="date">2010-06-23 23:41:17 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: use .rss and .atom extensions</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">af8615b7afebc2838a6f59644fa9d2366b8a3451</div>
+      <div class="date">2010-06-23 23:07:00 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: updates to website</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">f6363d553081a545e761ffdac6c67e0a4fc41666</div>
+      <div class="date">2010-06-21 20:26:32 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: fix help command add help banners</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">e80fe1a641377f0f0bf549f94b28c66c3e1cd4b8</div>
+      <div class="date">2010-06-21 20:12:52 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: plugin should use project.root not root, and Syckfile entry needs files not loadpath</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">dac15fd45b5ba536410f3f031550a074032b791d</div>
+      <div class="date">2010-06-21 18:50:57 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: add level to syckle plugin</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">b0bb8bcda80dddfeb397307a395572e61adf0222</div>
+      <div class="date">2010-06-21 18:50:19 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: update features to use subcommand</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">f92559b4f59c325ff70cabe450ae4f5933e8194e</div>
+      <div class="date">2010-05-28 14:56:47 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: adjust commandline help</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">61a77b9ef3048c624db7ed220066fc77fa2758f4</div>
+      <div class="date">2010-05-28 14:29:55 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">major: re-orient design about vcs classes (partially complete)</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">79be281a80d2c1df44312ff338d9d1c8c4c116d4</div>
+      <div class="date">2010-05-28 09:39:07 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">bug: fixed delta groupings and other improvements</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</div>
+      <div class="date">2010-05-27 17:47:54 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">major: add Mercurial support; also renamed VCS to Adapters</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">c5e3812368a42152150e34b5e579a3f015c23747</div>
+      <div class="date">2010-05-26 11:18:49 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: need to use -e or --extra option to see Changes list in release history</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">a0a516a3c8bccfc87edfd2d1c6d0458cdd968205</div>
+      <div class="date">2010-05-26 11:18:04 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: use gits --pretty option to simplify parsing</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">e38b645371cf1e5be318e61a7ac257c1eb4f22e2</div>
+      <div class="date">2010-05-26 10:22:26 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">bug: Sort release tags in correct order</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">0699541316857eab778278b5aefb0b23125c5252</div>
+      <div class="date">2010-05-26 09:47:53 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">bug: change &apos;git-log&apos; to &apos;git log&apos;</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">b198e6182c55894a4253cf70a315a9567652a362</div>
+      <div class="date">2010-05-26 09:40:54 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">bug: change &apos;git-log&apos; to &apos;git log&apos;</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</div>
+      <div class="date">2010-02-08 11:07:19 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">bug: fix version bumping and display</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">893dca837cec1d3aa09ba7f0ebfc1e7c95414d4c</div>
+      <div class="date">2010-02-08 07:35:24 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: move lib/plugin to lib/plugins per new standard or PLugin gem</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">0e92a0cd55993aca59f7b1b067247761d3267def</div>
+      <div class="date">2010-01-16 15:05:52 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">major: use erb as template system for all formats</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">2dbe74db852ebed67acd12c387006504b2a3841c</div>
+      <div class="date">2010-01-16 10:50:30 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">bug: syckle plugin now works with latest vclog changes</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">10601a7dbd42bef76b9a7c74555ab473917d9f27</div>
+      <div class="date">2010-01-16 10:49:17 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">minor: use rdoc to generate history html (for now)</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">5b244687f2f7978a2a2a2891363550cc37d97cce</div>
+      <div class="date">2010-01-02 02:19:32 -0500</div>
+      <div class="author">7rans</div>
+      <div class="type">major</div>
+      <div class="message">
+        <div class="summary">major: support &apos;type:&apos; fromat commit types</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">3908ac648d1a6d1302e2542fbeff0c6358662715</div>
+      <div class="date">2009-10-26 15:51:07 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">minor</div>
+      <div class="message">
+        <div class="summary">renamed verbose to extra [minor]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    <li class="commit">
+      <div class="id">d3c207c96740362147ec9dd864401e7066cad025</div>
+      <div class="date">2009-10-26 15:38:39 -0400</div>
+      <div class="author">7rans</div>
+      <div class="type">bug</div>
+      <div class="message">
+        <div class="summary">fixed spelling of revision (from revison) [bug]</div>
+        <div class="details"></div>
+      </div>
+    </li>
+    
+    </ul>
+  </div>
+</div>
+</body>
+</html>
 

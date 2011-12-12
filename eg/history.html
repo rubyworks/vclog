@@ -1,163 +1,553 @@
-[1mVCLog[0m
-[1m
-HEAD / 2011-12-13[0m
+<html>
+<head>
+  <title>VCLog History</title>
+  <style>
+    body{font-family: sans-serif;}
+    h1{ }
+    h2{ color: #555; }
+    li{padding: 10px;}
+    .main{width:800px; margin:0 auto;}
+    .title{font-size: 64px;}
+    .date{font-weight: bold; color: green; float: left; padding-right: 15px;}
+    .author{font-weight: bold; color: blue;}
+    .message{padding: 5 0; font-weight: bold;}
+    .revision{font-size: 0.8em;}
+  </style>
+</head>
+<body>
+<div class="main">
+  <div class="title">VCLog</div>
+  <div class="history">
 
-Current Development (7rans)
+    <h1>HEAD / 2011-12-13</h1>
+    <p>Current Development</p>
 
-* 3 Major Enhancements
+    <h2>3 Major Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Rules must now effect commit directly. [major]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#832c8c614807b789669c47fbfa79fd26fb9c3670</div>
+        <div class="date">2011-12-11 00:54:01 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Intermediate progress on refectoring and new features.</summary>
+          <div class="details">
+<ul><li>
+<p>Add support for change points. [major]</p>
+</li><li>
+<p>Change rules to take commits instead of messages. [major]</p>
+</li><li>
+<p>Refactor scm adapters as “dumb” data stores.</p>
+</li><li>
+<p>Refactor git log parser.</p>
+</li></ul>
+          </div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#c7fcac42508b3264fcab73f1388e7861a1c5fbe0</div>
+        <div class="date">2011-12-09 01:51:59 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Intermediate progress on refectoring and new features.</summary>
+          <div class="details">
+<ul><li>
+<p>Add support for change points. [major]</p>
+</li><li>
+<p>Change rules to take commits instead of messages. [major]</p>
+</li><li>
+<p>Refactor scm adapters as “dumb” data stores.</p>
+</li><li>
+<p>Refactor git log parser.</p>
+</li></ul>
+          </div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#c7fcac42508b3264fcab73f1388e7861a1c5fbe0</div>
+        <div class="date">2011-12-09 01:51:59 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [31mRules must now effect commit directly.[0m
-    * [31mAdd support for change points.[0m
-    * [31mChange rules to take commits instead of messages.[0m
+    <h2>3 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Fix git tag id. [bug]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#e1a4fa9fd79dd65d80a31627a64bb33ee1065766</div>
+        <div class="date">2011-12-12 14:46:43 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Fix change point option. [bug]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#80ee8f8ce8475d203ba13067bd997483c2943863</div>
+        <div class="date">2011-12-11 16:14:39 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Fix defualt heuristics so full message is returned. [bug]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#3f059313d32ae9978206b4994bdd9e3fe71e2dca</div>
+        <div class="date">2011-12-10 15:43:11 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 2 Bug Fixes
-
-    * [32mFix change point option.[0m
-    * [32mFix defualt heuristics so full message is returned.[0m
-
-[1m
-1.8.2 / 2011-12-08[0m
-
-This release changes the way in which vclog is configured to use the Confection
+    <h1>1.8.2 / 2011-12-08</h1>
+    <p>This release changes the way in which vclog is configured to use the Confection
 gem. This means VCLog custom configuration for a project must go in a `vclog do`
-block in the `Confile` or `.confile` project file. In addtion this release
-brings the build config up to date and switches the project over to the
-BSD-2-Clause license. (7rans <transfire@gmail.com>)
+BSD-2-Clause license.</p>
 
-* 1 Major Enhancements
+    <h2>1 Major Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Use confection library for vclog config. [major]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#b6d5b6c9ba9c699d78339aa7d70aaa8ff4c7c542</div>
+        <div class="date">2011-11-06 16:23:00 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [31mUse confection library for vclog config.[0m
+    <h2>1 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Add file list to Changes class. [minor]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#58ed072d191e882339dd4bd2740e76d29041a7f7</div>
+        <div class="date">2011-12-08 09:36:51 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 1 Minor Enhancements
+    <h2>1 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">Fix git adapter markers. [bug]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#f5fcb38662805d26cd7e0456f79b2e990ac8ffe2</div>
+        <div class="date">2011-12-08 09:44:15 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [33mAdd file list to Changes class.[0m
+    <h1>1.8.0 / 2010-11-21</h1>
+    <p></p>
 
-* 1 Bug Fixes
+    <h2>5 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: polish html templates</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#cb128b06f7a5d46c1a02a186d3fc60e26d32c4eb</div>
+        <div class="date">2010-11-20 11:51:32 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: use #cli instead of #main method</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#5731d89efd12eb1921dbd5139f4475a618c45712</div>
+        <div class="date">2010-11-19 17:26:27 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: add #rev alias to Change class; other adjustments</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#9136e8c1a8406816c149f7f00ca46721257b1891</div>
+        <div class="date">2010-11-19 17:26:04 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: add manpages</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#49dfa006ded3e2db77e1a68e86e1981f550525e8</div>
+        <div class="date">2010-11-19 17:20:39 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: prevent warnings about method redefinition</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#f5b56f3a48436771ee50965b45c80abcd9844620</div>
+        <div class="date">2010-11-04 12:03:03 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [32mFix git adapter markers.[0m
+    <h1>1.7.0 / 2010-06-27</h1>
+    <p>In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust.</p>
 
-[1m
-1.8.0 / 2010-11-21[0m
+    <h2>1 Major Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">major: change interface of heuristics to accept message and matchdata</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#ba1299c491345caefc908f16ba89fdc676ff96e3</div>
+        <div class="date">2010-06-24 17:52:25 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
- (7rans <transfire@gmail.com>)
+    <h2>1 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: fix format for syckle plugin</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#0d0f361dec0160d60ea56877a91660103024e47e</div>
+        <div class="date">2010-06-23 23:53:50 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 5 Minor Enhancements
+    <h1>1.6.1 / 2010-06-24</h1>
+    <p>This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict).</p>
 
-    * [33mpolish html templates[0m
-    * [33muse #cli instead of #main method[0m
-    * [33madd #rev alias to Change class; other adjustments[0m
-    * [33madd manpages[0m
-    * [33mprevent warnings about method redefinition[0m
+    <h2>2 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: use .rss and .atom extensions</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#0d2fcdd883b5d642085883ed9cad81b2403d0f5f</div>
+        <div class="date">2010-06-23 23:41:17 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: updates to website</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#af8615b7afebc2838a6f59644fa9d2366b8a3451</div>
+        <div class="date">2010-06-23 23:07:00 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-[1m
-1.7.0 / 2010-06-27[0m
+    <h1>1.6.0 / 2010-06-22</h1>
+    <p></p>
 
-In this release the heuristics interface has changed such that the block is passed the commit message and the matchdata, instead of  the previous matchdata splat. The rule can alos return either the sybolic label or a two element array of label and new message, which allows the rule to "massage" the message as needed. This release also improves the git log parser to be much more robust. (7rans <transfire@gmail.com>)
+    <h2>4 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: fix help command add help banners</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#f6363d553081a545e761ffdac6c67e0a4fc41666</div>
+        <div class="date">2010-06-21 20:26:32 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: plugin should use project.root not root, and Syckfile entry needs files not loadpath</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#e80fe1a641377f0f0bf549f94b28c66c3e1cd4b8</div>
+        <div class="date">2010-06-21 20:12:52 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: add level to syckle plugin</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#dac15fd45b5ba536410f3f031550a074032b791d</div>
+        <div class="date">2010-06-21 18:50:57 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: update features to use subcommand</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#b0bb8bcda80dddfeb397307a395572e61adf0222</div>
+        <div class="date">2010-06-21 18:50:19 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 1 Major Enhancements
+    <h1>1.5.0 / 2010-05-28</h1>
+    <p>This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process.</p>
 
-    * [31mchange interface of heuristics to accept message and matchdata[0m
+    <h2>2 Major Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">major: re-orient design about vcs classes (partially complete)</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#61a77b9ef3048c624db7ed220066fc77fa2758f4</div>
+        <div class="date">2010-05-28 14:29:55 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">major: add Mercurial support; also renamed VCS to Adapters</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</div>
+        <div class="date">2010-05-27 17:47:54 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 1 Minor Enhancements
+    <h2>1 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: adjust commandline help</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#f92559b4f59c325ff70cabe450ae4f5933e8194e</div>
+        <div class="date">2010-05-28 14:56:47 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [33mfix format for syckle plugin[0m
+    <h2>1 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">bug: fixed delta groupings and other improvements</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#79be281a80d2c1df44312ff338d9d1c8c4c116d4</div>
+        <div class="date">2010-05-28 09:39:07 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-[1m
-1.6.1 / 2010-06-24[0m
+    <h1>1.4.0 / 2010-05-26</h1>
+    <p>This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?).</p>
 
-This release repairs the Atom feed format and adds an RSS feed format. Both formats are nearly conformant with strict validations --only a couple minor issues remain to iron out (such as embedded feed url). Ragardless, they should work fine with feed readers (which are not as strict). (7rans <transfire@gmail.com>)
+    <h2>2 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: need to use -e or --extra option to see Changes list in release history</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#c5e3812368a42152150e34b5e579a3f015c23747</div>
+        <div class="date">2010-05-26 11:18:49 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: use gits --pretty option to simplify parsing</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#a0a516a3c8bccfc87edfd2d1c6d0458cdd968205</div>
+        <div class="date">2010-05-26 11:18:04 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 2 Minor Enhancements
+    <h2>3 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">bug: Sort release tags in correct order</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</div>
+        <div class="date">2010-05-26 10:22:26 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">bug: change &apos;git-log&apos; to &apos;git log&apos;</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#0699541316857eab778278b5aefb0b23125c5252</div>
+        <div class="date">2010-05-26 09:47:53 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">bug: change &apos;git-log&apos; to &apos;git log&apos;</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#b198e6182c55894a4253cf70a315a9567652a362</div>
+        <div class="date">2010-05-26 09:40:54 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [33muse .rss and .atom extensions[0m
-    * [33mupdates to website[0m
+    <h1>1.3.0 / 2010-02-08</h1>
+    <p>For the an end-user the only significant change is the support of 'label:' notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the 'label:' notation to specify 'system module' effected --a useful system of labeling.</p>
 
-[1m
-1.6.0 / 2010-06-22[0m
+    <h2>2 Major Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">major: use erb as template system for all formats</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#0e92a0cd55993aca59f7b1b067247761d3267def</div>
+        <div class="date">2010-01-16 15:05:52 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">major: support &apos;type:&apos; fromat commit types</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">major</div> -->
+        <div class="id">#5b244687f2f7978a2a2a2891363550cc37d97cce</div>
+        <div class="date">2010-01-02 02:19:32 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
- (7rans <transfire@gmail.com>)
+    <h2>2 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: move lib/plugin to lib/plugins per new standard or PLugin gem</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#893dca837cec1d3aa09ba7f0ebfc1e7c95414d4c</div>
+        <div class="date">2010-02-08 07:35:24 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">minor: use rdoc to generate history html (for now)</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#10601a7dbd42bef76b9a7c74555ab473917d9f27</div>
+        <div class="date">2010-01-16 10:49:17 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 4 Minor Enhancements
+    <h2>2 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">bug: fix version bumping and display</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</div>
+        <div class="date">2010-02-08 11:07:19 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+      <li class="entry">
+        <div class="message">
+          <div class="summary">bug: syckle plugin now works with latest vclog changes</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#2dbe74db852ebed67acd12c387006504b2a3841c</div>
+        <div class="date">2010-01-16 10:50:30 -0500</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-    * [33mfix help command add help banners[0m
-    * [33mplugin should use project.root not root, and Syckfile entry needs files not loadpath[0m
-    * [33madd level to syckle plugin[0m
-    * [33mupdate features to use subcommand[0m
+    <h1>1.2.0 / 2009-10-26</h1>
+    <p>Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface. (7rans <transfire@gmail.com>)</p>
 
-[1m
-1.5.0 / 2010-05-28[0m
+    <h2>1 Minor Enhancements</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">renamed verbose to extra [minor]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">minor</div> -->
+        <div class="id">#3908ac648d1a6d1302e2542fbeff0c6358662715</div>
+        <div class="date">2009-10-26 15:51:07 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-This release adds support for Mercurial repositories and Atom newsfeed output format. The commandline inteface has change such that --format/-f is used to select the format instead of using the previous per-format options, e.g. use -f xml instead of --xml. This release also includes some subtantial changes under-the-hood --the first of a two part code refactoring process. (7rans <transfire@gmail.com>)
+    <h2>1 Bug Fixes</h2>
+    <ul class="log">
+      <li class="entry">
+        <div class="message">
+          <div class="summary">fixed spelling of revision (from revison) [bug]</summary>
+          <div class="details"></div>
+        </div>
+        <!-- <div class="type">bug</div> -->
+        <div class="id">#d3c207c96740362147ec9dd864401e7066cad025</div>
+        <div class="date">2009-10-26 15:38:39 -0400</div>
+        <div class="author">7rans</div>
+      </li>
+    </ul>
 
-* 2 Major Enhancements
+    <h1>1.1.0 / 2009-10-23</h1>
+    <p>This release adds yaml and json formats an improves the command.</p>
 
-    * [31mre-orient design about vcs classes (partially complete)[0m
-    * [31madd Mercurial support; also renamed VCS to Adapters[0m
-
-* 1 Minor Enhancements
-
-    * [33madjust commandline help[0m
-
-* 1 Bug Fixes
-
-    * [32mfixed delta groupings and other improvements[0m
-
-[1m
-1.4.0 / 2010-05-26[0m
-
-This release includes some basic improvments and a few bug fixes. The primary change you might encounter is the need to use -e or --extra in order to see the detailed Changes list in the Release History. Also changed 'git-log' to 'git log', as it seems the latest versions of git does not support the many executables any longer. SVN support requires xmlsimple library. Note also that SVN support is lack luster at this time becuase it hits the server every time an 'svn log' command is issued which is done once for each tag when a history is generated (any one know a better way?). (7rans <transfire@gmail.com>)
-
-* 2 Minor Enhancements
-
-    * [33mneed to use -e or --extra option to see Changes list in release history[0m
-    * [33muse gits --pretty option to simplify parsing[0m
-
-* 4 Bug Fixes
-
-    * [32mSort release tags in correct order[0m
-    * [32mchange 'git-log' to 'git log'[0m
-    * [32mchange 'git-log' to 'git log'[0m
-    * [32mfix version bumping and display[0m
-
-[1m
-1.3.0 / 2010-02-08[0m
-
-For the an end-user the only significant change is the support of 'label:' notation for commit labels. I have found that I am much more apt to use them if they come first in the commit message and that some developers already use the 'label:' notation to specify 'system module' effected --a useful system of labeling. (7rans <transfire@gmail.com>)
-
-* 2 Major Enhancements
-
-    * [31muse erb as template system for all formats[0m
-    * [31msupport 'type:' fromat commit types[0m
-
-* 2 Minor Enhancements
-
-    * [33mmove lib/plugin to lib/plugins per new standard or PLugin gem[0m
-    * [33muse rdoc to generate history html (for now)[0m
-
-* 1 Bug Fixes
-
-    * [32msyckle plugin now works with latest vclog changes[0m
-
-[1m
-1.2.0 / 2009-10-26[0m
-
-Version 1.2 overhuals the internals so that History output is based on scm tags, not on a pre-existing history file. This is really the proper way to go about it and those who use it will, I think, be happily surprised at how it promotes good practices for the maintenance of History files. This overhaul led to substantial changes in the command-line interface. (7rans <transfire@gmail.com>) (7rans <transfire@gmail.com>)
-
-* 1 Minor Enhancements
-
-    * [33mrenamed verbose to extra[0m
-
-* 1 Bug Fixes
-
-    * [32mfixed spelling of revision (from revison)[0m
-
-[1m
-1.1.0 / 2009-10-23[0m
-
-This release adds yaml and json formats an improves the command. (7rans <transfire@gmail.com>)
-
-[1m
-1.0.0 / 2009-10-13[0m
-
-This is the first "production" release of VCLog. (7rans <transfire@gmail.com>)
+    <h1>1.0.0 / 2009-10-13</h1>
+    <p>This is the first "production" release of VCLog.</p>
+  </div>
+</div>
+</body>
+</html>
 

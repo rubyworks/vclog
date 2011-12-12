@@ -40,8 +40,8 @@
 
     .foot { padding: 40px 0 0 0; text-align: center; margin: 0 auto; width: 800px; }
     .foot p { color: #552200; text-align: center; font-size: 1em; }
-    .examples ul { list-style-type: none; }
-    .examples li { font-family: monospace; float: left; }
+    ul.examples { list-style-type: none; clear: both; }
+    ul.examples li { list-style-type: none; font-family: monospace; float: left; width: 120px; }
   </style>
 
   <script>
@@ -76,14 +76,18 @@
 
   <p style="line-height: 2em;">Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
   Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
-  our output options limited. That's were VCLog comes in. &nbsp; <a href="http://wiki.github.com/rubyworks/vclog">Learn More...</a></p>
+  our output options limited. That's were VCLog comes in. <br/>
+  <a href="http://wiki.github.com/rubyworks/vclog">Learn More...</a></p>
 
+  Examples:
   <ul class="examples">
-    <li>Examples:</li>
     <li><a href="eg/changes.rdoc">Changes.rdoc</a></li>
     <li><a href="eg/changes.html">Changes.html</a></li>
-    <li><a href="eg/changelog.atom">Changes.atom</a></li>
-    <li><a href="eg/changelog.rss">Changes.rss</a></li>
+    <li><a href="eg/changes.atom">Changes.atom</a></li>
+    <li><a href="eg/changes.rss">Changes.rss</a></li>
+  </ul>
+
+  <ul class="examples">
     <li><a href="eg/history.rdoc">History.rdoc</a></li>
     <li><a href="eg/history.html">History.html</a></li>
     <li><a href="eg/history.atom">History.atom</a></li>

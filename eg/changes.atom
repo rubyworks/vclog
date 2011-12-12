@@ -1,94 +1,1000 @@
-[1mVCLog
-[0m
-[1m2011-12-11  7rans
-[0m
-  * [31mRules must now effect commit directly.[0m
-  * [32mFix change point option.[0m
+<?xml version="1.0"?>
 
-[1m2011-12-10  7rans
-[0m
-  * [32mFix defualt heuristics so full message is returned.[0m
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-[1m2011-12-09  7rans
-[0m
-  * [31mAdd support for change points.[0m
-  * [31mChange rules to take commits instead of messages.[0m
+  <title>VCLog</title>
 
-[1m2011-12-08  7rans
-[0m
-  * [33mAdd file list to Changes class.[0m
-  * [32mFix git adapter markers.[0m
+  <link href="git@github.com:rubyworks/vclog.git" />
 
-[1m2011-11-06  7rans
-[0m
-  * [31mUse confection library for vclog config.[0m
+  
 
-[1m2010-11-20  7rans
-[0m
-  * [33mpolish html templates[0m
+  <id>git@github.com:rubyworks/vclog.git</id>
 
-[1m2010-11-19  7rans
-[0m
-  * [33muse #cli instead of #main method[0m
-  * [33madd #rev alias to Change class; other adjustments[0m
-  * [33madd manpages[0m
+  <updated>2011-12-12T14:49:08-05:00</updated>
 
-[1m2010-11-04  7rans
-[0m
-  * [33mprevent warnings about method redefinition[0m
+  <author>
 
-[1m2010-06-24  7rans
-[0m
-  * [31mchange interface of heuristics to accept message and matchdata[0m
+    <name>7rans</name>
 
-[1m2010-06-23  7rans
-[0m
-  * [33mfix format for syckle plugin[0m
-  * [33muse .rss and .atom extensions[0m
-  * [33mupdates to website[0m
+    <email>transfire@gmail.com</email>
 
-[1m2010-06-21  7rans
-[0m
-  * [33mfix help command add help banners[0m
-  * [33mplugin should use project.root not root, and Syckfile entry needs files not loadpath[0m
-  * [33madd level to syckle plugin[0m
-  * [33mupdate features to use subcommand[0m
+  </author>
 
-[1m2010-05-28  7rans
-[0m
-  * [31mre-orient design about vcs classes (partially complete)[0m
-  * [33madjust commandline help[0m
-  * [32mfixed delta groupings and other improvements[0m
 
-[1m2010-05-27  7rans
-[0m
-  * [31madd Mercurial support; also renamed VCS to Adapters[0m
+  <entry>
 
-[1m2010-05-26  7rans
-[0m
-  * [33mneed to use -e or --extra option to see Changes list in release history[0m
-  * [33muse gits --pretty option to simplify parsing[0m
-  * [32mSort release tags in correct order[0m
-  * [32mchange 'git-log' to 'git log'[0m
-  * [32mchange 'git-log' to 'git log'[0m
+    <title>Fix git tag id. [bug]</title>
 
-[1m2010-02-08  7rans
-[0m
-  * [33mmove lib/plugin to lib/plugins per new standard or PLugin gem[0m
-  * [32mfix version bumping and display[0m
+    <id>git@github.com:rubyworks/vclog.git#e1a4fa9fd79dd65d80a31627a64bb33ee1065766</id>
 
-[1m2010-01-16  7rans
-[0m
-  * [31muse erb as template system for all formats[0m
-  * [33muse rdoc to generate history html (for now)[0m
-  * [32msyckle plugin now works with latest vclog changes[0m
+    <author>7rans</author>
 
-[1m2010-01-02  7rans
-[0m
-  * [31msupport 'type:' fromat commit types[0m
+    <updated>2011-12-12T14:46:43-05:00</updated>
 
-[1m2009-10-26  7rans
-[0m
-  * [33mrenamed verbose to extra[0m
-  * [32mfixed spelling of revision (from revison)[0m
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Fix git tag id.<br/>
+
+        7rans 2011-12-12 14:46:43
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Fix change point option. [bug]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#80ee8f8ce8475d203ba13067bd997483c2943863</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-11T16:14:39-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Fix change point option.<br/>
+
+        7rans 2011-12-11 16:14:39
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Rules must now effect commit directly. [major]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#832c8c614807b789669c47fbfa79fd26fb9c3670</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-11T00:54:01-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Rules must now effect commit directly.<br/>
+
+        7rans 2011-12-11 00:54:01
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Fix defualt heuristics so full message is returned. [bug]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#3f059313d32ae9978206b4994bdd9e3fe71e2dca</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-10T15:43:11-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Fix defualt heuristics so full message is returned.<br/>
+
+        7rans 2011-12-10 15:43:11
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Intermediate progress on refectoring and new features.</title>
+
+    <id>git@github.com:rubyworks/vclog.git#c7fcac42508b3264fcab73f1388e7861a1c5fbe0</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-09T01:51:59-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Change rules to take commits instead of messages.<br/>
+
+        7rans 2011-12-09 01:51:59
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Intermediate progress on refectoring and new features.</title>
+
+    <id>git@github.com:rubyworks/vclog.git#c7fcac42508b3264fcab73f1388e7861a1c5fbe0</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-09T01:51:59-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Add support for change points.<br/>
+
+        7rans 2011-12-09 01:51:59
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Fix git adapter markers. [bug]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#f5fcb38662805d26cd7e0456f79b2e990ac8ffe2</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-08T09:44:15-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Fix git adapter markers.<br/>
+
+        7rans 2011-12-08 09:44:15
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Add file list to Changes class. [minor]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#58ed072d191e882339dd4bd2740e76d29041a7f7</id>
+
+    <author>7rans</author>
+
+    <updated>2011-12-08T09:36:51-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Add file list to Changes class.<br/>
+
+        7rans 2011-12-08 09:36:51
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>Use confection library for vclog config. [major]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#b6d5b6c9ba9c699d78339aa7d70aaa8ff4c7c542</id>
+
+    <author>7rans</author>
+
+    <updated>2011-11-06T16:23:00-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Use confection library for vclog config.<br/>
+
+        7rans 2011-11-06 16:23:00
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: polish html templates</title>
+
+    <id>git@github.com:rubyworks/vclog.git#cb128b06f7a5d46c1a02a186d3fc60e26d32c4eb</id>
+
+    <author>7rans</author>
+
+    <updated>2010-11-20T11:51:32-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        polish html templates<br/>
+
+        7rans 2010-11-20 11:51:32
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: use #cli instead of #main method</title>
+
+    <id>git@github.com:rubyworks/vclog.git#5731d89efd12eb1921dbd5139f4475a618c45712</id>
+
+    <author>7rans</author>
+
+    <updated>2010-11-19T17:26:27-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use #cli instead of #main method<br/>
+
+        7rans 2010-11-19 17:26:27
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: add #rev alias to Change class; other adjustments</title>
+
+    <id>git@github.com:rubyworks/vclog.git#9136e8c1a8406816c149f7f00ca46721257b1891</id>
+
+    <author>7rans</author>
+
+    <updated>2010-11-19T17:26:04-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add #rev alias to Change class; other adjustments<br/>
+
+        7rans 2010-11-19 17:26:04
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: add manpages</title>
+
+    <id>git@github.com:rubyworks/vclog.git#49dfa006ded3e2db77e1a68e86e1981f550525e8</id>
+
+    <author>7rans</author>
+
+    <updated>2010-11-19T17:20:39-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add manpages<br/>
+
+        7rans 2010-11-19 17:20:39
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: prevent warnings about method redefinition</title>
+
+    <id>git@github.com:rubyworks/vclog.git#f5b56f3a48436771ee50965b45c80abcd9844620</id>
+
+    <author>7rans</author>
+
+    <updated>2010-11-04T12:03:03-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        prevent warnings about method redefinition<br/>
+
+        7rans 2010-11-04 12:03:03
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: change interface of heuristics to accept message and matchdata</title>
+
+    <id>git@github.com:rubyworks/vclog.git#ba1299c491345caefc908f16ba89fdc676ff96e3</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-24T17:52:25-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        change interface of heuristics to accept message and matchdata<br/>
+
+        7rans 2010-06-24 17:52:25
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: fix format for syckle plugin</title>
+
+    <id>git@github.com:rubyworks/vclog.git#0d0f361dec0160d60ea56877a91660103024e47e</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-23T23:53:50-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fix format for syckle plugin<br/>
+
+        7rans 2010-06-23 23:53:50
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: use .rss and .atom extensions</title>
+
+    <id>git@github.com:rubyworks/vclog.git#0d2fcdd883b5d642085883ed9cad81b2403d0f5f</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-23T23:41:17-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use .rss and .atom extensions<br/>
+
+        7rans 2010-06-23 23:41:17
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: updates to website</title>
+
+    <id>git@github.com:rubyworks/vclog.git#af8615b7afebc2838a6f59644fa9d2366b8a3451</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-23T23:07:00-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        updates to website<br/>
+
+        7rans 2010-06-23 23:07:00
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: fix help command add help banners</title>
+
+    <id>git@github.com:rubyworks/vclog.git#f6363d553081a545e761ffdac6c67e0a4fc41666</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-21T20:26:32-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fix help command add help banners<br/>
+
+        7rans 2010-06-21 20:26:32
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: plugin should use project.root not root, and Syckfile entry needs files not loadpath</title>
+
+    <id>git@github.com:rubyworks/vclog.git#e80fe1a641377f0f0bf549f94b28c66c3e1cd4b8</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-21T20:12:52-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        plugin should use project.root not root, and Syckfile entry needs files not loadpath<br/>
+
+        7rans 2010-06-21 20:12:52
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: add level to syckle plugin</title>
+
+    <id>git@github.com:rubyworks/vclog.git#dac15fd45b5ba536410f3f031550a074032b791d</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-21T18:50:57-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add level to syckle plugin<br/>
+
+        7rans 2010-06-21 18:50:57
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: update features to use subcommand</title>
+
+    <id>git@github.com:rubyworks/vclog.git#b0bb8bcda80dddfeb397307a395572e61adf0222</id>
+
+    <author>7rans</author>
+
+    <updated>2010-06-21T18:50:19-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        update features to use subcommand<br/>
+
+        7rans 2010-06-21 18:50:19
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: adjust commandline help</title>
+
+    <id>git@github.com:rubyworks/vclog.git#f92559b4f59c325ff70cabe450ae4f5933e8194e</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-28T14:56:47-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        adjust commandline help<br/>
+
+        7rans 2010-05-28 14:56:47
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: re-orient design about vcs classes (partially complete)</title>
+
+    <id>git@github.com:rubyworks/vclog.git#61a77b9ef3048c624db7ed220066fc77fa2758f4</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-28T14:29:55-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        re-orient design about vcs classes (partially complete)<br/>
+
+        7rans 2010-05-28 14:29:55
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: fixed delta groupings and other improvements</title>
+
+    <id>git@github.com:rubyworks/vclog.git#79be281a80d2c1df44312ff338d9d1c8c4c116d4</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-28T09:39:07-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fixed delta groupings and other improvements<br/>
+
+        7rans 2010-05-28 09:39:07
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: add Mercurial support; also renamed VCS to Adapters</title>
+
+    <id>git@github.com:rubyworks/vclog.git#98f30c226a5dea2fdf2d30494fa1fa9fdf2d0a33</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-27T17:47:54-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        add Mercurial support; also renamed VCS to Adapters<br/>
+
+        7rans 2010-05-27 17:47:54
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: need to use -e or --extra option to see Changes list in release history</title>
+
+    <id>git@github.com:rubyworks/vclog.git#c5e3812368a42152150e34b5e579a3f015c23747</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-26T11:18:49-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        need to use -e or --extra option to see Changes list in release history<br/>
+
+        7rans 2010-05-26 11:18:49
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: use gits --pretty option to simplify parsing</title>
+
+    <id>git@github.com:rubyworks/vclog.git#a0a516a3c8bccfc87edfd2d1c6d0458cdd968205</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-26T11:18:04-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use gits --pretty option to simplify parsing<br/>
+
+        7rans 2010-05-26 11:18:04
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: Sort release tags in correct order</title>
+
+    <id>git@github.com:rubyworks/vclog.git#e38b645371cf1e5be318e61a7ac257c1eb4f22e2</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-26T10:22:26-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        Sort release tags in correct order<br/>
+
+        7rans 2010-05-26 10:22:26
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+    <id>git@github.com:rubyworks/vclog.git#0699541316857eab778278b5aefb0b23125c5252</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-26T09:47:53-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        change 'git-log' to 'git log'<br/>
+
+        7rans 2010-05-26 09:47:53
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: change &apos;git-log&apos; to &apos;git log&apos;</title>
+
+    <id>git@github.com:rubyworks/vclog.git#b198e6182c55894a4253cf70a315a9567652a362</id>
+
+    <author>7rans</author>
+
+    <updated>2010-05-26T09:40:54-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        change 'git-log' to 'git log'<br/>
+
+        7rans 2010-05-26 09:40:54
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: fix version bumping and display</title>
+
+    <id>git@github.com:rubyworks/vclog.git#bc8543fa0c48bdb6eb10e804bd99fbeb4a9a66e7</id>
+
+    <author>7rans</author>
+
+    <updated>2010-02-08T11:07:19-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fix version bumping and display<br/>
+
+        7rans 2010-02-08 11:07:19
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: move lib/plugin to lib/plugins per new standard or PLugin gem</title>
+
+    <id>git@github.com:rubyworks/vclog.git#893dca837cec1d3aa09ba7f0ebfc1e7c95414d4c</id>
+
+    <author>7rans</author>
+
+    <updated>2010-02-08T07:35:24-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        move lib/plugin to lib/plugins per new standard or PLugin gem<br/>
+
+        7rans 2010-02-08 07:35:24
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: use erb as template system for all formats</title>
+
+    <id>git@github.com:rubyworks/vclog.git#0e92a0cd55993aca59f7b1b067247761d3267def</id>
+
+    <author>7rans</author>
+
+    <updated>2010-01-16T15:05:52-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use erb as template system for all formats<br/>
+
+        7rans 2010-01-16 15:05:52
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>bug: syckle plugin now works with latest vclog changes</title>
+
+    <id>git@github.com:rubyworks/vclog.git#2dbe74db852ebed67acd12c387006504b2a3841c</id>
+
+    <author>7rans</author>
+
+    <updated>2010-01-16T10:50:30-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        syckle plugin now works with latest vclog changes<br/>
+
+        7rans 2010-01-16 10:50:30
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>minor: use rdoc to generate history html (for now)</title>
+
+    <id>git@github.com:rubyworks/vclog.git#10601a7dbd42bef76b9a7c74555ab473917d9f27</id>
+
+    <author>7rans</author>
+
+    <updated>2010-01-16T10:49:17-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        use rdoc to generate history html (for now)<br/>
+
+        7rans 2010-01-16 10:49:17
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>major: support &apos;type:&apos; fromat commit types</title>
+
+    <id>git@github.com:rubyworks/vclog.git#5b244687f2f7978a2a2a2891363550cc37d97cce</id>
+
+    <author>7rans</author>
+
+    <updated>2010-01-02T02:19:32-05:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        support 'type:' fromat commit types<br/>
+
+        7rans 2010-01-02 02:19:32
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>renamed verbose to extra [minor]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#3908ac648d1a6d1302e2542fbeff0c6358662715</id>
+
+    <author>7rans</author>
+
+    <updated>2009-10-26T15:51:07-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        renamed verbose to extra<br/>
+
+        7rans 2009-10-26 15:51:07
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+  <entry>
+
+    <title>fixed spelling of revision (from revison) [bug]</title>
+
+    <id>git@github.com:rubyworks/vclog.git#d3c207c96740362147ec9dd864401e7066cad025</id>
+
+    <author>7rans</author>
+
+    <updated>2009-10-26T15:38:39-04:00</updated>
+
+    <content type="xhtml">
+
+      <div xmlns="http://www.w3.org/1999/xhtml">
+
+        fixed spelling of revision (from revison)<br/>
+
+        7rans 2009-10-26 15:38:39
+
+      </div>
+
+    </content>
+
+  </entry>
+
+
+</feed>
 

@@ -1,94 +1,98 @@
-[1mVCLog
-[0m
-[1m2011-12-11  7rans
-[0m
-  * [31mRules must now effect commit directly.[0m
-  * [32mFix change point option.[0m
+= VCLog
 
-[1m2011-12-10  7rans
-[0m
-  * [32mFix defualt heuristics so full message is returned.[0m
+== 2011-12-12 7rans
 
-[1m2011-12-09  7rans
-[0m
-  * [31mAdd support for change points.[0m
-  * [31mChange rules to take commits instead of messages.[0m
+* Fix git tag id. [bug]
 
-[1m2011-12-08  7rans
-[0m
-  * [33mAdd file list to Changes class.[0m
-  * [32mFix git adapter markers.[0m
+== 2011-12-11 7rans
 
-[1m2011-11-06  7rans
-[0m
-  * [31mUse confection library for vclog config.[0m
+* Fix change point option. [bug]
+* Rules must now effect commit directly. [major]
 
-[1m2010-11-20  7rans
-[0m
-  * [33mpolish html templates[0m
+== 2011-12-10 7rans
 
-[1m2010-11-19  7rans
-[0m
-  * [33muse #cli instead of #main method[0m
-  * [33madd #rev alias to Change class; other adjustments[0m
-  * [33madd manpages[0m
+* Fix defualt heuristics so full message is returned. [bug]
 
-[1m2010-11-04  7rans
-[0m
-  * [33mprevent warnings about method redefinition[0m
+== 2011-12-09 7rans
 
-[1m2010-06-24  7rans
-[0m
-  * [31mchange interface of heuristics to accept message and matchdata[0m
+* Add support for change points. [major]
+* Change rules to take commits instead of messages. [major]
 
-[1m2010-06-23  7rans
-[0m
-  * [33mfix format for syckle plugin[0m
-  * [33muse .rss and .atom extensions[0m
-  * [33mupdates to website[0m
+== 2011-12-08 7rans
 
-[1m2010-06-21  7rans
-[0m
-  * [33mfix help command add help banners[0m
-  * [33mplugin should use project.root not root, and Syckfile entry needs files not loadpath[0m
-  * [33madd level to syckle plugin[0m
-  * [33mupdate features to use subcommand[0m
+* Fix git adapter markers. [bug]
+* Add file list to Changes class. [minor]
 
-[1m2010-05-28  7rans
-[0m
-  * [31mre-orient design about vcs classes (partially complete)[0m
-  * [33madjust commandline help[0m
-  * [32mfixed delta groupings and other improvements[0m
+== 2011-11-06 7rans
 
-[1m2010-05-27  7rans
-[0m
-  * [31madd Mercurial support; also renamed VCS to Adapters[0m
+* Use confection library for vclog config. [major]
 
-[1m2010-05-26  7rans
-[0m
-  * [33mneed to use -e or --extra option to see Changes list in release history[0m
-  * [33muse gits --pretty option to simplify parsing[0m
-  * [32mSort release tags in correct order[0m
-  * [32mchange 'git-log' to 'git log'[0m
-  * [32mchange 'git-log' to 'git log'[0m
+== 2010-11-20 7rans
 
-[1m2010-02-08  7rans
-[0m
-  * [33mmove lib/plugin to lib/plugins per new standard or PLugin gem[0m
-  * [32mfix version bumping and display[0m
+* polish html templates [minor]
 
-[1m2010-01-16  7rans
-[0m
-  * [31muse erb as template system for all formats[0m
-  * [33muse rdoc to generate history html (for now)[0m
-  * [32msyckle plugin now works with latest vclog changes[0m
+== 2010-11-19 7rans
 
-[1m2010-01-02  7rans
-[0m
-  * [31msupport 'type:' fromat commit types[0m
+* use #cli instead of #main method [minor]
+* add #rev alias to Change class; other adjustments [minor]
+* add manpages [minor]
 
-[1m2009-10-26  7rans
-[0m
-  * [33mrenamed verbose to extra[0m
-  * [32mfixed spelling of revision (from revison)[0m
+== 2010-11-04 7rans
+
+* prevent warnings about method redefinition [minor]
+
+== 2010-06-24 7rans
+
+* change interface of heuristics to accept message and matchdata [major]
+
+== 2010-06-23 7rans
+
+* fix format for syckle plugin [minor]
+* use .rss and .atom extensions [minor]
+* updates to website [minor]
+
+== 2010-06-21 7rans
+
+* fix help command add help banners [minor]
+* plugin should use project.root not root, and Syckfile entry needs files not loadpath [minor]
+* add level to syckle plugin [minor]
+* update features to use subcommand [minor]
+
+== 2010-05-28 7rans
+
+* adjust commandline help [minor]
+* re-orient design about vcs classes (partially complete) [major]
+* fixed delta groupings and other improvements [bug]
+
+== 2010-05-27 7rans
+
+* add Mercurial support; also renamed VCS to Adapters [major]
+
+== 2010-05-26 7rans
+
+* need to use -e or --extra option to see Changes list in release history [minor]
+* use gits --pretty option to simplify parsing [minor]
+* Sort release tags in correct order [bug]
+* change 'git-log' to 'git log' [bug]
+* change 'git-log' to 'git log' [bug]
+
+== 2010-02-08 7rans
+
+* fix version bumping and display [bug]
+* move lib/plugin to lib/plugins per new standard or PLugin gem [minor]
+
+== 2010-01-16 7rans
+
+* use erb as template system for all formats [major]
+* syckle plugin now works with latest vclog changes [bug]
+* use rdoc to generate history html (for now) [minor]
+
+== 2010-01-02 7rans
+
+* support 'type:' fromat commit types [major]
+
+== 2009-10-26 7rans
+
+* renamed verbose to extra [minor]
+* fixed spelling of revision (from revison) [bug]
 
