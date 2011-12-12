@@ -16,6 +16,7 @@ requirements:
 - name: ansi
   version: 1.2+
 - name: confection
+- name: rdoc
 - name: xml-simple
 - name: detroit
   groups:
@@ -54,4 +55,4 @@ version: 1.9.0
 name: vclog
 description: VCLog is a cross-VCS/SCM ChangeLog generator.
 organization: Rubyworks
-date: '2011-12-10'
+date: '2011-12-12'
