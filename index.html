@@ -40,6 +40,9 @@
 
     .foot { padding: 40px 0 0 0; text-align: center; margin: 0 auto; width: 800px; }
     .foot p { color: #552200; text-align: center; font-size: 1em; }
+
+    #examples-bar { padding: 25px 5px; }
+    #examples { background: #eee; margin: 0 auto; width: 780px; margin: 0 auto; }
     ul.examples { list-style-type: none; clear: both; }
     ul.examples li { list-style-type: none; font-family: monospace; float: left; width: 120px; }
   </style>
@@ -52,6 +55,11 @@
 <BODY>
 
 <div class="head">
+  <div class="title">
+    <img src="assets/logo.jpg" style="height: 250px;" align="right"/><br/>
+    <h1>VCLog</h1>
+  </div>
+  <br/>
   <div class="nav">
     <div class="menu">
       <a href="http://wiki.github.com/rubyworks/vclog">User's Guide</a> &middot;
@@ -64,38 +72,67 @@
       <a href="http://rubygems.org/gems/vclog">Gem Package</a>
     </div>
   </div>
-
-  <div class="title">
-    <img src="assets/logo.jpg" style="height: 250px;" align="right"/><br/>
-    <h1>VCLog</h1>
-  </div>
 </div>
 
 <div class="body">
   <div class="doc">
 
-  <p style="line-height: 2em;">Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
-  Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
-  our output options limited. That's were VCLog comes in. <br/>
-  <a href="http://wiki.github.com/rubyworks/vclog">Learn More...</a></p>
+    <p style="line-height: 2em;">Ah, the world of changes. Always changing things are. And keeping track of changes can be quite the challenge.
+      Thankfully we have version control systems to make the chore a bit easier. But review these changes and we find
+      our output options limited. That's were VCLog comes in.
+      <span style="float: right;"><a href="http://wiki.github.com/rubyworks/vclog">Learn More...</a></span>
+    </p>
 
-  Examples:
-  <ul class="examples">
-    <li><a href="eg/changes.rdoc">Changes.rdoc</a></li>
-    <li><a href="eg/changes.html">Changes.html</a></li>
-    <li><a href="eg/changes.atom">Changes.atom</a></li>
-    <li><a href="eg/changes.rss">Changes.rss</a></li>
-  </ul>
+    <br style="clear: both;" /><br />
+  </div>
+</div>
 
-  <ul class="examples">
-    <li><a href="eg/history.rdoc">History.rdoc</a></li>
-    <li><a href="eg/history.html">History.html</a></li>
-    <li><a href="eg/history.atom">History.atom</a></li>
-    <li><a href="eg/history.rss">History.rss</a></li>
-  </ul>
+<div id="examples-bar">
+  <div id="examples">
+    EXAMPLES:
+    ChangeLog
+    <a href="eg/changes.rdoc">rdoc</a> &middot;
+    <a href="eg/changes.html">html</a> &middot;
+    <a href="eg/changes.atom">atom</a> &middot;
+    <a href="eg/changes.rss">rss</a> &nbsp;
+    Release History:
+    <a href="eg/history.rdoc">rdoc</a> &middot;
+    <a href="eg/history.html">html</a> &middot;
+    <a href="eg/history.atom">atom</a> &middot;
+    <a href="eg/history.rss">rss</a>
+  </div>
+</div>
 
-  <br style="clear: both;" />
+<div class="foot">
+  <script type="text/javascript"><!--
+  google_ad_client = "ca-pub-1126154564663472";
+  /* RUBYWORKS 09-10-02 728x90 */
+  google_ad_slot = "0788888658";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
 
+  <br/>
+
+  <p>Copyright (c) 2009 <a href="http://rubyworks.github.com">Rubyworks</a>. All Rights Reserved.</p>
+</div>
+
+<div style="position: absolute; top: 0; right: 0;">
+  <a href="http://github.com/rubyworks/vclog"><img src="http://rubyworks.github.com/assets/images/fork-me.png"/></a>
+</div>
+
+<div id="rubyworks" style="position: fixed; bottom: 5px; right: 10px; padding: 0;">
+  <a href="http://rubyworks.github.com">
+    <img src="http://rubyworks.github.com/assets/images/seal.png" height="175px" />
+  </a>
+</div>
+
+
+<!-- depreacate -->
 <div id="toggle" style="display: none;">
 
   <br/><br/>
@@ -254,37 +291,6 @@
 
 </div>
 
-  <br/><br/>
-  </div>
-</div>
-
-<div class="foot">
-  <script type="text/javascript"><!--
-  google_ad_client = "ca-pub-1126154564663472";
-  /* RUBYWORKS 09-10-02 728x90 */
-  google_ad_slot = "0788888658";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
-  </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
-
-  <br/>
-
-  <p>Copyright (c) 2009 <a href="http://rubyworks.github.com">Rubyworks</a>. All Rights Reserved.</p>
-</div>
-
-<div style="position: absolute; top: 0; right: 0;">
-  <a href="http://github.com/rubyworks/vclog"><img src="http://rubyworks.github.com/assets/images/fork-me.png"/></a>
-</div>
-
-<div id="rubyworks" style="position: fixed; bottom: 5px; right: 10px; padding: 0;">
-  <a href="http://rubyworks.github.com">
-    <img src="http://rubyworks.github.com/assets/images/seal.png" height="175px" />
-  </a>
-</div>
 
 </BODY>
 </HTML>
