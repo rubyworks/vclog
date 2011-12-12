@@ -1,5 +1,6 @@
 #!mast .ruby .yardopts bin features lib man spec test [A-Z]*.*
 .ruby
+.yardopts
 bin/vclog
 bin/vclog-autotag
 bin/vclog-bump
@@ -31,16 +32,14 @@ lib/vclog/cli/log.rb
 lib/vclog/cli/version.rb
 lib/vclog/cli.rb
 lib/vclog/core_ext.rb
-lib/vclog/formatter.rb
-lib/vclog/heuristics/label.rb
 lib/vclog/heuristics/rule.rb
+lib/vclog/heuristics/type.rb
 lib/vclog/heuristics.rb
-lib/vclog/history.rb
 lib/vclog/history_file.rb
-lib/vclog/kernel.rb
 lib/vclog/metadata.rb
 lib/vclog/release.rb
 lib/vclog/repo.rb
+lib/vclog/report.rb
 lib/vclog/tag.rb
 lib/vclog/templates/changelog.ansi.rb
 lib/vclog/templates/changelog.atom.erb
