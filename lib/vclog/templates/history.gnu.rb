@@ -3,7 +3,7 @@ out = []
 
 out << "#{title}"
 
-history.releases.sort.each do |release|
+releases.sort.each do |release|
 
   tag = release.tag
 

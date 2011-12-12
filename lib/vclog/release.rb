@@ -1,7 +1,8 @@
 module VCLog
 
-  # A Release encapsulate a collection of 
-  # Change objects associated to a Tag.
+  # A Release encapsulate a collection of {Change} objects
+  # associated with a {Tag}.
+  #
   class Release
 
     # Tag object this release represents.
@@ -12,8 +13,11 @@ module VCLog
 
     # New Release object.
     #
-    # tag    - Tag object
-    # change - Array of Change objects
+    # @param [Tag] tag
+    #   A Tag object.
+    #
+    # @param [Array<Change>] changes
+    #   An array of Change objects.
     #
     def initialize(tag, changes)
       @tag = tag
@@ -21,7 +25,9 @@ module VCLog
     end
 
     # Group +changes+ by type and sort by level.
-    # Returns an associative array of [type, changes].
+    #
+    # @return [Array<Array>]
+    #   Returns an associative array of [type, changes].
     def groups
       @groups ||= (
         changes.group_by{ |e| e.label }.sort{ |a,b| b[1][0].level <=> a[1][0].level }
@@ -34,6 +40,8 @@ module VCLog
     end
 
     # Convert Release to Hash.
+    #
+    # @todo Should +version+ be +name+?
     def to_h
       { 'version'  => tag.name,
         'date'     => tag.date,
@@ -44,10 +52,6 @@ module VCLog
       }
     end
 
-    #def to_json
-    #  to_h.to_json
-    #end
   end
 
 end
-

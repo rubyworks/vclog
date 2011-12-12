@@ -42,6 +42,7 @@ module VCLog
       if @change.respond_to?(s)
         @change.send(s,*a,&b)
       else
+p caller
         super(s,*a,&b)
       end
     end

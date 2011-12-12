@@ -1,1 +1,1 @@
-history.to_h.to_yaml
+releases.map{ |r| r.to_h }.to_yaml

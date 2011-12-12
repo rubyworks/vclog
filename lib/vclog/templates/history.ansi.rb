@@ -4,7 +4,7 @@ out = []
 
 out << "#{title.ansi(:bold)}"
 
-history.releases.sort.each do |release|
+releases.sort.each do |release|
   tag = release.tag
 
   # TODO: support verbose option

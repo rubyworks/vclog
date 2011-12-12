@@ -21,7 +21,7 @@
 <div class="main">
   <div class="title"><%= title %></div>
   <div class="history">
-<% history.releases.sort.each do |release| %>
+<% releases.sort.each do |release| %>
 <%   tag = release.tag %>
 
     <h1><%= tag.name %> / <%= tag.date.strftime('%Y-%m-%d') %></h1>

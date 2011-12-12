@@ -4,7 +4,7 @@
 <% end %>
 <history>
   <title><%= title %></title>
-  <% history.releases.sort.each do |release| %>
+  <% releases.sort.each do |release| %>
   <tag>
     <% tag = release.tag %>
     <name><%= h tag.name %></name>

@@ -2,7 +2,7 @@ out = []
 
 out << "= #{title || 'Release History'}"
 
-history.releases.sort.each do |release|
+releases.sort.each do |release|
   tag = release.tag
 
   out << "\n== #{tag.name} / #{tag.date.strftime('%Y-%m-%d')}"

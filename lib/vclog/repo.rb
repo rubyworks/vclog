@@ -1,19 +1,18 @@
 require 'confection'
 
+require 'vclog/core_ext'
 require 'vclog/adapters'
 require 'vclog/heuristics'
 require 'vclog/history_file'
+require 'vclog/changelog'
+require 'vclog/tag'
+require 'vclog/release'
+require 'vclog/report'
 
 module VCLog
 
   #
   class Repo
-
-    ## Remove some undeeded methods to make way for delegation to scm adapter.
-    #%w{display}.each{ |name| undef_method(name) }
-    #
-    ## File glob used to find the vclog configuration directory.
-    #CONFIG_GLOB = '{.,.config/,config/,task/,tasks/}vclog{,.rb}'
 
     # File glob used to find project root directory.
     ROOT_GLOB = '{.git/,.hg/,_darcs/,.svn/}'
@@ -24,22 +23,12 @@ module VCLog
     #
     attr :options
 
-    # Default change level.
-    # TODO: get from config file?
-    attr :level
-
-    # Use change points, instead of whole changes?
-    attr :point
-
+    #
+    # Setup new Repo instance.
     #
     def initialize(root, options={})
       @root    = root || lookup_root
       @options = options
-
-      #@config_directory = Dir[File.join(@root, CONFIG_GLOB)]
-
-      @point   = options[:point]
-      @level   = (options[:level] || 0).to_i
 
       vcs_type = read_vcs_type
 
@@ -48,21 +37,22 @@ module VCLog
       @adapter = Adapters.const_get(vcs_type.capitalize).new(self)
     end
 
+    #
     # Returns instance of an Adapter subclass.
+    #
     def adapter
       @adapter
     end
 
     #
-    #def config_directory
-    #  @config_directory
-    #end
-
+    # Check force option.
     #
     def force?
       options[:force]
     end
 
+    #
+    #
     #
     def read_vcs_type
       dir = nil
@@ -72,6 +62,7 @@ module VCLog
       dir[1..-1] if dir
     end
 
+    #
     # Find project root. This searches up from the current working
     # directory for a Confection configuration file or source control 
     # manager directory.
@@ -83,6 +74,7 @@ module VCLog
     #   _darcs/
     #
     # If all else fails the current directory is returned.
+    #
     def lookup_root
       root = nil
       Dir.ascend(Dir.pwd) do |path|
@@ -95,24 +87,25 @@ module VCLog
       root || Dir.pwd
     end
 
+    #
     # Load heuristics script.
+    #
     def heuristics
       @heuristics ||= Heuristics.new(&Confection[:vclog])
     end
 
-    # Heurtistics script.
-    #def heuristics_file
-    #  @heuristics_file ||= Dir[File.join(root, CONFIG_GLOB)].first
-    #end
-
+    #
     # Access to Repo's HISTORY file.
+    #
     def history_file
       @history_file ||= HistoryFile.new(options[:history_file] || root)
     end
 
+    #
     # Read history file and make a commit tag for any release not already
     # tagged. Unless the force option is set the user will be prompted for
     # each new tag.
+    #
     def autotag(prefix=nil)
       history_file.tags.each do |tag|
         label = "#{prefix}#{tag.name}"
@@ -130,48 +123,107 @@ module VCLog
     end
 
     #
+    # List of all changes.
+    #
     def changes
-      @changes ||= (
-        apply_heuristics(adapter.changes)
-      )
+      @changes ||= apply_heuristics(adapter.changes)
     end
 
     #
+    # List of all change points.
+    #
     def change_points
-      @change_points ||= (
-         apply_heuristics(adapter.change_points)
-      )
+      @change_points ||= apply_heuristics(adapter.change_points)
     end
 
+    #
+    # Apply heuristics to changes.
     #
     def apply_heuristics(changes)
       changes.each do |change|
         change.apply_heuristics(heuristics)
       end
-      changes.select do |change|
-        change.level >= self.level
+    end
+
+    #
+    # Collect releases for the given set of +changes+.
+    #
+    # Releases are groups of changes segregated by tags. The release version,
+    # release date and release note are defined by hard tag commits.
+    #
+    # @param [Array<Change>] changes
+    #   List of Change objects.
+    #
+    # @return [Array<Release>]
+    #   List of Release objects.
+    #
+    def releases(changes)
+      rel  = []
+      tags = self.tags.dup
+
+      #ver  = repo.bump(version)
+
+      name = options[:version] || 'HEAD'
+      user = adapter.user
+      date = ::Time.now + (3600 * 24) # one day ahead
+
+      tags << Tag.new(:name=>name, :id=>'HEAD', :date=>date, :who=>user, :msg=>"Current Development")
+
+      # TODO: Do we need to add a Time.now tag?
+      # add current verion to release list (if given)
+      #previous_version = tags[0].name
+      #if current_version < previous_version  # TODO: need to use natural comparision
+      #  raise ArgumentError, "Release version is less than previous version (#{previous_version})."
+      #end
+
+      # sort by release date
+      tags = tags.sort{ |a,b| a.date <=> b.date }
+
+      # organize into deltas
+      delta = []
+      last  = nil
+      tags.each do |tag|
+        delta << [tag, [last, tag.commit_date]]
+        last = tag.commit_date
       end
+
+      # gather changes for each delta
+      delta.each do |tag, (started, ended)|
+        if started
+          set = changes.select{ |c| c.date >= started && c.date < ended  }
+          #gt_vers, gt_date = gt.name, gt.date
+          #lt_vers, lt_date = lt.name, lt.date
+          #gt_date = Time.parse(gt_date) unless Time===gt_date
+          #lt_date = Time.parse(lt_date) unless Time===lt_date
+          #log = changelog.after(gt).before(lt)
+        else
+          #lt_vers, lt_date = lt.name, lt.date
+          #lt_date = Time.parse(lt_date) unless Time===lt_date
+          #log = changelog.before(lt_date)
+          set = changes.select{ |c| c.date < ended }
+        end
+        rel << Release.new(tag, set)
+      end
+      rel
     end
 
     #
-    def changelog
-      @changelog ||= ChangeLog.new(changes)
-    end
-
-    #
-    def history
-      @history ||= History.new(self)
-    end
-
+    # Print a report with given options. 
     #
     def report(options)
-      formatter = Formatter.new(self)  #, options)
-      formatter.report(options)
+      report = Report.new(self, options)
+      report.print
     end
 
-    # TODO: allow config of these levels thresholds ?
+    # TODO: Should we allow configuration of version bump thresholds ?
+
+    #
+    # Make an educated guess as to the next version number based on
+    # changes mase since previous release.
+    #
     def bump
-      max = history.releases[0].changes.map{ |c| c.level }.max
+      last_release = releases(changes).first
+      max = last_release.changes.map{ |c| c.level }.max
       if max > 1
         bump_part('major')
       elsif max >= 0
@@ -181,7 +233,9 @@ module VCLog
       end
     end
 
+    #
     # Provides a bumped version number.
+    #
     def bump_part(part=nil)
       raise "bad version part - #{part}" unless ['major', 'minor', 'patch', 'build', ''].include?(part.to_s)
 
@@ -217,7 +271,9 @@ module VCLog
       end
     end
 
+    #
     # Delegate missing methods to SCM adapter.
+    #
     def method_missing(s, *a, &b)
       if adapter.respond_to?(s)
         adapter.send(s, *a, &b)
@@ -226,9 +282,11 @@ module VCLog
       end
     end
 
-   private
+  private
 
+    #
     # Ask yes/no question.
+    #
     def ask_yn(message)
       case ask(message)
       when 'y', 'Y', 'yes'
@@ -238,7 +296,9 @@ module VCLog
       end
     end
 
+    #
     # Returns a String.
+    #
     def new_tag_message(label, tag)
       "#{label} / #{tag.date.strftime('%Y-%m-%d')}\n#{tag.message}"
     end

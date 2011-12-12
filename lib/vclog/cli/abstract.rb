@@ -2,6 +2,7 @@ require 'vclog'
 require 'optparse'
 
 module VCLog
+
   module CLI
 
     #
@@ -87,4 +88,5 @@ module VCLog
     end
 
   end
+
 end

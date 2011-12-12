@@ -1,12 +1,13 @@
 require 'ostruct'
 #require 'ansi'
+require 'erb'
 
 module VCLog
 
-  # The formatter class acts a a controller for outputing 
+  # The Report class acts a controller for outputing 
   # change log / release history.
   #
-  class Formatter
+  class Report
 
     # Directory of this file, so as to locate templates.
     DIR = File.dirname(__FILE__)
@@ -14,55 +15,68 @@ module VCLog
     # Instance of VCLog::Repo.
     attr :repo
 
-    # New Formmater.
+    # OpenStruct of report options.
+    attr :options
+
+    # Setup new Reporter instance.
     #
-    # repo - instance of VCLog::Repo
+    # @param [Repo] repo
+    #   An instance of VCLog::Repo.
     #
-    def initialize(repo)
-      @repo = repo
+    def initialize(repo, options)
+      @repo    = repo
+      @options = case options 
+                 when Hash
+                   OpenStruct.new(options)
+                 else
+                   options
+                 end
+
+      @options.level ||= 0
     end
 
-    # Returns a Changelog object taken from the VCS.
+    # Returns a Changelog object.
     def changelog
-      @repo.changelog
+      changes = options.point ? repo.changes : repo.change_points
+      ChangeLog.new(changes).above(options.level)
     end
 
-    # Returns a History object garnered from the VCS.
-    def history
-      @repo.history
+    # Compute and return set of releases for +changelog+ changes.
+    def releases
+      repo.releases(changelog.changes)
     end
 
     #
     def user
-      @options.user || @repo.user
+      options.user || repo.user
     end
 
     #
     def email
-      @options.email || @repo.email
+      options.email || repo.email
     end
 
     #
     def repository
-      @repo.repository
+      repo.repository
     end
 
     # TODO
     def url
-      @options.url || @repo.repository
+      options.url || repo.repository
     end
 
     # TODO
     def homepage
-      @options.homepage
+      options.homepage
     end
 
     # TODO: Let the title be nil and the template can set a default if it needs to.
 
-    #
+    # Report title.
     def title
-      return @options.title if @options.title
-      case @options.type
+      return options.title if options.title
+      case options.type
       when :history
         "RELEASE HISTORY"
       else
@@ -73,19 +87,14 @@ module VCLog
     # NOTE: ERBs trim_mode is broken --it removes an extra space. 
     # So we can't use it for plain text templates.
 
-    #
-    #
-    def report(options)
-      options = OpenStruct.new(options) if Hash === options
-
+    # Print report.
+    def print
       options.type   ||= 'changelog'
       options.format ||= 'ansi'
 
-      @options = options
+      require_formatter(options.format)
 
-      require_formatter(@options.format)
-
-      tmp_file = Dir[File.join(DIR, 'templates', "#{@options.type}.#{@options.format}.{erb,rb}")].first
+      tmp_file = Dir[File.join(DIR, 'templates', "#{options.type}.#{options.format}.{erb,rb}")].first
 
       tmp = File.read(tmp_file)
 
@@ -112,7 +121,7 @@ module VCLog
       end
     end
 
-    #
+    # HTML escape.
     def h(input)
        result = input.to_s.dup
        result.gsub!("&", "&amp;")
@@ -124,7 +133,7 @@ module VCLog
        return result
     end
 
-    #
+    # Convert from RDoc to HTML.
     def r(input)
       rdoc.convert(input)
     end

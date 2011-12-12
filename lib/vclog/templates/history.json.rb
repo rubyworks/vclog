@@ -1,1 +1,1 @@
-history.to_h.to_json
+releases.map{ |r| r.to_h }.to_json
