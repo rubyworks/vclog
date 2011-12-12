@@ -1,4 +1,3 @@
-require 'vclog/kernel'
 require 'vclog/change_point'
 
 module VCLog
@@ -52,16 +51,22 @@ module VCLog
       end
     end
 
+    #
     # Set authors attributes, ensuring the value is stripped of white space.
+    #
     def author=(author)
       @author = author.strip
     end
 
+    #
     # Set date attribute, converting vale given to an instance of Time.
+    #
     def date=(date)
       @date = parse_date(date)
     end
 
+    #
+    # Set the commit message.
     #
     def message=(msg)
       @message = msg
@@ -73,6 +78,11 @@ module VCLog
       msg
     end
 
+    #
+    # Set the ANSI color terms.
+    #
+    # @param [Symbol,Array<Symbol>] code
+    #   An ANSI gem recognized term, or array of such.
     #
     def color=(code)
       @color = [code].flatten
@@ -111,17 +121,23 @@ module VCLog
 
     attr_reader :details
 
+    #
     # Compare changes by date.
+    #
     def <=>(other)
       other.date <=> date
     end
 
     #
+    # Inspection string of change object.
+    #
     def inspect
       "#<Change:#{object_id} #{date}>"
     end
 
+    #
     # Convert to Hash.
+    #
     def to_h
       { 'author'   => self.author,
         'date'     => self.date,
@@ -131,19 +147,14 @@ module VCLog
       }
     end
 
-    #def to_json
-    #  to_h.to_json
-    #end
-
-    #def to_yaml(*args)
-    #  to_h.to_yaml(*args)
-    #end
-
+    #
     # Apply heuristic rules to change.
+    #
     def apply_heuristics(heuristics)
       heuristics.apply(self)
     end
 
+    #
     # Parse point entries from commit message. Point entries
     # are outlined changes via line that start with an asterisk.
     #
@@ -151,31 +162,9 @@ module VCLog
       @points ||= parse_points
     end
 
-=begin
-    # Looks for a "[type]" indicator at the end of the commit message.
-    # If that is not found, it looks at front of message for
-    # "[type]" or "[type]:". Failing that it tries just "type:".
     #
-    def split_type(note)
-      note = note.to_s.strip
-      if md = /\[(.*?)\]\Z/.match(note)
-        t = md[1].strip.downcase
-        n = note[0...(md.begin(0))]
-      elsif md = /\A\[(.*?)\]\:?/.match(note)
-        t = md[1].strip.downcase
-        n = note[md.end(0)..-1]
-      elsif md = /\A(\w+?)\:/.match(note)
-        t = md[1].strip.downcase
-        n = note[md.end(0)..-1]
-      else
-        n, t = note, nil
-      end
-      n.gsub!(/^\s*?\n/m,'') # remove blank lines
-      return n, t
-    end
-=end
-
     # Output message with optional adjustments.
+    #
     def to_s(opts={})
       if opts[:summary]
         summary
@@ -187,6 +176,11 @@ module VCLog
    private
 
     #
+    # Convert given +date+ into Time instance.
+    #
+    # @param [String,Data,Time] date
+    #   A valid data/time string or object.
+    #
     def parse_date(date)
       case date
       when Time
@@ -196,9 +190,10 @@ module VCLog
       end
     end
 
-    # TODO: Improve the parsing of point messages.
-
+    #
     # Split message into individual points.
+    #
+    # @todo Improve the parsing of point messages.
     #
     def parse_points
       point_messages = message.split(/^\*/)

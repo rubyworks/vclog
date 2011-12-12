@@ -9,15 +9,22 @@ module VCLog
   #
   class Report
 
+    #
     # Directory of this file, so as to locate templates.
+    #
     DIR = File.dirname(__FILE__)
 
+    #
     # Instance of VCLog::Repo.
+    #
     attr :repo
 
+    #
     # OpenStruct of report options.
+    #
     attr :options
 
+    #
     # Setup new Reporter instance.
     #
     # @param [Repo] repo
@@ -35,33 +42,47 @@ module VCLog
       @options.level ||= 0
     end
 
+    #
     # Returns a Changelog object.
+    #
     def changelog
       changes = options.point ? repo.changes : repo.change_points
       ChangeLog.new(changes).above(options.level)
     end
 
+    #
     # Compute and return set of releases for +changelog+ changes.
+    #
     def releases
       repo.releases(changelog.changes)
     end
 
+    #
+    # User as given by the command line or from the repo.
     #
     def user
       options.user || repo.user
     end
 
     #
+    # Email address as given on the command line or from the repo.
+    #
     def email
       options.email || repo.email
     end
 
     #
+    # Repo repository URL.
+    #
     def repository
       repo.repository
     end
 
-    # TODO
+    #
+    # Repository URL.
+    #
+    # @todo Ensure this is being provided.
+    #
     def url
       options.url || repo.repository
     end
@@ -73,7 +94,9 @@ module VCLog
 
     # TODO: Let the title be nil and the template can set a default if it needs to.
 
+    #
     # Report title.
+    #
     def title
       return options.title if options.title
       case options.type
@@ -87,7 +110,9 @@ module VCLog
     # NOTE: ERBs trim_mode is broken --it removes an extra space. 
     # So we can't use it for plain text templates.
 
+    #
     # Print report.
+    #
     def print
       options.type   ||= 'changelog'
       options.format ||= 'ansi'
@@ -111,7 +136,9 @@ module VCLog
 
    private
 
+    #
     # Depending on the format special libraries may by required.
+    #
     def require_formatter(format)
       case format.to_s
       when 'yaml'
@@ -121,7 +148,9 @@ module VCLog
       end
     end
 
+    #
     # HTML escape.
+    #
     def h(input)
        result = input.to_s.dup
        result.gsub!("&", "&amp;")
@@ -133,11 +162,17 @@ module VCLog
        return result
     end
 
+    #
     # Convert from RDoc to HTML.
+    #
     def r(input)
       rdoc.convert(input)
     end
 
+    #
+    # RDoc converter.
+    #
+    # @return [RDoc::Markup::ToHtml] rdoc markup HTML converter.
     #
     def rdoc
       @_rdoc ||= (

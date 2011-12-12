@@ -106,12 +106,12 @@ module VCLog
         return list
       end
 
-      #
+      # User name of developer.
       def user
         @user ||= `git config user.name`.strip
       end
 
-      #
+      # Email address of developer.
       def email
         @email ||= `git config user.email`.strip
       end
@@ -121,7 +121,9 @@ module VCLog
         @repository ||= `git config remote.origin.url`.strip
       end
 
+      #
       # Create a tag for the given commit reference.
+      #
       def tag(ref, label, date, message)
         file = tempfile("message", message)
         date = date.strftime('%Y-%m-%d 23:59') unless String===date

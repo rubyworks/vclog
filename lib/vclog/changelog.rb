@@ -1,8 +1,9 @@
+require 'vclog/core_ext'
+require 'vclog/change'
+
 module VCLog
 
-  require 'vclog/core_ext'
-  require 'vclog/change'
-
+  # A ChangeLog encapsulates a list of Change objects.
   #
   class ChangeLog
 
@@ -10,12 +11,21 @@ module VCLog
 
     #DIR = File.dirname(__FILE__)
 
+    #
     # Seconds in a day.
+    #
     DAY = 24*60*60
 
     #
+    # Array of Change or ChangePoint instances.
+    #
     attr :changes
 
+    #
+    # Setup new ChangeLog instance.
+    #
+    # @param [Array<Change>] changes
+    #   An array of Change objects.
     #
     def initialize(changes=nil)
       @changes = []
@@ -29,7 +39,7 @@ module VCLog
     #    when Change
     #      @changes << change
     #    else
-    #      @changes << Change.new(*change)
+    #      @changes << Change.new(change)
     #    end
     #  end
     #end
@@ -40,29 +50,70 @@ module VCLog
     end
 
     #
+    # Sort changes in place.
+    #
     def sort!(&block)
       changes.sort!(&block)
     end
 
+    #
+    # Iterate over each change.
     #
     def each(&block)
       changes.each(&block)
     end
 
     #
+    # Is the changelog void of any changes?
+    #
     def empty?
       changes.empty?
     end
 
+    #
+    # Return the number of changes in the changelog.
     #
     def size
       changes.size
     end
 
     #
+    # And a change to the changelog.
+    #
     def <<(entry)
-      #raise "Not a Change instance - #{entry.inspect}" unless Change===entry
-      @changes << entry
+      case entry
+      when Change, ChangePoint
+        @changes << entry
+      else
+        #raise "Not a Change ro ChangePoint instance - #{entry.inspect}"
+      end
+    end
+
+    #
+    # Return a new changelog with entries having a level higer or
+    # equal to the given level.
+    #
+    def above(level)
+      above = changes.select{ |entry| entry.level >= level }
+      self.class.new(above)
+    end
+
+    #
+    # Return a new changelog with entries occuring after the
+    # given date limit.
+    #
+    def after(date_limit)
+      after = changes.select{ |entry| entry.date > date_limit + DAY }
+      self.class.new(after)
+    end
+
+    #
+    # Return a new changelog with entries occuring before the
+    # given date limit.
+    #
+    def before(date_limit)
+      before = changes.select{ |entry| entry.date <= date_limit + DAY }
+      self.class.new(before)
     end
 
     # Return a new changelog with entries that have a specified type.
@@ -70,26 +121,6 @@ module VCLog
     #def typed
     #  self.class.new(changes.select{ |e| e.type })
     #end
-
-    #
-    def above(level)
-      above = changes.select{ |entry| entry.level >= level }
-      self.class.new(above)
-    end
-
-    # Return a new changelog with entries occuring after the
-    # given date limit.
-    def after(date_limit)
-      after = changes.select{ |entry| entry.date > date_limit + DAY }
-      self.class.new(after)
-    end
-
-    # Return a new changelog with entries occuring before the
-    # given date limit.
-    def before(date_limit)
-      before = changes.select{ |entry| entry.date <= date_limit + DAY }
-      self.class.new(before)
-    end
 
     #
     def by_type
@@ -115,7 +146,6 @@ module VCLog
     def by_date
       mapped = {}
       changes.each do |entry|
-p entry
         mapped[entry.date.strftime('%Y-%m-%d')] ||= self.class.new
         mapped[entry.date.strftime('%Y-%m-%d')] << entry
       end
@@ -133,22 +163,15 @@ p entry
     #  mapped
     #end
 
+    #
+    # Convert to list of hash.
+    #
+    # @return [Array<Hash>]
+    #
+    # @todo Not a Hash! Need to rename method.
+    #
     def to_h
       map{ |change| change.to_h }
-    end
-
-   private
-
-    # TODO: why is this here?
-    def h(input)
-      result = input.to_s.dup
-      result.gsub!("&", "&amp;")
-      result.gsub!("<", "&lt;")
-      result.gsub!(">", "&gt;")
-      result.gsub!("'", "&apos;")
-      #result.gsub!("@", "&at;")
-      result.gsub!("\"", "&quot;")
-      return result
     end
 
   end
@@ -156,6 +179,9 @@ p entry
 end
 
 
+
+# TODO: THIS IS HERE AS A REMINDER ABOUT TEH XSL TEMPLATE.
+#       WHAT TO DO WITH IT?
 
 =begin
     ###################

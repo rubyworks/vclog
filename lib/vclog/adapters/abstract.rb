@@ -90,12 +90,12 @@ module VCLog
         list.sort_by{ |c| c.date }.last
       end
 
-      #
+      # Fallback for user is `ENV['USER']`.
       def user
         ENV['USER']
       end
 
-      #
+      # Fallback for email address is `ENV['EMAIL']`.
       def email
         ENV['EMAIL']
       end
@@ -129,4 +129,3 @@ module VCLog
   end
 
 end
-

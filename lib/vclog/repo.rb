@@ -14,12 +14,18 @@ module VCLog
   #
   class Repo
 
+    #
     # File glob used to find project root directory.
+    #
     ROOT_GLOB = '{.git/,.hg/,_darcs/,.svn/}'
 
+    #
     # Project's root directory.
+    #
     attr :root
 
+    #
+    # Options hash.
     #
     attr :options
 
@@ -204,7 +210,7 @@ module VCLog
         end
         rel << Release.new(tag, set)
       end
-      rel
+      rel.sort
     end
 
     #
@@ -215,11 +221,13 @@ module VCLog
       report.print
     end
 
-    # TODO: Should we allow configuration of version bump thresholds ?
-
     #
     # Make an educated guess as to the next version number based on
-    # changes mase since previous release.
+    # changes made since previous release.
+    #
+    # @return [String] version number
+    #
+    # @todo Allow configuration of version bump thresholds
     #
     def bump
       last_release = releases(changes).first
