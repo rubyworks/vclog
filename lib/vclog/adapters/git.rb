@@ -73,7 +73,7 @@ module VCLog
         tags = `git tag -l`
         tags.split(/\s+/).each do |tag|
           next unless version_tag?(tag) # only version tags
-          who, date, rev, msg = nil, nil, nil, nil
+          id, who, date, rev, msg = nil, nil, nil, nil, nil
           info = `git show #{tag}`
           info, *_ = info.split(/^(commit|diff|----)/)
           if /\Atag/ =~ info
@@ -81,9 +81,11 @@ module VCLog
             info.lines.to_a[1..-1].each do |line|
               case line
               when /^Tagger:/
-                who  = $'.strip
+                who = $'.strip
               when /^Date:/
                 date = $'.strip
+              when /^\s*[a-f0-9]+/
+                id = $0.strip
               else
                 msg << line
               end
@@ -93,11 +95,11 @@ module VCLog
             #info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
             #cdate, id, *_ = *info.split('|~|')
 
-            info = git_show("#{tag}^")
+            info = git_show("#{tag}")
 
             change = Change.new(info)
 
-            list << Tag.new(:name=>tag, :date=>date, :who=>who, :msg=>msg, :commit=>change)
+            list << Tag.new(:id=>change.id, :name=>tag, :date=>date, :who=>who, :msg=>msg, :commit=>change)
           else
             #info = `git show #{tag} --pretty=format:"%cn|~|%ce|~|%ci|~|%H|~|%s|~|"`
             info   = git_show(tag)
