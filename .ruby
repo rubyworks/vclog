@@ -40,7 +40,10 @@ requirements:
   development: true
 dependencies: []
 conflicts: []
-repositories: []
+repositories:
+- uri: git://github.com/rubyworks/vclog.git
+  scm: git
+  name: upstream
 resources:
   home: http://rubyworks.github.com/vclog
   code: http://github.com/rubyworks/vclog
@@ -55,4 +58,4 @@ version: 1.9.1
 name: vclog
 description: VCLog is a cross-VCS/SCM ChangeLog generator.
 organization: Rubyworks
-date: '2011-12-12'
+date: '2011-12-13'
