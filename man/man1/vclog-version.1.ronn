@@ -3,7 +3,7 @@ vclog-version(1) - display current version
 
 ## SYNOPSIS
 
-`vclog version`
+`vclog-version`
 
 ## DESCRIPTION
 

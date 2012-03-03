@@ -3,7 +3,7 @@ vclog-autotag(1) - tag history entries
 
 ## SYNOPSIS
 
-`vclog autotag`
+`vclog-autotag`
 
 ## DESCRIPTION
 

@@ -3,7 +3,7 @@ vclog-bump(1) - suggest next version
 
 ## SYNOPSIS
 
-`vclog bump`
+`vclog-bump`
 
 ## DESCRIPTION
 
