@@ -1,6 +1,6 @@
 require 'ostruct'
-#require 'ansi'
 require 'erb'
+#require 'ansi'
 
 module VCLog
 
@@ -32,12 +32,11 @@ module VCLog
     #
     def initialize(repo, options)
       @repo    = repo
-      @options = case options 
-                 when Hash
-                   OpenStruct.new(options)
-                 else
-                   options
-                 end
+
+      options[:type]   ||= 'changelog'
+      options[:format] ||= 'ansi'
+
+      @options = OpenStruct.new(options)
 
       @options.level ||= 0
     end
@@ -55,6 +54,20 @@ module VCLog
     #
     def releases
       repo.releases(changelog.changes)
+    end
+
+    #
+    # Report type.
+    #
+    def type
+      options.type
+    end
+
+    #
+    # Report format.
+    #
+    def format
+      options.format
     end
 
     #
@@ -99,7 +112,7 @@ module VCLog
     #
     def title
       return options.title if options.title
-      case options.type
+      case type
       when :history
         "RELEASE HISTORY"
       else
@@ -114,23 +127,23 @@ module VCLog
     # Print report.
     #
     def print
-      options.type   ||= 'changelog'
-      options.format ||= 'ansi'
+      require_formatter(format)
 
-      require_formatter(options.format)
+      tmpl_glob = File.join(DIR, 'templates', "#{type}.#{format}.{erb,rb}")
+      tmpl_file = Dir[tmpl_glob].first
 
-      tmp_file = Dir[File.join(DIR, 'templates', "#{options.type}.#{options.format}.{erb,rb}")].first
+      raise "could not find template -- #{tmp_glob}" unless tmpl_file
 
-      tmp = File.read(tmp_file)
+      tmpl = File.read(tmpl_file)
 
-      case File.extname(tmp_file)
+      case File.extname(tmpl_file)
       when '.rb'
-        eval(tmp, binding, tmp_file)
+        eval(tmpl, binding, tmpl_file)
       when '.erb'
-        erb = ERB.new(tmp, nil, '<>')
+        erb = ERB.new(tmpl, nil, '<>')
         erb.result(binding)
       else
-        raise "unrecognized template - #{tmp_file}"
+        raise "unrecognized template type -- #{tmpl_file}"
       end
     end
 

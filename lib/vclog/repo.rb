@@ -1,5 +1,3 @@
-require 'confection'
-
 require 'vclog/core_ext'
 require 'vclog/adapters'
 require 'vclog/config'
