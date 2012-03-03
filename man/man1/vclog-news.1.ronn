@@ -1,0 +1,25 @@
+vclog-news(1) - output latest release notice
+============================================
+
+## SYNOPSIS
+
+`vclog news`
+
+## DESCRIPTION
+
+Display the most recent entry in a project's history file. This command
+does NOT show the latest tag message, rather it is useful for making
+a new tag. For instnace:
+
+  `vclog news | git tag -a -F - v1.0.0`
+
+This command will create a new git tag using the most recent message in
+the history file.
+
+## OPTIONS
+
+No options yet.
+
+## SEE ALSO
+
+vclog(1)

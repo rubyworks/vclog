@@ -1,22 +1,22 @@
-= VCLog
+# VCLog
 
-{Website}[http://rubyworks.github.com/vclog] |
-{Source Code}[http://github.com/rubyworks/vclog] |
-{Report Issue}[http://github.com/rubyworks/vclog/issues] |
-{Mailing List}[http://googlegroups.com/group/rubyworks-mailinglist]
+[Website](http://rubyworks.github.com/vclog) /
+[Source Code](http://github.com/rubyworks/vclog) /
+[Report Issue](http://github.com/rubyworks/vclog/issues) /
+[Mailing List](http://googlegroups.com/group/rubyworks-mailinglist)
 
-{<img src="http://travis-ci.org/rubyworks/vclog.png" />}[http://travis-ci.org/rubyworks/vclog]
+[![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
 
-== DESCRIPTION
+## Description
 
 VCLog is a versatile cross-VCS/SCM changelog generator.
 It currently supports Git, Hg and (limited) Subversion.
 
 
-== SYNOPSIS
+## Instruction
 
-=== Creating Changelogs
+### Creating Changelogs
 
 The default output is an ANSI colored GNU-like changelog.
 From a repository's root directory try:
@@ -31,7 +31,7 @@ To generate an a different format use -f:
 
   $ vclog -f xml
 
-=== Creating Release Histories
+### Creating Release Histories
 
 To get a release history specify `-r`, `--release` or `--history` option.
 
@@ -46,7 +46,7 @@ the tag is used.
 
 See 'vclog help' for more options.
 
-=== Bumping Versions
+### Bumping Versions
 
 VCLog can also be used to intelligently bump versions. To see the current
 tag version:
@@ -64,7 +64,7 @@ commit with a level greater than 1 will bump the major number, while any
 commit with a level of 0 or 1 will bump the minor number. All lower
 level only bump the patch level.
 
-=== Writing Heuristics
+### Writing Heuristics
 
 You can configure custom log heuristics for your project. VCLog uses
 the {confection gem}[http://rubyworks.github.com/confection] to
@@ -106,7 +106,9 @@ method.
     colors :blue, :cyan, :green, :yellow, :red
 
 
-== SUBVERSION ISSUES
+## Limitations
+
+### Subversion
 
 Because Subversion is a centralized version control system, it contacts
 the server every time 'svn log' is run. For this reason, having vclog
@@ -116,15 +118,11 @@ access by the server for making too many rapid requests. I have no
 idea how to remedy this issue. If you have any ideas please let me know.
 
 
-== RELEASE NOTES
-
-Please see HISTORY file.
-
-
-== COPYRIGHTS
+## License
 
 Copyright (c) 2008 Rubyworks
 
 VCLog is distributable in accordance with the terms of the *FreeBSD* license.
 
-See COPYING.rdoc for details.
+See License.txt for details.
+
