@@ -8,6 +8,7 @@ module VCLog
   #
   class Heuristics
 
+    #
     # Load heuristics from a designated file.
     #
     # @param [String] file 
@@ -18,7 +19,19 @@ module VCLog
       new{ instance_eval(File.read(file), file) }
     end
 
-    # Setup new heurtistics set.
+    #
+    # Load heuristics given a script.
+    #
+    # @param [String] script
+    #   Configuration script.
+    #
+    def self.eval(script, file='(eval)', line=0)
+      new{ instance_eval(text, file, line) }
+    end
+
+    #
+    # Initialize new heurtistics set.
+    #
     def initialize(&block)
       @rules = []
 
@@ -34,6 +47,7 @@ module VCLog
       end
     end
 
+    #
     # Apply heuristics to a commit.
     #
     # @param [Change] commit
@@ -57,13 +71,17 @@ module VCLog
       commit.color = color
     end
 
+    #
     # Define a new rule.
+    #
     def on(pattern=nil, &block)
       @rules << Rule.new(pattern, &block)
     end
 
+    #
     # Convenience method for setting-up commit types, which can
     # be easily assigned, setting both label and level in one go.
+    #
     def type(type, level, label)
       @types[type.to_sym] = Type.new(type, level, label)
     end
@@ -71,6 +89,7 @@ module VCLog
     # @deprecated
     alias_method :set, :type
 
+    #
     # Access to defined types.
     #
     # @example
@@ -78,6 +97,7 @@ module VCLog
     #
     attr :types
 
+    #
     # Set color list. The center element cooresponds to `level=0`.
     # Elements before the center are incrementally higher levels
     # and those after are lower.
@@ -89,7 +109,17 @@ module VCLog
       @colors = list
     end
 
+    #
+    # Set default level.
+    #
+    def level(integer=nil)
+      @level = integer.to_i is integer
+      @level
+    end
+
+    #
     # Default settings.
+    #
     def default
       type :major,    3, "Major Enhancements"
       type :minor,    2, "Minor Enhancements"
@@ -122,7 +152,9 @@ module VCLog
       end
     end
 
+    #
     # Work on next-gen default heuristics.
+    #
     def default2
       type :major,    3, "Major Enhancements"
       type :minor,    2, "Minor Enhancements"

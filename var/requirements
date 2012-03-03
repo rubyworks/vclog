@@ -1,7 +1,6 @@
 ---
 - facets 2.4+
 - ansi 1.2+
-- confection
 - rdoc
 - xml-simple
 - detroit  (build)

@@ -2,6 +2,7 @@ require 'confection'
 
 require 'vclog/core_ext'
 require 'vclog/adapters'
+require 'vclog/config'
 require 'vclog/heuristics'
 require 'vclog/history_file'
 require 'vclog/changelog'
@@ -17,7 +18,7 @@ module VCLog
     #
     # File glob used to find project root directory.
     #
-    ROOT_GLOB = '{.git/,.hg/,_darcs/,.svn/}'
+    ROOT_GLOB = '{.ruby,.map/,.git/,.hg/,_darcs/,.svn/}'
 
     #
     # Project's root directory.
@@ -33,10 +34,12 @@ module VCLog
     # Setup new Repo instance.
     #
     def initialize(root, options={})
-      @root    = root || lookup_root
+      options[:root] = root if root
+
+      @config  = Config.new(options)
       @options = options
 
-      vcs_type = read_vcs_type
+      vcs_type = @config.vcs_type
 
       raise ArgumentError, "Not a recognized version control system." unless vcs_type
 
@@ -51,53 +54,31 @@ module VCLog
     end
 
     #
-    # Check force option.
+    # Configuration.
     #
-    def force?
-      options[:force]
+    def config
+      @config
     end
 
     #
+    # Project root directory.
     #
-    #
-    def read_vcs_type
-      dir = nil
-      Dir.chdir(root) do
-        dir = Dir.glob("{.git,.hg,.svn,_darcs}").first
-      end
-      dir[1..-1] if dir
-    end
-
-    #
-    # Find project root. This searches up from the current working
-    # directory for a Confection configuration file or source control 
-    # manager directory.
-    #
-    #   .co
-    #   .git/
-    #   .hg/
-    #   .svn/
-    #   _darcs/
-    #
-    # If all else fails the current directory is returned.
-    #
-    def lookup_root
-      root = nil
-      Dir.ascend(Dir.pwd) do |path|
-        check = Dir[ROOT_GLOB].first
-        if check
-          root = path 
-          break
-        end
-      end
-      root || Dir.pwd
+    def root
+      config.root
     end
 
     #
     # Load heuristics script.
     #
     def heuristics
-      @heuristics ||= Heuristics.new(&Confection[:vclog])
+      config.heuristics
+    end
+
+    #
+    # Check force option.
+    #
+    def force?
+      config.force?
     end
 
     #
@@ -169,7 +150,7 @@ module VCLog
 
       #ver  = repo.bump(version)
 
-      name = options[:version] || 'HEAD'
+      name = config.version || 'HEAD'
       user = adapter.user
       date = ::Time.now + (3600 * 24) # one day ahead
 
