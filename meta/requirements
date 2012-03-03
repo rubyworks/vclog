@@ -5,7 +5,6 @@
 - xml-simple
 - detroit  (build)
 - citron   (test)
+- lime     (test)
 - ae       (test)
-- cucumber (test)
-- aruba    (test)
 

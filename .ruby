@@ -23,15 +23,11 @@ requirements:
   groups:
   - test
   development: true
+- name: lime
+  groups:
+  - test
+  development: true
 - name: ae
-  groups:
-  - test
-  development: true
-- name: cucumber
-  groups:
-  - test
-  development: true
-- name: aruba
   groups:
   - test
   development: true
