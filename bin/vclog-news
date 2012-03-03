@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'vclog/cli/news'
+
+VCLog::CLI::News.run(ARGV)
+

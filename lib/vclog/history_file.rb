@@ -59,6 +59,11 @@ module VCLog
       end
     end
 
+    #
+    def news
+      tags.first.message
+    end
+
   end
 
 end
