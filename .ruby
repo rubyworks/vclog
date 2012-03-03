@@ -1,6 +1,6 @@
 ---
 source:
-- var
+- meta
 authors:
 - name: Trans
   email: transfire@gmail.com
@@ -8,14 +8,11 @@ copyrights:
 - holder: Rubyworks
   year: '2009'
   license: BSD-2-Clause
-replacements: []
-alternatives: []
 requirements:
 - name: facets
   version: 2.4+
 - name: ansi
   version: 1.2+
-- name: confection
 - name: rdoc
 - name: xml-simple
 - name: detroit
@@ -39,6 +36,7 @@ requirements:
   - test
   development: true
 dependencies: []
+alternatives: []
 conflicts: []
 repositories:
 - uri: git://github.com/rubyworks/vclog.git
@@ -54,8 +52,8 @@ revision: 0
 created: '2006-05-09'
 summary: Cross-VCS/SCM ChangeLog Generator
 title: VCLog
-version: 1.9.1
+version: 1.9.2
 name: vclog
 description: VCLog is a cross-VCS/SCM ChangeLog generator.
 organization: Rubyworks
-date: '2011-12-13'
+date: '2012-03-03'

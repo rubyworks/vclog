@@ -10,6 +10,7 @@ require 'vclog/report'
 
 module VCLog
 
+  # Encapsulate representaiton of the repository.
   #
   class Repo
 

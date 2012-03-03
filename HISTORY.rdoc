@@ -1,5 +1,22 @@
 = RELEASE HISTORY
 
+== 1.9.2 / 2012-03-03
+
+Adds `vclog-news` command to output the lastest release entry in a project History file.
+Also attempts to fix issue #14 in which template is not being found --will at least
+report more useful error message if it happens in the future. Also, improved handling
+of configuration. You can now use `.vclog`, `config/vclog` or `.config/vclog`
+by defatult, or add `vclog: path/to/config/file` entry to `.map` file is you wish
+to use unconventional location.
+
+Changes:
+
+* Add news command to get latest release history.
+* Improve configuration file handling.
+* Improve Report code to avoid missing templates.
+* Switch to Lime for spec testing, instead of Cucumber.
+
+
 == 1.9.1 / 2011-12-13
 
 Fixes a couple of issues found with the last release.
