@@ -1,4 +1,5 @@
 require 'vclog/heuristics'
+require 'vclog/rc'
 
 module VCLog
 
@@ -22,12 +23,10 @@ module VCLog
     # * .vclog
     # * .config/vclog
     # * config/vclog
-    # * .dot/vclog
-    # * dot/vclog
     #
     # File may have optional `.rb` extension.
     #
-    DEFAULT_GLOB = '{.,.config/,config/.dot/,dot/}vclog{,.rb}'
+    DEFAULT_GLOB = '{.,.config/,config/}vclog{,.rb}'
 
     #
     #
@@ -73,7 +72,16 @@ module VCLog
         if file
           Heuristics.load(file)
         else
-          Heuristics.new
+          if config = VCLog.rc_config
+            proc = Proc.new do
+              config.each do |c|
+                instance_eval(&c)
+              end
+            end
+            Heuristics.new(&proc)
+          else
+            Heuristics.new
+          end
         end
       )
     end
