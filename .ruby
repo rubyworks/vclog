@@ -15,6 +15,7 @@ requirements:
   version: 1.2+
 - name: rdoc
 - name: xml-simple
+- name: rc
 - name: detroit
   groups:
   - build
@@ -48,7 +49,7 @@ revision: 0
 created: '2006-05-09'
 summary: Cross-VCS/SCM ChangeLog Generator
 title: VCLog
-version: 1.9.2
+version: 1.9.3
 name: vclog
 description: VCLog is a cross-VCS/SCM ChangeLog generator.
 organization: Rubyworks

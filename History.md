@@ -1,5 +1,16 @@
 # RELEASE HISTORY
 
+## 1.9.3 / 2012-04-09
+
+This release should finally fix issue #14. If also adds support
+for RC based configuration.
+
+Changes:
+
+* Fix issue #14.
+* Add support for RC.
+
+
 ## 1.9.2 / 2012-03-03
 
 Adds `vclog-news` command to output the lastest release entry in a project History file.

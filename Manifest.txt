@@ -31,6 +31,7 @@ lib/vclog/heuristics/type.rb
 lib/vclog/heuristics.rb
 lib/vclog/history_file.rb
 lib/vclog/metadata.rb
+lib/vclog/rc.rb
 lib/vclog/release.rb
 lib/vclog/repo.rb
 lib/vclog/report.rb
@@ -84,3 +85,4 @@ test/case_metadata.rb
 README.md
 History.md
 License.txt
+Config.rb
