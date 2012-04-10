@@ -3,6 +3,7 @@
 - ansi 1.2+
 - rdoc
 - xml-simple
+- rc
 - detroit  (build)
 - citron   (test)
 - lime     (test)

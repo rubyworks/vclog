@@ -8,3 +8,4 @@ man/man1/index.txt
 man/man1/*.html
 man/man1/*.1
 web
+Gemfile.lock
