@@ -132,7 +132,7 @@ module VCLog
       tmpl_glob = File.join(DIR, 'templates', "#{type}.#{format}.{erb,rb}")
       tmpl_file = Dir[tmpl_glob].first
 
-      raise "could not find template -- #{tmpl_glob}" unless tmpl_file
+      raise "could not find template -- #{type}.#{format}" unless tmpl_file
 
       tmpl = File.read(tmpl_file)
 
