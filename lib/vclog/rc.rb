@@ -1,10 +1,6 @@
-require 'rc/interface'
+require 'rc/api'
 
-RC.run('vclog') do |config|
-  VCLog.rc_config = config
-end
-
-class << VCLog
-  attr_accessor :rc_config
+configure 'vclog' do |config|
+  VCLog.configure(&config) if config.profile?
 end
 

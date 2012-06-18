@@ -3,19 +3,16 @@ require 'vclog/rc'
 
 module VCLog
 
+  # Get/set master configruation(s).
+  def self.configure(&block)
+    @config ||= []
+    @config << block if block
+    @config
+  end
+
   # Encapsulates configuration settings for running vclog.
   #
   class Config
-
-    #
-    # If not in a default location a `.map` entry can be used to
-    # tell vclog where the config file it located.
-    #
-    # @example
-    #   ---
-    #   vclog: task/vclog.rb
-    #
-    MAP_FILE = ".map"
 
     #
     # Default vclog config file glob looks for these possible matches in order:
@@ -72,7 +69,7 @@ module VCLog
         if file
           Heuristics.load(file)
         else
-          if config = VCLog.rc_config
+          if config = VCLog.configure
             proc = Proc.new do
               config.each do |c|
                 instance_eval(&c)
@@ -103,29 +100,7 @@ module VCLog
     # The vclog config file.
     #
     def file
-      if glob = file_map['vclog']
-        Dir.glob(glob).first
-      else
-        Dir.glob(DEFAULT_GLOB).first
-      end
-    end
-
-    # 
-    # Project's map file, if present.
-    #
-    def map_file
-      file = File.join(root, MAP_FILE)
-      return file if File.exist?(file)
-      return nil
-    end
-
-    #
-    # Load the map file.
-    #
-    def file_map
-      @file_map ||= (
-        map_file ? YAML.load_file(map_file) : {}
-      )
+      Dir.glob(DEFAULT_GLOB).first
     end
 
     #
