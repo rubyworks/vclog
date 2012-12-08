@@ -1,9 +1,4 @@
-(BSD-2-Clause License)
-
-VCLog - Mult-platform VCS Logging Tool
-http://rubyworks.github.com/vclog
-
-Copyright (c) 2008 Rubyworks. All rights reserved.
+BSD-2-Clause License
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:

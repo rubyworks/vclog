@@ -8,10 +8,7 @@
 [![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
 
-## Description
-
-VCLog is a versatile cross-VCS/SCM changelog generator.
-It currently supports Git, Hg and (limited) Subversion.
+### VCLog is a versatile cross-VCS/SCM changelog generator. It currently supports Git, Hg and (limited) Subversion.
 
 
 ## Instruction
@@ -21,21 +18,21 @@ It currently supports Git, Hg and (limited) Subversion.
 The default output is an ANSI colored GNU-like changelog.
 From a repository's root directory try:
 
-  $ vclog
+    $ vclog
 
 The is the same as specifying 'changelog' or 'log'.
 
-  $ vclog log
+    $ vclog log
 
 To generate an a different format use -f:
 
-  $ vclog -f xml
+    $ vclog -f xml
 
 ### Creating Release Histories
 
 To get a release history specify `-r`, `--release` or `--history` option.
 
-  $ vclog -r
+    $ vclog -r
 
 Again the default format is an ANSI colored GNU-like text style.
 
@@ -71,9 +68,9 @@ the {confection gem}[http://rubyworks.github.com/confection] to
 handle configuration, and will look for a `.confile` or `Confile` in
 which to find a `vclog` section.
 
-  vclog do
-    ...
-  end
+    vclog do
+      ...
+    end
 
 Within this block we can define rules via the #on method.
 
@@ -118,9 +115,14 @@ access by the server for making too many rapid requests. I have no
 idea how to remedy this issue. If you have any ideas please let me know.
 
 
-## License
+## Copyrights
 
-Copyright (c) 2008 Rubyworks
+VCLog - Mult-platform VCS Logging Tool 
+(http://rubyworks.github.com/vclog)
+
+Copyright &copy; 2008, Rubyworks.
+
+All rights reserved.
 
 VCLog is distributable in accordance with the terms of the *FreeBSD* license.
 
