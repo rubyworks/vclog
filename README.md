@@ -8,10 +8,21 @@
 [![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
 
-### VCLog is a versatile cross-VCS/SCM changelog generator. It currently supports Git, Hg and (limited) Subversion.
+### VCLog is a customizable cross-VCS/SCM changelog and release history generator.
 
 
-## Instruction
+## VCS Support
+
+VCLog curently supports the following Version Control Systems:
+
+* <a href="http://git-scm.com/">Git</a>
+* <a href="http://mercurial.selenic.com/">Mercurial</a>
+* <a href="http://subversion.apache.org/">Subversion</a>
+
+Sunversion support is limited however. See Limitations noted below.
+
+
+## Instructions
 
 ### Creating Changelogs
 
