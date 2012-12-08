@@ -7,13 +7,16 @@
 
 [![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
+<br/>
 
-### VCLog is a customizable cross-VCS/SCM changelog and release history generator.
+## VCLog is a versitile and customizable cross-VCS/SCM changelog and release history generator.
 
+<br/>
 
 ## VCS Support
 
-VCLog curently supports the following Version Control Systems:
+VCLog is a multi-platform VCS logging tool.
+It curently supports the following Version Control Systems:
 
 * <a href="http://git-scm.com/">Git</a>
 * <a href="http://mercurial.selenic.com/">Mercurial</a>
@@ -128,12 +131,9 @@ idea how to remedy this issue. If you have any ideas please let me know.
 
 ## Copyrights
 
-VCLog - Mult-platform VCS Logging Tool 
-(http://rubyworks.github.com/vclog)
+VCLog (http://rubyworks.github.com/vclog)
 
-Copyright &copy; 2008, Rubyworks.
-
-All rights reserved.
+Copyright &copy; 2008, Rubyworks. All rights reserved.
 
 VCLog is distributable in accordance with the terms of the *FreeBSD* license.
 
