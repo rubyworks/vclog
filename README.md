@@ -7,13 +7,9 @@
 
 [![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
-<br/>
-
 ## VCLog is a versitile and customizable cross-VCS/SCM changelog and release history generator.
 
-<br/>
-
-## VCS Support
+## Supported Systems
 
 VCLog is a multi-platform VCS logging tool.
 It curently supports the following Version Control Systems:
@@ -62,13 +58,13 @@ See 'vclog help' for more options.
 VCLog can also be used to intelligently bump versions. To see the current
 tag version:
 
-  $ vclog-version
-  1.1.0
+    $ vclog-version
+    1.1.0
 
 To see the next reasonable version based on current changes:
 
-  $ vclog-bump
-  1.2.0
+    $ vclog-bump
+    1.2.0
 
 VCLog can determine the appropriate version based on commit level. Any
 commit with a level greater than 1 will bump the major number, while any
@@ -133,7 +129,7 @@ idea how to remedy this issue. If you have any ideas please let me know.
 
 VCLog (http://rubyworks.github.com/vclog)
 
-Copyright &copy; 2008, Rubyworks. All rights reserved.
+Copyright &copy; 2008 Rubyworks. All rights reserved.
 
 VCLog is distributable in accordance with the terms of the *FreeBSD* license.
 
