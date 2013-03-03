@@ -2,10 +2,10 @@
 
 [Website](http://rubyworks.github.com/vclog) /
 [Report Issue](http://github.com/rubyworks/vclog/issues) /
-[Source Code](http://github.com/rubyworks/vclog) : :
+[Source Code](http://github.com/rubyworks/vclog) &nbsp; &nbsp;
 [![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
-*VCLog is a versatile and customizable cross-VCS/SCM changelog and release history generator.*
+**VCLog is a versatile and customizable cross-VCS/SCM changelog and release history generator.**
 
 ## Supported Systems
 
