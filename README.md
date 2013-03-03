@@ -1,24 +1,22 @@
 # VCLog
 
 [Website](http://rubyworks.github.com/vclog) /
-[Source Code](http://github.com/rubyworks/vclog) /
 [Report Issue](http://github.com/rubyworks/vclog/issues) /
-[Mailing List](http://googlegroups.com/group/rubyworks-mailinglist)
-
+[Source Code](http://github.com/rubyworks/vclog) : :
 [![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
 
-## VCLog is a versitile and customizable cross-VCS/SCM changelog and release history generator.
+*VCLog is a versatile and customizable cross-VCS/SCM changelog and release history generator.*
 
 ## Supported Systems
 
 VCLog is a multi-platform VCS logging tool.
-It curently supports the following Version Control Systems:
+It currently supports the following Version Control Systems:
 
 * <a href="http://git-scm.com/">Git</a>
 * <a href="http://mercurial.selenic.com/">Mercurial</a>
 * <a href="http://subversion.apache.org/">Subversion</a>
 
-Sunversion support is limited however. See Limitations noted below.
+Subversion support is limited however. See Limitations noted below.
 
 
 ## Instructions
@@ -73,16 +71,12 @@ level only bump the patch level.
 
 ### Writing Heuristics
 
-You can configure custom log heuristics for your project. VCLog uses
-the {confection gem}[http://rubyworks.github.com/confection] to
-handle configuration, and will look for a `.confile` or `Confile` in
-which to find a `vclog` section.
+VCLog can be configured to support custom log heuristics to suite the work flow
+of any project. It is recommended that configurations be placed in a project's
+`etc/vclog.rb` file. But `config/vclog.rb` and simply `.vclog` or `vclog.rb`
+also work.
 
-    vclog do
-      ...
-    end
-
-Within this block we can define rules via the #on method.
+Within this file rules are defined via the #on method. For example,
 
     on /updated? (README|VERSION|MANIFEST)/ do |commit|
       commit.label = "Adminstrative Changes"
@@ -104,13 +98,15 @@ These rules can also "massage" the commit message.
 
     on /\Aadmin:/ do |commit, matchdata|
       commit.type    = :admin
-      commit.message = matchdate.post_match
+      commit.message = matchdata.post_match
     end
 
 Lastly, we can customize the colorization of the certain formats via #colors
 method.
 
     colors :blue, :cyan, :green, :yellow, :red
+
+The colors are taken in order from least importance to greatest importance.
 
 
 ## Limitations
@@ -131,7 +127,7 @@ VCLog (http://rubyworks.github.com/vclog)
 
 Copyright &copy; 2008 Rubyworks. All rights reserved.
 
-VCLog is distributable in accordance with the terms of the *FreeBSD* license.
+VCLog is modifiable and redistributable in accordance with the terms of
+the *BSD-2-Clause* license.
 
 See License.txt for details.
-
