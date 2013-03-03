@@ -3,8 +3,9 @@
 - ansi   >= 1.2
 - xml-simple
 - detroit  (build)
-- ergo     (build)
-- citron   (test)
-- lime     (test)
-- ae       (test)
+- ergo (build)
+- citron (test)
+- lime (test)
+- ae (test)
+- rubytest-cli (test)
 

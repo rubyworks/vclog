@@ -33,6 +33,10 @@ requirements:
   - test
   development: true
   name: ae
+- groups:
+  - test
+  development: true
+  name: rubytest-cli
 conflicts: []
 alternatives: []
 resources:
