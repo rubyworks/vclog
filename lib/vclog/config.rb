@@ -1,5 +1,5 @@
 require 'vclog/heuristics'
-require 'vclog/rc'
+#require 'vclog/rc'
 
 module VCLog
 
@@ -12,18 +12,35 @@ module VCLog
 
   # Encapsulates configuration settings for running vclog.
   #
+  # We recommend putting vclog configuration in a project's `etc/vclog.rb`
+  # file. For Rails projects, however, `config/vclog.rb` can be used. If
+  # usig a subdirectory is not suitable to a project then simply using
+  # the more traditional `.vclog` file works too.
+  #
   class Config
 
+    # File glob for identifying the project's root directory.
     #
-    # Default vclog config file glob looks for these possible matches in order:
+    # NOTE: SVN support is limited to repos with a trunk directory.
+    ROOT_GLOB = "{.git,.hg,_darcs,.svn/trunk}"
+
+    #
+    # Default vclog config file glob looks for these possible matches:
+    #
+    # * vclog.rb
+    # * etc/vclog.rb
+    # * config/vclog.rb
+    #
+    # The configuration file can also be a hidden dot file if preferred:
     #
     # * .vclog
-    # * .config/vclog
-    # * config/vclog
+    # * .etc/vclog.rb
+    # * .config/vclog.rb
     #
-    # File may have optional `.rb` extension.
+    # Root files have precedence over files in subdirectories, and the `.rb`
+    # file extension is optional in all cases.
     #
-    DEFAULT_GLOB = '{.,.config/,config/}vclog{,.rb}'
+    FILE_GLOBS = [ '{,.}vclog{,.rb}', '{.,}{etc/,config/}vclog{,.rb}' ]
 
     #
     #
@@ -69,16 +86,11 @@ module VCLog
         if file
           Heuristics.load(file)
         else
+          h = Heuristics.new
           if config = VCLog.configure
-            proc = Proc.new do
-              config.each do |c|
-                instance_eval(&c)
-              end
-            end
-            Heuristics.new(&proc)
-          else
-            Heuristics.new
+            config.each{ |c| c.call(h) }
           end
+          h
         end
       )
     end
@@ -100,20 +112,17 @@ module VCLog
     # The vclog config file.
     #
     def file
-      Dir.glob(DEFAULT_GLOB).first
+      DEFAULT_GLOBS.find{ |g| Dir.glob(g).first }
     end
 
     #
     # Find project root. This searches up from the current working
-    # directory for a .map configuration file or source control 
-    # manager directory.
+    # directory for a source control manager directory.
     #
-    #   .ruby/
-    #   .map
-    #   .git/
-    #   .hg/
-    #   .svn/
-    #   _darcs/
+    # * `.git/`
+    # * `.hg/`
+    # * `_darcs/`
+    # * `.svn/trunk`
     #
     # If all else fails the current directory is returned.
     #

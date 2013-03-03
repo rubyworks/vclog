@@ -1,0 +1,10 @@
+---
+- facets >= 2.4
+- ansi   >= 1.2
+- xml-simple
+- detroit  (build)
+- ergo     (build)
+- citron   (test)
+- lime     (test)
+- ae       (test)
+
