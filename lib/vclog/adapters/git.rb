@@ -37,7 +37,11 @@ module VCLog
         changes.each do |entry|
           date, who, id, msg, files = entry.split(RUBY_FIELD_MARKER)
           date  = Time.parse(date)
-          files = files.split("\n")
+          if files.nil?
+            files = [ "" ]
+          else
+            files = files.split("\n")
+          end
           list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
         end
 
@@ -178,7 +182,11 @@ module VCLog
 
         who = who + ' ' + email
         date  = Time.parse(date)
-        files = files.split("\n")
+        if files.nil?
+          files = [ "" ]
+        else
+          files = files.split("\n")
+        end
 
         return { :date=>date, :who=>who, :id=>id, :message=>msg, :files=>files }
       end
