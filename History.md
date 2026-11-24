@@ -1,6 +1,6 @@
 # RELEASE HISTORY
 
-## Unreleased (1.10.0)
+## 1.10.0 / 2026-11-24
 
 The first release since 2012. It makes VCLog work on current Ruby (2.7
 to 4.0) and with current Facets, RDoc and Git, and fixes a number of
