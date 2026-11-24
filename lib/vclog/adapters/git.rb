@@ -8,137 +8,83 @@ module VCLog
     #
     class Git < Abstract
 
-      GIT_COMMIT_MARKER = '=====%n'
-      GIT_FIELD_MARKER  = '-----%n'
-
-      RUBY_COMMIT_MARKER = "=====\n"
-      RUBY_FIELD_MARKER  = "-----\n"
+      # Fields and records are separated by control characters, which
+      # don't turn up in commit messages or file names.
+      FIELD  = "\x1f"
+      RECORD = "\x1e"
 
       # Collect changes, i.e. commits.
       def extract_changes
-        list = []
+        format = ['%ci', '%aN', '%H', '%s%n%n%b', ''].join('%x1f')
+        output = git('log', '--name-only', "--pretty=format:%x1e#{format}")
 
-        command = 'git log --name-only --pretty=format:"' +
-                    GIT_COMMIT_MARKER +
-                    '%ci' +
-                    GIT_FIELD_MARKER +
-                    '%aN' +
-                    GIT_FIELD_MARKER +
-                    '%H' +
-                    GIT_FIELD_MARKER +
-                    '%s%n%n%b' +
-                    GIT_FIELD_MARKER +
-                    '"'
-
-        changes = `#{command}`.split(RUBY_COMMIT_MARKER)
-
-        changes.shift # throw the first (empty) entry away
-
-        changes.each do |entry|
-          date, who, id, msg, files = entry.split(RUBY_FIELD_MARKER)
-          date  = Time.parse(date)
-          files = files.split("\n")
-          list << Change.new(:id=>id, :date=>date, :who=>who, :msg=>msg, :files=>files)
+        output.split(RECORD).reject{ |entry| entry.strip.empty? }.map do |entry|
+          date, who, id, msg, files = entry.split(FIELD)
+          Change.new(
+            :id    => id,
+            :date  => Time.parse(date),
+            :who   => who,
+            :msg   => msg.to_s.strip,
+            :files => files.to_s.split("\n").reject{ |f| f.empty? }
+          )
         end
+      end
 
-        return list
-      end  
-
-      #
-      #def extract_files(change_list)
-      #  change_list.each do |change|
-      #    files = `git show --pretty="format:" --name-only #{c.id}`
-      #    files = files.split("\n")
-      #    change.files = files
-      #  end
-      #end
-
-      # Collect tags.
-      #
-      # `git show 1.0` produces:
-      #
-      #   tag 1.0
-      #   Tagger: 7rans <transfire@gmail.com>
-      #   Date:   Sun Oct 25 09:27:58 2009 -0400
-      #
-      #   version 1.0
-      #   commit
-      #   ...
-      #
-      # @todo This code is pretty poor, but it suffices for now.
-      #       And we need not worry about it the future b/c eventually
-      #       we will replace it by using the `amp` or `scm` gem.
+      # Collect tags. An annotated tag has its own author, date and
+      # message; a lightweight tag takes them from its commit.
       def extract_tags
+        format = %w[
+          %(refname:short) %(objecttype) %(objectname) %(*objectname)
+          %(taggername) %(taggeremail) %(taggerdate:iso8601) %(contents)
+        ].join('%1f') + '%1e'
+
+        output = git('for-each-ref', "--format=#{format}", 'refs/tags')
+
         list = []
-        tags = `git tag -l`
-        tags.split(/\s+/).each do |tag|
-          next unless version_tag?(tag) # only version tags
-          id, who, date, rev, msg = nil, nil, nil, nil, nil
-          info = `git show #{tag}`
-          info, *_ = info.split(/^(commit|diff|----)/)
-          if /\Atag/ =~ info
-            msg = ''
-            info.lines.to_a[1..-1].each do |line|
-              case line
-              when /^Tagger:/
-                who = $'.strip
-              when /^Date:/
-                date = $'.strip
-              when /^\s*[a-f0-9]+/
-                id = $0.strip
-              else
-                msg << line
-              end
-            end
-            msg = msg.strip
+        output.split(RECORD).each do |entry|
+          name, type, id, commit_id, who, email, date, msg = entry.sub(/\A\n/, '').split(FIELD)
+          next if name.nil? || name.empty?
+          next unless version_tag?(name) # only version tags
 
-            #info = `git show #{tag}^ --pretty=format:"%ci|~|%H|~|"`
-            #cdate, id, *_ = *info.split('|~|')
-
-            info = git_show("#{tag}")
-
+          if type == 'tag'
+            next if commit_id.to_s.empty? # a tag of something other than a commit
+            change = Change.new(git_show(commit_id))
+            list << Tag.new(
+              :id     => change.id,
+              :name   => name,
+              :date   => date,
+              :who    => "#{who} #{email}".strip,
+              :msg    => msg.to_s.strip,
+              :commit => change
+            )
+          elsif type == 'commit'
+            info   = git_show(id)
             change = Change.new(info)
-
-            list << Tag.new(:id=>change.id, :name=>tag, :date=>date, :who=>who, :msg=>msg, :commit=>change)
-          else
-            #info = `git show #{tag} --pretty=format:"%cn|~|%ce|~|%ci|~|%H|~|%s|~|"`
-            info   = git_show(tag)
-            change = Change.new(info)
-
-            tag_info = {
-              :name   => tag,
+            list << Tag.new(
+              :name   => name,
               :who    => info[:who],
               :date   => info[:date],
               :msg    => info[:message],
               :commit => change
-            }
-            list << Tag.new(tag_info)
-          end          
-
-          #if $DEBUG
-          #  p who, date, rev, msg
-          #  puts
-          #end
-
-          #list << tag
+            )
+          end
         end
-
-        return list
+        list
       end
 
       # User name of developer.
       def user
-        @user ||= `git config user.name`.strip
+        @user ||= git('config', 'user.name').strip
       end
 
       # Email address of developer.
       def email
-        @email ||= `git config user.email`.strip
+        @email ||= git('config', 'user.email').strip
       end
 
       #
       def repository
-        @repository ||= `git config remote.origin.url`.strip
+        @repository ||= git('config', 'remote.origin.url').strip
       end
 
       #
@@ -148,39 +94,31 @@ module VCLog
         file = tempfile("message", message)
         date = date.strftime('%Y-%m-%d 23:59') unless String===date
 
-        cmd = %[GIT_AUTHOR_DATE='#{date}' GIT_COMMITTER_DATE='#{date}' git tag -a -F '#{file}' #{label} #{ref}]
-        puts cmd if $DEBUG
-        `#{cmd}` unless $DRYRUN
+        env = {'GIT_AUTHOR_DATE'=>date, 'GIT_COMMITTER_DATE'=>date}
+        cmd = ['git', '-C', root.to_s, 'tag', '-a', '-F', file, label.to_s, ref.to_s]
+        puts cmd.join(' ') if $DEBUG
+        system(env, *cmd) unless $DRYRUN
       end
 
     private
 
-      #
-      #
-      #
+      # Run git in the project's root and return what it prints.
+      def git(*args)
+        IO.popen(['git', '-C', root.to_s, *args], :err=>File::NULL, &:read).to_s
+      end
+
+      # Details of a single commit.
       def git_show(ref)
-        command = 'git show ' + ref.to_s + ' --name-only --pretty=format:"' +
-                    '%ci' +
-                    GIT_FIELD_MARKER +
-                    '%cn' +
-                    GIT_FIELD_MARKER +
-                    '%ce' +
-                    GIT_FIELD_MARKER +
-                    '%H' +
-                    GIT_FIELD_MARKER +
-                    '%s%n%n%b' +
-                    GIT_FIELD_MARKER +
-                    '"'
+        format = ['%ci', '%cn', '%ce', '%H', '%s%n%n%b', ''].join('%x1f')
+        entry  = git('show', '--name-only', "--pretty=format:#{format}", ref.to_s)
 
-        entry = `#{command}`
+        date, who, email, id, msg, files = entry.split(FIELD)
 
-        date, who, email, id, msg, files = entry.split(RUBY_FIELD_MARKER)
-
-        who = who + ' ' + email
-        date  = Time.parse(date)
-        files = files.split("\n")
-
-        return { :date=>date, :who=>who, :id=>id, :message=>msg, :files=>files }
+        { :date    => Time.parse(date),
+          :who     => "#{who} #{email}",
+          :id      => id,
+          :message => msg.to_s.strip,
+          :files   => files.to_s.split("\n").reject{ |f| f.empty? } }
       end
 
     end

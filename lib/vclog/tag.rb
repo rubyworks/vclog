@@ -11,22 +11,22 @@ module VCLog
     #
     # Tag name, which in this case is typically a version stamp.
     #
-    attr_accessor :name
+    attr_reader :name
 
     #
     # Date tag was made.
     #
-    attr_accessor :date
+    attr_reader :date
 
     #
     # Creator to the tag.
     #
-    attr_accessor :author
+    attr_reader :author
 
     #
     # Tag message.
     #
-    attr_accessor :message
+    attr_reader :message
 
     #
     # Last commit before Tag.
@@ -94,7 +94,7 @@ module VCLog
     # Set the tag message.
     #
     def message=(msg)
-      @message = msg.strip
+      @message = msg.to_s.strip
     end
 
     #
@@ -128,11 +128,24 @@ module VCLog
     # Normal tag order is the reverse typical sorts.
     #
     def <=>(other)
+      return  0 if name == other.name
       return -1 if name == 'HEAD'
-      other.name <=> name
+      return  1 if other.name == 'HEAD'
+      a, b = version_of(name), version_of(other.name)
+      (a && b) ? (b <=> a) : (other.name <=> name)
     end
 
   private
+
+    #
+    # The tag's name as a version number, if it can be read as one, so
+    # that 1.10 sorts after 1.9.
+    #
+    def version_of(name)
+      Gem::Version.new(name.sub(/\A[^\d]*/, ''))
+    rescue ArgumentError
+      nil
+    end
 
     #
     #

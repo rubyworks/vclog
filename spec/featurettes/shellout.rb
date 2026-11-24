@@ -1,16 +1,24 @@
-require 'open3'
-
 module Shellout
-  include Lime::Featurette
+  include Spectrum::Featurette
 
-  When 'I run `(((.*?)))`' do |cmd|
-    Dir.chdir(@working_directory) do
-      @stdout, @stderr, @status = Open3.capture3(cmd)
-    end
+  When 'I run `(.*?)`' do |cmd|
+    @stdout, @stderr, @status = run_command(cmd, @working_directory)
   end
 
-  Then 'the exit status should be (((\d+)))' do |status|
-    @status = status.to_i
+  Then 'the exit status should be (\d+)' do |status|
+    @status.assert == status.to_i
+  end
+
+  Then 'the output should include "(.*?)"' do |text|
+    @stdout.assert.include?(text)
+  end
+
+  Then 'the output should not include "(.*?)"' do |text|
+    @stdout.refute.include?(text)
+  end
+
+  Then 'the output should be "(.*?)"' do |text|
+    @stdout.strip.assert == text
   end
 
 end

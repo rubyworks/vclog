@@ -21,8 +21,8 @@ module VCLog
         if $DEBUG
           raise err
         else
-          puts err.message
-          exit -1
+          $stderr.puts err.message
+          exit(-1)
         end
       end
 

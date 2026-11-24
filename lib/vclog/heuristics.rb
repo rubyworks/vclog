@@ -26,7 +26,7 @@ module VCLog
     #   Configuration script.
     #
     def self.eval(script, file='(eval)', line=0)
-      new{ instance_eval(text, file, line) }
+      new{ instance_eval(script, file, line) }
     end
 
     #
@@ -113,7 +113,7 @@ module VCLog
     # Set default level.
     #
     def level(integer=nil)
-      @level = integer.to_i is integer
+      @level = integer.to_i if integer
       @level
     end
 
@@ -129,25 +129,25 @@ module VCLog
       type :test,    -2, "Test/Spec Adjustments"
       type :admin,   -3, "Administrative Changes"
 
-      on /\A(\w+):/ do |commit, md|
+      on(/\A(\w+):/) do |commit, md|
         type = md[1].to_sym
         commit.type    = type
         commit.message = commit.message.sub(md[0],'').strip
         true
       end
 
-      on /\[(\w+)\]\s*$/ do |commit, md|
+      on(/\[(\w+)\]\s*$/) do |commit, md|
         type = md[1].to_sym
         commit.type    = type
         commit.message = commit.message.sub(md[0],'').strip
         true
       end
 
-      on /updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/ do |commit|
+      on(/updated? (README|PROFILE|PACKAGE|VERSION|MANIFEST)/) do |commit|
         commit.type = :admin
       end
 
-      on /(bump|bumped|prepare) version/ do |commit|
+      on(/(bump|bumped|prepare) version/) do |commit|
         commit.type = :admin
       end
     end

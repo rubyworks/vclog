@@ -73,15 +73,10 @@ module VCLog
         tags.find{ |t| t.name == name }
       end
 
-      # Returns the current verion string.
+      # Returns the current version string: the highest version tag.
       def version
-        if tags.last
-          v = tags[-1].name # TODO: ensure the latest version
-          v = tags[-2].name if v == 'HEAD'
-        else
-          v = '0.0.0'
-        end
-        return v
+        latest = tags.reject{ |t| t.name == 'HEAD' }.sort.first
+        latest ? latest.name : '0.0.0'
       end
 
       # Return the latest commit as of a given date.
