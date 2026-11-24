@@ -14,7 +14,9 @@ module VCLog::CLI
     #
     def parser
       super do |opt|
-        opt.banner = "Usage: vclog-formats"
+        opt.banner = "Usage: vclog formats"
+        opt.separator(" ")
+        opt.separator("List the output formats.")
       end
     end
 

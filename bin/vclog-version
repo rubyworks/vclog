@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'vclog/cli/version'
+# Deprecated: use `vclog version`. Kept so that existing scripts go on working.
 
-VCLog::CLI::Version.run(ARGV)
+require 'vclog/cli'
 
+VCLog::CLI.run(['version'] + ARGV)

@@ -21,4 +21,8 @@ module Shellout
     @stdout.strip.assert == text
   end
 
+  Then 'the error output should include "(.*?)"' do |text|
+    @stderr.assert.include?(text)
+  end
+
 end

@@ -3,17 +3,52 @@ vclog(1) - version control logs
 
 ## SYNOPSIS
 
-`vclog [options]`
+`vclog [command] [options]`
 
 ## DESCRIPTION
 
 VCLog is a versitle cross-VCS/SCM changelog and release history generator.
 It currently supports Git, Hg and (limited) Subversion.
 
+## COMMANDS
+
+  * `log`
+    Print a change log. This is the default when no command is given.
+
+  * `history`
+    Print a release history. The same as `vclog log --history`.
+
+  * `version`
+    Print the current version. See vclog-version(1).
+
+  * `bump`
+    Print the next version, judging by the changes. See vclog-bump(1).
+
+  * `news`
+    Print the latest release note of the history file. See vclog-news(1).
+
+  * `formats`
+    List the output formats.
+
+  * `autotag`
+    Tag each release in the history file not yet tagged. See vclog-autotag(1).
+
+  * `help` [<command>]
+    List the commands, or show the options of one.
+
+The separate executables `vclog-version`, `vclog-bump`, `vclog-news`,
+`vclog-formats` and `vclog-autotag` are deprecated and will be removed
+in version 2.0.
+
 ## OPTIONS
+
+These are the options of `log` and `history`.
 
 Note that not all formats support all options, and some formats use them
 in variant manners.
+
+  * `-r`, `--release`, `--history`
+    Print a release history instead of a change log.
 
   * `-f`, `--format <FORMAT>`
     Output format (ansi, rdoc, html, etc.)

@@ -1,5 +1,31 @@
 # RELEASE HISTORY
 
+## Unreleased (1.11.0)
+
+VCLog's commands are now subcommands of `vclog`, in place of an
+executable each.
+
+Changes:
+
+* Add `vclog version`, `vclog bump`, `vclog news`, `vclog formats` and
+  `vclog autotag`, which do what `vclog-version`, `vclog-bump`,
+  `vclog-news`, `vclog-formats` and `vclog-autotag` did.
+* Add `vclog log`, the same as plain `vclog`, and `vclog history`, the
+  same as `vclog -r`.
+* Add `vclog help`, which lists the commands, and `vclog help COMMAND`.
+* Deprecate the separate executables. They still work, and will be
+  removed in 2.0.
+* A first argument that isn't a command or an option is now an error.
+  Before, it was ignored.
+* Autotag puts a release's tag on the latest commit made on or before
+  its date in the history file, counting the whole of that day. Before,
+  it stopped at the start of the day, so a release committed on its
+  own date was tagged one commit early. Its prompt now shows the
+  commit the tag will go on.
+* Fix the `--prefix` and `--file` options of autotag: the first took no
+  value and the second raised an error.
+
+
 ## 1.10.0 / 2026-11-24
 
 The first release since 2012. It makes VCLog work on current Ruby (2.7
