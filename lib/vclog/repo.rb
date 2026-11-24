@@ -20,11 +20,6 @@ module VCLog
     ROOT_GLOB = '{.ruby,.map/,.git/,.hg/,_darcs/,.svn/}'
 
     #
-    # Project's root directory.
-    #
-    attr :root
-
-    #
     # Options hash.
     #
     attr :options
@@ -178,7 +173,7 @@ module VCLog
       # gather changes for each delta
       delta.each do |tag, (started, ended)|
         if started
-          set = changes.select{ |c| c.date >= started && c.date < ended  }
+          set = changes.select{ |c| c.date > started && c.date <= ended }
           #gt_vers, gt_date = gt.name, gt.date
           #lt_vers, lt_date = lt.name, lt.date
           #gt_date = Time.parse(gt_date) unless Time===gt_date
@@ -188,7 +183,7 @@ module VCLog
           #lt_vers, lt_date = lt.name, lt.date
           #lt_date = Time.parse(lt_date) unless Time===lt_date
           #log = changelog.before(lt_date)
-          set = changes.select{ |c| c.date < ended }
+          set = changes.select{ |c| c.date <= ended }
         end
         rel << Release.new(tag, set)
       end
@@ -229,12 +224,7 @@ module VCLog
     def bump_part(part=nil)
       raise "bad version part - #{part}" unless ['major', 'minor', 'patch', 'build', ''].include?(part.to_s)
 
-      if tags.last
-        v = tags[-1].name # TODO: ensure the latest version
-        v = tags[-2].name if v == 'HEAD'
-      else
-        v = '0.0.0'
-      end
+      v = adapter.version
 
       v = v.split(/\W/)    # TODO: preserve split chars
 

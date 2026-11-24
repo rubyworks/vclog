@@ -1,21 +1,29 @@
-#!/usr/bin/env ruby
+require 'rake/clean'
+CLOBBER.include 'pkg'
 
-#require 'cucumber'
-#require 'cucumber/rake/task'
+require 'bundler/gem_helper'
 
-#::Cucumber::Rake::Task.new(:features) do |t|
-#  t.cucumber_opts = "features --format pretty"
-#end
-
-task :default => [:test]
-
-desc "run lime specifications"
-task :spec do
-  sh 'rubytest'
+# Bundler tags releases as v1.2.3, but VCLog's tags have always been
+# plain version numbers, so keep it that way.
+class Bundler::GemHelper
+  def version_tag
+    version.to_s
+  end
 end
 
-desc "run lime specifications (same as spec)"
-task :test do
-  sh 'rubytest'
+Bundler::GemHelper.install_tasks
+
+desc 'run unit tests'
+task 'test:unit' do
+  sh 'rubytest -Ilib -r spectrum/testcase -r ./test/helper test/case_*.rb'
 end
 
+desc 'run features'
+task 'test:features' do
+  sh 'rubytest -Ilib -r spectrum/feature -r ./test/helper spec/feature_*.rb'
+end
+
+desc 'run all tests'
+task 'test' => ['test:unit', 'test:features']
+
+task 'default' => 'test'

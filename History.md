@@ -1,14 +1,41 @@
 # RELEASE HISTORY
 
-## 1.9.3 / 2012-04-09
+## Unreleased (1.10.0)
 
-This release should finally fix issue #14. If also adds support
-for RC based configuration.
+The first release since 2012. It makes VCLog work on current Ruby (2.7
+to 4.0) and with current Facets, RDoc and Git, and fixes a number of
+long-standing bugs. Version 1.9.3 was prepared in 2012 but never
+released; its changes are included here.
 
 Changes:
 
-* Fix issue #14.
-* Add support for RC.
+* Fix loading with Facets 4, which no longer has `String#tabto` or
+  `Enumerable#group_by` files. (#18)
+* Fix release histories putting a tagged commit in the release after
+  its own. (#16)
+* Fix reading of Git tags: a tag message beginning with a letter from
+  a to f, or a long one, could break `vclog -r`, `vclog-version` and
+  `vclog-bump`. (#15)
+* Fix a crash on Git commits that change no files, and on commits and
+  tags with an empty message. (#17, thanks to Christopher Fuhrman)
+* The current version is the highest version tag, so 0.10.0 comes
+  after 0.9.0, where before it was the last tag by name.
+* `-p` (`--point`) now splits commit messages into points and the
+  default doesn't; the two were the wrong way round.
+* Find the history file whatever its case (`History.md`, `HISTORY.md`).
+* Find a project's config file (`etc/vclog.rb`, `config/vclog.rb`,
+  `.vclog`, ...), which the last code on master failed to do.
+* Fix the HTML format with current RDoc, and ERB templates on Ruby 3.
+* Fix `Heuristics.eval` and `Heuristics#level`, which raised errors.
+* Error messages go to standard error.
+* Git commands are run without a shell.
+* Depend on `ostruct`, `json` and `rdoc`, which are no longer always
+  part of Ruby.
+* Remove the RC configuration support that was added for 1.9.3 and
+  deprecated before any release.
+* Tests run on Spectrum and Assay, against a Git repository built for
+  the purpose, and check what the commands print. Before, they needed
+  the network and didn't check anything.
 
 
 ## 1.9.2 / 2012-03-03

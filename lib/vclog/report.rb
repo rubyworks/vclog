@@ -45,7 +45,7 @@ module VCLog
     # Returns a Changelog object.
     #
     def changelog
-      changes = options.point ? repo.changes : repo.change_points
+      changes = options.point ? repo.change_points : repo.changes
       ChangeLog.new(changes).above(options.level)
     end
 
@@ -140,7 +140,7 @@ module VCLog
       when '.rb'
         eval(tmpl, binding, tmpl_file)
       when '.erb'
-        erb = ERB.new(tmpl, nil, '<>')
+        erb = ERB.new(tmpl, :trim_mode=>'<>')
         erb.result(binding)
       else
         raise "unrecognized template type -- #{tmpl_file}"
@@ -191,7 +191,12 @@ module VCLog
       @_rdoc ||= (
         gem 'rdoc' rescue nil  # to ensure latest version
         require 'rdoc'
-        RDoc::Markup::ToHtml.new
+        # The arguments this takes have changed between RDoc versions.
+        begin
+          RDoc::Markup::ToHtml.new(RDoc::Options.new)
+        rescue ArgumentError
+          RDoc::Markup::ToHtml.new
+        end
       )
     end
 

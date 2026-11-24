@@ -6,7 +6,7 @@ module VCLog
   #
   class HistoryFile
 
-    FILE = '{HISTORY,HISTORY.*}'
+    FILE = /\Ahistory(\.\w+)?\z/i
 
     LINE = /^[=#]/
     VERS = /(\d+[._])+\d+/
@@ -20,19 +20,26 @@ module VCLog
 
     # Setup new HistoryFile instance.
     def initialize(source=nil)
+      source = source.to_s
       if File.file?(source)
         @file = source
         @root = File.dirname(source)
       elsif File.directory?(source)
-        @file = Dir.glob(File.join(source,FILE), CASEFOLD).first
+        @file = find(source)
         @root = source
       else
-        @file = Dir.glob(FILE).first
+        @file = find(Dir.pwd)
         @root = Dir.pwd
       end
       raise "no history file" unless @file
 
       @tags = extract_tags
+    end
+
+    # Find the history file in a directory, whatever its case.
+    def find(dir)
+      name = Dir.children(dir).sort.find{ |f| FILE =~ f && File.file?(File.join(dir, f)) }
+      name && File.join(dir, name)
     end
 
     # Parse history file.

@@ -1,5 +1,4 @@
 require 'vclog/heuristics'
-#require 'vclog/rc'
 
 module VCLog
 
@@ -112,7 +111,11 @@ module VCLog
     # The vclog config file.
     #
     def file
-      DEFAULT_GLOBS.find{ |g| Dir.glob(g).first }
+      FILE_GLOBS.each do |glob|
+        found = Dir.glob(File.join(root, glob)).find{ |f| File.file?(f) }
+        return found if found
+      end
+      nil
     end
 
     #
@@ -128,12 +131,15 @@ module VCLog
     #
     def lookup_root
       root = nil
-      Dir.ascend(Dir.pwd) do |path|
-        check = Dir[ROOT_GLOB].first
-        if check
-          root = path 
+      dir = Dir.pwd
+      loop do
+        if Dir.glob(File.join(dir, ROOT_GLOB)).first
+          root = dir
           break
         end
+        parent = File.dirname(dir)
+        break if parent == dir
+        dir = parent
       end
       root || Dir.pwd
     end

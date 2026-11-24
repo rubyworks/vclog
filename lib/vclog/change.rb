@@ -12,19 +12,19 @@ module VCLog
     attr_accessor :id
 
     # Date/time of commit.
-    attr_accessor :date
+    attr_reader :date
 
     # Committer.
-    attr_accessor :author
+    attr_reader :author
 
     # Commit message.
-    attr_accessor :message
+    attr_reader :message
 
     # List of files changed in the commit.
     attr_accessor :files
 
     # Type of change, as assigned by hueristics.
-    attr_accessor :type
+    attr_reader :type
 
     # The priority level of this change, as assigned by hueristics.
     # This can be `nil`, as Heuristics will always make sure a
@@ -37,7 +37,7 @@ module VCLog
     # ANSI color to apply. Actually this can be a list
     # of any support ansi gem terms, but usually it's 
     # just the color term, such as `:red`.
-    attr_accessor :color
+    attr_reader :color
 
     # Setup new Change instance.
     def initialize(data={})
@@ -69,11 +69,11 @@ module VCLog
     # Set the commit message.
     #
     def message=(msg)
-      @message = msg
+      @message = msg = msg.to_s
 
       lines = msg.lines.to_a
-      @summary = lines.first.strip
-      @details = lines[1..-1].join('').strip
+      @summary = lines.first.to_s.strip
+      @details = lines.drop(1).join('').strip
 
       msg
     end

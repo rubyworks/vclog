@@ -1,9 +1,8 @@
 # VCLog
 
-[Website](http://rubyworks.github.com/vclog) /
-[Report Issue](http://github.com/rubyworks/vclog/issues) /
-[Source Code](http://github.com/rubyworks/vclog) &nbsp; &nbsp;
-[![Build Status](https://secure.travis-ci.org/rubyworks/vclog.png)](http://travis-ci.org/rubyworks/vclog)
+[Report Issue](https://github.com/rubyworks/vclog/issues) /
+[Source Code](https://github.com/rubyworks/vclog) &nbsp; &nbsp;
+[![CI](https://github.com/rubyworks/vclog/actions/workflows/ci.yml/badge.svg)](https://github.com/rubyworks/vclog/actions/workflows/ci.yml)
 
 **VCLog is a versatile and customizable cross-VCS/SCM changelog and release history generator.**
 
@@ -17,6 +16,9 @@ It currently supports the following Version Control Systems:
 * <a href="http://subversion.apache.org/">Subversion</a>
 
 Subversion support is limited however. See Limitations noted below.
+Only Git is covered by the test suite at present.
+
+VCLog needs Ruby 2.7 or newer.
 
 
 ## Instructions
@@ -27,10 +29,6 @@ The default output is an ANSI colored GNU-like changelog.
 From a repository's root directory try:
 
     $ vclog
-
-The is the same as specifying 'changelog' or 'log'.
-
-    $ vclog log
 
 To generate an a different format use -f:
 
@@ -49,7 +47,7 @@ message is used as the release note. If the underlying SCM doesn't
 support tag messages than the message of the first commit prior to
 the tag is used.
 
-See 'vclog help' for more options.
+See `vclog --help` for more options.
 
 ### Bumping Versions
 
@@ -123,7 +121,7 @@ idea how to remedy this issue. If you have any ideas please let me know.
 
 ## Copyrights
 
-VCLog (http://rubyworks.github.com/vclog)
+VCLog (https://github.com/rubyworks/vclog)
 
 Copyright &copy; 2008 Rubyworks. All rights reserved.
 

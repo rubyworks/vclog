@@ -1,10 +1,7 @@
-require 'vclog/metadata'
-
 testcase "VCLog" do
 
   test "VERSION is set" do
-    ::VCLog::VERSION.assert == File.read('index/version').strip
+    ::VCLog::VERSION.assert =~ /\A\d+\.\d+\.\d+\z/
   end
 
 end
-

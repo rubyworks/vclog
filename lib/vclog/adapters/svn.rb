@@ -135,7 +135,7 @@ module VCLog
         file = tempfile("message", message)
 
         Dir.chdir(root) do
-          cmd = %[svn copy -r #{ref} -F "#{mfile.path}" . #{tag_directory}/#{label}]
+          cmd = %[svn copy -r #{ref} -F "#{file}" . #{tag_directory}/#{label}]
           puts cmd if $DEBUG
           `#{cmd}` unless $DRYRUN
         end
