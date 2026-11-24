@@ -67,4 +67,17 @@ testcase VCLog::Adapters::Git do
     @repo.bump_part('patch').assert == "0.10.1"
   end
 
+  test "bump is a patch when nothing has changed since the last release" do
+    Dir.mktmpdir do |dir|
+      env = {'GIT_CONFIG_GLOBAL'=>File::NULL, 'GIT_CONFIG_SYSTEM'=>File::NULL}
+      [ %w[init -q -b master], %w[config user.name Tester], %w[config user.email tester@example.com],
+        %w[config commit.gpgsign false], %w[config tag.gpgsign false],
+        ['commit', '-q', '--allow-empty', '-m', 'Start.'], %w[tag -a -m First 1.2.3]
+      ].each do |args|
+        system(env, 'git', '-C', dir, *args, :out=>File::NULL, :err=>File::NULL).assert == true
+      end
+      VCLog::Repo.new(dir, {}).bump.assert == "1.2.4"
+    end
+  end
+
 end
