@@ -84,16 +84,16 @@ module VCLog
 
     #
     # Read history file and make a commit tag for any release not already
-    # tagged. Unless the force option is set the user will be prompted for
+    # tagged, on the latest commit made on or before the release's date. Unless the force option is set the user will be prompted for
     # each new tag.
     #
     def autotag(prefix=nil)
       history_file.tags.each do |tag|
         label = "#{prefix}#{tag.name}"
         if not adapter.tag?(label)
-          chg = adapter.change_by_date(tag.date)
+          chg = adapter.change_by_date(end_of_day(tag.date))
           if chg
-            if force? or ask_yn(new_tag_message(label, tag) + "\nCreate tag? [yN] ")
+            if force? or ask_yn(new_tag_message(label, tag, chg) + "\nCreate tag? [yN] ")
               adapter.tag(chg.rev, label, tag.date, tag.message)
             end
           else
@@ -281,8 +281,17 @@ module VCLog
     #
     # Returns a String.
     #
-    def new_tag_message(label, tag)
-      "#{label} / #{tag.date.strftime('%Y-%m-%d')}\n#{tag.message}"
+    def new_tag_message(label, tag, change)
+      "#{label} / #{tag.date.strftime('%Y-%m-%d')}\n#{tag.message}\n" +
+      "on commit #{change.id.to_s[0,7]} #{change.date.strftime('%Y-%m-%d %H:%M')} #{change.summary}"
+    end
+
+    #
+    # The last second of the day a time falls in. A release dated in the
+    # history file takes in the commits made during that day.
+    #
+    def end_of_day(time)
+      ::Time.new(time.year, time.month, time.day, 23, 59, 59)
     end
 
   end
