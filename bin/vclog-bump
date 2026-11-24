@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'vclog/cli/bump'
+# Deprecated: use `vclog bump`. Kept so that existing scripts go on working.
 
-VCLog::CLI::Bump.run(ARGV)
+require 'vclog/cli'
 
+VCLog::CLI.run(['bump'] + ARGV)

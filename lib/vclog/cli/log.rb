@@ -31,9 +31,10 @@ module VCLog::CLI
     # Returns a instance of OptionParser.
     def parser
       super do |parser|
-        parser.banner = 'Usage: vclog [options]'
+        parser.banner = 'Usage: vclog [log|history] [options]'
         parser.separator(' ')
         parser.separator('Print a change log or release history.')
+        parser.separator('See `vclog help` for the other commands.')
         parser.separator(' ')
         parser.separator('OPTIONS: (use varies with format)')
         parser.on('-f', '--format FORMAT', 'output format (ansi,gnu,html,...)') do |format|

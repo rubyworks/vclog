@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'vclog/cli/autotag'
+# Deprecated: use `vclog autotag`. Kept so that existing scripts go on working.
 
-VCLog::CLI::Autotag.run(ARGV)
+require 'vclog/cli'
 
+VCLog::CLI.run(['autotag'] + ARGV)

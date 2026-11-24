@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'vclog/cli/formats'
+# Deprecated: use `vclog formats`. Kept so that existing scripts go on working.
 
-VCLog::CLI::Formats.run(ARGV)
+require 'vclog/cli'
 
+VCLog::CLI.run(['formats'] + ARGV)

@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'vclog/cli/news'
+# Deprecated: use `vclog news`. Kept so that existing scripts go on working.
 
-VCLog::CLI::News.run(ARGV)
+require 'vclog/cli'
 
+VCLog::CLI.run(['news'] + ARGV)

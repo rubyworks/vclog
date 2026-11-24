@@ -36,9 +36,12 @@ To generate an a different format use -f:
 
 ### Creating Release Histories
 
-To get a release history specify `-r`, `--release` or `--history` option.
+To get a release history use the `history` command.
 
-    $ vclog -r
+    $ vclog history
+
+The `-r`, `--release` or `--history` option of plain `vclog` does the
+same.
 
 Again the default format is an ANSI colored GNU-like text style.
 
@@ -47,25 +50,37 @@ message is used as the release note. If the underlying SCM doesn't
 support tag messages than the message of the first commit prior to
 the tag is used.
 
-See `vclog --help` for more options.
+See `vclog --help` for more options, and `vclog help` for the list of
+commands.
 
 ### Bumping Versions
 
 VCLog can also be used to intelligently bump versions. To see the current
 tag version:
 
-    $ vclog-version
+    $ vclog version
     1.1.0
 
 To see the next reasonable version based on current changes:
 
-    $ vclog-bump
+    $ vclog bump
     1.2.0
 
 VCLog can determine the appropriate version based on commit level. Any
 commit with a level greater than 1 will bump the major number, while any
 commit with a level of 0 or 1 will bump the minor number. All lower
 level only bump the patch level.
+
+### Other Commands
+
+    $ vclog news       # the latest release note in the History file
+    $ vclog autotag    # tag each release in the History file not yet tagged
+    $ vclog formats    # list the output formats
+    $ vclog help       # list the commands
+
+Before 1.11 these were separate executables: `vclog-version`,
+`vclog-bump`, `vclog-news`, `vclog-formats` and `vclog-autotag`. Those
+still work, but are deprecated and will be removed in 2.0.
 
 ### Writing Heuristics
 

@@ -80,4 +80,25 @@ testcase VCLog::Adapters::Git do
     end
   end
 
+  test "autotag tags a release in the history file that has no tag" do
+    Dir.mktmpdir do |dir|
+      env = { 'GIT_CONFIG_GLOBAL'=>File::NULL, 'GIT_CONFIG_SYSTEM'=>File::NULL,
+              'GIT_AUTHOR_DATE'=>'2020-03-01 12:00:00 +0000', 'GIT_COMMITTER_DATE'=>'2020-03-01 12:00:00 +0000' }
+      File.write(File.join(dir, 'HISTORY.md'), "## 1.0.0 / 2020-03-02\n\nThe first one.\n")
+      [ %w[init -q -b master], %w[config user.name Tester], %w[config user.email tester@example.com],
+        %w[config commit.gpgsign false], %w[config tag.gpgsign false],
+        %w[add HISTORY.md], ['commit', '-q', '-m', 'Start.']
+      ].each do |args|
+        system(env, 'git', '-C', dir, *args, :out=>File::NULL, :err=>File::NULL).assert == true
+      end
+
+      VCLog::Repo.new(dir, :force=>true).autotag
+
+      tag = VCLog::Repo.new(dir, {}).tags.find{ |t| t.name == '1.0.0' }
+      tag.assert != nil
+      tag.message.assert == "The first one."
+      tag.commit.message.assert == "Start."
+    end
+  end
+
 end

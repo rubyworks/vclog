@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'vclog/cli/log'
+require 'vclog/cli'
 
-VCLog::CLI::Log.run(ARGV)
-
+VCLog::CLI.run(ARGV)
