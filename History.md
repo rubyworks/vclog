@@ -22,6 +22,8 @@ Changes:
   after 0.9.0, where before it was the last tag by name.
 * `-p` (`--point`) now splits commit messages into points and the
   default doesn't; the two were the wrong way round.
+* `vclog-bump` gives the next patch version when nothing has changed
+  since the last release, where before it failed.
 * Find the history file whatever its case (`History.md`, `HISTORY.md`).
 * Find a project's config file (`etc/vclog.rb`, `config/vclog.rb`,
   `.vclog`, ...), which the last code on master failed to do.

@@ -208,8 +208,10 @@ module VCLog
     #
     def bump
       last_release = releases(changes).first
-      max = last_release.changes.map{ |c| c.level }.max
-      if max > 1
+      max = last_release.changes.map{ |c| c.level }.compact.max
+      if max.nil?
+        bump_part('patch')  # nothing has changed since the last release
+      elsif max > 1
         bump_part('major')
       elsif max >= 0
         bump_part('minor')
