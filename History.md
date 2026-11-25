@@ -1,6 +1,6 @@
 # RELEASE HISTORY
 
-## Unreleased (1.11.0)
+## 1.11.0 / 2026-11-24
 
 VCLog's commands are now subcommands of `vclog`, in place of an
 executable each.
